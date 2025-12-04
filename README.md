@@ -90,9 +90,9 @@ The site is configured to deploy to GitHub Pages automatically via GitHub Action
 
 1. **Enable GitHub Pages:**
    - Go to repository Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `gh-pages` (created automatically by GitHub Actions)
-   - Folder: `/ (root)`
+   - **Source**: Select "GitHub Actions" (not "Deploy from a branch")
+   - This enables the GitHub Actions workflow to deploy automatically
+   - The workflow will create and manage the deployment
 
 2. **Custom Domain (Optional):**
    - In Pages settings, add your custom domain
