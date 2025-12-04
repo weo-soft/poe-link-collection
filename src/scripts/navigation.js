@@ -12,21 +12,6 @@ export const navigationItems = [
     label: 'PoE Hub',
     path: '/',
   },
-  {
-    id: 'poe-guide',
-    label: 'PoE Guide',
-    path: '/guide',
-  },
-  {
-    id: 'filter-master',
-    label: 'Filter Master',
-    path: '/filter-master',
-  },
-  {
-    id: 'filter-shaper',
-    label: 'Filter Shaper',
-    path: '/filter-shaper',
-  },
 ];
 
 /**
