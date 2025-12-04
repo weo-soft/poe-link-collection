@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+**Code Quality**: Verify feature design aligns with SOLID principles and project style guides. Identify any technical debt or complexity that requires justification.
+
+**Testing Standards**: Define test strategy (unit, integration, contract tests) and coverage targets. Ensure testability is considered in design phase.
+
+**User Experience Consistency**: Confirm UI/UX patterns align with design system. Identify any new interaction patterns requiring design system updates.
+
+**Performance Requirements**: Establish performance benchmarks (response times, throughput, resource limits). Plan for performance testing and monitoring.
 
 ## Project Structure
 

@@ -1,0 +1,34 @@
+{
+  "name": "poe-link-collection",
+  "version": "1.0.0",
+  "description": "Path of Exile themed link collection hub page",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && npm run build:fix-html",
+    "build:fix-html": "node -e \"const fs = require('fs'); if (fs.existsSync('dist/src/index.html')) { fs.renameSync('dist/src/index.html', 'dist/index.html'); fs.rmdirSync('dist/src'); }\"",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src tests --ext .js",
+    "format": "prettier --write \"src/**/*.{js,html,css}\" \"tests/**/*.js\""
+  },
+  "keywords": [
+    "path-of-exile",
+    "poe",
+    "link-collection",
+    "hub"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/ui": "^1.0.0",
+    "eslint": "^8.57.0",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.1.0",
+    "vite": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
+

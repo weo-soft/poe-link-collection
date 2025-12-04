@@ -1,0 +1,52 @@
+:root {
+  /* Path of Exile Dark Theme Colors */
+  --poe-bg-primary: #1a1a1a;
+  --poe-bg-secondary: #2d2d2d;
+  --poe-bg-tertiary: #3a3a3a;
+  
+  --poe-text-primary: #e0e0e0;
+  --poe-text-secondary: #b0b0b0;
+  --poe-text-muted: #808080;
+  
+  --poe-accent-primary: #af6025;
+  --poe-accent-secondary: #8b4e1f;
+  --poe-accent-hover: #c77a3a;
+  
+  --poe-border-color: #4a4a4a;
+  --poe-border-hover: #6a6a6a;
+  
+  --poe-link-color: #af6025;
+  --poe-link-hover: #c77a3a;
+  --poe-link-visited: #8b4e1f;
+  
+  --poe-success: #4a9e4a;
+  --poe-error: #9e4a4a;
+  --poe-warning: #9e8a4a;
+  --poe-info: #4a7a9e;
+  
+  /* Spacing */
+  --poe-spacing-xs: 0.25rem;
+  --poe-spacing-sm: 0.5rem;
+  --poe-spacing-md: 1rem;
+  --poe-spacing-lg: 1.5rem;
+  --poe-spacing-xl: 2rem;
+  --poe-spacing-xxl: 3rem;
+  
+  /* Typography */
+  --poe-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --poe-font-size-base: 16px;
+  --poe-font-size-sm: 14px;
+  --poe-font-size-lg: 18px;
+  --poe-font-size-xl: 24px;
+  --poe-font-size-xxl: 32px;
+  
+  /* Layout */
+  --poe-container-max-width: 1400px;
+  --poe-border-radius: 4px;
+  --poe-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --poe-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
+  
+  /* Transitions */
+  --poe-transition: all 0.2s ease-in-out;
+}
+

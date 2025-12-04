@@ -1,0 +1,30 @@
+﻿# poe-link-collection Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2025-12-04
+
+## Active Technologies
+
+- JavaScript (ES6+), HTML5, CSS3 + Vite (build tool), minimal libraries (to be determined in research phase) (001-poe-link-collection)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+tests/
+```
+
+## Commands
+
+npm test; npm run lint
+
+## Code Style
+
+JavaScript (ES6+), HTML5, CSS3: Follow standard conventions
+
+## Recent Changes
+
+- 001-poe-link-collection: Added JavaScript (ES6+), HTML5, CSS3 + Vite (build tool), minimal libraries (to be determined in research phase)
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
