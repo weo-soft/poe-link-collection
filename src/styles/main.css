@@ -15,9 +15,27 @@ html {
 body {
   font-family: var(--poe-font-family);
   background-color: var(--poe-bg-primary);
+  background-image: url('/poe-link-collection/images/poe-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--poe-text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(26, 26, 26, 0.85);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Typography */
@@ -62,6 +80,8 @@ a:visited {
   max-width: var(--poe-container-max-width);
   margin: 0 auto;
   padding: 0 var(--poe-spacing-md);
+  position: relative;
+  z-index: 1;
 }
 
 /* Utility Classes */
