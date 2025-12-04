@@ -72,6 +72,63 @@
         "description": "Official passive skill tree planner"
       }
     ]
+  },
+  "poe-ninja": {
+    "id": "poe-ninja",
+    "title": "POE.NINJA",
+    "links": [
+      {
+        "name": "Currency",
+        "url": "https://poe.ninja/poe1/economy/keepers/currency",
+        "icon": "/poe-link-collection/images/CurrencyRerollRare.png",
+        "description": "Currency keeper economy statistics"
+      },
+      {
+        "name": "Builds",
+        "url": "https://poe.ninja/poe1/builds",
+        "description": "Build statistics and analysis"
+      },
+      {
+        "name": "Streamer Builds",
+        "url": "https://poe.ninja/poe1/builds/streamers",
+        "description": "Builds from popular streamers"
+      },
+      {
+        "name": "Path of Building",
+        "url": "https://poe.ninja/poe1/pob",
+        "description": "Path of Building integration"
+      }
+    ]
+  },
+  "labyrinth": {
+    "id": "labyrinth",
+    "title": "LABYRINTH",
+    "links": [
+      {
+        "name": "Normal Lab",
+        "url": "https://www.poelab.com/2faxk/",
+        "icon": "/poe-link-collection/images/treasure-key.png",
+        "description": "Normal Labyrinth layout guide"
+      },
+      {
+        "name": "Cruel Lab",
+        "url": "https://www.poelab.com/p1tad/",
+        "icon": "/poe-link-collection/images/Silver-Key.png",
+        "description": "Cruel Labyrinth layout guide"
+      },
+      {
+        "name": "Merciless Lab",
+        "url": "https://www.poelab.com/t4jnh/",
+        "icon": "/poe-link-collection/images/Gold-Key.png",
+        "description": "Merciless Labyrinth layout guide"
+      },
+      {
+        "name": "Uber Lab",
+        "url": "https://www.poelab.com/5jpx4/",
+        "icon": "/poe-link-collection/images/TrialIcon.png",
+        "description": "Uber Labyrinth layout guide"
+      }
+    ]
   }
 }
 

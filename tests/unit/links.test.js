@@ -64,6 +64,34 @@ describe('renderLink', () => {
     // Favicon should be hidden after error
     expect(favicon.style.display).toBe('none');
   });
+
+  it('should use custom icon when provided', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      icon: 'https://example.com/custom-icon.png',
+    };
+
+    renderLink(container, link);
+
+    const icon = container.querySelector('img.link-favicon');
+    expect(icon).toBeTruthy();
+    expect(icon.src).toBe('https://example.com/custom-icon.png');
+  });
+
+  it('should fall back to favicon when no custom icon is provided', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+    };
+
+    renderLink(container, link);
+
+    const icon = container.querySelector('img.link-favicon');
+    expect(icon).toBeTruthy();
+    expect(icon.src).toContain('google.com/s2/favicons');
+    expect(icon.src).toContain('example.com');
+  });
 });
 
 describe('renderCategory', () => {

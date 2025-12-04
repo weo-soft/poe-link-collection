@@ -44,9 +44,27 @@ describe('validateLink', () => {
     const link = {
       name: 'Test Link',
       url: 'https://example.com',
-      icon: 'test-icon',
+      icon: 'https://example.com/icon.png',
     };
     expect(validateLink(link)).toBe(true);
+  });
+
+  it('should reject link with empty icon string', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      icon: '',
+    };
+    expect(validateLink(link)).toBe(false);
+  });
+
+  it('should reject link with non-string icon', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      icon: 123,
+    };
+    expect(validateLink(link)).toBe(false);
   });
 
   it('should accept link with optional description', () => {

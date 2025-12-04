@@ -22,6 +22,34 @@ function getFaviconUrl(url) {
 }
 
 /**
+ * Resolves an icon path, handling base URL for development/production
+ * @param {string} iconPath - Icon path from JSON (may or may not include base path)
+ * @returns {string} - Resolved icon URL
+ */
+function resolveIconPath(iconPath) {
+  if (!iconPath) return '';
+  
+  // If it's already a full URL, return as-is
+  if (iconPath.startsWith('http://') || iconPath.startsWith('https://')) {
+    return iconPath;
+  }
+  
+  // If it starts with /, it's an absolute path
+  // In development, Vite may ignore base path, so try both with and without
+  // In production, base path is applied
+  if (iconPath.startsWith('/poe-link-collection/')) {
+    // Already has base path, use as-is
+    return iconPath;
+  } else if (iconPath.startsWith('/')) {
+    // Absolute path without base - Vite will handle base path in production
+    // For development, try without base path first
+    return iconPath;
+  }
+  
+  return iconPath;
+}
+
+/**
  * Renders a single link element
  * @param {HTMLElement} container - Container element to append link to
  * @param {Object} link - Link object to render
@@ -45,21 +73,24 @@ export function renderLink(container, link) {
       linkElement.title = link.description;
     }
 
-    // Add favicon with lazy loading
-    const faviconUrl = getFaviconUrl(link.url);
-    if (faviconUrl) {
-      const faviconImg = document.createElement('img');
-      faviconImg.src = faviconUrl;
-      faviconImg.alt = '';
-      faviconImg.className = 'link-favicon';
-      faviconImg.loading = 'lazy';
-      faviconImg.decoding = 'async';
-      faviconImg.setAttribute('aria-hidden', 'true');
-      faviconImg.onerror = function() {
-        // Hide favicon if it fails to load
+    // Add icon: use custom icon if provided, otherwise fetch favicon
+    const iconPath = link.icon ? resolveIconPath(link.icon) : null;
+    const iconUrl = iconPath || getFaviconUrl(link.url);
+    if (iconUrl) {
+      const iconImg = document.createElement('img');
+      iconImg.src = iconUrl;
+      iconImg.alt = '';
+      iconImg.className = 'link-favicon';
+      iconImg.loading = 'lazy';
+      iconImg.decoding = 'async';
+      iconImg.setAttribute('aria-hidden', 'true');
+      iconImg.onerror = function() {
+        // Log error for debugging
+        console.warn(`Failed to load icon for "${link.name}": ${iconUrl}`);
+        // Hide icon if it fails to load
         this.style.display = 'none';
       };
-      linkElement.appendChild(faviconImg);
+      linkElement.appendChild(iconImg);
     }
 
     // Add link text

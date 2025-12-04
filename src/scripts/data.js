@@ -34,9 +34,12 @@ export function validateLink(link) {
     return false;
   }
 
-  // Optional icon validation
-  if (link.icon !== undefined && typeof link.icon !== 'string') {
-    return false;
+  // Optional icon validation: must be a non-empty string if provided
+  // Can be absolute URL (http/https), relative path, or data URI
+  if (link.icon !== undefined) {
+    if (typeof link.icon !== 'string' || link.icon.trim().length === 0) {
+      return false;
+    }
   }
 
   // Optional description validation
