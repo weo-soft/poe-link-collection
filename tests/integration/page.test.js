@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { renderAllCategories, renderCategory } from '../../src/scripts/links.js';
-import { renderNavigation, setActiveNavigation, getCurrentPage } from '../../src/scripts/navigation.js';
+import { renderNavigation, setActiveNavigation, getCurrentPage, setupNavigationHandlers } from '../../src/scripts/navigation.js';
 import { renderEventsSection, renderEvent } from '../../src/scripts/events.js';
 
 describe('Link Rendering Integration', () => {
@@ -201,14 +201,19 @@ describe('Navigation Click Handling Integration', () => {
         <a href="/guide" data-page="/guide">PoE Guide</a>
       </nav>
     `;
+    // Setup navigation handlers
+    setupNavigationHandlers();
   });
 
   it('should update active state on navigation click', () => {
     const guideLink = document.querySelector('a[data-page="/guide"]');
+    const hubLink = document.querySelector('a[data-page="/"]');
+    
+    // Initially, no link should be active (or default active state)
+    // Click the guide link
     guideLink.click();
 
     expect(guideLink.classList.contains('active')).toBe(true);
-    const hubLink = document.querySelector('a[data-page="/"]');
     expect(hubLink.classList.contains('active')).toBe(false);
   });
 });
