@@ -183,11 +183,11 @@ describe('Navigation Bar Rendering Integration', () => {
   });
 
   it('should highlight current page in navigation', () => {
-    window.location.pathname = '/guide';
+    window.location.pathname = '/';
     const container = document.getElementById('navigation');
     renderNavigation(container);
 
-    const activeLink = container.querySelector('a[data-page="/guide"]');
+    const activeLink = container.querySelector('a[data-page="/"]');
     expect(activeLink).toBeTruthy();
     expect(activeLink.classList.contains('active')).toBe(true);
   });
