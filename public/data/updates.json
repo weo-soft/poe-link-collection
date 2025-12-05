@@ -1,0 +1,74 @@
+{
+  "lastUpdated": "2025-12-05T18:00:00Z",
+  "changelog": [
+    {
+      "date": "2025-12-05T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "Poe.Ninja Economy",
+          "linkUrl": "https://poe.ninja/poe1/economy/keepers/currency"
+        },
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "poe.watch",
+          "linkUrl": "https://poe.watch/"
+        },
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "PoE Profits",
+          "linkUrl": "https://poe-profits.com/Keepers/boss"
+        },
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "Gains of Exile",
+          "linkUrl": "https://gains-of-exile.vercel.app/"
+        },
+        {
+          "type": "added",
+          "categoryId": "crafting",
+          "linkName": "Vorici Chromatic Calculator",
+          "linkUrl": "https://siveran.github.io/calc.html"
+        },
+        {
+          "type": "added",
+          "categoryId": "crafting",
+          "linkName": "PoE Cluster Jewel Calculator",
+          "linkUrl": "https://theodorejbieber.github.io/PoEClusterJewelCalculator/"
+        },
+        {
+          "type": "added",
+          "categoryId": "crafting",
+          "linkName": "Eldritch Implicit Modifiers",
+          "linkUrl": "https://docs.google.com/spreadsheets/u/0/d/1HUafGERAdWRu-AO7Brn0DIUi2-8kN2ld3sqvX_NVmbE/htmlview?pli=1#gid=1842902168"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "Timeless Jewel Calculator",
+          "linkUrl": "https://vilsol.github.io/timeless-jewels/tree"
+        },
+        {
+          "type": "added",
+          "categoryId": "fluff-meme-games",
+          "linkName": "Kalandra Game",
+          "linkUrl": "https://www.kalandragame.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "fluff-meme-games",
+          "linkName": "Idle Exile",
+          "linkUrl": "https://oosband.github.io/"
+        },
+        {
+          "type": "note",
+          "message": "Initial Release"
+        }
+      ]
+    }
+  ]
+}

@@ -3,10 +3,11 @@
  * Initializes the PoE Link Collection Hub page
  */
 
-import { loadLinks, loadEvents, getCurrentGame, setCurrentGame } from './data.js';
+import { loadLinks, loadEvents, loadUpdates, getCurrentGame, setCurrentGame } from './data.js';
 import { renderAllCategories } from './links.js';
 import { renderNavigation, setupNavigationHandlers } from './navigation.js';
 import { renderEventsSection } from './events.js';
+import { renderUpdatesButton, toggleChangelog, closeChangelog } from './updates.js';
 
 // Error handling infrastructure
 window.addEventListener('error', (event) => {
@@ -131,9 +132,10 @@ async function init() {
     }
 
     // Load data in parallel
-    const [categoriesResult, eventsResult] = await Promise.allSettled([
+    const [categoriesResult, eventsResult, updatesResult] = await Promise.allSettled([
       loadAndRenderCategories(),
       eventsContainer ? loadEvents() : Promise.resolve([]),
+      loadUpdates(),
     ]);
 
     // Render events
@@ -149,6 +151,24 @@ async function init() {
         eventsContainer.innerHTML = '';
         eventsContainer.appendChild(errorDiv);
       }
+    }
+
+    // Add Updates button to navigation if update data is available
+    if (updatesResult.status === 'fulfilled' && updatesResult.value) {
+      const nav = document.getElementById('navigation');
+      if (nav) {
+        const navList = nav.querySelector('.nav-list');
+        if (navList) {
+          const updatesButton = renderUpdatesButton(navList, updatesResult.value);
+          if (updatesButton) {
+            updatesButton.addEventListener('click', () => {
+              toggleChangelog(updatesButton);
+            });
+          }
+        }
+      }
+    } else if (updatesResult.status === 'rejected') {
+      console.error('Error loading updates:', updatesResult.reason);
     }
   } catch (error) {
     console.error('Initialization error:', error);

@@ -77,6 +77,11 @@ export function renderNavigation(container) {
     navList.appendChild(listItem);
   });
 
+  // Add spacer to push right-side items to the right
+  const spacer = document.createElement('li');
+  spacer.className = 'nav-spacer';
+  navList.appendChild(spacer);
+
   nav.appendChild(navList);
   container.appendChild(nav);
 

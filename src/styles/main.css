@@ -210,6 +210,61 @@ a:visited {
   outline-offset: 2px;
 }
 
+/* Link Tooltip */
+.link-item[data-tooltip] {
+  position: relative;
+}
+
+.link-item[data-tooltip]::before,
+.link-item[data-tooltip]::after {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+.link-item[data-tooltip]::before {
+  content: attr(data-tooltip);
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background-color: var(--poe-bg-primary);
+  color: var(--poe-text-primary);
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  border-radius: var(--poe-border-radius);
+  border: 1px solid var(--poe-border-color);
+  box-shadow: var(--poe-shadow-lg);
+  white-space: pre-line;
+  text-align: left;
+  font-size: var(--poe-font-size-sm);
+  line-height: 1.5;
+  max-width: 300px;
+  min-width: 200px;
+  word-wrap: break-word;
+}
+
+.link-item[data-tooltip]::after {
+  content: '';
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--poe-bg-primary);
+  margin-bottom: -1px;
+}
+
+.link-item[data-tooltip]:hover::before,
+.link-item[data-tooltip]:hover::after,
+.link-item[data-tooltip]:focus::before,
+.link-item[data-tooltip]:focus::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* Navigation */
 .nav-list {
   display: flex;
@@ -218,6 +273,11 @@ a:visited {
   padding: var(--poe-spacing-md) 0;
   border-bottom: 2px solid var(--poe-border-color);
   margin-bottom: var(--poe-spacing-xl);
+  align-items: center;
+}
+
+.nav-spacer {
+  flex: 1;
 }
 
 .nav-link {
@@ -242,6 +302,36 @@ a:visited {
   outline: 2px solid var(--poe-accent-primary);
   outline-offset: 2px;
   border-radius: var(--poe-border-radius);
+}
+
+.nav-updates-item {
+  margin-left: auto;
+}
+
+.nav-updates-button {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-accent-primary);
+  color: var(--poe-text-primary);
+  border: 1px solid var(--poe-accent-secondary);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--poe-transition);
+}
+
+.nav-updates-button:hover {
+  background-color: var(--poe-accent-hover);
+  border-color: var(--poe-accent-hover);
+}
+
+.nav-updates-button:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.nav-updates-button[aria-expanded="true"] {
+  background-color: var(--poe-accent-secondary);
 }
 
 /* Game Selector */
@@ -371,6 +461,220 @@ a:visited {
 .duration-value {
   color: var(--poe-accent-primary);
   font-weight: 600;
+}
+
+/* Update Section Styles */
+.update-section {
+  padding: var(--poe-spacing-md);
+  background-color: var(--poe-bg-tertiary);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  margin-top: var(--poe-spacing-lg);
+}
+
+
+.update-timestamp-container {
+  display: flex;
+  gap: var(--poe-spacing-sm);
+  font-size: var(--poe-font-size-base);
+}
+
+.update-label {
+  color: var(--poe-text-secondary);
+  font-weight: 600;
+}
+
+.update-timestamp {
+  color: var(--poe-text-primary);
+}
+
+
+/* Changelog Overlay Styles */
+.changelog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.changelog-overlay.changelog-overlay-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.changelog-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.changelog-overlay-content {
+  position: relative;
+  z-index: 1001;
+  background-color: var(--poe-bg-primary);
+  border: 2px solid var(--poe-accent-primary);
+  border-radius: var(--poe-border-radius);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--poe-shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s ease-in-out;
+}
+
+.changelog-overlay.changelog-overlay-visible .changelog-overlay-content {
+  transform: scale(1);
+}
+
+.changelog-overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--poe-spacing-md);
+  border-bottom: 1px solid var(--poe-border-color);
+}
+
+.changelog-overlay-title {
+  margin: 0;
+  font-size: var(--poe-font-size-xl);
+  color: var(--poe-accent-primary);
+  font-weight: 600;
+}
+
+.changelog-overlay-close {
+  background: none;
+  border: none;
+  color: var(--poe-text-secondary);
+  font-size: var(--poe-font-size-xl);
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--poe-spacing-xs);
+  line-height: 1;
+  transition: var(--poe-transition);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--poe-border-radius);
+}
+
+.changelog-overlay-close:hover {
+  color: var(--poe-text-primary);
+  background-color: var(--poe-bg-secondary);
+}
+
+.changelog-overlay-close:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.changelog-overlay-body {
+  padding: var(--poe-spacing-md);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.changelog-added,
+.changelog-removed {
+  margin-bottom: var(--poe-spacing-md);
+}
+
+.changelog-section-title {
+  font-size: var(--poe-font-size-lg);
+  color: var(--poe-accent-primary);
+  margin-bottom: var(--poe-spacing-sm);
+  font-weight: 600;
+}
+
+.changelog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+}
+
+.changelog-entry {
+  padding: var(--poe-spacing-sm);
+  border-left: 3px solid;
+  border-radius: var(--poe-border-radius);
+  background-color: var(--poe-bg-secondary);
+}
+
+.changelog-added-entry {
+  border-left-color: var(--poe-success);
+}
+
+.changelog-removed-entry {
+  border-left-color: var(--poe-error);
+}
+
+.changelog-entry-text {
+  color: var(--poe-text-primary);
+  font-size: var(--poe-font-size-sm);
+}
+
+.changelog-empty {
+  padding: var(--poe-spacing-md);
+  text-align: center;
+  color: var(--poe-text-secondary);
+  font-style: italic;
+}
+
+.changelog-notes {
+  margin-bottom: var(--poe-spacing-md);
+}
+
+.changelog-note-entry {
+  padding: var(--poe-spacing-sm);
+  background-color: var(--poe-bg-secondary);
+  border-left: 3px solid var(--poe-accent-primary);
+  border-radius: var(--poe-border-radius);
+  color: var(--poe-text-primary);
+  font-size: var(--poe-font-size-base);
+  margin-bottom: var(--poe-spacing-xs);
+}
+
+.changelog-date-group {
+  margin-bottom: var(--poe-spacing-lg);
+  padding-bottom: var(--poe-spacing-md);
+  border-bottom: 1px solid var(--poe-border-color);
+}
+
+.changelog-date-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.changelog-date-header {
+  margin-bottom: var(--poe-spacing-md);
+}
+
+.changelog-date-label {
+  font-size: var(--poe-font-size-lg);
+  font-weight: 600;
+  color: var(--poe-accent-primary);
+}
+
+.changelog-entries-container {
+  margin-left: var(--poe-spacing-md);
 }
 
 /* Responsive Design */
