@@ -131,6 +131,7 @@
   "gains-of-exile": {
     "name": "Gains of Exile",
     "url": "https://gains-of-exile.vercel.app/",
+    "icon": "/images/gainsOfExile.png",
     "description": "Economy and profit tracking tools for Path of Exile",
     "lastChecked": "2025-12-05T18:00:00Z"
   },
@@ -334,6 +335,7 @@
   "poe-cluster-jewel-calculator": {
     "name": "PoE Cluster Jewel Calculator",
     "url": "https://theodorejbieber.github.io/PoEClusterJewelCalculator/",
+    "icon": "/images/clusterJewelCalculator.png",
     "description": "Calculate cluster jewel passive combinations and costs",
     "lastChecked": "2025-12-05T18:00:00Z"
   },
@@ -457,6 +459,7 @@
   "divination-cards": {
     "name": "Divination Cards",
     "url": "https://divicards-site.pages.dev/",
+    "icon": "/images/divcardsSite.png",
     "description": "Divination card database and information",
     "lastChecked": "2025-12-05T18:00:00Z"
   },
@@ -469,6 +472,7 @@
   "challenges-tracker": {
     "name": "Challenges Tracker",
     "url": "https://craniumviolence.github.io/",
+    "icon": "/images/challengesTracker.png",
     "description": "Path of Exile tools and resources",
     "lastChecked": "2025-12-05T18:00:00Z"
   },
@@ -487,6 +491,7 @@
   "poe-exchange": {
     "name": "PoE Exchange",
     "url": "https://poexchange.maxroll.gg/",
+    "icon": "/images/maxroll.png",
     "description": "Path of Exile exchange and trading tools",
     "lastChecked": "2025-12-05T18:00:00Z"
   },
@@ -499,6 +504,7 @@
   "timeless-jewel-calculator": {
     "name": "Timeless Jewel Calculator",
     "url": "https://vilsol.github.io/timeless-jewels/tree",
+    "icon": "/images/timelessjewelCalculator.png",
     "description": "Calculate and visualize timeless jewel passive tree modifications",
     "lastChecked": "2025-12-05T18:00:00Z"
   }
