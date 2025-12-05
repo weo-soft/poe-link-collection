@@ -44,6 +44,29 @@ function resolveIconPath(iconPath) {
 }
 
 /**
+ * Formats a date string to a readable format
+ * @param {string} dateString - ISO date string
+ * @returns {string} - Formatted date string
+ */
+function formatDate(dateString) {
+  if (!dateString) return 'Never checked';
+  
+  try {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  } catch (error) {
+    console.warn('Error formatting date:', error);
+    return dateString;
+  }
+}
+
+/**
  * Renders a single link element
  * @param {HTMLElement} container - Container element to append link to
  * @param {Object} link - Link object to render
@@ -63,8 +86,23 @@ export function renderLink(container, link) {
     linkElement.setAttribute('aria-label', link.description || `Visit ${link.name}`);
     linkElement.setAttribute('role', 'listitem');
 
+    // Create tooltip content
+    let tooltipContent = '';
     if (link.description) {
-      linkElement.title = link.description;
+      tooltipContent = link.description;
+    }
+    if (link.lastChecked) {
+      const formattedDate = formatDate(link.lastChecked);
+      if (tooltipContent) {
+        tooltipContent += `\n\nLast checked: ${formattedDate}`;
+      } else {
+        tooltipContent = `Last checked: ${formattedDate}`;
+      }
+    }
+    
+    if (tooltipContent) {
+      linkElement.setAttribute('data-tooltip', tooltipContent);
+      linkElement.title = tooltipContent; // Fallback for accessibility
     }
 
     // Add icon: use custom icon if provided, otherwise fetch favicon

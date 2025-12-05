@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { validateLink, validateCategory, loadLinks, validateEvent, loadEvents } from '../../src/scripts/data.js';
+import { validateLink, validateCategory, loadLinks, validateEvent, loadEvents, validateUpdateRecord, validateChangelogEntry, loadUpdates } from '../../src/scripts/data.js';
 
 describe('validateLink', () => {
   it('should validate a valid link object', () => {
@@ -159,30 +159,41 @@ describe('loadLinks', () => {
     vi.clearAllMocks();
   });
 
-  it('should load and validate links from JSON file', async () => {
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        ok: true,
-        json: () =>
-          Promise.resolve({
-            builds: {
-              id: 'builds',
-              title: 'BUILDS',
-              poe1: [
-                {
-                  name: 'Test Link',
-                  url: 'https://example.com',
-                },
-              ],
-              poe2: [],
-            },
-          }),
-      })
-    );
+  it('should load and validate links from JSON files', async () => {
+    global.fetch = vi.fn((url) => {
+      if (url === './data/links.json') {
+        return Promise.resolve({
+          ok: true,
+          json: () =>
+            Promise.resolve({
+              builds: {
+                id: 'builds',
+                title: 'BUILDS',
+                poe1: ['test-link'],
+                poe2: [],
+              },
+            }),
+        });
+      } else if (url === './data/link-items.json') {
+        return Promise.resolve({
+          ok: true,
+          json: () =>
+            Promise.resolve({
+              'test-link': {
+                name: 'Test Link',
+                url: 'https://example.com',
+              },
+            }),
+        });
+      }
+      return Promise.reject(new Error('Unknown URL'));
+    });
 
     const categories = await loadLinks();
     expect(categories).toHaveLength(1);
     expect(categories[0].id).toBe('builds');
+    expect(categories[0].links).toHaveLength(1);
+    expect(categories[0].links[0].name).toBe('Test Link');
   });
 
   it('should handle network errors gracefully', async () => {
@@ -192,42 +203,54 @@ describe('loadLinks', () => {
   });
 
   it('should handle invalid JSON gracefully', async () => {
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.reject(new Error('Invalid JSON')),
-      })
-    );
+    global.fetch = vi.fn((url) => {
+      if (url === './data/links.json') {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.reject(new Error('Invalid JSON')),
+        });
+      }
+      return Promise.reject(new Error('Unknown URL'));
+    });
 
     await expect(loadLinks()).rejects.toThrow();
   });
 
   it('should filter out invalid categories', async () => {
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        ok: true,
-        json: () =>
-          Promise.resolve({
-            valid: {
-              id: 'valid',
-              title: 'Valid',
-              poe1: [
-                {
-                  name: 'Test Link',
-                  url: 'https://example.com',
-                },
-              ],
-              poe2: [],
-            },
-            invalid: {
-              id: 'invalid',
-              title: '',
-              poe1: [],
-              poe2: [],
-            },
-          }),
-      })
-    );
+    global.fetch = vi.fn((url) => {
+      if (url === './data/links.json') {
+        return Promise.resolve({
+          ok: true,
+          json: () =>
+            Promise.resolve({
+              valid: {
+                id: 'valid',
+                title: 'Valid',
+                poe1: ['test-link'],
+                poe2: [],
+              },
+              invalid: {
+                id: 'invalid',
+                title: '',
+                poe1: [],
+                poe2: [],
+              },
+            }),
+        });
+      } else if (url === './data/link-items.json') {
+        return Promise.resolve({
+          ok: true,
+          json: () =>
+            Promise.resolve({
+              'test-link': {
+                name: 'Test Link',
+                url: 'https://example.com',
+              },
+            }),
+        });
+      }
+      return Promise.reject(new Error('Unknown URL'));
+    });
 
     const categories = await loadLinks();
     expect(categories).toHaveLength(1);
@@ -376,6 +399,170 @@ describe('loadEvents', () => {
     const events = await loadEvents();
     expect(events).toHaveLength(1);
     expect(events[0].id).toBe('valid');
+  });
+});
+
+describe('validateChangelogEntry', () => {
+  it('should validate a valid added entry', () => {
+    const entry = {
+      type: 'added',
+      categoryId: 'trade',
+      linkName: 'New Tool',
+      linkUrl: 'https://example.com',
+    };
+    expect(validateChangelogEntry(entry)).toBe(true);
+  });
+
+  it('should validate a valid removed entry', () => {
+    const entry = {
+      type: 'removed',
+      categoryId: 'builds',
+      linkName: 'Old Tool',
+      linkUrl: 'https://example.com/old',
+    };
+    expect(validateChangelogEntry(entry)).toBe(true);
+  });
+
+  it('should reject entry with invalid type', () => {
+    const entry = {
+      type: 'modified',
+      categoryId: 'trade',
+      linkName: 'Tool',
+      linkUrl: 'https://example.com',
+    };
+    expect(validateChangelogEntry(entry)).toBe(false);
+  });
+
+  it('should reject entry with missing categoryId', () => {
+    const entry = {
+      type: 'added',
+      linkName: 'New Tool',
+      linkUrl: 'https://example.com',
+    };
+    expect(validateChangelogEntry(entry)).toBe(false);
+  });
+
+  it('should reject entry with missing linkName', () => {
+    const entry = {
+      type: 'added',
+      categoryId: 'trade',
+      linkUrl: 'https://example.com',
+    };
+    expect(validateChangelogEntry(entry)).toBe(false);
+  });
+
+  it('should reject entry with invalid linkUrl', () => {
+    const entry = {
+      type: 'added',
+      categoryId: 'trade',
+      linkName: 'New Tool',
+      linkUrl: 'not-a-url',
+    };
+    expect(validateChangelogEntry(entry)).toBe(false);
+  });
+});
+
+describe('validateUpdateRecord', () => {
+  it('should validate a valid update record', () => {
+    const record = {
+      lastUpdated: '2025-01-27T10:00:00Z',
+      changelog: [],
+    };
+    expect(validateUpdateRecord(record)).toBe(true);
+  });
+
+  it('should validate update record with valid changelog entries', () => {
+    const record = {
+      lastUpdated: '2025-01-27T10:00:00Z',
+      changelog: [
+        {
+          date: '2025-01-27T10:00:00Z',
+          entries: [
+            {
+              type: 'added',
+              categoryId: 'trade',
+              linkName: 'New Tool',
+              linkUrl: 'https://example.com',
+            },
+          ],
+        },
+      ],
+    };
+    expect(validateUpdateRecord(record)).toBe(true);
+  });
+
+  it('should reject update record with invalid lastUpdated', () => {
+    const record = {
+      lastUpdated: 'invalid-date',
+      changelog: [],
+    };
+    expect(validateUpdateRecord(record)).toBe(false);
+  });
+
+  it('should reject update record with invalid changelog entry', () => {
+    const record = {
+      lastUpdated: '2025-01-27T10:00:00Z',
+      changelog: [
+        {
+          date: '2025-01-27T10:00:00Z',
+          entries: [
+            {
+              type: 'invalid',
+              categoryId: 'trade',
+              linkName: 'Tool',
+              linkUrl: 'https://example.com',
+            },
+          ],
+        },
+      ],
+    };
+    expect(validateUpdateRecord(record)).toBe(false);
+  });
+});
+
+describe('loadUpdates', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    global.fetch = vi.fn();
+  });
+
+  it('should load and return valid update record', async () => {
+    const mockData = {
+      lastUpdated: '2025-01-27T10:00:00Z',
+      changelog: [],
+    };
+
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockData,
+    });
+
+    const result = await loadUpdates();
+    expect(result).toEqual(mockData);
+  });
+
+  it('should return null for 404 error', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+    });
+
+    const result = await loadUpdates();
+    expect(result).toBeNull();
+  });
+
+  it('should return null for invalid update record', async () => {
+    const invalidData = {
+      invalid: 'structure',
+    };
+
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => invalidData,
+    });
+
+    const result = await loadUpdates();
+    expect(result).toBeNull();
   });
 });
 

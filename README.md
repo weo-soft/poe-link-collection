@@ -7,6 +7,7 @@ A Path of Exile themed link collection hub page that serves as a centralized res
 - **Categorized Links**: Organized sections for different PoE resource types
 - **Navigation**: Multi-page hub navigation with visual indicators
 - **League Events**: Display current and past league information with duration calculations
+- **Update Section**: Shows when the page was last updated with a changelog of link additions and removals
 - **Path of Exile Theme**: Dark theme with PoE aesthetic elements
 - **Progressive Enhancement**: Core functionality works without JavaScript
 
@@ -77,8 +78,9 @@ poe-link-collection/
 
 ## Data Files
 
-- `src/data/links.json`: Link data organized by category
-- `src/data/events.json`: League/event data
+- `public/data/links.json`: Link data organized by category
+- `public/data/events.json`: League/event data
+- `public/data/updates.json`: Update records and changelog data
 
 ## Deployment
 

@@ -3,47 +3,14 @@
     "id": "builds",
     "title": "BUILDS-\\GUIDES",
     "poe1": [
-      {
-        "name": "Poe.Ninja Builds",
-        "url": "https://poe.ninja/poe1/builds",
-        "description": "Build statistics"
-      },
-      {
-        "name": "Poe.Ninja Streamer Builds",
-        "url": "https://poe.ninja/poe1/builds/streamers",
-        "description": "Build statistics"
-      },
-  
-      {
-        "name": "Share PoB on Poe.Ninja",
-        "url": "https://poe.ninja/poe1/pob",
-        "description": "Path of Building integration"
-      },
-      {
-        "name": "PoBArchives",
-        "url": "https://pobarchives.com",
-        "description": "Path of Building build archives"
-      },
-      {
-        "name": "Maxroll",
-        "url": "https://maxroll.gg/poe",
-        "description": "Build guides, currency farming, and game resources"
-      },
-      {
-        "name": "PoE Vault",
-        "url": "https://www.poe-vault.com/",
-        "description": "Build guides, leveling guides, and database"
-      },
-      {
-        "name": "Pohx",
-        "url": "https://pohx.net/",
-        "description": "Build guides and Path of Exile resources"
-      },
-      {
-        "name": "Path of Exile Builds Reddit",
-        "url": "https://www.reddit.com/r/PathOfExileBuilds/",
-        "description": "Subreddit for Path of Exile builds, guides and questions"
-      }
+      "poe-ninja-builds",
+      "poe-ninja-streamer-builds",
+      "share-pob-on-poe-ninja",
+      "pobarchives",
+      "maxroll",
+      "poe-vault",
+      "pohx",
+      "path-of-exile-builds-reddit"
     ],
     "poe2": []
   },
@@ -51,16 +18,8 @@
     "id": "loot-filters",
     "title": "LOOT FILTERS",
     "poe1": [
-      {
-        "name": "FilterBlade",
-        "url": "https://www.filterblade.xyz",
-        "description": "Loot filter editor and customizer"
-      },
-      {
-        "name": "Stupid Fat Hobbit's Filters",
-        "url": "https://www.pathofexile.com/forum/view-thread/1595976/page/1",
-        "description": "Item filters for Path of Exile"
-      }
+      "filterblade",
+      "stupid-fat-hobbit-s-filters"
     ],
     "poe2": []
   },
@@ -68,60 +27,25 @@
     "id": "trade",
     "title": "TRADE",
     "poe1": [
-      {
-        "name": "Official Trade",
-        "url": "https://www.pathofexile.com/trade",
-        "description": "Official Path of Exile trade site"
-      },
-      {
-        "name": "Wealthy Exile",
-        "url": "https://wealthyexile.com",
-        "description": "Trade and economy tools"
-      },
-      {
-        "name": "PoeMap.Trade",
-        "url": "https://poemap.trade",
-        "description": "Map trading platform"
-      },
-      {
-        "name": "Disenchant",
-        "url": "https://disenchant.easyexile.tools/",
-        "icon": "/images/disenchant.webp",
-        "description": "Item disenchanting and crafting tool"
-      },
-      {
-        "name": "Map Search",
-        "url": "https://mapsearch.easyexile.tools/",
-        "icon": "/images/fort.png",
-        "description": "Map search and trading tool"
-      },
-      {
-        "name": "PoE Trade Helper",
-        "url": "https://chromewebstore.google.com/detail/lmmjicanpdjejcoikdmklalcgejobgpe?utm_source=item-share-cb",
-        "description": "Chrome extension for Path of Exile trading"
-      },
-      {
-        "name": "Trade Economy",
-        "url": "https://poe.ninja/poe1/economy/keepers/currency",
-        "icon": "/images/CurrencyRerollRare.png",
-        "description": "Currency keeper economy statistics"
-      },
-      {
-        "name": "poe.watch",
-        "url": "https://poe.watch/",
-        "description": "Realtime item prices and price tracking"
-      },
-      {
-        "name": "Exilence CE",
-        "url": "https://github.com/exilence-ce/exilence-ce/",
-        "icon": "/images/Exilence-ce.png",
-        "description": "Desktop application for summarizing wealth in Path of Exile"
-      },
-      {
-        "name": "The forbidden Trove Discord",
-        "url": "https://discord.com/invite/tftrove",
-        "description": "The forbidden Trove Discord server"
-      }
+      "official-trade",
+      "wealthy-exile",
+      "poemap-trade",
+      "disenchant",
+      "map-search",
+      "poe-trade-helper",
+      "exilence-ce",
+      "the-forbidden-trove-discord"
+    ],
+    "poe2": []
+  },
+  "economy": {
+    "id": "economy",
+    "title": "ECONOMY",
+    "poe1": [
+      "poe-ninja-economy",
+      "poe-watch",
+      "poe-profits",
+      "gains-of-exile"
     ],
     "poe2": []
   },
@@ -129,37 +53,12 @@
     "id": "build-tools",
     "title": "BUILD TOOLS",
     "poe1": [
-      {
-        "name": "Path of Building Community",
-        "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding",
-        "icon": "/images/path_of_building.png",
-        "description": "Community fork of Path of Building"
-      },
-      {
-        "name": "Official Skill Tree",
-        "url": "https://www.pathofexile.com/passive-skill-tree",
-        "description": "Official passive skill tree planner"
-      },
-      {
-        "name": "PoB.cool",
-        "url": "https://pob.cool/poe1",
-        "description": "Path of Building online tool for PoE 1"
-      },
-      {
-        "name": "POBb.in",
-        "url": "https://pobb.in/",
-        "description": "Share and import Path of Building builds"
-      },
-      {
-        "name": "PoE Planner",
-        "url": "https://poeplanner.com/",
-        "description": "Build planner and skill tree tool"
-      },
-      {
-        "name": "Path of Pathing",
-        "url": "https://www.pathofpathing.com/",
-        "description": "Atlas and passive tree pathfinding tool"
-      }
+      "path-of-building-community",
+      "official-skill-tree",
+      "pob-cool",
+      "pobb-in",
+      "poe-planner",
+      "path-of-pathing"
     ],
     "poe2": []
   },
@@ -167,30 +66,10 @@
     "id": "labyrinth",
     "title": "LABYRINTH",
     "poe1": [
-      {
-        "name": "Normal Lab",
-        "url": "https://www.poelab.com/2faxk/",
-        "icon": "/images/treasure-key.png",
-        "description": "Normal Labyrinth layout guide"
-      },
-      {
-        "name": "Cruel Lab",
-        "url": "https://www.poelab.com/p1tad/",
-        "icon": "/images/Silver-Key.png",
-        "description": "Cruel Labyrinth layout guide"
-      },
-      {
-        "name": "Merciless Lab",
-        "url": "https://www.poelab.com/t4jnh/",
-        "icon": "/images/Gold-Key.png",
-        "description": "Merciless Labyrinth layout guide"
-      },
-      {
-        "name": "Uber Lab",
-        "url": "https://www.poelab.com/5jpx4/",
-        "icon": "/images/TrialIcon.png",
-        "description": "Uber Labyrinth layout guide"
-      }
+      "normal-lab",
+      "cruel-lab",
+      "merciless-lab",
+      "uber-lab"
     ],
     "poe2": []
   },
@@ -198,52 +77,14 @@
     "id": "game-overlay",
     "title": "GAME OVERLAY",
     "poe1": [
-      {
-        "name": "Awakened PoE Trade",
-        "url": "https://snosme.github.io/awakened-poe-trade/download",
-        "icon": "/images/awakened-poe-trade.png",
-        "description": "Trade overlay tool with price checking"
-      },
-      {
-        "name": "Poe Lurker",
-        "url": "https://github.com/C1rdec/Poe-Lurker/releases",
-        "icon": "/images/LurkerIcon.png",
-        "description": "Trade helper and automation tool"
-      },
-      {
-        "name": "XileTrade",
-        "url": "https://maxensas.github.io/xiletrade/",
-        "icon": "/images/xileTrade.png",
-        "description": "Trade overlay and price checker"
-      },
-      {
-        "name": "Exile UI",
-        "url": "https://github.com/Lailloken/Exile-UI/releases",
-        "description": "UI overlay and customization tool"
-      },
-      {
-        "name": "MercuryTrade",
-        "url": "https://github.com/Morph21/MercuryTrade-Community-Fork/releases",
-        "icon": "/images/mercuryTrade.png",
-        "description": "Trade overlay tool (community fork)"
-      },
-      {
-        "name": "PoE Overlay",
-        "url": "https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/releases",
-        "icon": "/images/poeOverlay.png",
-        "description": "Comprehensive overlay tool (community fork)"
-      },
-      {
-        "name": "Chaos Recipe Enhancer",
-        "url": "https://github.com/ChaosRecipeEnhancer/ChaosRecipeEnhancer",
-        "icon": "/images/CRELogo.png",
-        "description": "Overlay tool for streamlining chaos recipe gains"
-      },
-      {
-        "name": "PoE Leveling Guide",
-        "url": "https://github.com/JusKillmeQik/PoE-Leveling-Guide",
-        "description": "Leveling guide and overlay tool"
-      }
+      "awakened-poe-trade",
+      "poe-lurker",
+      "xiletrade",
+      "exile-ui",
+      "mercurytrade",
+      "poe-overlay",
+      "chaos-recipe-enhancer",
+      "poe-leveling-guide"
     ],
     "poe2": []
   },
@@ -251,21 +92,9 @@
     "id": "atlas",
     "title": "ATLAS",
     "poe1": [
-      {
-        "name": "PoE Planner",
-        "url": "https://poeplanner.com/atlas-tree",
-        "description": "Atlas tree planner and optimizer"
-      },
-      {
-        "name": "PoE Atlas",
-        "url": "https://poeatlas.app/#/",
-        "description": "Interactive atlas tree planner"
-      },
-      {
-        "name": "Maps of Exile",
-        "url": "https://mapsofexile.com/",
-        "description": "Atlas map and tree visualization"
-      }
+      "poe-planner-1",
+      "poe-atlas",
+      "maps-of-exile"
     ],
     "poe2": []
   },
@@ -273,41 +102,13 @@
     "id": "socials",
     "title": "SOCIALS",
     "poe1": [
-      {
-        "name": "Path of Exile Twitch",
-        "url": "https://www.twitch.tv/pathofexile",
-        "description": "Official Path of Exile Twitch channel"
-      },
-      {
-        "name": "Path of Exile Reddit",
-        "url": "https://www.reddit.com/r/pathofexile/",
-        "description": "Path of Exile community on Reddit"
-      },
-      {
-        "name": "Path of Exile X",
-        "url": "https://x.com/pathofexile",
-        "description": "Official Path of Exile X (Twitter) account"
-      },
-      {
-        "name": "Path of Exile Facebook",
-        "url": "https://www.facebook.com/pathofexile",
-        "description": "Official Path of Exile Facebook page"
-      },
-      {
-        "name": "Path of Exile YouTube",
-        "url": "https://www.youtube.com/@playpathofexile",
-        "description": "Official Path of Exile YouTube channel"
-      },
-      {
-        "name": "Path of Exile Discord",
-        "url": "https://discord.gg/pathofexile",
-        "description": "Official Path of Exile Discord server"
-      },
-      {
-        "name": "GGG Tracker",
-        "url": "https://gggtracker.com/",
-        "description": "GGG Tracker for Path of Exile"
-      }
+      "path-of-exile-twitch",
+      "path-of-exile-reddit",
+      "path-of-exile-x",
+      "path-of-exile-facebook",
+      "path-of-exile-youtube",
+      "path-of-exile-discord",
+      "ggg-tracker"
     ],
     "poe2": []
   },
@@ -315,16 +116,11 @@
     "id": "crafting",
     "title": "CRAFTING",
     "poe1": [
-      {
-        "name": "PoEDB Modifiers",
-        "url": "https://poedb.tw/us/Modifiers",
-        "description": "Comprehensive modifier database and crafting reference"
-      },
-      {
-        "name": "Craft of Exile",
-        "url": "https://www.craftofexile.com/",
-        "description": "Crafting simulator and calculator"
-      }
+      "poedb-modifiers",
+      "craft-of-exile",
+      "vorici-chromatic-calculator",
+      "poe-cluster-jewel-calculator",
+      "eldritch-implicit-modifiers"
     ],
     "poe2": []
   },
@@ -332,21 +128,9 @@
     "id": "resources",
     "title": "RESOURCES",
     "poe1": [
-      {
-        "name": "Path of Exile Wiki",
-        "url": "https://www.poewiki.net/wiki/Path_of_Exile_Wiki",
-        "description": "Official Path of Exile wiki maintained by the community"
-      },
-      {
-        "name": "PoEDB",
-        "url": "https://poedb.tw/",
-        "description": "Comprehensive Path of Exile database and information"
-      },
-      {
-        "name": "Patch Notes",
-        "url": "https://www.pathofexile.com/forum/view-forum/patch-notes",
-        "description": "Official Path of Exile patch notes"
-      }
+      "path-of-exile-wiki",
+      "poedb",
+      "patch-notes"
     ],
     "poe2": []
   },
@@ -354,22 +138,9 @@
     "id": "leveling",
     "title": "LEVELING",
     "poe1": [
-      {
-        "name": "Exile Leveling",
-        "url": "https://heartofphos.github.io/exile-leveling/#/",
-        "icon": "/images/exile-leveling.png",
-        "description": "Interactive leveling guide and route planner"
-      },
-      {
-        "name": "PoE Leveling",
-        "url": "https://poe-leveling.com/",
-        "description": "Path of Exile leveling guide and resources"
-      },
-      {
-        "name": "PoE Leveling Guide",
-        "url": "https://github.com/JusKillmeQik/PoE-Leveling-Guide",
-        "description": "AutoHotkey overlay macro for leveling in Path of Exile"
-      }
+      "exile-leveling",
+      "poe-leveling",
+      "poe-leveling-guide"
     ],
     "poe2": []
   },
@@ -377,16 +148,9 @@
     "id": "fluff-meme-games",
     "title": "FLUFF/MEME/GAMES",
     "poe1": [
-      {
-        "name": "Wraedle",
-        "url": "https://www.wraedle.com/",
-        "description": "Word guessing game inspired by Path of Exile"
-      },
-      {
-        "name": "Deck Clicker",
-        "url": "https://deckclicker.weosoft.org/",
-        "description": "Path of Exile deck clicking game"
-      }
+      "wraedle",
+      "idle-exile",
+      "kalandra-game"
     ],
     "poe2": []
   },
@@ -394,91 +158,24 @@
     "id": "more-links",
     "title": "MORE LINKS",
     "poe1": [
-      {
-        "name": "Exile Diary",
-        "url": "https://github.com/Qt-dev/exile-diary",
-        "description": "Game tracker for Path of Exile - tracks everything that drops in your maps"
-      },
-      {
-        "name": "Exile Tools",
-        "url": "https://exile-tools.com/",
-        "description": "Web-based tools for Path of Exile including Gemplanner and TraXile"
-      },
-      {
-        "name": "Blight Anointing",
-        "url": "https://blight.raelys.com/",
-        "description": "Blight anointing calculator for amulets, rings, and maps"
-      },
-      {
-        "name": "PoE Antiquary",
-        "url": "https://poe-antiquary.xyz/",
-        "description": "Historical price data and graphs from past Path of Exile leagues"
-      },
-      {
-        "name": "PatchBot",
-        "url": "https://patchbot.io/games/path-of-exile",
-        "description": "Discord bot for Path of Exile patch notes and updates"
-      },
-      {
-        "name": "Hideout Showcase",
-        "url": "https://hideoutshowcase.com/",
-        "description": "Browse and share Path of Exile hideout designs"
-      },
-      {
-        "name": "PoE Mikelat",
-        "url": "https://poe.mikelat.com/",
-        "description": "Path of Exile tools and calculators"
-      },
-      {
-        "name": "PoE.re",
-        "url": "https://poe.re/",
-        "description": "Path of Exile resources and tools"
-      },
-      {
-        "name": "PoE Fish",
-        "url": "https://poe.fish/",
-        "description": "Path of Exile tools and resources"
-      },
-      {
-        "name": "PoE Ladder",
-        "url": "https://poeladder.com/",
-        "description": "Path of Exile ladder and leaderboard tracking"
-      },
-      {
-        "name": "Divination Cards",
-        "url": "https://divicards-site.pages.dev/",
-        "description": "Divination card database and information"
-      },
-      {
-        "name": "Exile Companion",
-        "url": "https://drusy.github.io/exile-companion/",
-        "description": "Path of Exile companion tool"
-      },
-      {
-        "name": "Challenges Tracker",
-        "url": "https://craniumviolence.github.io/",
-        "description": "Path of Exile tools and resources"
-      },
-      {
-        "name": "Prohibited Library Discord",
-        "url": "https://discord.gg/3VxKY6gt7j",
-        "description": "Prohibited Library Discord"
-      },
-      {
-        "name": "PoE Community Racing Discord",
-        "url": "https://discord.com/invite/VWadrh2",
-        "description": "PoE Community Racing Discord"
-      },
-      {
-        "name": "PoE Exchange",
-        "url": "https://poexchange.maxroll.gg/",
-        "description": "Path of Exile exchange and trading tools"
-      },
-      {
-        "name": "poe.place",
-        "url": "https://poe.place/",
-        "description": "Path of Exile resources, builds, videos, and tools"
-      }
+      "exile-diary",
+      "exile-tools",
+      "blight-anointing",
+      "poe-antiquary",
+      "patchbot",
+      "hideout-showcase",
+      "poe-aura-calculator",
+      "poe-re",
+      "poe-fish",
+      "poe-ladder",
+      "divination-cards",
+      "exile-companion",
+      "challenges-tracker",
+      "prohibited-library-discord",
+      "poe-community-racing-discord",
+      "poe-exchange",
+      "poe-place",
+      "timeless-jewel-calculator"
     ],
     "poe2": []
   }
