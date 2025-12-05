@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { validateUpdateRecord, loadUpdates, validateChangelogEntry } from '../../src/scripts/data.js';
-import { formatUpdateDate, compareLinks, renderChangelog } from '../../src/scripts/updates.js';
+import { formatUpdateDate, compareLinks, renderChangelog, renderUpdateSection } from '../../src/scripts/updates.js';
 
 describe('validateUpdateRecord', () => {
   it('should validate a valid update record', () => {
@@ -16,10 +16,15 @@ describe('validateUpdateRecord', () => {
       lastUpdated: '2025-01-27T10:00:00Z',
       changelog: [
         {
-          type: 'added',
-          categoryId: 'trade',
-          linkName: 'New Tool',
-          linkUrl: 'https://example.com',
+          date: '2025-01-27T10:00:00Z',
+          entries: [
+            {
+              type: 'added',
+              categoryId: 'trade',
+              linkName: 'New Tool',
+              linkUrl: 'https://example.com',
+            },
+          ],
         },
       ],
     };
@@ -333,8 +338,10 @@ describe('Edge Cases', () => {
       const container = document.getElementById('updates');
       renderUpdateSection(container, updateRecord);
 
-      const emptyState = container.querySelector('.changelog-empty');
-      expect(emptyState).toBeTruthy();
+      // renderUpdateSection only renders the timestamp, not changelog content
+      const timestamp = container.querySelector('.update-timestamp');
+      expect(timestamp).toBeTruthy();
+      expect(timestamp.textContent).toBeTruthy();
     });
 
     it('should handle update record with undefined changelog', () => {
@@ -346,8 +353,10 @@ describe('Edge Cases', () => {
       const container = document.getElementById('updates');
       renderUpdateSection(container, updateRecord);
 
-      const emptyState = container.querySelector('.changelog-empty');
-      expect(emptyState).toBeTruthy();
+      // renderUpdateSection only renders the timestamp, not changelog content
+      const timestamp = container.querySelector('.update-timestamp');
+      expect(timestamp).toBeTruthy();
+      expect(timestamp.textContent).toBeTruthy();
     });
   });
 });
