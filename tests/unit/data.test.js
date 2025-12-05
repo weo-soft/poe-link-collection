@@ -168,12 +168,13 @@ describe('loadLinks', () => {
             builds: {
               id: 'builds',
               title: 'BUILDS',
-              links: [
+              poe1: [
                 {
                   name: 'Test Link',
                   url: 'https://example.com',
                 },
               ],
+              poe2: [],
             },
           }),
       })
@@ -210,17 +211,19 @@ describe('loadLinks', () => {
             valid: {
               id: 'valid',
               title: 'Valid',
-              links: [
+              poe1: [
                 {
                   name: 'Test Link',
                   url: 'https://example.com',
                 },
               ],
+              poe2: [],
             },
             invalid: {
               id: 'invalid',
               title: '',
-              links: [],
+              poe1: [],
+              poe2: [],
             },
           }),
       })
