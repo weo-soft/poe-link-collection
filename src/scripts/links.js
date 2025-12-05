@@ -35,14 +35,8 @@ function resolveIconPath(iconPath) {
   }
   
   // If it starts with /, it's an absolute path
-  // In development, Vite may ignore base path, so try both with and without
-  // In production, base path is applied
-  if (iconPath.startsWith('/poe-link-collection/')) {
-    // Already has base path, use as-is
-    return iconPath;
-  } else if (iconPath.startsWith('/')) {
-    // Absolute path without base - Vite will handle base path in production
-    // For development, try without base path first
+  // Vite will handle the base path in production
+  if (iconPath.startsWith('/')) {
     return iconPath;
   }
   
@@ -113,6 +107,10 @@ export function renderLink(container, link) {
 export function renderCategory(container, category) {
   const section = document.createElement('section');
   section.className = 'category-section';
+  // Add full-width class for more-links category
+  if (category.id === 'more-links') {
+    section.classList.add('full-width');
+  }
   section.setAttribute('data-category-id', category.id);
   section.setAttribute('aria-labelledby', `category-${category.id}`);
 

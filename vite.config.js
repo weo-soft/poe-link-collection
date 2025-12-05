@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   root: 'src',
-  base: '/poe-link-collection/',
+  base: '/',
   publicDir: '../public',
   build: {
     outDir: '../dist',

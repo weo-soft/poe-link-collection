@@ -15,7 +15,7 @@ html {
 body {
   font-family: var(--poe-font-family);
   background-color: var(--poe-bg-primary);
-  background-image: url('/poe-link-collection/images/pathofexile.jpg');
+  background-image: url('/images/pathofexile.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -145,6 +145,11 @@ a:visited {
   flex-direction: column;
 }
 
+/* Full-width category */
+.category-section.full-width {
+  grid-column: 1 / -1;
+}
+
 .category-title {
   font-size: var(--poe-font-size-lg);
   color: var(--poe-accent-primary);
@@ -154,8 +159,8 @@ a:visited {
 }
 
 .links-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--poe-spacing-xs) var(--poe-spacing-sm);
 }
 
@@ -163,7 +168,7 @@ a:visited {
 .link-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--poe-spacing-xs);
   padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
   background-color: var(--poe-bg-tertiary);
@@ -173,8 +178,7 @@ a:visited {
   transition: var(--poe-transition);
   font-size: var(--poe-font-size-sm);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  flex-shrink: 0;
 }
 
 .link-favicon {
@@ -182,13 +186,9 @@ a:visited {
   height: 16px;
   flex-shrink: 0;
   object-fit: contain;
-  loading: lazy;
-  decoding: async;
 }
 
 .link-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -244,8 +244,55 @@ a:visited {
   border-radius: var(--poe-border-radius);
 }
 
+/* Game Selector */
+.game-selector {
+  display: flex;
+  justify-content: center;
+  gap: var(--poe-spacing-sm);
+  margin: var(--poe-spacing-lg) auto;
+  padding: 0 var(--poe-spacing-md);
+  max-width: 1200px;
+}
+
+.game-button {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-lg);
+  background-color: var(--poe-bg-secondary);
+  color: var(--poe-text-primary);
+  border: 2px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  font-family: var(--poe-font-family);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 180px;
+}
+
+.game-button:hover {
+  background-color: var(--poe-bg-tertiary);
+  border-color: var(--poe-accent-primary);
+  transform: translateY(-2px);
+}
+
+.game-button.active {
+  background-color: var(--poe-accent-primary);
+  color: var(--poe-text-inverse);
+  border-color: var(--poe-accent-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.game-button:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.game-button:active {
+  transform: translateY(0);
+}
+
 /* Events Section */
 #events {
+  display: none;
   margin-top: var(--poe-spacing-xxl);
   padding: var(--poe-spacing-lg);
   background-color: var(--poe-bg-secondary);
@@ -342,7 +389,6 @@ a:visited {
   }
 
   .links-container {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: var(--poe-spacing-xs);
   }
 
@@ -366,10 +412,6 @@ a:visited {
 }
 
 @media (max-width: 480px) {
-  .links-container {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  }
-
   .link-item {
     font-size: 12px;
     padding: var(--poe-spacing-xs);

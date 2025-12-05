@@ -83,11 +83,67 @@ export function validateCategory(category) {
 }
 
 /**
- * Loads and validates links data from JSON file
+ * Validates a category structure with poe1/poe2 arrays
+ * @param {Object} category - Category object with poe1/poe2 arrays
+ * @returns {boolean} - True if valid, false otherwise
+ */
+function validateCategoryStructure(category) {
+  if (!category || typeof category !== 'object') {
+    return false;
+  }
+
+  // ID validation: non-empty string
+  if (!category.id || typeof category.id !== 'string' || category.id.trim().length === 0) {
+    return false;
+  }
+
+  // Title validation: non-empty string, 1-50 characters
+  if (!category.title || typeof category.title !== 'string' || category.title.trim().length === 0) {
+    return false;
+  }
+  if (category.title.length > 50) {
+    return false;
+  }
+
+  // poe1 and poe2 should be arrays (can be empty)
+  if (!Array.isArray(category.poe1) || !Array.isArray(category.poe2)) {
+    return false;
+  }
+
+  // Validate all links in both arrays
+  const poe1Valid = category.poe1.every((link) => validateLink(link));
+  const poe2Valid = category.poe2.every((link) => validateLink(link));
+
+  return poe1Valid && poe2Valid;
+}
+
+/**
+ * Gets the current selected game (poe1 or poe2)
+ * @returns {string} - Current game identifier ('poe1' or 'poe2')
+ */
+export function getCurrentGame() {
+  const stored = localStorage.getItem('poe-game-selection');
+  return stored === 'poe2' ? 'poe2' : 'poe1'; // Default to poe1
+}
+
+/**
+ * Sets the current selected game
+ * @param {string} game - Game identifier ('poe1' or 'poe2')
+ */
+export function setCurrentGame(game) {
+  if (game === 'poe1' || game === 'poe2') {
+    localStorage.setItem('poe-game-selection', game);
+  }
+}
+
+/**
+ * Loads and validates links data from JSON file for a specific game
+ * @param {string} game - Game identifier ('poe1' or 'poe2'), defaults to current selection
  * @returns {Promise<Array>} - Promise resolving to array of valid Category objects
  */
-export async function loadLinks() {
+export async function loadLinks(game = null) {
   try {
+    const selectedGame = game || getCurrentGame();
     const response = await fetch('./data/links.json');
     if (!response.ok) {
       throw new Error(`Failed to load links: ${response.status} ${response.statusText}`);
@@ -101,15 +157,35 @@ export async function loadLinks() {
     // Convert object to array and validate each category
     const categories = [];
     for (const [key, category] of Object.entries(data)) {
-      if (validateCategory(category)) {
-        categories.push(category);
-      } else {
-        console.warn(`Invalid category skipped: ${key}`, category);
+      // Validate the category structure (has id, title, poe1, poe2)
+      if (!validateCategoryStructure(category)) {
+        console.warn(`Invalid category structure skipped: ${key}`, category);
+        continue;
+      }
+
+      // Get links for the selected game
+      const gameLinks = category[selectedGame] || [];
+      
+      // Only include categories that have links for the selected game
+      if (gameLinks.length > 0) {
+        // Create a category object with the links array for the selected game
+        const categoryWithLinks = {
+          id: category.id,
+          title: category.title,
+          links: gameLinks
+        };
+
+        // Validate the final category object
+        if (validateCategory(categoryWithLinks)) {
+          categories.push(categoryWithLinks);
+        } else {
+          console.warn(`Invalid category skipped: ${key}`, categoryWithLinks);
+        }
       }
     }
 
     if (categories.length === 0) {
-      console.warn('No valid categories found in links data');
+      console.warn(`No valid categories found in links data for ${selectedGame}`);
     }
 
     return categories;

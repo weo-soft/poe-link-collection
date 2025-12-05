@@ -19,7 +19,7 @@ describe('getCurrentPage', () => {
   });
 
   it('should handle root path correctly', () => {
-    window.location.pathname = '/poe-link-collection/';
+    window.location.pathname = '/';
     const page = getCurrentPage();
     expect(page).toBeTruthy();
   });
