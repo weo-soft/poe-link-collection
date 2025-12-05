@@ -473,6 +473,11 @@
         "name": "PoE Exchange",
         "url": "https://poexchange.maxroll.gg/",
         "description": "Path of Exile exchange and trading tools"
+      },
+      {
+        "name": "poe.place",
+        "url": "https://poe.place/",
+        "description": "Path of Exile resources, builds, videos, and tools"
       }
     ],
     "poe2": []
