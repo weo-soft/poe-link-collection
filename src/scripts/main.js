@@ -10,6 +10,7 @@ import { renderEventsSection } from './events.js';
 import { renderUpdatesButton, toggleChangelog, closeChangelog } from './updates.js';
 import { setupContactDialog, openContactDialog } from './contact.js';
 import { setupDisclaimerDialog } from './disclaimer.js';
+import { setupEventSuggestionDialog, openEventSuggestionDialog } from './event-suggestion.js';
 
 // Error handling infrastructure
 window.addEventListener('error', (event) => {
@@ -108,6 +109,36 @@ async function switchGame(game) {
   setCurrentGame(game);
   setupGameSelector();
   await loadAndRenderCategories(game);
+  
+  // Re-render events with new game filter
+  const eventsContainer = document.getElementById('events');
+  if (eventsContainer) {
+    // Show loading state
+    eventsContainer.innerHTML = '<div class="loading" role="status" aria-live="polite">Loading events...</div>';
+    
+    try {
+      const events = await loadEvents();
+      renderEventsSection(eventsContainer, events, game);
+      
+      // Re-setup event suggestion button handler
+      // Remove any existing listeners first (clone and replace to remove all)
+      const suggestButton = eventsContainer.querySelector('#suggest-event-button');
+      if (suggestButton) {
+        // Clone button to remove all event listeners
+        const newButton = suggestButton.cloneNode(true);
+        suggestButton.parentNode.replaceChild(newButton, suggestButton);
+        newButton.addEventListener('click', openEventSuggestionDialog);
+      }
+    } catch (error) {
+      console.error('Error reloading events:', error);
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error';
+      errorDiv.setAttribute('role', 'alert');
+      errorDiv.textContent = 'Failed to load events. Please refresh the page.';
+      eventsContainer.innerHTML = '';
+      eventsContainer.appendChild(errorDiv);
+    }
+  }
 }
 
 /**
@@ -134,6 +165,9 @@ async function init() {
     // Initialize disclaimer dialog
     setupDisclaimerDialog();
 
+    // Initialize event suggestion dialog
+    setupEventSuggestionDialog();
+
     // Setup game selector
     setupGameSelector();
 
@@ -155,7 +189,14 @@ async function init() {
     // Render events
     if (eventsContainer) {
       if (eventsResult.status === 'fulfilled') {
-        renderEventsSection(eventsContainer, eventsResult.value);
+        const currentGame = getCurrentGame();
+        renderEventsSection(eventsContainer, eventsResult.value, currentGame);
+        
+        // Setup event suggestion button handler
+        const suggestButton = eventsContainer.querySelector('#suggest-event-button');
+        if (suggestButton) {
+          suggestButton.addEventListener('click', openEventSuggestionDialog);
+        }
       } else {
         console.error('Error loading events:', eventsResult.reason);
         const errorDiv = document.createElement('div');
@@ -186,6 +227,13 @@ async function init() {
     }
   } catch (error) {
     console.error('Initialization error:', error);
+    console.error('Error stack:', error.stack);
+    console.error('Error details:', {
+      message: error.message,
+      name: error.name,
+      fileName: error.fileName,
+      lineNumber: error.lineNumber,
+    });
     displayError('Failed to initialize application.');
   }
 }
