@@ -15,6 +15,18 @@
           "linkUrl": "https://poe-bingo.weosoft.org/"
         },
         {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "Divcord Discord",
+          "linkUrl": "https://discord.com/invite/qRyyrMyrkz"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "Fishcord Discord",
+          "linkUrl": "https://discord.com/invite/cY6jCQgwDM"
+        },
+        {
           "type": "note",
           "message": "Added contact form"
         },
