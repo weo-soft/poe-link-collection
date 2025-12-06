@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2025-12-05T18:00:00Z",
+  "lastUpdated": "2025-12-06T18:00:00Z",
   "changelog": [
+    {
+      "date": "2025-12-06T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Added contact form"
+        },
+        {
+          "type": "added",
+          "categoryId": "trade",
+          "linkName": "PoE Disenchant",
+          "linkUrl": "https://poe-disenchant-tool.vercel.app/"
+        },
+        {
+          "type": "added",
+          "categoryId": "loot-filters",
+          "linkName": "PoE Filters",
+          "linkUrl": "https://poe1filter.com/"
+        }
+      ]
+    },
     {
       "date": "2025-12-05T18:00:00Z",
       "entries": [

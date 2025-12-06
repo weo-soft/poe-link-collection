@@ -768,3 +768,267 @@ a:visited {
   }
 }
 
+/* Contact Dialog Styles */
+.contact-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.contact-dialog[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.contact-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.contact-dialog-content {
+  position: relative;
+  z-index: 1001;
+  background-color: var(--poe-bg-primary);
+  border: 2px solid var(--poe-accent-primary);
+  border-radius: var(--poe-border-radius);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--poe-shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-dialog[aria-hidden="false"] .contact-dialog-content {
+  transform: scale(1);
+}
+
+.contact-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--poe-spacing-md);
+  border-bottom: 1px solid var(--poe-border-color);
+}
+
+.contact-dialog-title {
+  margin: 0;
+  font-size: var(--poe-font-size-xl);
+  color: var(--poe-accent-primary);
+  font-weight: 600;
+}
+
+.contact-dialog-close {
+  background: none;
+  border: none;
+  color: var(--poe-text-secondary);
+  font-size: var(--poe-font-size-xl);
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--poe-spacing-xs);
+  line-height: 1;
+  transition: var(--poe-transition);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--poe-border-radius);
+}
+
+.contact-dialog-close:hover {
+  color: var(--poe-text-primary);
+  background-color: var(--poe-bg-secondary);
+}
+
+.contact-dialog-close:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.contact-form {
+  padding: var(--poe-spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--poe-text-primary);
+  font-size: var(--poe-font-size-base);
+}
+
+.form-input {
+  padding: var(--poe-spacing-sm);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  background-color: var(--poe-bg-secondary);
+  color: var(--poe-text-primary);
+  font-family: var(--poe-font-family);
+  font-size: var(--poe-font-size-base);
+  transition: var(--poe-transition);
+}
+
+.form-input:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+  border-color: var(--poe-accent-primary);
+}
+
+.form-input:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: var(--poe-error);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.character-counter {
+  font-size: var(--poe-font-size-sm);
+  color: var(--poe-text-secondary);
+  text-align: right;
+}
+
+.character-counter-warning {
+  color: var(--poe-error);
+  font-weight: 600;
+}
+
+.form-error {
+  font-size: var(--poe-font-size-sm);
+  color: var(--poe-error);
+  min-height: 1.2em;
+}
+
+.contact-feedback {
+  padding: var(--poe-spacing-sm);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  min-height: 1.2em;
+}
+
+.contact-feedback-success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: var(--poe-success);
+  border: 1px solid var(--poe-success);
+}
+
+.contact-feedback-error {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: var(--poe-error);
+  border: 1px solid var(--poe-error);
+}
+
+.contact-submit-button {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-accent-primary);
+  color: var(--poe-text-primary);
+  border: none;
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--poe-transition);
+  align-self: flex-start;
+}
+
+.contact-submit-button:hover:not(:disabled) {
+  background-color: var(--poe-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--poe-shadow-md);
+}
+
+.contact-submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.contact-submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contact-submit-button:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.nav-contact-button {
+  background: none;
+  border: none;
+  color: var(--poe-link-color);
+  text-decoration: none;
+  transition: var(--poe-transition);
+  cursor: pointer;
+  font-family: var(--poe-font-family);
+  font-size: var(--poe-font-size-base);
+  padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
+  border-radius: var(--poe-border-radius);
+}
+
+.nav-contact-button:hover {
+  color: var(--poe-link-hover);
+  background-color: var(--poe-bg-secondary);
+}
+
+.nav-contact-button:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.contact-loading {
+  padding: var(--poe-spacing-sm);
+  text-align: center;
+  color: var(--poe-text-secondary);
+  font-size: var(--poe-font-size-sm);
+  font-style: italic;
+}
+
+.contact-retry-button {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-bg-secondary);
+  color: var(--poe-text-primary);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--poe-transition);
+  align-self: flex-start;
+  margin-top: var(--poe-spacing-xs);
+}
+
+.contact-retry-button:hover {
+  background-color: var(--poe-accent-primary);
+  border-color: var(--poe-accent-primary);
+  color: var(--poe-text-primary);
+}
+
+.contact-retry-button:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+

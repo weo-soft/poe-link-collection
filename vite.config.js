@@ -5,6 +5,11 @@ export default defineConfig({
   root: 'src',
   base: '/',
   publicDir: '../public',
+  // Explicitly define env prefix to ensure VITE_ variables are loaded
+  envPrefix: 'VITE_',
+  // Vite automatically loads .env files from project root even when root is 'src'
+  // But we can explicitly set envDir to ensure it looks in the right place
+  envDir: resolve(__dirname),
   build: {
     outDir: '../dist',
     assetsDir: 'assets',
