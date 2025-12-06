@@ -92,6 +92,14 @@ export function renderEvent(container, event) {
   nameElement.textContent = event.name;
   eventElement.appendChild(nameElement);
 
+  // Game badge (if game is specified)
+  if (event.game) {
+    const gameBadge = document.createElement('div');
+    gameBadge.className = 'event-game-badge';
+    gameBadge.textContent = event.game === 'poe1' ? 'Path of Exile' : 'Path of Exile 2';
+    eventElement.appendChild(gameBadge);
+  }
+
   const datesElement = document.createElement('div');
   datesElement.className = 'event-dates';
 
@@ -127,6 +135,19 @@ export function renderEvent(container, event) {
 
   eventElement.appendChild(datesElement);
 
+  // Banner image (if available)
+  if (event.bannerImageUrl && event.bannerImageUrl.trim().length > 0) {
+    const bannerElement = document.createElement('img');
+    bannerElement.className = 'event-banner';
+    bannerElement.src = event.bannerImageUrl.trim();
+    bannerElement.alt = `${event.name} banner`;
+    bannerElement.onerror = () => {
+      // Handle broken image URL - hide the image
+      bannerElement.style.display = 'none';
+    };
+    eventElement.insertBefore(bannerElement, datesElement);
+  }
+
   // Calculate and display durations
   const durations = calculateEventDurations(event);
   if (durations) {
@@ -145,15 +166,52 @@ export function renderEvent(container, event) {
         </div>
       `;
     } else {
-      durationElement.innerHTML = `
-        <div class="duration-info">
-          <span class="duration-label">Duration:</span>
-          <span class="duration-value">${durations.totalDuration}</span>
-        </div>
-      `;
+      const now = new Date();
+      if (startDate > now) {
+        // Upcoming event - show time until start
+        const timeUntilStart = startDate - now;
+        const timeUntilStartStr = formatDuration(timeUntilStart);
+        durationElement.innerHTML = `
+          <div class="duration-info">
+            <span class="duration-label">Starts in:</span>
+            <span class="duration-value">${timeUntilStartStr}</span>
+          </div>
+          <div class="duration-info">
+            <span class="duration-label">Duration:</span>
+            <span class="duration-value">${durations.totalDuration}</span>
+          </div>
+        `;
+      } else {
+        // Past event
+        durationElement.innerHTML = `
+          <div class="duration-info">
+            <span class="duration-label">Duration:</span>
+            <span class="duration-value">${durations.totalDuration}</span>
+          </div>
+        `;
+      }
     }
 
     eventElement.appendChild(durationElement);
+  }
+
+  // Description (if available)
+  if (event.description && event.description.trim().length > 0) {
+    const descElement = document.createElement('p');
+    descElement.className = 'event-description';
+    descElement.textContent = event.description.trim();
+    eventElement.appendChild(descElement);
+  }
+
+  // Details link (if available)
+  if (event.detailsLink && event.detailsLink.trim().length > 0) {
+    const linkElement = document.createElement('a');
+    linkElement.className = 'event-details-link';
+    linkElement.href = event.detailsLink.trim();
+    linkElement.target = '_blank';
+    linkElement.rel = 'noopener noreferrer';
+    linkElement.textContent = 'View Details / Sign Up';
+    eventElement.appendChild(linkElement);
   }
 
   container.appendChild(eventElement);
@@ -163,8 +221,9 @@ export function renderEvent(container, event) {
  * Renders all events to the events section
  * @param {HTMLElement} container - Container element (usually #events)
  * @param {Array} events - Array of Event objects to render
+ * @param {string} [currentGame] - Current game selection ('poe1' or 'poe2'), filters events by game
  */
-export function renderEventsSection(container, events) {
+export function renderEventsSection(container, events, currentGame = null) {
   if (!container) {
     console.error('Events container not found');
     return;
@@ -183,18 +242,75 @@ export function renderEventsSection(container, events) {
     return;
   }
 
+  // Create section header with title and button
+  const sectionHeader = document.createElement('div');
+  sectionHeader.className = 'events-section-header';
+  
   const sectionTitle = document.createElement('h2');
   sectionTitle.className = 'section-title';
   sectionTitle.id = 'events-title';
   sectionTitle.textContent = 'EVENTS';
-  container.appendChild(sectionTitle);
+  sectionHeader.appendChild(sectionTitle);
+  
+  // Add "Suggest an Event" button to header
+  addSuggestEventButton(sectionHeader);
+  
+  container.appendChild(sectionHeader);
+
+  // Filter to show only upcoming and running events (exclude past events)
+  // Also filter by game if currentGame is specified
+  const now = new Date();
+  const filteredEvents = events.filter(event => {
+    try {
+      // Filter by game if currentGame is specified
+      if (currentGame) {
+        // If event has a game field, it must match currentGame
+        // If event has no game field, show it for both games (backward compatibility)
+        if (event.game !== undefined && event.game !== currentGame) {
+          return false;
+        }
+      }
+      
+      const startDate = new Date(event.startDate);
+      const endDate = new Date(event.endDate);
+      
+      // Show events that are upcoming (startDate > now) or running (startDate <= now && endDate >= now)
+      return startDate > now || (startDate <= now && endDate >= now);
+    } catch (error) {
+      console.warn('Error filtering event:', error, event);
+      return false;
+    }
+  });
+
+  // Sort filtered events by start date (earliest first)
+  filteredEvents.sort((a, b) => {
+    try {
+      const dateA = new Date(a.startDate);
+      const dateB = new Date(b.startDate);
+      return dateA - dateB;
+    } catch (error) {
+      console.warn('Error sorting events:', error);
+      return 0;
+    }
+  });
+
+  // If no upcoming or running events, show empty state
+  if (filteredEvents.length === 0) {
+    const emptyState = document.createElement('div');
+    emptyState.className = 'empty-state';
+    emptyState.setAttribute('role', 'status');
+    emptyState.setAttribute('aria-live', 'polite');
+    emptyState.textContent = 'No upcoming or running events at this time.';
+    container.appendChild(emptyState);
+    return;
+  }
 
   const eventsList = document.createElement('div');
   eventsList.className = 'events-list';
   eventsList.setAttribute('role', 'list');
   eventsList.setAttribute('aria-labelledby', 'events-title');
 
-  events.forEach((event) => {
+  filteredEvents.forEach((event) => {
     try {
       renderEvent(eventsList, event);
     } catch (error) {
@@ -204,5 +320,20 @@ export function renderEventsSection(container, events) {
   });
 
   container.appendChild(eventsList);
+}
+
+/**
+ * Adds the "Suggest an Event" button to the events section header
+ * @param {HTMLElement} header - Header container element
+ */
+function addSuggestEventButton(header) {
+  const suggestButton = document.createElement('button');
+  suggestButton.id = 'suggest-event-button';
+  suggestButton.className = 'suggest-event-button';
+  suggestButton.textContent = 'Suggest an Event';
+  suggestButton.setAttribute('type', 'button');
+  suggestButton.setAttribute('aria-label', 'Open event suggestion dialog');
+  
+  header.appendChild(suggestButton);
 }
 

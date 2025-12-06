@@ -275,6 +275,52 @@ export function validateEvent(event) {
     }
   }
 
+  // Optional game validation
+  if (event.game !== undefined) {
+    const validGames = ['poe1', 'poe2'];
+    if (!validGames.includes(event.game)) {
+      return false;
+    }
+  }
+
+  // New optional fields validation
+  // Banner image URL validation (optional)
+  if (event.bannerImageUrl !== undefined) {
+    if (typeof event.bannerImageUrl !== 'string' || event.bannerImageUrl.length > 500) {
+      return false;
+    }
+    // Validate URL format if provided
+    if (event.bannerImageUrl.trim().length > 0) {
+      try {
+        new URL(event.bannerImageUrl);
+      } catch {
+        return false;
+      }
+    }
+  }
+
+  // Description validation (optional)
+  if (event.description !== undefined) {
+    if (typeof event.description !== 'string' || event.description.length > 2000) {
+      return false;
+    }
+  }
+
+  // Details link validation (optional)
+  if (event.detailsLink !== undefined) {
+    if (typeof event.detailsLink !== 'string' || event.detailsLink.length > 500) {
+      return false;
+    }
+    // Validate URL format if provided
+    if (event.detailsLink.trim().length > 0) {
+      try {
+        new URL(event.detailsLink);
+      } catch {
+        return false;
+      }
+    }
+  }
+
   return true;
 }
 
