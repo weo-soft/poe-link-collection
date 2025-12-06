@@ -53,6 +53,18 @@
     "description": "Loot filter editor and customizer",
     "lastChecked": "2025-12-05T18:00:00Z"
   },
+  "poe1filters": {
+    "name": "PoE Filters",
+    "url": "https://poe1filter.com/",
+    "description": "Loot filter editor and customizer",
+    "lastChecked": "2025-12-06T09:00:00Z"
+  },
+  "poe2filters": {
+    "name": "PoE 2 Filters",
+    "url": "https://poe2filter.com/",
+    "description": "Loot filter editor and customizer",
+    "lastChecked": "2025-12-06T09:00:00Z"
+  },
   "stupid-fat-hobbit-s-filters": {
     "name": "Stupid Fat Hobbit's Filters",
     "url": "https://www.pathofexile.com/forum/view-thread/1595976/page/1",
@@ -80,6 +92,13 @@
   "disenchant": {
     "name": "Disenchant",
     "url": "https://disenchant.easyexile.tools/",
+    "icon": "/images/disenchant.webp",
+    "description": "Item disenchanting and crafting tool",
+    "lastChecked": "2025-12-05T18:00:00Z"
+  },
+  "poe-disenchant": {
+    "name": "PoE Disenchant",
+    "url": "https://poe-disenchant-tool.vercel.app/",
     "icon": "/images/disenchant.webp",
     "description": "Item disenchanting and crafting tool",
     "lastChecked": "2025-12-05T18:00:00Z"

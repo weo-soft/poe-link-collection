@@ -8,6 +8,7 @@ import { renderAllCategories } from './links.js';
 import { renderNavigation, setupNavigationHandlers } from './navigation.js';
 import { renderEventsSection } from './events.js';
 import { renderUpdatesButton, toggleChangelog, closeChangelog } from './updates.js';
+import { setupContactDialog, openContactDialog } from './contact.js';
 
 // Error handling infrastructure
 window.addEventListener('error', (event) => {
@@ -118,7 +119,16 @@ async function init() {
     if (navContainer) {
       renderNavigation(navContainer);
       setupNavigationHandlers();
+
+      // Setup contact button handler
+      const contactButton = navContainer.querySelector('.nav-contact-button');
+      if (contactButton) {
+        contactButton.addEventListener('click', openContactDialog);
+      }
     }
+
+    // Initialize contact dialog
+    setupContactDialog();
 
     // Setup game selector
     setupGameSelector();

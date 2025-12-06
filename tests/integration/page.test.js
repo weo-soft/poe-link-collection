@@ -3,6 +3,7 @@ import { renderAllCategories, renderCategory } from '../../src/scripts/links.js'
 import { renderNavigation, setActiveNavigation, getCurrentPage, setupNavigationHandlers } from '../../src/scripts/navigation.js';
 import { renderEventsSection, renderEvent } from '../../src/scripts/events.js';
 import { renderUpdateSection, renderUpdatesButton, toggleChangelog } from '../../src/scripts/updates.js';
+import { openContactDialog, closeContactDialog, setupContactDialog } from '../../src/scripts/contact.js';
 
 describe('Link Rendering Integration', () => {
   beforeEach(() => {
@@ -907,5 +908,107 @@ describe('Update Section Edge Cases Integration', () => {
 
     // Should not throw error, section should be empty or show nothing
     expect(container.innerHTML).toBe('');
+  });
+});
+
+describe('Contact Dialog Integration', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div id="contact-dialog" class="contact-dialog" aria-hidden="true" role="dialog" aria-labelledby="contact-dialog-title">
+        <div class="contact-backdrop"></div>
+        <div class="contact-dialog-content"></div>
+      </div>
+    `;
+  });
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('should open dialog when openContactDialog is called', () => {
+    setupContactDialog();
+    openContactDialog();
+
+    const dialog = document.getElementById('contact-dialog');
+    expect(dialog).toBeTruthy();
+    expect(dialog.getAttribute('aria-hidden')).toBe('false');
+  });
+
+  it('should display form fields when dialog is opened', () => {
+    setupContactDialog();
+    openContactDialog();
+
+    const messageField = document.querySelector('#contact-message');
+    const emailField = document.querySelector('#contact-email');
+    const submitButton = document.querySelector('.contact-submit-button');
+
+    expect(messageField).toBeTruthy();
+    expect(emailField).toBeTruthy();
+    expect(submitButton).toBeTruthy();
+    expect(messageField.tagName).toBe('TEXTAREA');
+    expect(emailField.type).toBe('email');
+  });
+
+  it('should close dialog when closeContactDialog is called', () => {
+    setupContactDialog();
+    openContactDialog();
+    closeContactDialog();
+
+    const dialog = document.getElementById('contact-dialog');
+    expect(dialog.getAttribute('aria-hidden')).toBe('true');
+  });
+
+  it('should display character counter for message field', () => {
+    setupContactDialog();
+    openContactDialog();
+
+    const messageField = document.querySelector('#contact-message');
+    const counter = document.querySelector('#message-counter');
+
+    expect(counter).toBeTruthy();
+    expect(counter.textContent).toBe('0/5000 characters');
+
+    // Simulate input
+    messageField.value = 'Test message';
+    messageField.dispatchEvent(new Event('input'));
+
+    expect(counter.textContent).toBe('12/5000 characters');
+  });
+
+  it('should close dialog when close button is clicked', () => {
+    setupContactDialog();
+    openContactDialog();
+
+    const closeButton = document.querySelector('.contact-dialog-close');
+    expect(closeButton).toBeTruthy();
+
+    closeButton.click();
+
+    const dialog = document.getElementById('contact-dialog');
+    expect(dialog.getAttribute('aria-hidden')).toBe('true');
+  });
+
+  it('should close dialog when backdrop is clicked', () => {
+    setupContactDialog();
+    openContactDialog();
+
+    const backdrop = document.querySelector('.contact-backdrop');
+    expect(backdrop).toBeTruthy();
+
+    backdrop.click();
+
+    const dialog = document.getElementById('contact-dialog');
+    expect(dialog.getAttribute('aria-hidden')).toBe('true');
+  });
+
+  it('should close dialog when Escape key is pressed', () => {
+    setupContactDialog();
+    openContactDialog();
+
+    const escapeEvent = new KeyboardEvent('keydown', { key: 'Escape' });
+    document.dispatchEvent(escapeEvent);
+
+    const dialog = document.getElementById('contact-dialog');
+    expect(dialog.getAttribute('aria-hidden')).toBe('true');
   });
 });

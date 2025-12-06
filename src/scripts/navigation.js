@@ -82,6 +82,16 @@ export function renderNavigation(container) {
   spacer.className = 'nav-spacer';
   navList.appendChild(spacer);
 
+  // Add contact button
+  const contactListItem = document.createElement('li');
+  const contactButton = document.createElement('button');
+  contactButton.className = 'nav-link nav-contact-button';
+  contactButton.setAttribute('type', 'button');
+  contactButton.textContent = 'Contact';
+  contactButton.setAttribute('aria-label', 'Open contact dialog');
+  contactListItem.appendChild(contactButton);
+  navList.appendChild(contactListItem);
+
   nav.appendChild(navList);
   container.appendChild(nav);
 
