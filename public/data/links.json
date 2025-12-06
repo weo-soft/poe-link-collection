@@ -29,13 +29,30 @@
     "title": "TRADE",
     "poe1": [
       "official-trade",
-      "wealthy-exile",
       "poemap-trade",
       "disenchant",
       "map-search",
-      "poe-trade-helper",
-      "exilence-ce",
       "the-forbidden-trove-discord"
+    ],
+    "poe2": []
+  },
+  "trackers": {
+    "id": "trackers",
+    "title": "TRACKERS",
+    "poe1": [
+      "wealthy-exile",
+      "exilence-ce",
+      "challenges-tracker"
+    ],
+    "poe2": []
+  },
+  "browser-extensions": {
+    "id": "browser-extensions",
+    "title": "BROWSER EXTENSIONS",
+    "poe1": [
+      "poe-trade-helper",
+      "indie-wiki-buddy-chrome",
+      "indie-wiki-buddy-firefox"
     ],
     "poe2": []
   },
@@ -151,7 +168,8 @@
     "poe1": [
       "wraedle",
       "idle-exile",
-      "kalandra-game"
+      "kalandra-game",
+      "poe-bingo"
     ],
     "poe2": []
   },
@@ -171,7 +189,6 @@
       "poe-ladder",
       "divination-cards",
       "exile-companion",
-      "challenges-tracker",
       "prohibited-library-discord",
       "poe-community-racing-discord",
       "poe-exchange",

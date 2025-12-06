@@ -4,6 +4,7 @@
  */
 
 import { validateLink } from './data.js';
+import { requiresDisclaimer, hasAcknowledgedDisclaimer, openDisclaimerDialog } from './disclaimer.js';
 
 /**
  * Gets the favicon URL for a given link URL
@@ -70,8 +71,9 @@ function formatDate(dateString) {
  * Renders a single link element
  * @param {HTMLElement} container - Container element to append link to
  * @param {Object} link - Link object to render
+ * @param {string} categoryId - Category ID that this link belongs to
  */
-export function renderLink(container, link) {
+export function renderLink(container, link, categoryId) {
   if (!validateLink(link)) {
     console.warn('Invalid link skipped:', link);
     return;
@@ -85,6 +87,7 @@ export function renderLink(container, link) {
     linkElement.className = 'link-item';
     linkElement.setAttribute('aria-label', link.description || `Visit ${link.name}`);
     linkElement.setAttribute('role', 'listitem');
+    linkElement.setAttribute('data-category-id', categoryId);
 
     // Create tooltip content
     let tooltipContent = '';
@@ -131,6 +134,15 @@ export function renderLink(container, link) {
     linkText.textContent = link.name;
     linkElement.appendChild(linkText);
 
+    // Add click handler to intercept clicks for disclaimer categories
+    linkElement.addEventListener('click', (event) => {
+      if (requiresDisclaimer(categoryId) && !hasAcknowledgedDisclaimer()) {
+        event.preventDefault();
+        openDisclaimerDialog(link.url);
+      }
+      // If disclaimer not required or already acknowledged, let default behavior proceed
+    });
+
     container.appendChild(linkElement);
   } catch (error) {
     console.error('Error rendering link:', error, link);
@@ -164,7 +176,7 @@ export function renderCategory(container, category) {
   linksContainer.setAttribute('aria-label', `Links in ${category.title}`);
 
   category.links.forEach((link) => {
-    renderLink(linksContainer, link);
+    renderLink(linksContainer, link, category.id);
   });
 
   section.appendChild(linksContainer);

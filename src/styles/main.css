@@ -1032,3 +1032,211 @@ textarea.form-input {
   outline-offset: 2px;
 }
 
+/* Disclaimer Dialog Styles */
+.disclaimer-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.disclaimer-dialog[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.disclaimer-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.disclaimer-dialog-content {
+  position: relative;
+  z-index: 1001;
+  background-color: var(--poe-bg-primary);
+  border: 2px solid var(--poe-accent-primary);
+  border-radius: var(--poe-border-radius);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--poe-shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s ease-in-out;
+}
+
+.disclaimer-dialog[aria-hidden="false"] .disclaimer-dialog-content {
+  transform: scale(1);
+}
+
+.disclaimer-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--poe-spacing-md);
+  border-bottom: 1px solid var(--poe-border-color);
+}
+
+.disclaimer-dialog-title {
+  margin: 0;
+  font-size: var(--poe-font-size-xl);
+  color: var(--poe-accent-primary);
+  font-weight: 600;
+}
+
+.disclaimer-dialog-close {
+  background: none;
+  border: none;
+  color: var(--poe-text-secondary);
+  font-size: var(--poe-font-size-xl);
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--poe-spacing-xs);
+  line-height: 1;
+  transition: var(--poe-transition);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--poe-border-radius);
+}
+
+.disclaimer-dialog-close:hover {
+  color: var(--poe-text-primary);
+  background-color: var(--poe-bg-secondary);
+}
+
+.disclaimer-dialog-close:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.disclaimer-dialog-body {
+  padding: var(--poe-spacing-md);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.disclaimer-warning {
+  font-size: var(--poe-font-size-lg);
+  color: var(--poe-error);
+  font-weight: 600;
+  margin-bottom: var(--poe-spacing-md);
+  text-align: center;
+}
+
+.disclaimer-message {
+  color: var(--poe-text-primary);
+  line-height: 1.6;
+}
+
+.disclaimer-message p {
+  margin-bottom: var(--poe-spacing-sm);
+}
+
+.disclaimer-list {
+  margin: var(--poe-spacing-md) 0;
+  padding-left: var(--poe-spacing-lg);
+  color: var(--poe-text-primary);
+}
+
+.disclaimer-list li {
+  margin-bottom: var(--poe-spacing-xs);
+}
+
+.disclaimer-final {
+  margin-top: var(--poe-spacing-md);
+  font-weight: 600;
+  color: var(--poe-text-primary);
+  border-top: 1px solid var(--poe-border-color);
+  padding-top: var(--poe-spacing-md);
+}
+
+.disclaimer-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--poe-spacing-sm);
+  padding: var(--poe-spacing-md);
+  border-top: 1px solid var(--poe-border-color);
+}
+
+.disclaimer-button {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--poe-transition);
+  font-family: var(--poe-font-family);
+  border: 1px solid;
+}
+
+.disclaimer-button-cancel {
+  background-color: var(--poe-bg-secondary);
+  color: var(--poe-text-primary);
+  border-color: var(--poe-border-color);
+}
+
+.disclaimer-button-cancel:hover {
+  background-color: var(--poe-bg-tertiary);
+  border-color: var(--poe-border-hover);
+}
+
+.disclaimer-button-cancel:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.disclaimer-button-proceed {
+  background-color: var(--poe-accent-primary);
+  color: var(--poe-text-primary);
+  border-color: var(--poe-accent-primary);
+}
+
+.disclaimer-button-proceed:hover {
+  background-color: var(--poe-accent-hover);
+  border-color: var(--poe-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--poe-shadow-md);
+}
+
+.disclaimer-button-proceed:active {
+  transform: translateY(0);
+}
+
+.disclaimer-button-proceed:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive Design for Disclaimer Dialog */
+@media (max-width: 768px) {
+  .disclaimer-dialog-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .disclaimer-dialog-footer {
+    flex-direction: column;
+  }
+
+  .disclaimer-button {
+    width: 100%;
+  }
+}
+

@@ -6,6 +6,16 @@
       "entries": [
         {
           "type": "note",
+          "message": "Added disclaimer dialog for Browser Extensions and Game Overlay categories. Users will see a warning when clicking links from these categories for the first time."
+        },
+        {
+          "type": "added",
+          "categoryId": "fluff-meme-games",
+          "linkName": "PoE Bingo",
+          "linkUrl": "https://poe-bingo.weosoft.org/"
+        },
+        {
+          "type": "note",
           "message": "Added contact form"
         },
         {

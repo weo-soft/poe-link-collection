@@ -415,6 +415,12 @@
     "description": "Orb Fusion Game",
     "lastChecked": "2025-12-05T18:00:00Z"
   },
+  "poe-bingo": {
+    "name": "PoE Bingo",
+    "url": "https://poe-bingo.weosoft.org/",
+    "description": "Path of Exile bingo game",
+    "lastChecked": "2025-12-05T18:00:00Z"
+  },
   "exile-diary": {
     "name": "Exile Diary",
     "url": "https://github.com/Qt-dev/exile-diary",
@@ -525,6 +531,18 @@
     "url": "https://vilsol.github.io/timeless-jewels/tree",
     "icon": "/images/timelessjewelCalculator.png",
     "description": "Calculate and visualize timeless jewel passive tree modifications",
+    "lastChecked": "2025-12-05T18:00:00Z"
+  },
+  "indie-wiki-buddy-chrome": {
+    "name": "Indie Wiki Buddy (Chrome)",
+    "url": "https://chromewebstore.google.com/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm",
+    "description": "Helps you discover quality, independent wikis through alerts, redirects, and search filtering",
+    "lastChecked": "2025-12-05T18:00:00Z"
+  },
+  "indie-wiki-buddy-firefox": {
+    "name": "Indie Wiki Buddy (Firefox)",
+    "url": "https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/",
+    "description": "Helps you discover quality, independent wikis through alerts, redirects, and search filtering",
     "lastChecked": "2025-12-05T18:00:00Z"
   }
 }

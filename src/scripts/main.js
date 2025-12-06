@@ -9,6 +9,7 @@ import { renderNavigation, setupNavigationHandlers } from './navigation.js';
 import { renderEventsSection } from './events.js';
 import { renderUpdatesButton, toggleChangelog, closeChangelog } from './updates.js';
 import { setupContactDialog, openContactDialog } from './contact.js';
+import { setupDisclaimerDialog } from './disclaimer.js';
 
 // Error handling infrastructure
 window.addEventListener('error', (event) => {
@@ -129,6 +130,9 @@ async function init() {
 
     // Initialize contact dialog
     setupContactDialog();
+
+    // Initialize disclaimer dialog
+    setupDisclaimerDialog();
 
     // Setup game selector
     setupGameSelector();
