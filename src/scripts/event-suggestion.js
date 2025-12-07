@@ -531,6 +531,16 @@ export function openEventSuggestionDialog() {
   // Setup focus trap for keyboard navigation
   setupFocusTrap();
 
+  // Ensure game is set to current game if not already set
+  const gameSelect = dialogElement.querySelector('#event-game');
+  const currentGame = getCurrentGame();
+  if (gameSelect && !gameSelect.value && currentGame) {
+    gameSelect.value = currentGame;
+  }
+
+  // Initialize preview with default values
+  updatePreviewFromForm();
+
   // Prevent body scroll
   document.body.style.overflow = 'hidden';
 }
@@ -615,147 +625,160 @@ export function renderEventSuggestionDialog() {
       <button class="event-suggestion-dialog-close" aria-label="Close dialog" type="button">×</button>
     </div>
     <div class="event-suggestion-dialog-body">
-      <form id="event-suggestion-form" novalidate>
-        <div class="form-group">
-          <label for="event-name">Event Name <span class="required">*</span></label>
-          <input 
-            type="text" 
-            id="event-name" 
-            name="name" 
-            class="form-input" 
-            required 
-            maxlength="200"
-            aria-describedby="name-counter name-error"
-          />
-          <div id="name-counter" class="character-counter">0/200 characters</div>
-          <div id="name-error" class="error-message" role="alert"></div>
-        </div>
+      <div class="event-suggestion-form-container">
+        <form id="event-suggestion-form" novalidate>
+          <div class="form-group-inline" style="display: flex !important; flex-direction: row !important; gap: 0.5rem; width: 100%; align-items: flex-start;">
+            <div class="form-group" style="flex: 1 1 0%; min-width: 0;">
+              <label for="event-name" class="label-with-counter">
+                <span>Event Name <span class="required">*</span></span>
+                <span id="name-counter" class="character-counter">0/200 characters</span>
+              </label>
+              <input 
+                type="text" 
+                id="event-name" 
+                name="name" 
+                class="form-input" 
+                required 
+                maxlength="200"
+                aria-describedby="name-counter name-error"
+              />
+              <div id="name-error" class="error-message" role="alert"></div>
+            </div>
 
-        <div class="form-group">
-          <label for="event-game">Game <span class="required">*</span></label>
-          <select 
-            id="event-game" 
-            name="game" 
-            class="form-input" 
-            required
-            aria-describedby="game-error"
-          >
-            <option value="">Select a game...</option>
-            <option value="poe1">Path of Exile</option>
-            <option value="poe2">Path of Exile 2</option>
-          </select>
-          <div id="game-error" class="error-message" role="alert"></div>
-        </div>
-
-        <div class="form-group">
-          <label for="event-start-date">Start Date & Time <span class="required">*</span></label>
-          <div class="datetime-input-group">
-            <input 
-              type="date" 
-              id="event-start-date" 
-              name="startDate" 
-              class="form-input datetime-date" 
-              required
-              aria-describedby="start-date-error"
-            />
-            <input 
-              type="time" 
-              id="event-start-time" 
-              name="startTime" 
-              class="form-input datetime-time" 
-              required
-              value="00:00"
-              aria-describedby="start-date-error"
-            />
+            <div class="form-group game-select-group" style="flex: 0 0 auto; width: auto; min-width: 160px; max-width: 180px;">
+              <label for="event-game">Game <span class="required">*</span></label>
+              <select 
+                id="event-game" 
+                name="game" 
+                class="form-input" 
+                required
+                aria-describedby="game-error"
+                style="width: 100%;"
+              >
+                <option value="">Select a game...</option>
+                <option value="poe1">Path of Exile</option>
+                <option value="poe2">Path of Exile 2</option>
+              </select>
+              <div id="game-error" class="error-message" role="alert"></div>
+            </div>
           </div>
-          <div id="start-date-error" class="error-message" role="alert"></div>
-        </div>
 
-        <div class="form-group">
-          <label for="event-end-date">End Date & Time <span class="required">*</span></label>
-          <div class="datetime-input-group">
-            <input 
-              type="date" 
-              id="event-end-date" 
-              name="endDate" 
-              class="form-input datetime-date" 
-              required
-              aria-describedby="end-date-error"
-            />
-            <input 
-              type="time" 
-              id="event-end-time" 
-              name="endTime" 
-              class="form-input datetime-time" 
-              required
-              value="00:00"
-              aria-describedby="end-date-error"
-            />
+          <div class="form-group-inline" style="display: flex !important; flex-direction: row !important; gap: 0.5rem; width: 100%;">
+            <div class="form-group" style="flex: 1 1 0%; min-width: 0;">
+              <label for="event-start-date">Start Date & Time <span class="required">*</span></label>
+              <div class="datetime-input-group">
+                <input 
+                  type="date" 
+                  id="event-start-date" 
+                  name="startDate" 
+                  class="form-input datetime-date" 
+                  required
+                  aria-describedby="start-date-error"
+                />
+                <input 
+                  type="time" 
+                  id="event-start-time" 
+                  name="startTime" 
+                  class="form-input datetime-time" 
+                  required
+                  value="00:00"
+                  aria-describedby="start-date-error"
+                />
+              </div>
+              <div id="start-date-error" class="error-message" role="alert"></div>
+            </div>
+
+            <div class="form-group" style="flex: 1 1 0%; min-width: 0;">
+              <label for="event-end-date">End Date & Time <span class="required">*</span></label>
+              <div class="datetime-input-group">
+                <input 
+                  type="date" 
+                  id="event-end-date" 
+                  name="endDate" 
+                  class="form-input datetime-date" 
+                  required
+                  aria-describedby="end-date-error"
+                />
+                <input 
+                  type="time" 
+                  id="event-end-time" 
+                  name="endTime" 
+                  class="form-input datetime-time" 
+                  required
+                  value="00:00"
+                  aria-describedby="end-date-error"
+                />
+              </div>
+              <div id="end-date-error" class="error-message" role="alert"></div>
+            </div>
           </div>
-          <div id="end-date-error" class="error-message" role="alert"></div>
-        </div>
 
-        <div class="form-group">
-          <label for="event-banner-url">Banner Image URL (optional)</label>
-          <input 
-            type="url" 
-            id="event-banner-url" 
-            name="bannerImageUrl" 
-            class="form-input" 
-            placeholder="https://example.com/banner.png"
-            maxlength="500"
-            aria-describedby="banner-url-error"
-          />
-          <div id="banner-url-error" class="error-message" role="alert"></div>
-        </div>
+          <div class="form-group">
+            <label for="event-description" class="label-with-counter">
+              <span>Description (optional)</span>
+              <span id="description-counter" class="character-counter">0/2000 characters</span>
+            </label>
+            <textarea 
+              id="event-description" 
+              name="description" 
+              class="form-input" 
+              rows="3"
+              maxlength="2000"
+              aria-describedby="description-counter description-error"
+            ></textarea>
+            <div id="description-error" class="error-message" role="alert"></div>
+          </div>
 
-        <div class="form-group">
-          <label for="event-description">Description (optional)</label>
-          <textarea 
-            id="event-description" 
-            name="description" 
-            class="form-input" 
-            rows="4"
-            maxlength="2000"
-            aria-describedby="description-counter description-error"
-          ></textarea>
-          <div id="description-counter" class="character-counter">0/2000 characters</div>
-          <div id="description-error" class="error-message" role="alert"></div>
-        </div>
+          <div class="form-group-inline">
+            <div class="form-group">
+              <label for="event-banner-url">Banner Image URL (optional)</label>
+              <input 
+                type="url" 
+                id="event-banner-url" 
+                name="bannerImageUrl" 
+                class="form-input" 
+                placeholder="https://example.com/banner.png"
+                maxlength="500"
+                aria-describedby="banner-url-error"
+              />
+              <div id="banner-url-error" class="error-message" role="alert"></div>
+            </div>
 
-        <div class="form-group">
-          <label for="event-details-link">Details/Sign-up Link (optional)</label>
-          <input 
-            type="url" 
-            id="event-details-link" 
-            name="detailsLink" 
-            class="form-input" 
-            placeholder="https://example.com/event-details"
-            maxlength="500"
-            aria-describedby="details-link-error"
-          />
-          <div id="details-link-error" class="error-message" role="alert"></div>
-        </div>
+            <div class="form-group">
+              <label for="event-details-link">Details/Sign-up Link (optional)</label>
+              <input 
+                type="url" 
+                id="event-details-link" 
+                name="detailsLink" 
+                class="form-input" 
+                placeholder="https://example.com/event-details"
+                maxlength="500"
+                aria-describedby="details-link-error"
+              />
+              <div id="details-link-error" class="error-message" role="alert"></div>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label for="event-email">Your Email (optional)</label>
-          <input 
-            type="email" 
-            id="event-email" 
-            name="email" 
-            class="form-input" 
-            placeholder="your@email.com"
-            aria-describedby="email-error"
-          />
-          <div id="email-error" class="error-message" role="alert"></div>
-        </div>
+          <div class="form-group">
+            <label for="event-email">Your Email (optional)</label>
+            <input 
+              type="email" 
+              id="event-email" 
+              name="email" 
+              class="form-input" 
+              placeholder="your@email.com"
+              aria-describedby="email-error"
+            />
+            <div id="email-error" class="error-message" role="alert"></div>
+          </div>
 
-        <div id="event-submit-status" class="submit-status" role="status" aria-live="polite" aria-atomic="true"></div>
+          <div id="event-submit-status" class="submit-status" role="status" aria-live="polite" aria-atomic="true"></div>
 
-        <button type="submit" id="event-submit-button" class="event-submit-button">
-          Submit Event Suggestion
-        </button>
-      </form>
+          <button type="submit" id="event-submit-button" class="event-submit-button">
+            Submit Event Suggestion
+          </button>
+        </form>
+      </div>
 
       <div class="event-preview">
         <h3>Preview</h3>
@@ -908,19 +931,56 @@ export function updatePreview(formData) {
   // Clear previous preview
   previewContent.innerHTML = '';
 
-  // Check if we have minimum required data for preview
-  // startDate and endDate may be combined (with T) or separate
-  const hasStartDate = formData.startDate && (formData.startDate.includes('T') || (formData.startTime !== undefined && formData.startTime !== null));
-  const hasEndDate = formData.endDate && (formData.endDate.includes('T') || (formData.endTime !== undefined && formData.endTime !== null));
+  // Get default values - use form data if available, otherwise use defaults
+  const now = new Date();
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
   
-  if (!formData.name || !formData.game || !hasStartDate || !hasEndDate) {
-    // Show empty state
-    const emptyState = document.createElement('div');
-    emptyState.className = 'preview-empty-state';
-    emptyState.textContent = 'Fill in the required fields to see a preview';
-    previewContent.appendChild(emptyState);
-    return;
+  // Format dates for defaults (YYYY-MM-DD format)
+  const todayStr = now.toISOString().split('T')[0];
+  const tomorrowStr = tomorrow.toISOString().split('T')[0];
+  
+  // Determine start date/time (use form data or default to today at 00:00)
+  let startDateTime = '';
+  if (formData.startDate && formData.startDate.includes('T')) {
+    startDateTime = formData.startDate;
+  } else if (formData.startDate && formData.startTime) {
+    startDateTime = `${formData.startDate}T${formData.startTime}`;
+  } else if (formData.startDate) {
+    startDateTime = `${formData.startDate}T00:00`;
+  } else {
+    startDateTime = `${todayStr}T00:00`;
   }
+  
+  // Determine end date/time (use form data or default to tomorrow at 00:00)
+  let endDateTime = '';
+  if (formData.endDate && formData.endDate.includes('T')) {
+    endDateTime = formData.endDate;
+  } else if (formData.endDate && formData.endTime) {
+    endDateTime = `${formData.endDate}T${formData.endTime}`;
+  } else if (formData.endDate) {
+    endDateTime = `${formData.endDate}T00:00`;
+  } else {
+    endDateTime = `${tomorrowStr}T00:00`;
+  }
+  
+  // Use defaults for empty fields
+  const previewName = formData.name && formData.name.trim() ? formData.name.trim() : 'Example Event Name';
+  const previewGame = formData.game && formData.game.trim() ? formData.game.trim() : (getCurrentGame() || 'poe1');
+  const previewDescription = formData.description && formData.description.trim() ? formData.description.trim() : 'This is an example description for your event. It will show how your event description will appear to users.';
+  
+  // Use game logo as default banner if no banner URL is provided
+  let previewBannerUrl = '';
+  if (formData.bannerImageUrl && formData.bannerImageUrl.trim()) {
+    previewBannerUrl = formData.bannerImageUrl.trim();
+  } else {
+    // Use default game logo based on selected game
+    previewBannerUrl = previewGame === 'poe1' 
+      ? '/images/Path_of_Exile_logo.png' 
+      : '/images/Path_of_Exile_2_logo.png';
+  }
+  
+  const previewDetailsLink = formData.detailsLink && formData.detailsLink.trim() ? formData.detailsLink.trim() : '#';
 
   // Create preview event element (similar to renderEvent but for preview)
   const previewEvent = document.createElement('article');
@@ -929,23 +989,21 @@ export function updatePreview(formData) {
   // Event name
   const nameElement = document.createElement('h3');
   nameElement.className = 'event-name';
-  nameElement.textContent = formData.name || 'Event Name';
+  nameElement.textContent = previewName;
   previewEvent.appendChild(nameElement);
 
-  // Game badge (if game is selected)
-  if (formData.game) {
-    const gameBadge = document.createElement('span');
-    gameBadge.className = `event-game-badge preview-game-badge game-${formData.game}`;
-    gameBadge.textContent = formData.game === 'poe1' ? 'Path of Exile' : 'Path of Exile 2';
-    previewEvent.insertBefore(gameBadge, nameElement.nextSibling);
-  }
+  // Game badge (always show, using default if needed)
+  const gameBadge = document.createElement('span');
+  gameBadge.className = `event-game-badge preview-game-badge game-${previewGame}`;
+  gameBadge.textContent = previewGame === 'poe1' ? 'Path of Exile' : 'Path of Exile 2';
+  previewEvent.insertBefore(gameBadge, nameElement.nextSibling);
 
   // Banner image (if provided)
-  if (formData.bannerImageUrl && formData.bannerImageUrl.trim().length > 0) {
+  if (previewBannerUrl) {
     const bannerElement = document.createElement('img');
     bannerElement.className = 'event-banner preview-banner';
-    bannerElement.src = formData.bannerImageUrl.trim();
-    bannerElement.alt = `${formData.name} banner`;
+    bannerElement.src = previewBannerUrl;
+    bannerElement.alt = `${previewName} banner`;
     bannerElement.onerror = () => {
       // Handle broken image URL - hide the image
       bannerElement.style.display = 'none';
@@ -958,22 +1016,6 @@ export function updatePreview(formData) {
   datesElement.className = 'event-dates';
 
   try {
-    // Combine date and time if they're separate (updatePreviewFromForm should handle this, but be safe)
-    const startDateTime = formData.startDate && formData.startDate.includes('T') 
-      ? formData.startDate 
-      : formData.startDate && formData.startTime 
-        ? `${formData.startDate}T${formData.startTime}` 
-        : formData.startDate || '';
-    const endDateTime = formData.endDate && formData.endDate.includes('T')
-      ? formData.endDate
-      : formData.endDate && formData.endTime
-        ? `${formData.endDate}T${formData.endTime}`
-        : formData.endDate || '';
-    
-    if (!startDateTime || !endDateTime) {
-      return; // Can't create preview without dates
-    }
-    
     const startDate = new Date(startDateTime);
     const endDate = new Date(endDateTime);
 
@@ -1063,24 +1105,24 @@ export function updatePreview(formData) {
 
   previewEvent.appendChild(datesElement);
 
-  // Description (if provided)
-  if (formData.description && formData.description.trim().length > 0) {
-    const descElement = document.createElement('p');
-    descElement.className = 'event-description preview-description';
-    descElement.textContent = formData.description.trim();
-    previewEvent.appendChild(descElement);
-  }
+  // Description (always show, using default if needed)
+  const descElement = document.createElement('p');
+  descElement.className = 'event-description preview-description';
+  descElement.textContent = previewDescription;
+  previewEvent.appendChild(descElement);
 
-  // Details link (if provided)
-  if (formData.detailsLink && formData.detailsLink.trim().length > 0) {
-    const linkElement = document.createElement('a');
-    linkElement.className = 'event-details-link preview-details-link';
-    linkElement.href = formData.detailsLink.trim();
+  // Details link (always show, using default if needed)
+  const linkElement = document.createElement('a');
+  linkElement.className = 'event-details-link preview-details-link';
+  linkElement.href = previewDetailsLink;
+  if (previewDetailsLink !== '#') {
     linkElement.target = '_blank';
     linkElement.rel = 'noopener noreferrer';
-    linkElement.textContent = 'View Details / Sign Up';
-    previewEvent.appendChild(linkElement);
+  } else {
+    linkElement.onclick = (e) => e.preventDefault();
   }
+  linkElement.textContent = 'View Details / Sign Up';
+  previewEvent.appendChild(linkElement);
 
   previewContent.appendChild(previewEvent);
 }

@@ -31,6 +31,10 @@
           "message": "Added contact form"
         },
         {
+          "type": "note",
+          "message": "Added Events section with event suggestion dialog. Users can now view upcoming and running events, and suggest new events through an interactive dialog with live preview."
+        },
+        {
           "type": "added",
           "categoryId": "trade",
           "linkName": "PoE Disenchant",

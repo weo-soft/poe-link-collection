@@ -974,7 +974,7 @@ main {
   gap: var(--poe-spacing-md);
 }
 
-.form-group {
+.form-group:not(.form-group-inline) {
   display: flex;
   flex-direction: column;
   gap: var(--poe-spacing-xs);
@@ -1360,7 +1360,7 @@ textarea.form-input {
   background-color: var(--poe-bg-primary);
   border: 2px solid var(--poe-accent-primary);
   border-radius: var(--poe-border-radius);
-  max-width: 900px;
+  max-width: 1200px;
   width: 90%;
   max-height: 90vh;
   display: flex;
@@ -1422,20 +1422,27 @@ textarea.form-input {
   overflow-y: auto;
   flex: 1;
   display: flex;
-  flex-direction: column;
-  gap: var(--poe-spacing-md);
+  flex-direction: row;
+  gap: var(--poe-spacing-lg);
+  align-items: flex-start;
 }
 
-.event-suggestion-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--poe-spacing-md);
+.event-suggestion-form-container {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  max-height: calc(90vh - 120px);
 }
 
 .event-preview {
-  margin-top: var(--poe-spacing-md);
-  padding-top: var(--poe-spacing-md);
-  border-top: 1px solid var(--poe-border-color);
+  flex: 0 0 350px;
+  min-width: 300px;
+  padding-left: var(--poe-spacing-lg);
+  border-left: 1px solid var(--poe-border-color);
+  position: sticky;
+  top: 0;
+  max-height: calc(90vh - 120px);
+  overflow-y: auto;
 }
 
 .event-preview h3 {
@@ -1496,19 +1503,61 @@ textarea.form-input {
 .event-suggestion-form {
   display: flex;
   flex-direction: column;
-  gap: var(--poe-spacing-md);
+  gap: var(--poe-spacing-sm);
 }
 
-.event-suggestion-form .form-group {
+.event-suggestion-form > .form-group:not(.form-group-inline) {
   display: flex;
   flex-direction: column;
-  gap: var(--poe-spacing-xs);
+  gap: 0.2rem;
+}
+
+.event-suggestion-form .form-group-inline {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: var(--poe-spacing-sm) !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.event-suggestion-form .form-group-inline > .form-group {
+  gap: 0.2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.event-suggestion-form .form-group-inline > .form-group:first-child {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+.event-suggestion-form .form-group-inline > .form-group.game-select-group {
+  flex: 0 0 auto !important;
+  min-width: auto !important;
+  width: auto !important;
+  max-width: none !important;
 }
 
 .event-suggestion-form .form-group label {
   font-weight: 600;
   color: var(--poe-text-primary);
-  font-size: var(--poe-font-size-base);
+  font-size: var(--poe-font-size-sm);
+}
+
+.event-suggestion-form .form-group label.label-with-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--poe-spacing-sm);
 }
 
 .event-suggestion-form .form-group label .required {
@@ -1516,19 +1565,19 @@ textarea.form-input {
 }
 
 .event-suggestion-form .form-input {
-  padding: var(--poe-spacing-sm);
+  padding: 0.4rem 0.5rem;
   border: 1px solid var(--poe-border-color);
   border-radius: var(--poe-border-radius);
   background-color: var(--poe-bg-secondary);
   color: var(--poe-text-primary);
   font-family: var(--poe-font-family);
-  font-size: var(--poe-font-size-base);
+  font-size: var(--poe-font-size-sm);
   transition: var(--poe-transition);
 }
 
 .event-suggestion-form .form-input:focus {
   outline: 2px solid var(--poe-accent-primary);
-  outline-offset: 2px;
+  outline-offset: 1px;
   border-color: var(--poe-accent-primary);
 }
 
@@ -1540,25 +1589,33 @@ textarea.form-input {
   cursor: pointer;
 }
 
+.event-suggestion-form #event-game {
+  width: auto;
+  min-width: 160px;
+  max-width: 180px;
+}
+
 .event-suggestion-form textarea.form-input {
   resize: vertical;
-  min-height: 120px;
+  min-height: 80px;
+  padding: 0.4rem 0.5rem;
 }
 
 .datetime-input-group {
   display: flex;
-  gap: var(--poe-spacing-sm);
+  gap: 0.4rem;
   align-items: center;
 }
 
 .datetime-input-group .datetime-date {
-  flex: 1;
+  flex: 0 0 auto;
+  width: 140px;
   min-width: 0;
 }
 
 .datetime-input-group .datetime-time {
   flex: 0 0 auto;
-  width: 140px;
+  width: 90px;
 }
 
 @media (max-width: 768px) {
@@ -1573,9 +1630,15 @@ textarea.form-input {
 }
 
 .event-suggestion-form .character-counter {
-  font-size: var(--poe-font-size-sm);
+  font-size: 0.75rem;
   color: var(--poe-text-secondary);
-  text-align: right;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.event-suggestion-form .error-message {
+  font-size: 0.75rem;
+  margin-top: 0.1rem;
 }
 
 .event-suggestion-form .error-message {
@@ -1722,7 +1785,7 @@ textarea.form-input {
 }
 
 /* Responsive Design for Event Suggestion Dialog */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .event-suggestion-dialog-content {
     width: 95%;
     max-height: 95vh;
@@ -1732,8 +1795,23 @@ textarea.form-input {
     flex-direction: column;
   }
 
+  .event-suggestion-form-container {
+    max-height: none;
+  }
+
   .event-preview {
-    margin-top: var(--poe-spacing-md);
+    flex: 1;
+    min-width: auto;
+    padding-left: 0;
+    padding-top: var(--poe-spacing-lg);
+    border-left: none;
+    border-top: 1px solid var(--poe-border-color);
+    position: static;
+    max-height: none;
+  }
+
+  .event-suggestion-form .form-group-inline {
+    flex-direction: column;
   }
 }
 
