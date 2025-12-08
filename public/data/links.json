@@ -12,7 +12,15 @@
       "pohx",
       "path-of-exile-builds-reddit"
     ],
-    "poe2": []
+    "poe2": [
+      "poe-ninja-builds-poe2",
+      "poe-ninja-passive-skill-tree-poe2",
+      "poe-ninja-pob-poe2",
+      "pobarchives",
+      "maxroll-poe2",
+      "poe-vault-poe2",
+      "path-of-exile-2-builds-reddit"
+    ]
   },
   "loot-filters": {
     "id": "loot-filters",
@@ -22,7 +30,10 @@
       "poe1filters",
       "stupid-fat-hobbit-s-filters"
     ],
-    "poe2": []
+    "poe2": [
+      "filterblade-poe2",
+      "poe2filters"
+    ]
   },
   "trade": {
     "id": "trade",
@@ -32,9 +43,12 @@
       "poemap-trade",
       "disenchant",
       "map-search",
-      "the-forbidden-trove-discord"
+      "the-forbidden-trove-discord",
+      "watchers-eye-search"
     ],
-    "poe2": []
+    "poe2": [
+      "official-trade-poe2"
+    ]
   },
   "trackers": {
     "id": "trackers",
@@ -42,7 +56,8 @@
     "poe1": [
       "wealthy-exile",
       "exilence-ce",
-      "challenges-tracker"
+      "challenges-tracker",
+      "poe-exchange"
     ],
     "poe2": []
   },
@@ -54,7 +69,10 @@
       "indie-wiki-buddy-chrome",
       "indie-wiki-buddy-firefox"
     ],
-    "poe2": []
+    "poe2": [
+      "indie-wiki-buddy-chrome",
+      "indie-wiki-buddy-firefox"
+    ]
   },
   "economy": {
     "id": "economy",
@@ -65,7 +83,10 @@
       "poe-profits",
       "gains-of-exile"
     ],
-    "poe2": []
+    "poe2": [
+      "poe-ninja-economy-poe2",
+      "poe-watch-poe2"
+    ]
   },
   "build-tools": {
     "id": "build-tools",
@@ -78,7 +99,12 @@
       "poe-planner",
       "path-of-pathing"
     ],
-    "poe2": []
+    "poe2": [
+      "path-of-building-community-poe2",
+      "pobb-in-poe2",
+      "poe-planner-poe2",
+      "pob-cool-poe2"
+    ]
   },
   "labyrinth": {
     "id": "labyrinth",
@@ -104,7 +130,12 @@
       "chaos-recipe-enhancer",
       "poe-leveling-guide"
     ],
-    "poe2": []
+    "poe2": [
+      "exiled-exchange-2",
+      "xiletrade-poe2",
+      "exile-ui-poe2",
+      "mercurytrade-poe2"
+    ]
   },
   "atlas": {
     "id": "atlas",
@@ -114,7 +145,9 @@
       "poe-atlas",
       "maps-of-exile"
     ],
-    "poe2": []
+    "poe2": [
+      "poe-planner-atlas-poe2"
+    ]
   },
   "socials": {
     "id": "socials",
@@ -128,7 +161,15 @@
       "path-of-exile-discord",
       "ggg-tracker"
     ],
-    "poe2": []
+    "poe2": [
+      "path-of-exile-twitch",
+      "path-of-exile-2-reddit",
+      "path-of-exile-x",
+      "path-of-exile-facebook",
+      "path-of-exile-youtube",
+      "path-of-exile-discord",
+      "ggg-tracker"
+    ]
   },
   "crafting": {
     "id": "crafting",
@@ -140,7 +181,10 @@
       "poe-cluster-jewel-calculator",
       "eldritch-implicit-modifiers"
     ],
-    "poe2": []
+    "poe2": [
+      "poe2db-modifiers",
+      "craft-of-exile-poe2"
+    ]
   },
   "resources": {
     "id": "resources",
@@ -150,7 +194,11 @@
       "poedb",
       "patch-notes"
     ],
-    "poe2": []
+    "poe2": [
+      "path-of-exile-2-wiki",
+      "poe2db",
+      "patch-notes-poe2"
+    ]
   },
   "leveling": {
     "id": "leveling",
@@ -193,10 +241,15 @@
       "poe-community-racing-discord",
       "divcord-discord",
       "fishcord-discord",
-      "poe-exchange",
       "poe-place",
       "timeless-jewel-calculator"
     ],
-    "poe2": []
+    "poe2": [
+      "patchbot-poe2",
+      "hideout-showcase-poe2",
+      "poe2-re",
+      "poe-ladder-poe2",
+      "poe-place-poe2"
+    ]
   }
 }
