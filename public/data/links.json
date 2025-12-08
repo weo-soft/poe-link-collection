@@ -10,7 +10,9 @@
       "maxroll",
       "poe-vault",
       "pohx",
-      "path-of-exile-builds-reddit"
+      "path-of-exile-builds-reddit",
+      "poeez-character-hub",
+      "poeez-build-browse"
     ],
     "poe2": [
       "poe-ninja-builds-poe2",
@@ -57,9 +59,12 @@
       "wealthy-exile",
       "exilence-ce",
       "challenges-tracker",
-      "poe-exchange"
+      "poe-exchange",
+      "poeez-economy-currency"
     ],
-    "poe2": []
+    "poe2": [
+      "poeez-economy-currency-poe2"
+    ]
   },
   "browser-extensions": {
     "id": "browser-extensions",

@@ -745,5 +745,29 @@
     "url": "https://poe.place/",
     "description": "Path of Exile 2 resources, builds, videos, and tools",
     "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "poeez-economy-currency": {
+    "name": "Poeez Economy Tracker",
+    "url": "https://poeez.com/economy/currency",
+    "description": "Economy tracker for Path of Exile",
+    "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "poeez-economy-currency-poe2": {
+    "name": "Poeez Economy Tracker",
+    "url": "https://poeez.com/poe2/economy/currency",
+    "description": "Economy tracker for Path of Exile 2",
+    "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "poeez-character-hub": {
+    "name": "Poeez Character Hub",
+    "url": "https://poeez.com/character-hub",
+    "description": "Character hub for Path of Exile",
+    "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "poeez-build-browse": {
+    "name": "Poeez Build Browse",
+    "url": "https://poeez.com/build/browse/explore",
+    "description": "Browse and explore builds for Path of Exile",
+    "lastChecked": "2025-12-08T18:00:00Z"
   }
 }

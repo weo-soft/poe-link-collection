@@ -5,6 +5,30 @@
       "date": "2025-12-08T18:00:00Z",
       "entries": [
         {
+          "type": "added",
+          "categoryId": "trackers",
+          "linkName": "Poeez Economy Currency",
+          "linkUrl": "https://poeez.com/economy/currency"
+        },
+        {
+          "type": "added",
+          "categoryId": "trackers",
+          "linkName": "Poeez Economy Currency",
+          "linkUrl": "https://poeez.com/poe2/economy/currency"
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "Poeez Character Hub",
+          "linkUrl": "https://poeez.com/character-hub"
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "Poeez Build Browse",
+          "linkUrl": "https://poeez.com/build/browse/explore"
+        },
+        {
           "type": "note",
           "message": "Added first batch of Path of Exile 2 Links"
         }
