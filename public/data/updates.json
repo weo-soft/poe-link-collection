@@ -51,6 +51,24 @@
           "categoryId": "crafting",
           "linkName": "POE2HTC",
           "linkUrl": "https://www.poe2htc.com"
+        },
+        {
+          "type": "added",
+          "categoryId": "crafting",
+          "linkName": "Path of Crafting",
+          "linkUrl": "https://pathofcrafting.net/"
+        },
+        {
+          "type": "added",
+          "categoryId": "resources",
+          "linkName": "POE2 Spectre Wiki",
+          "linkUrl": "https://poe2spectrewiki.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "resources",
+          "linkName": "POE2 Spectre Spreadsheet",
+          "linkUrl": "https://docs.google.com/spreadsheets/d/1oadXSCHczpyCgRxzTk3nRBeeOLlefZAzKM3ijwmWevY/edit?gid=0#gid=0"
         }
       ]
     },

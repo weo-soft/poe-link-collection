@@ -728,6 +728,12 @@
     "description": "Crafting calculator and optimizer for Path of Exile 2",
     "lastChecked": "2025-12-09T18:00:00Z"
   },
+  "path-of-crafting": {
+    "name": "Path of Crafting",
+    "url": "https://pathofcrafting.net/",
+    "description": "Crafting simulator for Path of Exile 2 with various crafting methods and currency applications",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
   "path-of-exile-2-wiki": {
     "name": "Path of Exile 2 Wiki",
     "url": "https://www.poe2wiki.net/wiki/Path_of_Exile_2_Wiki",
@@ -745,6 +751,18 @@
     "url": "https://www.pathofexile.com/forum/view-forum/2212",
     "description": "Official Path of Exile 2 patch notes",
     "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "poe2-spectre-wiki": {
+    "name": "POE2 Spectre Wiki",
+    "url": "https://poe2spectrewiki.com/",
+    "description": "Comprehensive guide to Spectres in Path of Exile 2 with details, locations, and build synergies",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "poe2-spectre-spreadsheet": {
+    "name": "POE2 Spectre Spreadsheet",
+    "url": "https://docs.google.com/spreadsheets/d/1oadXSCHczpyCgRxzTk3nRBeeOLlefZAzKM3ijwmWevY/edit?gid=0#gid=0",
+    "description": "Community-maintained spreadsheet documenting all spectres in Path of Exile 2",
+    "lastChecked": "2025-12-09T18:00:00Z"
   },
   "watchers-eye-search": {
     "name": "Watcher's Eye Search",

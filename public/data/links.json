@@ -194,7 +194,8 @@
     "poe2": [
       "poe2db-modifiers",
       "craft-of-exile-poe2",
-      "poe2htc"
+      "poe2htc",
+      "path-of-crafting"
     ]
   },
   "resources": {
@@ -208,7 +209,9 @@
     "poe2": [
       "path-of-exile-2-wiki",
       "poe2db",
-      "patch-notes-poe2"
+      "patch-notes-poe2",
+      "poe2-spectre-wiki",
+      "poe2-spectre-spreadsheet"
     ]
   },
   "leveling": {
