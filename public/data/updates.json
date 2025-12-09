@@ -45,6 +45,12 @@
           "categoryId": "builds",
           "linkName": "PoE Builds",
           "linkUrl": "https://www.poebuilds.cc/poe2/"
+        },
+        {
+          "type": "added",
+          "categoryId": "crafting",
+          "linkName": "POE2HTC",
+          "linkUrl": "https://www.poe2htc.com"
         }
       ]
     },

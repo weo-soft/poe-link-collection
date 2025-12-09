@@ -157,9 +157,14 @@ export function renderLink(container, link, categoryId) {
 export function renderCategory(container, category) {
   const section = document.createElement('section');
   section.className = 'category-section';
-  // Add full-width class for more-links category
+  // Add full-width class for more-links category (special case)
   if (category.id === 'more-links') {
     section.classList.add('full-width');
+  } else {
+    // Add wide class for categories with more than 10 links (but not more-links)
+    if (category.links && category.links.length > 10) {
+      section.classList.add('wide');
+    }
   }
   section.setAttribute('data-category-id', category.id);
   section.setAttribute('aria-labelledby', `category-${category.id}`);
@@ -207,7 +212,12 @@ export function renderAllCategories(container, categories) {
     return;
   }
 
-  categories.forEach((category) => {
+  // Separate "more-links" category from others
+  const moreLinksCategory = categories.find(cat => cat.id === 'more-links');
+  const otherCategories = categories.filter(cat => cat.id !== 'more-links');
+
+  // Render all other categories first
+  otherCategories.forEach((category) => {
     try {
       renderCategory(container, category);
     } catch (error) {
@@ -215,5 +225,14 @@ export function renderAllCategories(container, categories) {
       // Continue rendering other categories even if one fails
     }
   });
+
+  // Render "more-links" category last (at the bottom)
+  if (moreLinksCategory) {
+    try {
+      renderCategory(container, moreLinksCategory);
+    } catch (error) {
+      console.error('Error rendering more-links category:', error, moreLinksCategory);
+    }
+  }
 }
 

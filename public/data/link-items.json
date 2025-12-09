@@ -722,6 +722,12 @@
     "description": "Crafting simulator and calculator for Path of Exile 2",
     "lastChecked": "2025-12-08T18:00:00Z"
   },
+  "poe2htc": {
+    "name": "POE2HTC",
+    "url": "https://www.poe2htc.com",
+    "description": "Crafting calculator and optimizer for Path of Exile 2",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
   "path-of-exile-2-wiki": {
     "name": "Path of Exile 2 Wiki",
     "url": "https://www.poe2wiki.net/wiki/Path_of_Exile_2_Wiki",

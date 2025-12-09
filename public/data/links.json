@@ -193,7 +193,8 @@
     ],
     "poe2": [
       "poe2db-modifiers",
-      "craft-of-exile-poe2"
+      "craft-of-exile-poe2",
+      "poe2htc"
     ]
   },
   "resources": {

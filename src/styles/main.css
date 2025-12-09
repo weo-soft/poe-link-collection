@@ -158,6 +158,11 @@ main {
   grid-column: 1 / -1;
 }
 
+/* Wide category for categories with more than 10 links */
+.category-section.wide {
+  grid-column: span 2;
+}
+
 .category-title {
   font-size: var(--poe-font-size-lg);
   color: var(--poe-accent-primary);
@@ -762,6 +767,11 @@ main {
     grid-template-columns: 1fr;
     gap: var(--poe-spacing-sm);
     margin-bottom: var(--poe-spacing-lg);
+  }
+
+  /* On mobile, wide categories should span full width (single column) */
+  .category-section.wide {
+    grid-column: span 1;
   }
   
   #events {
