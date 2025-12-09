@@ -1857,3 +1857,111 @@ textarea.form-input {
   }
 }
 
+/* Footer Styles */
+footer {
+  margin-top: var(--poe-spacing-xl);
+  padding: var(--poe-spacing-md) 0;
+  text-align: center;
+  border-top: 1px solid var(--poe-border-color);
+}
+
+footer nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--poe-spacing-md);
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--poe-link-color);
+  text-decoration: none;
+  transition: var(--poe-transition);
+  padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
+}
+
+footer a:hover {
+  color: var(--poe-link-hover);
+  text-decoration: underline;
+}
+
+footer a:visited {
+  color: var(--poe-link-visited);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  footer nav {
+    flex-direction: column;
+    gap: var(--poe-spacing-sm);
+  }
+  
+  footer a {
+    display: inline-block;
+  }
+}
+
+/* Impressum Page Specific Styles */
+main section {
+  margin-bottom: var(--poe-spacing-lg);
+}
+
+main section:last-child {
+  margin-bottom: 0;
+}
+
+main address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+main address a {
+  color: var(--poe-link-color);
+  text-decoration: underline;
+}
+
+/* Print Styles for Impressum */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  nav,
+  footer,
+  #game-selector {
+    display: none;
+  }
+  
+  main {
+    margin-top: 0;
+  }
+  
+  main section {
+    page-break-inside: avoid;
+    margin-bottom: var(--poe-spacing-md);
+  }
+  
+  main h1 {
+    page-break-after: avoid;
+  }
+  
+  main h2 {
+    page-break-after: avoid;
+  }
+  
+  main a {
+    color: black;
+    text-decoration: underline;
+  }
+  
+  main a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+  }
+}
+

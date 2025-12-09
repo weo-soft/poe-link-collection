@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { getCurrentPage, setActiveNavigation } from '../../src/scripts/navigation.js';
+import { getCurrentPage, setActiveNavigation, navigationItems } from '../../src/scripts/navigation.js';
 
 describe('getCurrentPage', () => {
   beforeEach(() => {
@@ -63,5 +63,19 @@ describe('setActiveNavigation', () => {
     document.body.innerHTML = '<nav id="navigation"></nav>';
     expect(() => setActiveNavigation('/')).not.toThrow();
   });
+
+  it('should set active class and aria-current for impressum page', () => {
+    document.body.innerHTML = `
+      <nav id="navigation">
+        <a href="/" data-page="/">PoE Hub</a>
+        <a href="/impressum.html" data-page="/impressum.html">Impressum</a>
+      </nav>
+    `;
+    setActiveNavigation('/impressum.html');
+    const impressumLink = document.querySelector('[data-page="/impressum.html"]');
+    expect(impressumLink.classList.contains('active')).toBe(true);
+    expect(impressumLink.getAttribute('aria-current')).toBe('page');
+  });
 });
+
 

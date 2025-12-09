@@ -1012,3 +1012,127 @@ describe('Contact Dialog Integration', () => {
     expect(dialog.getAttribute('aria-hidden')).toBe('true');
   });
 });
+
+describe('Impressum Page Integration', () => {
+  beforeEach(() => {
+    // Mock impressum.html structure
+    document.body.innerHTML = `
+      <div class="container">
+        <nav id="navigation" role="navigation" aria-label="Main navigation"></nav>
+        <main role="main">
+          <h1>Impressum</h1>
+          <section>
+            <h2>Site Owner / Operator</h2>
+            <p>Test Owner</p>
+          </section>
+          <section>
+            <h2>Contact Information</h2>
+            <address>
+              Test Street 123<br>
+              Test City, 12345<br>
+              Test Country<br>
+              Email: <a href="mailto:test@example.com">test@example.com</a>
+            </address>
+          </section>
+          <section>
+            <h2>Responsible Person</h2>
+            <p>Test Responsible Person</p>
+          </section>
+        </main>
+        <footer>
+          <nav aria-label="Footer navigation">
+            <a href="/">Home</a> | <a href="/impressum.html">Impressum</a>
+          </nav>
+        </footer>
+      </div>
+    `;
+    // Mock window.location for impressum page
+    delete window.location;
+    window.location = { pathname: '/impressum.html' };
+  });
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('should display impressum page heading', () => {
+    const heading = document.querySelector('main h1');
+    expect(heading).toBeTruthy();
+    expect(heading.textContent).toBe('Impressum');
+  });
+
+  it('should display site owner section', () => {
+    const ownerSection = document.querySelector('main section h2');
+    expect(ownerSection).toBeTruthy();
+    expect(ownerSection.textContent).toBe('Site Owner / Operator');
+    const ownerContent = document.querySelector('main section p');
+    expect(ownerContent).toBeTruthy();
+  });
+
+  it('should display contact information section', () => {
+    const sections = document.querySelectorAll('main section');
+    expect(sections.length).toBeGreaterThanOrEqual(2);
+    const contactHeading = Array.from(document.querySelectorAll('main section h2')).find(
+      h2 => h2.textContent === 'Contact Information'
+    );
+    expect(contactHeading).toBeTruthy();
+    const address = document.querySelector('main address');
+    expect(address).toBeTruthy();
+  });
+
+  it('should display responsible person section', () => {
+    const sections = document.querySelectorAll('main section');
+    expect(sections.length).toBeGreaterThanOrEqual(3);
+    const responsibleHeading = Array.from(document.querySelectorAll('main section h2')).find(
+      h2 => h2.textContent === 'Responsible Person'
+    );
+    expect(responsibleHeading).toBeTruthy();
+  });
+
+
+  it('should have footer link to impressum page', () => {
+    const footerLink = document.querySelector('footer a[href="/impressum.html"]');
+    expect(footerLink).toBeTruthy();
+    expect(footerLink.textContent).toContain('Impressum');
+  });
+
+  it('should have footer link to home page', () => {
+    const homeLink = document.querySelector('footer a[href="/"]');
+    expect(homeLink).toBeTruthy();
+    expect(homeLink.textContent).toContain('Home');
+  });
+});
+
+describe('Footer Integration', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div class="container">
+        <main role="main">
+          <div id="categories"></div>
+        </main>
+        <footer>
+          <nav aria-label="Footer navigation">
+            <a href="/impressum.html" aria-label="View legal notice">Impressum</a>
+          </nav>
+        </footer>
+      </div>
+    `;
+  });
+
+  afterEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('should have footer impressum link on main page', () => {
+    const footerLink = document.querySelector('footer a[href="/impressum.html"]');
+    expect(footerLink).toBeTruthy();
+    expect(footerLink.textContent).toBe('Impressum');
+    expect(footerLink.getAttribute('aria-label')).toBe('View legal notice');
+  });
+
+  it('should have footer navigation element with proper aria-label', () => {
+    const footerNav = document.querySelector('footer nav');
+    expect(footerNav).toBeTruthy();
+    expect(footerNav.getAttribute('aria-label')).toBe('Footer navigation');
+  });
+});

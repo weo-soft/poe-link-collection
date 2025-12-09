@@ -16,7 +16,10 @@ export default defineConfig({
     sourcemap: false,
     minify: 'esbuild',
     rollupOptions: {
-      input: resolve(__dirname, 'src/index.html'),
+      input: {
+        main: resolve(__dirname, 'src/index.html'),
+        impressum: resolve(__dirname, 'src/impressum.html'),
+      },
       output: {
         manualChunks: undefined,
       },
