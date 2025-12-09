@@ -551,6 +551,12 @@
     "description": "Keepers of the Flame League Challenge Analysis and Newbie Guide",
     "lastChecked": "2025-12-08T18:00:00Z"
   },
+  "timeless-historian": {
+    "name": "Timeless Historian",
+    "url": "https://timelesshistorian.xyz",
+    "description": "Path of Exile resources and tools",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
   "indie-wiki-buddy-chrome": {
     "name": "Indie Wiki Buddy (Chrome)",
     "url": "https://chromewebstore.google.com/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm",
@@ -598,6 +604,18 @@
     "url": "https://www.reddit.com/r/pathofexile2builds/",
     "description": "Subreddit for Path of Exile 2 builds, guides and questions",
     "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "mobalytics-poe2": {
+    "name": "Mobalytics PoE 2",
+    "url": "https://mobalytics.gg/poe-2/builds",
+    "description": "Path of Exile 2 builds, guides, tier lists, and build planner",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "poebuilds-cc-poe2": {
+    "name": "PoE Builds",
+    "url": "https://www.poebuilds.cc/poe2/",
+    "description": "Path of Exile 2 build archive with popular and latest builds",
+    "lastChecked": "2025-12-09T18:00:00Z"
   },
   "filterblade-poe2": {
     "name": "FilterBlade",
@@ -781,5 +799,17 @@
     "url": "https://poeez.com/build/browse/explore",
     "description": "Browse and explore builds for Path of Exile",
     "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "mobalytics-poe1": {
+    "name": "Mobalytics PoE",
+    "url": "https://mobalytics.gg/poe",
+    "description": "Path of Exile builds, guides, tier lists, and build planner",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "poebuilds-cc-poe1": {
+    "name": "PoE Builds",
+    "url": "https://www.poebuilds.cc/poe/",
+    "description": "Path of Exile build archive with popular and latest builds",
+    "lastChecked": "2025-12-09T18:00:00Z"
   }
 }

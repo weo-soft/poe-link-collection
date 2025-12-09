@@ -15,6 +15,36 @@
           "categoryId": "more-links",
           "linkName": "Keepers of the Flame League Challenge Guide",
           "linkUrl": "https://docs.google.com/document/d/10Wr7LC-rqA6QuJqPdP6Chd6l-inYci4cNTWuHVVC05Y/edit?usp=sharing"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "Timeless Historian",
+          "linkUrl": "https://timelesshistorian.xyz"
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "Mobalytics PoE",
+          "linkUrl": "https://mobalytics.gg/poe"
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "PoE Builds",
+          "linkUrl": "https://www.poebuilds.cc/poe/"
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "Mobalytics PoE 2",
+          "linkUrl": "https://mobalytics.gg/poe-2/builds"
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "PoE Builds",
+          "linkUrl": "https://www.poebuilds.cc/poe2/"
         }
       ]
     },

@@ -12,7 +12,9 @@
       "pohx",
       "path-of-exile-builds-reddit",
       "poeez-character-hub",
-      "poeez-build-browse"
+      "poeez-build-browse",
+      "mobalytics-poe1",
+      "poebuilds-cc-poe1"
     ],
     "poe2": [
       "poe-ninja-builds-poe2",
@@ -21,7 +23,9 @@
       "pobarchives",
       "maxroll-poe2",
       "poe-vault-poe2",
-      "path-of-exile-2-builds-reddit"
+      "path-of-exile-2-builds-reddit",
+      "mobalytics-poe2",
+      "poebuilds-cc-poe2"
     ]
   },
   "loot-filters": {
@@ -249,7 +253,8 @@
       "fishcord-discord",
       "poe-place",
       "timeless-jewel-calculator",
-      "keepers-of-the-flame-guide"
+      "keepers-of-the-flame-guide",
+      "timeless-historian"
     ],
     "poe2": [
       "patchbot-poe2",
