@@ -139,7 +139,8 @@
       "exiled-exchange-2",
       "xiletrade-poe2",
       "exile-ui-poe2",
-      "mercurytrade-poe2"
+      "mercurytrade-poe2",
+      "exile-compass-poe2"
     ]
   },
   "atlas": {
@@ -247,7 +248,8 @@
       "divcord-discord",
       "fishcord-discord",
       "poe-place",
-      "timeless-jewel-calculator"
+      "timeless-jewel-calculator",
+      "keepers-of-the-flame-guide"
     ],
     "poe2": [
       "patchbot-poe2",

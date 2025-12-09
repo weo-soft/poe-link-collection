@@ -545,6 +545,12 @@
     "description": "Calculate and visualize timeless jewel passive tree modifications",
     "lastChecked": "2025-12-08T18:00:00Z"
   },
+  "keepers-of-the-flame-guide": {
+    "name": "Keepers of the Flame League Challenge Guide",
+    "url": "https://docs.google.com/document/d/10Wr7LC-rqA6QuJqPdP6Chd6l-inYci4cNTWuHVVC05Y/edit?usp=sharing",
+    "description": "Keepers of the Flame League Challenge Analysis and Newbie Guide",
+    "lastChecked": "2025-12-08T18:00:00Z"
+  },
   "indie-wiki-buddy-chrome": {
     "name": "Indie Wiki Buddy (Chrome)",
     "url": "https://chromewebstore.google.com/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm",
@@ -666,6 +672,12 @@
     "url": "https://github.com/Morph21/MercuryTrade-Community-Fork",
     "icon": "/images/mercuryTrade.png",
     "description": "Overlay application for Path of Exile 2 with tracking, trading, and chat features",
+    "lastChecked": "2025-12-08T18:00:00Z"
+  },
+  "exile-compass-poe2": {
+    "name": "Exile Compass",
+    "url": "https://exilecompass.com/",
+    "description": "Desktop overlay companion for Path of Exile 2 - track quests, gem progression, passive tree, regex filters, and notes",
     "lastChecked": "2025-12-08T18:00:00Z"
   },
   "poe-planner-atlas-poe2": {
