@@ -97,6 +97,20 @@ function setupGameSelector() {
 }
 
 /**
+ * Updates the URL hash with the game identifier without reloading the page
+ * @param {string} game - Game identifier ('poe1' or 'poe2')
+ */
+function updateURLHash(game) {
+  if (game === 'poe1') {
+    // Remove the hash for poe1 (default)
+    window.history.replaceState({}, '', window.location.pathname + window.location.search);
+  } else {
+    // Set hash to #poe2
+    window.history.replaceState({}, '', window.location.pathname + window.location.search + '#' + game);
+  }
+}
+
+/**
  * Switches the active game and reloads categories
  * @param {string} game - Game identifier ('poe1' or 'poe2')
  */
@@ -107,6 +121,7 @@ async function switchGame(game) {
   }
 
   setCurrentGame(game);
+  updateURLHash(game);
   setupGameSelector();
   await loadAndRenderCategories(game);
   
@@ -146,6 +161,20 @@ async function switchGame(game) {
  */
 async function init() {
   try {
+    // Check URL hash and set game accordingly
+    const hash = window.location.hash.slice(1); // Remove the '#' character
+    if (hash === 'poe1' || hash === 'poe2') {
+      // URL hash takes precedence, update localStorage to match
+      setCurrentGame(hash);
+    } else {
+      // No URL hash, check localStorage
+      const currentGame = getCurrentGame();
+      // Only update URL hash if game is poe2 (poe1 is the default, no hash needed)
+      if (currentGame === 'poe2') {
+        updateURLHash(currentGame);
+      }
+    }
+
     // Initialize navigation
     const navContainer = document.getElementById('navigation');
     if (navContainer) {
@@ -244,4 +273,22 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+// Listen for hash changes (browser back/forward or manual hash change)
+window.addEventListener('hashchange', async () => {
+  const hash = window.location.hash.slice(1);
+  if (hash === 'poe1' || hash === 'poe2') {
+    const currentGame = getCurrentGame();
+    if (currentGame !== hash) {
+      // Hash changed, switch to the game specified in the hash
+      await switchGame(hash);
+    }
+  } else {
+    // No hash or invalid hash, default to poe1
+    const currentGame = getCurrentGame();
+    if (currentGame !== 'poe1') {
+      await switchGame('poe1');
+    }
+  }
+});
 

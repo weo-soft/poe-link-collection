@@ -698,6 +698,13 @@
     "description": "Desktop overlay companion for Path of Exile 2 - track quests, gem progression, passive tree, regex filters, and notes",
     "lastChecked": "2025-12-08T18:00:00Z"
   },
+  "sidekick-poe2": {
+    "name": "Sidekick",
+    "url": "https://sidekick-poe.github.io/",
+    "icon": "/images/ExaltedOrb.png",
+    "description": "Path of Exile 2 companion tool offering item price checking, map modifier analysis, and more",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
   "poe-planner-atlas-poe2": {
     "name": "PoE Planner Atlas Tree",
     "url": "https://poeplanner.com/atlas-tree2",

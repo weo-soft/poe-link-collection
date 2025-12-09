@@ -119,9 +119,17 @@ function validateCategoryStructure(category) {
 
 /**
  * Gets the current selected game (poe1 or poe2)
+ * Checks URL hash first, then localStorage, then defaults to poe1
  * @returns {string} - Current game identifier ('poe1' or 'poe2')
  */
 export function getCurrentGame() {
+  // Check URL hash first (format: #poe1 or #poe2)
+  const hash = window.location.hash.slice(1); // Remove the '#' character
+  if (hash === 'poe1' || hash === 'poe2') {
+    return hash;
+  }
+  
+  // Fall back to localStorage
   const stored = localStorage.getItem('poe-game-selection');
   return stored === 'poe2' ? 'poe2' : 'poe1'; // Default to poe1
 }

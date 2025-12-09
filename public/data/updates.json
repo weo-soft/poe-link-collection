@@ -69,6 +69,12 @@
           "categoryId": "resources",
           "linkName": "POE2 Spectre Spreadsheet",
           "linkUrl": "https://docs.google.com/spreadsheets/d/1oadXSCHczpyCgRxzTk3nRBeeOLlefZAzKM3ijwmWevY/edit?gid=0#gid=0"
+        },
+        {
+          "type": "added",
+          "categoryId": "game-overlay",
+          "linkName": "Sidekick",
+          "linkUrl": "https://sidekick-poe.github.io/"
         }
       ]
     },
