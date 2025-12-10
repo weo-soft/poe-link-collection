@@ -842,5 +842,17 @@
     "url": "https://www.poebuilds.cc/poe/",
     "description": "Path of Exile build archive with popular and latest builds",
     "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "xilehud-poe2": {
+    "name": "XileHUD",
+    "url": "https://github.com/XileHUD/poe_overlay",
+    "description": "Lightweight PoE1 and PoE2 item & modifier overlay, copy an item, see the data instantly",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "poe2scout": {
+    "name": "PoE2 Scout",
+    "url": "https://poe2scout.com/",
+    "description": "Path of Exile 2 economy tracker tool",
+    "lastChecked": "2025-12-09T18:00:00Z"
   }
 }

@@ -1,6 +1,23 @@
 {
-  "lastUpdated": "2025-12-09T18:00:00Z",
+  "lastUpdated": "2025-12-10T18:00:00Z",
   "changelog": [
+    {
+      "date": "2025-12-10T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "game-overlay",
+          "linkName": "XileHUD",
+          "linkUrl": "https://github.com/XileHUD/poe_overlay"
+        },
+        {
+          "type": "added",
+          "categoryId": "trackers",
+          "linkName": "PoE2 Scout",
+          "linkUrl": "https://poe2scout.com/"
+        }
+      ]
+    },
     {
       "date": "2025-12-09T18:00:00Z",
       "entries": [
