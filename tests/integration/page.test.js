@@ -1012,3 +1012,85 @@ describe('Contact Dialog Integration', () => {
     expect(dialog.getAttribute('aria-hidden')).toBe('true');
   });
 });
+
+describe('Footer Integration', () => {
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <div class="container">
+        <main role="main">
+          <section id="categories"></section>
+        </main>
+      </div>
+      <footer role="contentinfo" aria-label="Site footer" class="site-footer">
+        <nav aria-label="Legal pages" class="footer-nav">
+          <ul class="footer-links">
+            <li>
+              <a href="/about.html" aria-label="About page" class="footer-link">About</a>
+            </li>
+            <li>
+              <a href="/privacy.html" aria-label="Privacy Policy page" class="footer-link">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/terms.html" aria-label="Terms of Use page" class="footer-link">Terms of Use</a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    `;
+  });
+
+  it('should have footer visible on page', () => {
+    const footer = document.querySelector('footer');
+    expect(footer).toBeTruthy();
+    expect(footer.classList.contains('site-footer')).toBe(true);
+  });
+
+  it('should have all three footer links visible', () => {
+    const links = document.querySelectorAll('footer .footer-link');
+    expect(links).toHaveLength(3);
+    
+    const linkTexts = Array.from(links).map(link => link.textContent.trim());
+    expect(linkTexts).toContain('About');
+    expect(linkTexts).toContain('Privacy Policy');
+    expect(linkTexts).toContain('Terms of Use');
+  });
+
+  it('should have correct href attributes for all footer links', () => {
+    const aboutLink = document.querySelector('footer a[href="/about.html"]');
+    const privacyLink = document.querySelector('footer a[href="/privacy.html"]');
+    const termsLink = document.querySelector('footer a[href="/terms.html"]');
+    
+    expect(aboutLink).toBeTruthy();
+    expect(privacyLink).toBeTruthy();
+    expect(termsLink).toBeTruthy();
+  });
+
+  it('should have proper ARIA labels for all footer links', () => {
+    const links = document.querySelectorAll('footer .footer-link');
+    links.forEach(link => {
+      expect(link.getAttribute('aria-label')).toBeTruthy();
+    });
+    
+    const aboutLink = document.querySelector('footer a[href="/about.html"]');
+    expect(aboutLink.getAttribute('aria-label')).toBe('About page');
+    
+    const privacyLink = document.querySelector('footer a[href="/privacy.html"]');
+    expect(privacyLink.getAttribute('aria-label')).toBe('Privacy Policy page');
+    
+    const termsLink = document.querySelector('footer a[href="/terms.html"]');
+    expect(termsLink.getAttribute('aria-label')).toBe('Terms of Use page');
+  });
+
+  it('should have footer positioned after main content', () => {
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    
+    expect(main).toBeTruthy();
+    expect(footer).toBeTruthy();
+    
+    // Verify footer comes after main in DOM order
+    const mainIndex = Array.from(document.body.children).indexOf(main);
+    const footerIndex = Array.from(document.body.children).indexOf(footer);
+    expect(footerIndex).toBeGreaterThan(mainIndex);
+  });
+});

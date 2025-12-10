@@ -24,6 +24,8 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 body::before {
@@ -82,6 +84,9 @@ a:visited {
   padding: 0 var(--poe-spacing-md);
   position: relative;
   z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
@@ -89,6 +94,7 @@ main {
   gap: var(--poe-spacing-lg);
   align-items: flex-start;
   margin-top: var(--poe-spacing-lg);
+  flex: 1;
 }
 
 /* Utility Classes */
@@ -1854,6 +1860,55 @@ textarea.form-input {
 
   .disclaimer-button {
     width: 100%;
+  }
+}
+
+/* Footer Styles */
+.site-footer {
+  margin-top: var(--poe-spacing-xxl);
+  padding: var(--poe-spacing-lg);
+  background-color: var(--poe-bg-secondary);
+  border-top: 1px solid var(--poe-border-color);
+}
+
+.footer-nav {
+  max-width: var(--poe-container-max-width);
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--poe-spacing-md);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.footer-link {
+  color: var(--poe-link-color);
+  text-decoration: none;
+  padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
+  border-radius: var(--poe-border-radius);
+  transition: var(--poe-transition);
+}
+
+.footer-link:hover {
+  color: var(--poe-link-hover);
+  background-color: var(--poe-bg-tertiary);
+}
+
+.footer-link:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive: Stack links vertically on mobile */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
