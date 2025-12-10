@@ -283,10 +283,36 @@ main {
   display: flex;
   list-style: none;
   gap: var(--poe-spacing-md);
-  padding: var(--poe-spacing-md) 0;
+  padding: var(--poe-spacing-md) 0 var(--poe-spacing-xs) 0;
   border-bottom: 2px solid var(--poe-border-color);
   margin-bottom: var(--poe-spacing-xl);
   align-items: center;
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: var(--poe-transition);
+  margin-right: var(--poe-spacing-sm);
+}
+
+.nav-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--poe-transition);
+}
+
+.nav-logo-link:hover .nav-logo {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.nav-logo-link:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+  border-radius: var(--poe-border-radius);
 }
 
 .nav-spacer {
@@ -803,6 +829,10 @@ main {
   .nav-list {
     flex-wrap: wrap;
     gap: var(--poe-spacing-xs);
+  }
+
+  .nav-logo {
+    height: 48px;
   }
 
   .nav-link {

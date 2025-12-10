@@ -64,6 +64,21 @@ export function renderNavigation(container) {
   const navList = document.createElement('ul');
   navList.className = 'nav-list';
 
+  // Add logo as first item
+  const logoListItem = document.createElement('li');
+  const logoLink = document.createElement('a');
+  logoLink.href = '/';
+  logoLink.className = 'nav-logo-link';
+  logoLink.setAttribute('data-page', '/');
+  logoLink.setAttribute('aria-label', 'Navigate to home');
+  const logoImg = document.createElement('img');
+  logoImg.src = '/images/PoE-Hub.png';
+  logoImg.alt = 'PoE Hub Logo';
+  logoImg.className = 'nav-logo';
+  logoLink.appendChild(logoImg);
+  logoListItem.appendChild(logoLink);
+  navList.appendChild(logoListItem);
+
   navigationItems.forEach((item) => {
     const listItem = document.createElement('li');
     const link = document.createElement('a');
