@@ -181,7 +181,15 @@ describe('Navigation Bar Rendering Integration', () => {
 
     const navLinks = container.querySelectorAll('a');
     expect(navLinks.length).toBeGreaterThan(0);
-    expect(navLinks[0].textContent).toBeTruthy();
+    
+    // First link is the logo (contains an image)
+    const logoLink = navLinks[0];
+    expect(logoLink.querySelector('img.nav-logo')).toBeTruthy();
+    
+    // Check that there are text navigation links after the logo
+    const textLinks = Array.from(navLinks).slice(1);
+    expect(textLinks.length).toBeGreaterThan(0);
+    expect(textLinks[0].textContent).toBeTruthy();
   });
 
   it('should highlight current page in navigation', () => {
