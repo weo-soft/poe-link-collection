@@ -1,6 +1,21 @@
 {
-  "lastUpdated": "2025-12-10T18:00:00Z",
+  "lastUpdated": "2025-12-11T18:00:00Z",
   "changelog": [
+    {
+      "date": "2025-12-11T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Updated The Forbidden Trove URL to the official website (https://forbiddentrove.com/) and added it to PoE 2 trade category"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "PoE2 Helper",
+          "linkUrl": "https://poe2helper.com/"
+        }
+      ]
+    },
     {
       "date": "2025-12-10T18:00:00Z",
       "entries": [

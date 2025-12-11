@@ -123,10 +123,10 @@
     "description": "Desktop application for tracking your wealth in Path of Exile",
     "lastChecked": "2025-12-08T18:00:00Z"
   },
-  "the-forbidden-trove-discord": {
-    "name": "The forbidden Trove Discord",
-    "url": "https://discord.com/invite/tftrove",
-    "description": "The forbidden Trove Discord server",
+  "the-forbidden-trove": {
+    "name": "The Forbidden Trove",
+    "url": "https://forbiddentrove.com/",
+    "description": "Mirror service shop for Path of Exile items",
     "lastChecked": "2025-12-08T18:00:00Z"
   },
   "poe-ninja-economy": {
@@ -853,6 +853,12 @@
     "name": "PoE2 Scout",
     "url": "https://poe2scout.com/",
     "description": "Path of Exile 2 economy tracker tool",
+    "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "poe2helper": {
+    "name": "PoE2 Helper",
+    "url": "https://poe2helper.com/",
+    "description": "Free Path of Exile 2 item price checker - instantly find market values for your PoE2 items",
     "lastChecked": "2025-12-09T18:00:00Z"
   }
 }

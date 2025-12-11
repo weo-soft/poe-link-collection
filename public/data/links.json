@@ -49,11 +49,12 @@
       "poemap-trade",
       "disenchant",
       "map-search",
-      "the-forbidden-trove-discord",
+      "the-forbidden-trove",
       "watchers-eye-search"
     ],
     "poe2": [
-      "official-trade-poe2"
+      "official-trade-poe2",
+      "the-forbidden-trove"
     ]
   },
   "trackers": {
@@ -268,7 +269,8 @@
       "hideout-showcase-poe2",
       "poe2-re",
       "poe-ladder-poe2",
-      "poe-place-poe2"
+      "poe-place-poe2",
+      "poe2helper"
     ]
   }
 }
