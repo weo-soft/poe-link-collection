@@ -1,26 +1,5 @@
 [
   {
-    "id": "settlers-of-kalguur",
-    "name": "Settlers of Kalguur",
-    "startDate": "2024-07-26T16:00:00Z",
-    "endDate": "2024-12-02T16:00:00Z",
-    "type": "league"
-  },
-  {
-    "id": "necropolis",
-    "name": "Necropolis",
-    "startDate": "2024-03-29T15:00:00Z",
-    "endDate": "2024-07-22T17:00:00Z",
-    "type": "league"
-  },
-  {
-    "id": "affliction",
-    "name": "Affliction",
-    "startDate": "2023-12-08T14:00:00Z",
-    "endDate": "2024-03-25T17:00:00Z",
-    "type": "league"
-  },
-  {
     "id": "keepers-of-the-flame",
     "name": "Keepers of the Flame",
     "startDate": "2025-10-30T23:00:00.000Z",
@@ -34,7 +13,7 @@
   {
     "id": "the-last-of-the-druids",
     "name": "The Last of the Druids",
-    "startDate": "2025-12-12T20:00:00.000Z",
+    "startDate": "2025-12-12T19:00:00.000Z",
     "endDate": "2026-04-06T15:00:00.000Z",
     "game": "poe2",
     "type": "league",
