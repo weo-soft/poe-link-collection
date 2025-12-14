@@ -20,30 +20,29 @@
     "bannerImageUrl": "https://web.poecdn.com/public/news/2025-11-14/040/ENTheLastoftheDruids_SingleLogo.png",
     "description": "Last Of the Druids League",
     "detailsLink": "https://pathofexile2.com/druids"
-    },
-    {
-      "id": "awsome-games-done-quick-any-act-4-run-by-angormus",
-      "name": "Awsome Games Done Quick - Any% Act 4 Run by Angormus",
-      "startDate": "2026-01-04T15:30:00.000Z",
-      "endDate": "2026-01-11T05:00:00.000Z",
-      "game": "poe2",
-      "type": "event",
-      "bannerImageUrl": "https://photos.smugmug.com/photos/i-7rcxXXz/0/McL3Dp4fJNTP5KBm5GMQ3vD6HKDwNkPpQCHLPGp2k/S/i-7rcxXXz-S.png",
-      "description": "Games Done Quick is a series of charity video game marathons. These events feature high-level gameplay by speedrunners raising money for charity. \n\nFeaturing a Path of Exile 2 Any% Act 4 Run by Angormus at Tue, Jan 6th ~05:30 AM",
-      "detailsLink": "https://gamesdonequick.com/schedule/62#path-of-exile-any-act-4"
-      },
-      {
-        "id": "bpl",
-        "name": "BPL",
-        "startDate": "2025-11-25T20:00:00.000Z",
-        "endDate": "2025-12-08T20:00:00.000Z",
-        "game": "poe1",
-        "type": "event",
-        "bannerImageUrl": "https://storage.ko-fi.com/cdn/useruploads/c50af5c5-1de5-4673-8dae-e2d19e7f8223.jpg",
-        "description": "BPL is a cooperative, team-based Path of Exile community event where players compete to score points in a variety of categories. At the end of the event, the team with the most points is the victor!",
-        "detailsLink": "https://bpl-poe.com/"
-        }
-        
+  },
+  {
+    "id": "awsome-games-done-quick-any-act-4-run-by-angormus",
+    "name": "Awsome Games Done Quick - Any% Act 4 Run by Angormus",
+    "startDate": "2026-01-04T15:30:00.000Z",
+    "endDate": "2026-01-11T05:00:00.000Z",
+    "game": "poe2",
+    "type": "event",
+    "bannerImageUrl": "https://photos.smugmug.com/photos/i-7rcxXXz/0/McL3Dp4fJNTP5KBm5GMQ3vD6HKDwNkPpQCHLPGp2k/S/i-7rcxXXz-S.png",
+    "description": "Games Done Quick is a series of charity video game marathons. These events feature high-level gameplay by speedrunners raising money for charity. \n\nFeaturing a Path of Exile 2 Any% Act 4 Run by Angormus at Tue, Jan 6th ~05:30 AM",
+    "detailsLink": "https://gamesdonequick.com/schedule/62#path-of-exile-any-act-4"
+  },
+  {
+    "id": "bpl",
+    "name": "BPL",
+    "startDate": "2025-11-25T20:00:00.000Z",
+    "endDate": "2025-12-08T20:00:00.000Z",
+    "game": "poe1",
+    "type": "event",
+    "bannerImageUrl": "https://storage.ko-fi.com/cdn/useruploads/c50af5c5-1de5-4673-8dae-e2d19e7f8223.jpg",
+    "description": "BPL is a cooperative, team-based Path of Exile community event where players compete to score points in a variety of categories. At the end of the event, the team with the most points is the victor!",
+    "detailsLink": "https://bpl-poe.com/"
+    }
 ]
 
 

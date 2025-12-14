@@ -860,5 +860,11 @@
     "url": "https://poe2helper.com/",
     "description": "Free Path of Exile 2 item price checker - instantly find market values for your PoE2 items",
     "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "beargrump-campaign-checklist-poe2": {
+    "name": "Campaign Checklist",
+    "url": "https://beargrump.nerdcub.workers.dev",
+    "description": "Interactive campaign checklist for Path of Exile 2 leveling - complete steps top to bottom with progress saved in your browser",
+    "lastChecked": "2025-12-09T18:00:00Z"
   }
 }
