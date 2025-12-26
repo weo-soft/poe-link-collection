@@ -274,5 +274,16 @@
       "poe-place-poe2",
       "poe2helper"
     ]
+  },
+  "temp-league": {
+    "id": "temp-league",
+    "title": "TEMP LEAGUE",
+    "poe1": [],
+    "poe2": [
+      "atziri-temple-planner-poe2",
+      "atziri-temple-cheatsheet-reddit-poe2",
+      "atziri-temple-cheatsheet-google-poe2",
+      "poe2db-atziri-temple-poe2"
+    ]
   }
 }

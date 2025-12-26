@@ -1,6 +1,39 @@
 {
-  "lastUpdated": "2025-12-14T18:00:00Z",
+  "lastUpdated": "2025-12-26T18:00:00Z",
   "changelog": [
+    {
+      "date": "2025-12-26T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Added new 'Temp League' category for temporary league-specific resources"
+        },
+        {
+          "type": "added",
+          "categoryId": "temp-league",
+          "linkName": "Atziri's Temple Planner",
+          "linkUrl": "https://tetriszocker.github.io/atziri-temple-editor/"
+        },
+        {
+          "type": "added",
+          "categoryId": "temp-league",
+          "linkName": "Atziri's Temple Cheatsheet (Reddit)",
+          "linkUrl": "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fna3wm8udz69g1.png"
+        },
+        {
+          "type": "added",
+          "categoryId": "temp-league",
+          "linkName": "PoE2 Temple Cheatsheet",
+          "linkUrl": "https://docs.google.com/document/d/1upbSOp7xWkJ-Ac-b932v2-BQ5GoesJyfBhwfAcVgA_w/edit?tab=t.0"
+        },
+        {
+          "type": "added",
+          "categoryId": "temp-league",
+          "linkName": "PoE2DB Atziri's Temple",
+          "linkUrl": "https://poe2db.tw/us/Atziris_Temple#Rooms"
+        }
+      ]
+    },
     {
       "date": "2025-12-14T18:00:00Z",
       "entries": [

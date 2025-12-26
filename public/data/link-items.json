@@ -866,5 +866,29 @@
     "url": "https://beargrump.nerdcub.workers.dev",
     "description": "Interactive campaign checklist for Path of Exile 2 leveling - complete steps top to bottom with progress saved in your browser",
     "lastChecked": "2025-12-09T18:00:00Z"
+  },
+  "atziri-temple-planner-poe2": {
+    "name": "Atziri's Temple Planner",
+    "url": "https://tetriszocker.github.io/atziri-temple-editor/",
+    "description": "Interactive planner for Atziri's Temple in Path of Exile 2 with ingame placement rules and upgrade logic",
+    "lastChecked": "2025-01-09T18:00:00Z"
+  },
+  "atziri-temple-cheatsheet-reddit-poe2": {
+    "name": "Atziri's Temple Cheatsheet (Reddit)",
+    "url": "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fna3wm8udz69g1.png",
+    "description": "Visual cheatsheet for Atziri's Temple rooms and mechanics",
+    "lastChecked": "2025-01-09T18:00:00Z"
+  },
+  "atziri-temple-cheatsheet-google-poe2": {
+    "name": "PoE2 Temple Cheatsheet",
+    "url": "https://docs.google.com/document/d/1upbSOp7xWkJ-Ac-b932v2-BQ5GoesJyfBhwfAcVgA_w/edit?tab=t.0",
+    "description": "Comprehensive cheatsheet document for Atziri's Temple in Path of Exile 2",
+    "lastChecked": "2025-01-09T18:00:00Z"
+  },
+  "poe2db-atziri-temple-poe2": {
+    "name": "PoE2DB Atziri's Temple",
+    "url": "https://poe2db.tw/us/Atziris_Temple#Rooms",
+    "description": "Complete database of Atziri's Temple rooms, upgrades, medallions, and crafting options for Path of Exile 2",
+    "lastChecked": "2025-01-09T18:00:00Z"
   }
 }
