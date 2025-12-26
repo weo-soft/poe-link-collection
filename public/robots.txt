@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://poe-hub.weosoft.org/sitemap.xml
+

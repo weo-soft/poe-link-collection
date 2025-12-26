@@ -89,6 +89,7 @@ main {
   gap: var(--poe-spacing-lg);
   align-items: flex-start;
   margin-top: var(--poe-spacing-lg);
+  padding-bottom: var(--poe-spacing-xxl);
 }
 
 /* Utility Classes */
