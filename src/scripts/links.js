@@ -57,9 +57,7 @@ function formatDate(dateString) {
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+      day: 'numeric'
     });
   } catch (error) {
     console.warn('Error formatting date:', error);

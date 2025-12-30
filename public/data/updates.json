@@ -1,6 +1,29 @@
 {
-  "lastUpdated": "2025-12-26T18:00:00Z",
+  "lastUpdated": "2025-12-30T18:00:00Z",
   "changelog": [
+    {
+      "date": "2025-12-30T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "temp-league",
+          "linkName": "Atziri's Temple Planner (Sulozor)",
+          "linkUrl": "https://sulozor.github.io/#/atziri-temple"
+        },
+        {
+          "type": "added",
+          "categoryId": "temp-league",
+          "linkName": "Atziri's Temple Guide (Video 1)",
+          "linkUrl": "https://www.youtube.com/watch?v=ON5pJ21eKCM"
+        },
+        {
+          "type": "added",
+          "categoryId": "temp-league",
+          "linkName": "Atziri's Temple Guide (Video 2)",
+          "linkUrl": "https://www.youtube.com/watch?v=Colo4eBbIKM"
+        }
+      ]
+    },
     {
       "date": "2025-12-26T18:00:00Z",
       "entries": [

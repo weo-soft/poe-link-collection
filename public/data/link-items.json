@@ -890,5 +890,23 @@
     "url": "https://poe2db.tw/us/Atziris_Temple#Rooms",
     "description": "Complete database of Atziri's Temple rooms, upgrades, medallions, and crafting options for Path of Exile 2",
     "lastChecked": "2025-01-09T18:00:00Z"
+  },
+  "atziri-temple-planner-sulozor-poe2": {
+    "name": "Atziri's Temple Planner (Sulozor)",
+    "url": "https://sulozor.github.io/#/atziri-temple",
+    "description": "Interactive planner for Atziri's Temple in Path of Exile 2",
+    "lastChecked": "2025-12-30T18:00:00Z"
+  },
+  "atziri-temple-video-1-poe2": {
+    "name": "Atziri's Temple Guide (Video 1)",
+    "url": "https://www.youtube.com/watch?v=ON5pJ21eKCM",
+    "description": "Video guide for Atziri's Temple in Path of Exile 2",
+    "lastChecked": "2025-12-30T18:00:00Z"
+  },
+  "atziri-temple-video-2-poe2": {
+    "name": "Atziri's Temple Guide (Video 2)",
+    "url": "https://www.youtube.com/watch?v=Colo4eBbIKM",
+    "description": "Video guide for Atziri's Temple in Path of Exile 2",
+    "lastChecked": "2025-12-30T18:00:00Z"
   }
 }
