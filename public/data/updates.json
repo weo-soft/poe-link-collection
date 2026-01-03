@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2025-12-30T18:00:00Z",
+  "lastUpdated": "2026-01-03T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-01-03T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "crafting",
+          "linkName": "Instilling Calculator",
+          "linkUrl": "https://maxroll.gg/poe2/instilling-calculator"
+        }
+      ]
+    },
     {
       "date": "2025-12-30T18:00:00Z",
       "entries": [
