@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-01-03T18:00:00Z",
+  "lastUpdated": "2026-01-06T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-01-06T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Added Pohx Keepers Restart - Private League event"
+        }
+      ]
+    },
     {
       "date": "2026-01-03T18:00:00Z",
       "entries": [
