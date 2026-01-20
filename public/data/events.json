@@ -3,7 +3,7 @@
     "id": "keepers-of-the-flame",
     "name": "Keepers of the Flame",
     "startDate": "2025-10-30T23:00:00.000Z",
-    "endDate": "2026-02-01T23:00:00.000Z",
+    "endDate": "2026-02-19T21:00:00.000Z",
     "type": "league",
     "game": "poe1",
     "bannerImageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fweb.poecdn.com%2Fpublic%2Fnews%2F2025-10-16%2FPOELogoKeepersoftheFlame.png&f=1&nofb=1&ipt=4a5a2178b37458d4f36cb32b488b0946cf120f1f4d54ee0784e3132d03cd4ad3",
@@ -22,40 +22,24 @@
     "detailsLink": "https://pathofexile2.com/druids"
   },
   {
-    "id": "awsome-games-done-quick-any-act-4-run-by-angormus",
-    "name": "Awsome Games Done Quick - Any% Act 4 Run by Angormus",
-    "startDate": "2026-01-04T15:30:00.000Z",
-    "endDate": "2026-01-11T05:00:00.000Z",
-    "game": "poe2",
-    "type": "event",
-    "bannerImageUrl": "https://photos.smugmug.com/photos/i-7rcxXXz/0/McL3Dp4fJNTP5KBm5GMQ3vD6HKDwNkPpQCHLPGp2k/S/i-7rcxXXz-S.png",
-    "description": "Games Done Quick is a series of charity video game marathons. These events feature high-level gameplay by speedrunners raising money for charity. \n\nFeaturing a Path of Exile 2 Any% Act 4 Run by Angormus at Tue, Jan 6th ~05:30 AM\n\nVod Link: https://www.twitch.tv/videos/2661048971?t=38h33m48s",
-    "detailsLink": "https://gamesdonequick.com/schedule/62#path-of-exile-any-act-4"
-  },
-  {
-    "id": "bpl",
-    "name": "BPL",
-    "startDate": "2025-11-25T20:00:00.000Z",
-    "endDate": "2025-12-08T20:00:00.000Z",
+    "id": "pohx-keepers-restart-private-league",
+    "name": "Pohx Keepers Restart - Private League",
+    "startDate": "2026-01-09T15:00:00.000Z",
+    "endDate": "2026-02-19T21:00:00.000Z",
     "game": "poe1",
     "type": "event",
-    "bannerImageUrl": "https://storage.ko-fi.com/cdn/useruploads/c50af5c5-1de5-4673-8dae-e2d19e7f8223.jpg",
-    "description": "BPL is a cooperative, team-based Path of Exile community event where players compete to score points in a variety of categories. At the end of the event, the team with the most points is the victor!",
-    "detailsLink": "https://bpl-poe.com/"
-    },
-    {
-      "id": "pohx-keepers-restart-private-league",
-      "name": "Pohx Keepers Restart - Private League",
-      "startDate": "2026-01-09T15:00:00.000Z",
-      "endDate": "2026-02-02T16:00:00.000Z",
-      "game": "poe1",
-      "type": "event",
-      "description": "Keepers of the Flame Private League For Path of Exile 1 is Underway. Looking to host it THIS Friday (09.01.2025), 8am pst.\nGGG Will be funding slots so no need to worry about crowdfunding. For players who aren't sure what a private league is. It's essentially an Economy Reset of the league we just played. In this instance Keepers of the Flame. You can also trade just like normal and even setup your Awakened PoE Trade to the private league. Think of it as a miniature PoE1 League but with nothing new.",
-      "detailsLink": "https://www.pathofexile.com/private-leagues/join/Pohx+Keepers+Restart/dmVpmxnl6f-FLfg6pRRU"
-      }
-      
+    "description": "Keepers of the Flame Private League For Path of Exile 1 is Underway. Looking to host it THIS Friday (09.01.2025), 8am pst.\nGGG Will be funding slots so no need to worry about crowdfunding. For players who aren't sure what a private league is. It's essentially an Economy Reset of the league we just played. In this instance Keepers of the Flame. You can also trade just like normal and even setup your Awakened PoE Trade to the private league. Think of it as a miniature PoE1 League but with nothing new.",
+    "detailsLink": "https://www.pathofexile.com/private-leagues/join/Pohx+Keepers+Restart/dmVpmxnl6f-FLfg6pRRU"
+  },
+  {
+    "id": "the-legacy-of-phrecia",
+    "name": "The Legacy of Phrecia",
+    "startDate": "2026-01-29T21:00:00.000Z",
+    "endDate": "2026-02-19T21:00:00.000Z",
+    "game": "poe1",
+    "type": "event",
+    "bannerImageUrl": "https://web.poecdn.com/public/news/2025-02-11/LegacyofPhrecia.png",
+    "description": "Embrace the bizarre when the Legacy of Phrecia returns to Path of Exile on January 29th (PST)! With 19 alternate Ascendancy classes, battle through areas altered by map modifiers, and face enraged bosses that push your builds and your skill to the limit.",
+    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3907351"
+  }
 ]
-
-
-
-

@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-01-06T18:00:00Z",
+  "lastUpdated": "2026-01-20T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-01-20T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Added The Legacy of Phrecia event"
+        }
+      ]
+    },
     {
       "date": "2026-01-06T18:00:00Z",
       "entries": [
