@@ -1,6 +1,33 @@
 {
-  "lastUpdated": "2026-01-20T18:00:00Z",
+  "lastUpdated": "2026-01-26T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-01-26T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "All links were checked on 26.01.26"
+        },
+        {
+          "type": "added",
+          "categoryId": "atlas",
+          "linkName": "Idol Planner",
+          "linkUrl": "https://idolplanner.easyexile.tools/"
+        },
+        {
+          "type": "added",
+          "categoryId": "atlas",
+          "linkName": "Phrecia Map Planner",
+          "linkUrl": "https://exilelab.net/planner/index.html"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "Phrecia Idol Regex Builder",
+          "linkUrl": "https://exilelab.net/regex/index.html"
+        }
+      ]
+    },
     {
       "date": "2026-01-20T18:00:00Z",
       "entries": [

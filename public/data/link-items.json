@@ -3,916 +3,934 @@
     "name": "Poe.Ninja Builds",
     "url": "https://poe.ninja/poe1/builds",
     "description": "Snapshots of the the highest leval Characters currently being played by the community",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ninja-streamer-builds": {
     "name": "Poe.Ninja Streamer Builds",
     "url": "https://poe.ninja/poe1/builds/streamers",
     "description": "Snapshots of the the highest leval Characters currently being played by selected streamers",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "share-pob-on-poe-ninja": {
     "name": "Share PoB on Poe.Ninja",
     "url": "https://poe.ninja/poe1/pob",
     "description": "Share your Path of Building builds with the community",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "pobarchives": {
     "name": "PoBArchives",
     "url": "https://pobarchives.com",
     "description": "Archive of builds for Path of Exile 1&2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "maxroll": {
     "name": "Maxroll",
     "url": "https://maxroll.gg/poe",
     "description": "Build guides, currency farming, and game resources",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-vault": {
     "name": "PoE Vault",
     "url": "https://www.poe-vault.com/",
     "description": "Varaity of build guides, leveling guides, and other guides",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "pohx": {
     "name": "Pohx",
     "url": "https://pohx.net/",
     "description": "The goto Resource for Righteous Fire Builds",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-builds-reddit": {
     "name": "Path of Exile Builds Reddit",
     "url": "https://www.reddit.com/r/PathOfExileBuilds/",
     "description": "Subreddit for Path of Exile builds, guides and questions",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "filterblade": {
     "name": "FilterBlade",
     "url": "https://www.filterblade.xyz",
     "description": "Loot filter editor and customizer",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe1filters": {
     "name": "PoE Filters",
     "url": "https://poe1filter.com/",
     "description": "Loot filter editor and customizer",
-    "lastChecked": "2025-12-06T09:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2filters": {
     "name": "PoE 2 Filters",
     "url": "https://poe2filter.com/",
     "description": "Loot filter editor and customizer",
-    "lastChecked": "2025-12-06T09:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "stupid-fat-hobbit-s-filters": {
     "name": "Stupid Fat Hobbit's Filters",
     "url": "https://www.pathofexile.com/forum/view-thread/1595976/page/1",
     "description": "Item filters for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "official-trade": {
     "name": "Official Trade",
     "url": "https://www.pathofexile.com/trade",
     "description": "Official Path of Exile trade site",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "wealthy-exile": {
     "name": "Wealthy Exile",
     "url": "https://wealthyexile.com",
     "description": "Wealth Tracking Tool for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poemap-trade": {
     "name": "PoeMap.Trade",
     "url": "https://poemap.trade",
     "description": "Map trading platform",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "disenchant": {
     "name": "Disenchant",
     "url": "https://disenchant.easyexile.tools/",
     "icon": "/images/disenchant.webp",
     "description": "Dust per Chaos Calculator and overview",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-disenchant": {
     "name": "PoE Disenchant",
     "url": "https://poe-disenchant-tool.vercel.app/",
     "icon": "/images/disenchant.webp",
     "description": "Dust per Chaos Calculator and overview",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "map-search": {
     "name": "Map Search",
     "url": "https://mapsearch.easyexile.tools/",
     "icon": "/images/fort.png",
     "description": "Tool to easily setup your desired Map search",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-trade-helper": {
     "name": "PoE Trade Helper",
     "url": "https://chromewebstore.google.com/detail/lmmjicanpdjejcoikdmklalcgejobgpe?utm_source=item-share-cb",
     "description": "Chrome extension for Path of Exile trading",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exilence-ce": {
     "name": "Exilence CE",
     "url": "https://github.com/exilence-ce/exilence-ce/",
     "icon": "/images/Exilence-ce.png",
     "description": "Desktop application for tracking your wealth in Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "the-forbidden-trove": {
     "name": "The Forbidden Trove",
     "url": "https://forbiddentrove.com/",
     "description": "Mirror service shop for Path of Exile items",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ninja-economy": {
     "name": "Poe.Ninja Economy",
     "url": "https://poe.ninja/poe1/economy/keepers/currency",
     "description": "Economy statistics for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-watch": {
     "name": "poe.watch",
     "url": "https://poe.watch/",
     "description": "Realtime item prices and price tracking",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-profits": {
     "name": "PoE Profits",
     "url": "https://poe-profits.com/Keepers/boss",
     "description": "Tracker for expected profits from doing Boos, Corrupting/Leveling Gems or Harvest rerolling",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "gains-of-exile": {
     "name": "Gains of Exile",
     "url": "https://gains-of-exile.vercel.app/",
     "icon": "/images/gainsOfExile.png",
     "description": "Tool to calculate what items to Harvest reroll for maximum profit",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-building-community": {
     "name": "Path of Building Community",
     "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding",
     "icon": "/images/path_of_building.png",
     "description": "Community fork of Path of Building, The go to Chracter Build Tool",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "official-skill-tree": {
     "name": "Official Skill Tree",
     "url": "https://www.pathofexile.com/passive-skill-tree",
     "description": "Official passive skill tree",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "pob-cool": {
     "name": "PoB.cool",
     "url": "https://pob.cool/poe1",
     "description": "Path of Building online tool for PoE 1",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "pobb-in": {
     "name": "POBb.in",
     "url": "https://pobb.in/",
     "description": "Share and import Path of Building builds",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-planner": {
     "name": "PoE Planner",
     "url": "https://poeplanner.com/",
     "description": "Build planner and skill tree tool",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-pathing": {
     "name": "Path of Pathing",
     "url": "https://www.pathofpathing.com/",
     "description": "Atlas and passive tree tool",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "normal-lab": {
     "name": "Normal Lab",
     "url": "https://www.poelab.com/2faxk/",
     "icon": "/images/treasure-key.png",
     "description": "Normal Labyrinth layout guide",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "cruel-lab": {
     "name": "Cruel Lab",
     "url": "https://www.poelab.com/p1tad/",
     "icon": "/images/Silver-Key.png",
     "description": "Cruel Labyrinth layout guide",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "merciless-lab": {
     "name": "Merciless Lab",
     "url": "https://www.poelab.com/t4jnh/",
     "icon": "/images/Gold-Key.png",
     "description": "Merciless Labyrinth layout guide",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "uber-lab": {
     "name": "Uber Lab",
     "url": "https://www.poelab.com/5jpx4/",
     "icon": "/images/TrialIcon.png",
     "description": "Uber Labyrinth layout guide",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "awakened-poe-trade": {
     "name": "Awakened PoE Trade",
     "url": "https://snosme.github.io/awakened-poe-trade/download",
     "icon": "/images/awakened-poe-trade.png",
     "description": "Trade overlay tool with price checking",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-lurker": {
     "name": "Poe Lurker",
     "url": "https://github.com/C1rdec/Poe-Lurker/releases",
     "icon": "/images/LurkerIcon.png",
     "description": "Trade helper and automation tool",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "xiletrade": {
     "name": "XileTrade",
     "url": "https://maxensas.github.io/xiletrade/",
     "icon": "/images/xileTrade.png",
     "description": "Trade overlay and price checker",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exile-ui": {
     "name": "Exile UI",
     "url": "https://github.com/Lailloken/Exile-UI/releases",
     "description": "UI overlay and customization tool",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "mercurytrade": {
     "name": "MercuryTrade",
     "url": "https://github.com/Morph21/MercuryTrade-Community-Fork/releases",
     "icon": "/images/mercuryTrade.png",
     "description": "Trade overlay tool (community fork)",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-overlay": {
     "name": "PoE Overlay",
     "url": "https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/releases",
     "icon": "/images/poeOverlay.png",
     "description": "Comprehensive overlay tool (community fork)",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "chaos-recipe-enhancer": {
     "name": "Chaos Recipe Enhancer",
     "url": "https://github.com/ChaosRecipeEnhancer/ChaosRecipeEnhancer",
     "icon": "/images/CRELogo.png",
     "description": "Overlay tool for streamlining chaos recipe gains",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-leveling-guide": {
     "name": "PoE Leveling Guide",
     "url": "https://github.com/JusKillmeQik/PoE-Leveling-Guide",
     "description": "Leveling guide and overlay tool",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-planner-1": {
     "name": "PoE Planner",
     "url": "https://poeplanner.com/atlas-tree",
     "description": "Atlas tree planner and optimizer",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-atlas": {
     "name": "PoE Atlas",
     "url": "https://poeatlas.app/#/",
     "description": "Interactive, filterable, searchable Atlas. TO help you find the best suited maps for your farming strategy",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "maps-of-exile": {
     "name": "Maps of Exile",
     "url": "https://mapsofexile.com/",
     "description": "Maps ranked by the value of the Cards they can drop, the Layout, Density or their Boss",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
+  },
+  "idol-planner": {
+    "name": "Idol Planner",
+    "url": "https://idolplanner.easyexile.tools/",
+    "description": "Path of Exile: Legacy of Phrecia - Idol and Strategy Planner",
+    "lastChecked": "2026-01-26T18:00:00Z"
+  },
+  "phrecia-map-planner": {
+    "name": "Phrecia Map Planner",
+    "url": "https://exilelab.net/planner/index.html",
+    "description": "B.O.M. | Phrecia Strategic Engine - Map planning and idol strategy tool",
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-twitch": {
     "name": "Path of Exile Twitch",
     "url": "https://www.twitch.tv/pathofexile",
     "description": "Official Path of Exile Twitch channel",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-reddit": {
     "name": "Path of Exile Reddit",
     "url": "https://www.reddit.com/r/pathofexile/",
     "description": "Path of Exile community on Reddit",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-x": {
     "name": "Path of Exile X",
     "url": "https://x.com/pathofexile",
     "description": "Official Path of Exile X (Twitter) account",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-facebook": {
     "name": "Path of Exile Facebook",
     "url": "https://www.facebook.com/pathofexile",
     "description": "Official Path of Exile Facebook page",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-youtube": {
     "name": "Path of Exile YouTube",
     "url": "https://www.youtube.com/@playpathofexile",
     "description": "Official Path of Exile YouTube channel",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-discord": {
     "name": "Path of Exile Discord",
     "url": "https://discord.gg/pathofexile",
     "description": "Official Path of Exile 1&2 Community Discord server",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "ggg-tracker": {
     "name": "GGG Tracker",
     "url": "https://gggtracker.com/",
     "description": "GGG Tracker for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poedb-modifiers": {
     "name": "PoEDB Modifiers",
     "url": "https://poedb.tw/us/Modifiers",
     "description": "Comprehensive modifier database and crafting reference",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "craft-of-exile": {
     "name": "Craft of Exile",
     "url": "https://www.craftofexile.com/",
     "description": "Crafting simulator and calculator",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "vorici-chromatic-calculator": {
     "name": "Vorici Chromatic Calculator",
     "url": "https://siveran.github.io/calc.html",
     "description": "Calculate chromatic orb costs and success chances for socket coloring",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-cluster-jewel-calculator": {
     "name": "PoE Cluster Jewel Calculator",
     "url": "https://theodorejbieber.github.io/PoEClusterJewelCalculator/",
     "icon": "/images/clusterJewelCalculator.png",
     "description": "Calculate cluster jewel passive combinations and their positioning",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "eldritch-implicit-modifiers": {
     "name": "Eldritch Implicit Modifiers",
     "url": "https://docs.google.com/spreadsheets/u/0/d/1HUafGERAdWRu-AO7Brn0DIUi2-8kN2ld3sqvX_NVmbE/htmlview?pli=1#gid=1842902168",
     "description": "comprehensive list of Eldritch implicit modifiers for crafting",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-wiki": {
     "name": "Path of Exile Wiki",
     "url": "https://www.poewiki.net/wiki/Path_of_Exile_Wiki",
     "description": "Official Path of Exile wiki maintained by the community",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poedb": {
     "name": "PoEDB",
     "url": "https://poedb.tw/",
     "description": "Comprehensive Path of Exile database and information",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "patch-notes": {
     "name": "Patch Notes",
     "url": "https://www.pathofexile.com/forum/view-forum/patch-notes",
     "description": "Official Path of Exile patch notes",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exile-leveling": {
     "name": "Exile Leveling",
     "url": "https://heartofphos.github.io/exile-leveling/#/",
     "icon": "/images/exile-leveling.png",
     "description": "Interactive leveling guide and route planner",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-leveling": {
     "name": "PoE Leveling",
     "url": "https://poe-leveling.com/",
     "description": "Path of Exile leveling guide and resources",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "wraedle": {
     "name": "Wraedle",
     "url": "https://www.wraedle.com/",
     "description": "Word guessing game inspired by Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "idle-exile": {
     "name": "Idle Exile",
     "url": "https://oosband.github.io/",
     "icon": "/images/idleExile.png",
     "description": "Idle game inspired by Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "kalandra-game": {
     "name": "Kalandra Game",
     "url": "https://www.kalandragame.com/",
     "icon": "/images/kalandraGame.png",
     "description": "Orb Fusion Game",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-bingo": {
     "name": "PoE Bingo",
     "url": "https://poe-bingo.weosoft.org/",
     "description": "Path of Exile bingo game",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exile-diary": {
     "name": "Exile Diary",
     "url": "https://github.com/Qt-dev/exile-diary",
     "description": "Game tracker for Path of Exile - tracks everything that drops in your maps",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exile-tools": {
     "name": "Exile Tools",
     "url": "https://exile-tools.com/",
     "description": "Tools for Path of Exile including Gemplanner and TraXile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "blight-anointing": {
     "name": "Blight Anointing",
     "url": "https://blight.raelys.com/",
     "description": "Blight anointing calculator for amulets, rings, and maps",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-antiquary": {
     "name": "PoE Antiquary",
     "url": "https://poe-antiquary.xyz/",
     "description": "Historical price data and graphs from past Path of Exile leagues",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "patchbot": {
     "name": "PatchBot",
     "url": "https://patchbot.io/games/path-of-exile",
     "description": "Discord bot for Path of Exile patch notes and updates",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "hideout-showcase": {
     "name": "Hideout Showcase",
     "url": "https://hideoutshowcase.com/",
     "description": "Browse and share Path of Exile hideout designs",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-aura-calculator": {
     "name": "PoE Aura Calculator",
     "url": "https://poe.mikelat.com/",
     "description": "PoE Aura Reservation Calculator",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-re": {
     "name": "PoE.re",
     "url": "https://poe.re/",
     "description": "Regular Expressions Manager and Optimizer for filtering Items ingame",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-fish": {
     "name": "PoE Fish",
     "url": "https://poe.fish/",
     "description": "Path of Exile fishing resources",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ladder": {
     "name": "PoE Ladder",
     "url": "https://poeladder.com/",
     "description": "Path of Exile ladder and leaderboard tracking",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "divination-cards": {
     "name": "Divination Cards",
     "url": "https://divicards-site.pages.dev/",
     "icon": "/images/divcardsSite.png",
     "description": "Divination card database and information",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exile-companion": {
     "name": "Exile Companion",
     "url": "https://drusy.github.io/exile-companion/",
     "description": "Path of Exile companion tool",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "challenges-tracker": {
     "name": "Challenges Tracker",
     "url": "https://craniumviolence.github.io/",
     "icon": "/images/challengesTracker.png",
     "description": "Path of Exile League Challenges Trackerand Guide",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "prohibited-library-discord": {
     "name": "Prohibited Library Discord",
     "url": "https://discord.gg/3VxKY6gt7j",
     "description": "Prohibited Library Discord",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-community-racing-discord": {
     "name": "PoE Community Racing Discord",
     "url": "https://discord.com/invite/VWadrh2",
     "description": "PoE Community Racing Discord",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "divcord-discord": {
     "name": "Divcord Discord",
     "url": "https://discord.com/invite/qRyyrMyrkz",
     "description": "Divcord Discord",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "fishcord-discord": {
     "name": "Fishcord Discord",
     "url": "https://discord.com/invite/cY6jCQgwDM",
     "description": "Fishcord Discord",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-exchange": {
     "name": "PoE Exchange",
     "url": "https://poexchange.maxroll.gg/",
     "icon": "/images/maxroll.png",
     "description": "Wealth tracker for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-place": {
     "name": "poe.place",
     "url": "https://poe.place/",
     "description": "Collection of useful links for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "timeless-jewel-calculator": {
     "name": "Timeless Jewel Calculator",
     "url": "https://vilsol.github.io/timeless-jewels/tree",
     "icon": "/images/timelessjewelCalculator.png",
     "description": "Calculate and visualize timeless jewel passive tree modifications",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "keepers-of-the-flame-guide": {
     "name": "Keepers of the Flame League Challenge Guide",
     "url": "https://docs.google.com/document/d/10Wr7LC-rqA6QuJqPdP6Chd6l-inYci4cNTWuHVVC05Y/edit?usp=sharing",
     "description": "Keepers of the Flame League Challenge Analysis and Newbie Guide",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "timeless-historian": {
     "name": "Timeless Historian",
     "url": "https://timelesshistorian.xyz",
     "description": "Path of Exile resources and tools",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
+  },
+  "phrecia-idol-regex-builder": {
+    "name": "Phrecia Idol Regex Builder",
+    "url": "https://exilelab.net/regex/index.html",
+    "description": "Blood of Mages: Phrecia Idol Regex Builder - Build regex filters for idol modifiers",
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "indie-wiki-buddy-chrome": {
     "name": "Indie Wiki Buddy (Chrome)",
     "url": "https://chromewebstore.google.com/detail/indie-wiki-buddy/fkagelmloambgokoeokbpihmgpkbgbfm",
     "description": "Helps you discover quality, independent wikis through alerts, redirects, and search filtering",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "indie-wiki-buddy-firefox": {
     "name": "Indie Wiki Buddy (Firefox)",
     "url": "https://addons.mozilla.org/en-US/firefox/addon/indie-wiki-buddy/",
     "description": "Helps you discover quality, independent wikis through alerts, redirects, and search filtering",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ninja-builds-poe2": {
     "name": "Poe.Ninja Builds",
     "url": "https://poe.ninja/poe2/builds",
     "description": "Build statistics for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ninja-passive-skill-tree-poe2": {
     "name": "Poe.Ninja Passive Skill Tree",
     "url": "https://poe.ninja/poe2/passive-skill-tree/",
     "description": "Passive skill tree for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ninja-pob-poe2": {
     "name": "Poe.Ninja PoB",
     "url": "https://poe.ninja/poe2/pob",
     "description": "Path of Building integration for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "maxroll-poe2": {
     "name": "Maxroll",
     "url": "https://maxroll.gg/poe2",
     "description": "Build guides, currency farming, and game resources for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "maxroll-instilling-calculator-poe2": {
     "name": "Instilling Calculator",
     "url": "https://maxroll.gg/poe2/instilling-calculator",
     "description": "Instilling calculator for Path of Exile 2",
-    "lastChecked": "2026-01-03T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-vault-poe2": {
     "name": "PoE Vault",
     "url": "https://www.poe-vault.com/poe2/",
     "description": "Build guides, leveling guides, and game resources for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-2-builds-reddit": {
     "name": "Path of Exile 2 Builds Reddit",
     "url": "https://www.reddit.com/r/pathofexile2builds/",
     "description": "Subreddit for Path of Exile 2 builds, guides and questions",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "mobalytics-poe2": {
     "name": "Mobalytics PoE 2",
     "url": "https://mobalytics.gg/poe-2/builds",
     "description": "Path of Exile 2 builds, guides, tier lists, and build planner",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poebuilds-cc-poe2": {
     "name": "PoE Builds",
     "url": "https://www.poebuilds.cc/poe2/",
     "description": "Path of Exile 2 build archive with popular and latest builds",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "filterblade-poe2": {
     "name": "FilterBlade",
     "url": "https://www.filterblade.xyz/?game=Poe2",
     "description": "Loot filter editor and customizer for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "official-trade-poe2": {
     "name": "Official Trade",
     "url": "https://www.pathofexile.com/trade2",
     "description": "Official Path of Exile 2 trade site",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ninja-economy-poe2": {
     "name": "Poe.Ninja Economy",
     "url": "https://poe.ninja/poe2/economy/",
     "description": "Economy statistics for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-watch-poe2": {
     "name": "poe.watch",
     "url": "https://poe.watch/poe2/exchange",
     "description": "Currency exchange rates and price tracking for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-building-community-poe2": {
     "name": "Path of Building Community",
     "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
     "icon": "/images/path_of_building.png",
     "description": "Community fork of Path of Building for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "pobb-in-poe2": {
     "name": "POBb.in",
     "url": "https://pobb.in/",
     "description": "Share and import Path of Building builds for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-planner-poe2": {
     "name": "PoE Planner",
     "url": "https://poeplanner.com/poe2",
     "description": "Build planner and skill tree tool for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "pob-cool-poe2": {
     "name": "PoB.cool",
     "url": "https://pob.cool/poe2",
     "description": "Path of Building online tool for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exiled-exchange-2": {
     "name": "Exiled Exchange 2",
     "url": "https://exiledexchange2.com/",
     "description": "Path of Exile 2 overlay program for price checking items",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "xiletrade-poe2": {
     "name": "XileTrade",
     "url": "https://maxensas.github.io/xiletrade",
     "icon": "/images/xileTrade.png",
     "description": "Game overlay, price checker and helper tool for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exile-ui-poe2": {
     "name": "Exile UI",
     "url": "https://github.com/Lailloken/Exile-UI",
     "description": "UI and QoL overlay for Path of Exile 2 with minimalist design and seamless integration",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "mercurytrade-poe2": {
     "name": "MercuryTrade",
     "url": "https://github.com/Morph21/MercuryTrade-Community-Fork",
     "icon": "/images/mercuryTrade.png",
     "description": "Overlay application for Path of Exile 2 with tracking, trading, and chat features",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "exile-compass-poe2": {
     "name": "Exile Compass",
     "url": "https://exilecompass.com/",
     "description": "Desktop overlay companion for Path of Exile 2 - track quests, gem progression, passive tree, regex filters, and notes",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "sidekick-poe2": {
     "name": "Sidekick",
     "url": "https://sidekick-poe.github.io/",
     "icon": "/images/ExaltedOrb.png",
     "description": "Path of Exile 2 companion tool offering item price checking, map modifier analysis, and more",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-planner-atlas-poe2": {
     "name": "PoE Planner Atlas Tree",
     "url": "https://poeplanner.com/atlas-tree2",
     "description": "Atlas tree planner and optimizer for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-2-reddit": {
     "name": "Path of Exile 2 Reddit",
     "url": "https://www.reddit.com/r/PathOfExile2/",
     "description": "Path of Exile 2 community on Reddit",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2db-modifiers": {
     "name": "PoE2DB Modifiers",
     "url": "https://poe2db.tw/us/Modifiers",
     "description": "Comprehensive modifier database and crafting reference for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "craft-of-exile-poe2": {
     "name": "Craft of Exile",
     "url": "https://www.craftofexile.com/?game=poe2",
     "description": "Crafting simulator and calculator for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2htc": {
     "name": "POE2HTC",
     "url": "https://www.poe2htc.com",
     "description": "Crafting calculator and optimizer for Path of Exile 2",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-crafting": {
     "name": "Path of Crafting",
     "url": "https://pathofcrafting.net/",
     "description": "Crafting simulator for Path of Exile 2 with various crafting methods and currency applications",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "path-of-exile-2-wiki": {
     "name": "Path of Exile 2 Wiki",
     "url": "https://www.poe2wiki.net/wiki/Path_of_Exile_2_Wiki",
     "description": "Official Path of Exile 2 wiki maintained by the community",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2db": {
     "name": "PoE2DB",
     "url": "https://poe2db.tw/",
     "description": "Comprehensive Path of Exile 2 database and information",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "patch-notes-poe2": {
     "name": "Patch Notes",
     "url": "https://www.pathofexile.com/forum/view-forum/2212",
     "description": "Official Path of Exile 2 patch notes",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2-spectre-wiki": {
     "name": "POE2 Spectre Wiki",
     "url": "https://poe2spectrewiki.com/",
     "description": "Comprehensive guide to Spectres in Path of Exile 2 with details, locations, and build synergies",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2-spectre-spreadsheet": {
     "name": "POE2 Spectre Spreadsheet",
     "url": "https://docs.google.com/spreadsheets/d/1oadXSCHczpyCgRxzTk3nRBeeOLlefZAzKM3ijwmWevY/edit?gid=0#gid=0",
     "description": "Community-maintained spreadsheet documenting all spectres in Path of Exile 2",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "watchers-eye-search": {
     "name": "Watcher's Eye Search",
     "url": "https://watcherseyesearch.com/",
     "description": "Trade search tool for Watcher's Eye unique jewels",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "patchbot-poe2": {
     "name": "PatchBot",
     "url": "https://patchbot.io/games/path-of-exile-2",
     "description": "Discord bot for Path of Exile 2 patch notes and updates",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "hideout-showcase-poe2": {
     "name": "Hideout Showcase",
     "url": "https://hideoutshowcase.com/",
     "description": "Browse and share Path of Exile 2 hideout designs",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2-re": {
     "name": "PoE2.re",
     "url": "https://poe2.re/",
     "description": "Path of Exile 2 regex and resources",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-ladder-poe2": {
     "name": "PoE Ladder",
     "url": "https://poeladder.com/ladder?ladderIdentifier=SSF_The_Third_Edict&isPoe2=true",
     "description": "Path of Exile 2 ladder and leaderboard tracking",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe-place-poe2": {
     "name": "poe.place",
     "url": "https://poe.place/",
     "description": "Path of Exile 2 resources, builds, videos, and tools",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poeez-economy-currency": {
     "name": "Poeez Economy Tracker",
     "url": "https://poeez.com/economy/currency",
     "description": "Economy tracker for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poeez-economy-currency-poe2": {
     "name": "Poeez Economy Tracker",
     "url": "https://poeez.com/poe2/economy/currency",
     "description": "Economy tracker for Path of Exile 2",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poeez-character-hub": {
     "name": "Poeez Character Hub",
     "url": "https://poeez.com/character-hub",
     "description": "Character hub for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poeez-build-browse": {
     "name": "Poeez Build Browse",
     "url": "https://poeez.com/build/browse/explore",
     "description": "Browse and explore builds for Path of Exile",
-    "lastChecked": "2025-12-08T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "mobalytics-poe1": {
     "name": "Mobalytics PoE",
     "url": "https://mobalytics.gg/poe",
     "description": "Path of Exile builds, guides, tier lists, and build planner",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poebuilds-cc-poe1": {
     "name": "PoE Builds",
     "url": "https://www.poebuilds.cc/poe/",
     "description": "Path of Exile build archive with popular and latest builds",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "xilehud-poe2": {
     "name": "XileHUD",
     "url": "https://github.com/XileHUD/poe_overlay",
     "description": "Lightweight PoE1 and PoE2 item & modifier overlay, copy an item, see the data instantly",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2scout": {
     "name": "PoE2 Scout",
     "url": "https://poe2scout.com/",
     "description": "Path of Exile 2 economy tracker tool",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2helper": {
     "name": "PoE2 Helper",
     "url": "https://poe2helper.com/",
     "description": "Free Path of Exile 2 item price checker - instantly find market values for your PoE2 items",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "beargrump-campaign-checklist-poe2": {
     "name": "Campaign Checklist",
     "url": "https://beargrump.nerdcub.workers.dev",
     "description": "Interactive campaign checklist for Path of Exile 2 leveling - complete steps top to bottom with progress saved in your browser",
-    "lastChecked": "2025-12-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "atziri-temple-planner-poe2": {
     "name": "Atziri's Temple Planner",
     "url": "https://tetriszocker.github.io/atziri-temple-editor/",
     "description": "Interactive planner for Atziri's Temple in Path of Exile 2 with ingame placement rules and upgrade logic",
-    "lastChecked": "2025-01-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "atziri-temple-cheatsheet-reddit-poe2": {
     "name": "Atziri's Temple Cheatsheet (Reddit)",
     "url": "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fna3wm8udz69g1.png",
     "description": "Visual cheatsheet for Atziri's Temple rooms and mechanics",
-    "lastChecked": "2025-01-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "atziri-temple-cheatsheet-google-poe2": {
     "name": "PoE2 Temple Cheatsheet",
     "url": "https://docs.google.com/document/d/1upbSOp7xWkJ-Ac-b932v2-BQ5GoesJyfBhwfAcVgA_w/edit?tab=t.0",
     "description": "Comprehensive cheatsheet document for Atziri's Temple in Path of Exile 2",
-    "lastChecked": "2025-01-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "poe2db-atziri-temple-poe2": {
     "name": "PoE2DB Atziri's Temple",
     "url": "https://poe2db.tw/us/Atziris_Temple#Rooms",
     "description": "Complete database of Atziri's Temple rooms, upgrades, medallions, and crafting options for Path of Exile 2",
-    "lastChecked": "2025-01-09T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "atziri-temple-planner-sulozor-poe2": {
     "name": "Atziri's Temple Planner (Sulozor)",
     "url": "https://sulozor.github.io/#/atziri-temple",
     "description": "Interactive planner for Atziri's Temple in Path of Exile 2",
-    "lastChecked": "2025-12-30T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "atziri-temple-video-1-poe2": {
     "name": "Atziri's Temple Guide (Video 1)",
     "url": "https://www.youtube.com/watch?v=ON5pJ21eKCM",
     "description": "Video guide for Atziri's Temple in Path of Exile 2",
-    "lastChecked": "2025-12-30T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   },
   "atziri-temple-video-2-poe2": {
     "name": "Atziri's Temple Guide (Video 2)",
     "url": "https://www.youtube.com/watch?v=Colo4eBbIKM",
     "description": "Video guide for Atziri's Temple in Path of Exile 2",
-    "lastChecked": "2025-12-30T18:00:00Z"
+    "lastChecked": "2026-01-26T18:00:00Z"
   }
 }

@@ -51,3 +51,6 @@ ehthumbs.db
 Thumbs.db
 
 .playwright-mcp/
+.cursor/
+.specify/
+specs/

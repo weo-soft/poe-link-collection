@@ -157,7 +157,9 @@
     "poe1": [
       "poe-planner-1",
       "poe-atlas",
-      "maps-of-exile"
+      "maps-of-exile",
+      "idol-planner",
+      "phrecia-map-planner"
     ],
     "poe2": [
       "poe-planner-atlas-poe2"
@@ -265,7 +267,8 @@
       "poe-place",
       "timeless-jewel-calculator",
       "keepers-of-the-flame-guide",
-      "timeless-historian"
+      "timeless-historian",
+      "phrecia-idol-regex-builder"
     ],
     "poe2": [
       "patchbot-poe2",
