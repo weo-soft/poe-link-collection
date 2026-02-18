@@ -1,6 +1,59 @@
 {
-  "lastUpdated": "2026-01-26T18:00:00Z",
+  "lastUpdated": "2026-02-18T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-02-18T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "FluxOfExile",
+          "linkUrl": "https://github.com/null77/FluxOfExile"
+        },
+        {
+          "type": "added",
+          "categoryId": "trackers",
+          "linkName": "simplex.gg",
+          "linkUrl": "https://simplex.gg/"
+        },
+        {
+          "type": "added",
+          "categoryId": "fluff-meme-games",
+          "linkName": "POEdle",
+          "linkUrl": "https://www.poedle.net/"
+        },
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "Perandus Ledger",
+          "linkUrl": "https://xddbsns.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "leveling",
+          "linkName": "Gem Planner",
+          "linkUrl": "https://www.poegemplanner.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "fluff-meme-games",
+          "linkName": "The Void's Decree",
+          "linkUrl": "https://nskleckner.github.io/the-voids-decree/index.html"
+        },
+        {
+          "type": "added",
+          "categoryId": "resources",
+          "linkName": "PoeData.dev",
+          "linkUrl": "https://poedata.dev/"
+        },
+        {
+          "type": "added",
+          "categoryId": "game-overlay",
+          "linkName": "fyi-overlay",
+          "linkUrl": "https://overlay.poe2.fyi/"
+        }
+      ]
+    },
     {
       "date": "2026-01-26T18:00:00Z",
       "entries": [

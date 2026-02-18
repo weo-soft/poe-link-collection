@@ -44,6 +44,27 @@ function resolveIconPath(iconPath) {
   return iconPath;
 }
 
+/** Number of days after "added" date to still show the "new" indicator */
+const NEW_LINK_DAYS = 14;
+
+/**
+ * Returns true if the given added date is within NEW_LINK_DAYS of today
+ * @param {string} addedDateString - ISO date string (e.g. link.added)
+ * @returns {boolean}
+ */
+function isNewLink(addedDateString) {
+  if (!addedDateString) return false;
+  try {
+    const added = new Date(addedDateString);
+    const now = new Date();
+    const diffMs = now - added;
+    const diffDays = diffMs / (24 * 60 * 60 * 1000);
+    return diffDays >= 0 && diffDays <= NEW_LINK_DAYS;
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Formats a date string to a readable format
  * @param {string} dateString - ISO date string
@@ -83,6 +104,9 @@ export function renderLink(container, link, categoryId) {
     linkElement.target = '_blank';
     linkElement.rel = 'noopener noreferrer';
     linkElement.className = 'link-item';
+    if (link.added && isNewLink(link.added)) {
+      linkElement.classList.add('link-item--new');
+    }
     linkElement.setAttribute('aria-label', link.description || `Visit ${link.name}`);
     linkElement.setAttribute('role', 'listitem');
     linkElement.setAttribute('data-category-id', categoryId);
@@ -131,6 +155,15 @@ export function renderLink(container, link, categoryId) {
     linkText.className = 'link-text';
     linkText.textContent = link.name;
     linkElement.appendChild(linkText);
+
+    // New indicator badge (when added within last 14 days)
+    if (link.added && isNewLink(link.added)) {
+      const newBadge = document.createElement('span');
+      newBadge.className = 'link-item-new-badge';
+      newBadge.textContent = 'New';
+      newBadge.setAttribute('aria-hidden', 'true');
+      linkElement.appendChild(newBadge);
+    }
 
     // Add click handler to intercept clicks for disclaimer categories
     linkElement.addEventListener('click', (event) => {
