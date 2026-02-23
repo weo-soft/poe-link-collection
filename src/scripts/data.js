@@ -8,6 +8,14 @@ let cachedLinksData = null;
 let cachedLinkItemsData = null;
 
 /**
+ * Clears the links cache (for testing so mocked fetch is used).
+ */
+export function clearLinksCache() {
+  cachedLinksData = null;
+  cachedLinkItemsData = null;
+}
+
+/**
  * Validates a single Link object
  * @param {Object} link - Link object to validate
  * @returns {boolean} - True if valid, false otherwise

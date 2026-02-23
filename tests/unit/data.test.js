@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { validateLink, validateCategory, loadLinks, validateEvent, loadEvents, validateUpdateRecord, validateChangelogEntry, loadUpdates } from '../../src/scripts/data.js';
+import { validateLink, validateCategory, loadLinks, clearLinksCache, validateEvent, loadEvents, validateUpdateRecord, validateChangelogEntry, loadUpdates } from '../../src/scripts/data.js';
 
 describe('validateLink', () => {
   it('should validate a valid link object', () => {
@@ -157,6 +157,7 @@ describe('validateCategory', () => {
 describe('loadLinks', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    clearLinksCache();
   });
 
   it('should load and validate links from JSON files', async () => {
