@@ -1,0 +1,172 @@
+/**
+ * Leagues Module
+ * Handles league data processing and rendering for PoE and PoE2
+ */
+
+import { calculateEventDurations, formatDuration } from './events.js';
+
+/**
+ * Renders a single league element
+ * @param {HTMLElement} container - Container element to append league to
+ * @param {Object} league - League object to render
+ */
+export function renderLeague(container, league) {
+  const leagueElement = document.createElement('article');
+  leagueElement.className = 'league-item';
+  leagueElement.setAttribute('data-league-id', league.id);
+  leagueElement.setAttribute('aria-label', `League: ${league.name}`);
+  leagueElement.setAttribute('role', 'listitem');
+
+  const startDate = new Date(league.startDate);
+  const endDate = new Date(league.endDate);
+
+  // Row: logo + dates side by side to save vertical space
+  const logoDatesRow = document.createElement('div');
+  logoDatesRow.className = 'league-logo-dates-row';
+
+  // Clickable league logo (banner) – links to details when available
+  if (league.bannerImageUrl && league.bannerImageUrl.trim().length > 0) {
+    const bannerElement = document.createElement('img');
+    bannerElement.className = 'league-banner';
+    bannerElement.src = league.bannerImageUrl.trim();
+    bannerElement.alt = league.name;
+    bannerElement.onerror = () => {
+      bannerElement.style.display = 'none';
+    };
+
+    if (league.detailsLink && league.detailsLink.trim().length > 0) {
+      const bannerLink = document.createElement('a');
+      bannerLink.className = 'league-banner-link';
+      bannerLink.href = league.detailsLink.trim();
+      bannerLink.target = '_blank';
+      bannerLink.rel = 'noopener noreferrer';
+      bannerLink.setAttribute('aria-label', `${league.name} – View details`);
+      bannerLink.appendChild(bannerElement);
+      logoDatesRow.appendChild(bannerLink);
+    } else {
+      logoDatesRow.appendChild(bannerElement);
+    }
+  }
+
+  const datesElement = document.createElement('div');
+  datesElement.className = 'league-dates';
+
+  const startDateStr = startDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  const endDateStr = endDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  datesElement.innerHTML = `
+    <div class="league-date">
+      <span class="date-label">Start:</span>
+      <span class="date-value">${startDateStr}</span>
+    </div>
+    <div class="league-date">
+      <span class="date-label">End:</span>
+      <span class="date-value">${endDateStr}</span>
+    </div>
+  `;
+
+  logoDatesRow.appendChild(datesElement);
+  leagueElement.appendChild(logoDatesRow);
+
+  // Calculate and display durations (skip "Running for" / "End expected in" for active leagues)
+  const durations = calculateEventDurations(league);
+  if (durations && !durations.isActive) {
+    const durationElement = document.createElement('div');
+    durationElement.className = 'league-duration';
+
+    const now = new Date();
+    if (startDate > now) {
+      const timeUntilStart = startDate - now;
+      const timeUntilStartStr = formatDuration(timeUntilStart);
+      durationElement.innerHTML = `
+        <div class="duration-info">
+          <span class="duration-label">Starts in:</span>
+          <span class="duration-value">${timeUntilStartStr}</span>
+        </div>
+        <div class="duration-info">
+          <span class="duration-label">Duration:</span>
+          <span class="duration-value">${durations.totalDuration}</span>
+        </div>
+      `;
+    } else {
+      durationElement.innerHTML = `
+        <div class="duration-info">
+          <span class="duration-label">Duration:</span>
+          <span class="duration-value">${durations.totalDuration}</span>
+        </div>
+      `;
+    }
+
+    leagueElement.appendChild(durationElement);
+  }
+
+  container.appendChild(leagueElement);
+}
+
+/**
+ * Renders the leagues section for the current game
+ * @param {HTMLElement} container - Container element (usually #leagues)
+ * @param {Array} leagues - Array of League objects to render
+ * @param {string} [currentGame] - Current game selection ('poe1' or 'poe2'), filters leagues by game
+ */
+export function renderLeaguesSection(container, leagues, currentGame = null) {
+  if (!container) {
+    console.error('Leagues container not found');
+    return;
+  }
+
+  container.innerHTML = '';
+
+  if (!leagues || leagues.length === 0) {
+    const emptyState = document.createElement('div');
+    emptyState.className = 'empty-state';
+    emptyState.setAttribute('role', 'status');
+    emptyState.setAttribute('aria-live', 'polite');
+    emptyState.textContent = 'No leagues available.';
+    container.appendChild(emptyState);
+    return;
+  }
+
+  // Filter by current game
+  const filteredLeagues = currentGame
+    ? leagues.filter((league) => league.game === currentGame)
+    : leagues;
+
+  if (filteredLeagues.length === 0) {
+    const emptyState = document.createElement('div');
+    emptyState.className = 'empty-state';
+    emptyState.setAttribute('role', 'status');
+    emptyState.setAttribute('aria-live', 'polite');
+    emptyState.textContent = 'No league for this game at this time.';
+    container.appendChild(emptyState);
+    return;
+  }
+
+  const leaguesList = document.createElement('div');
+  leaguesList.className = 'leagues-list';
+  leaguesList.setAttribute('role', 'list');
+  leaguesList.setAttribute('aria-label', 'Current league');
+
+  filteredLeagues.forEach((league) => {
+    try {
+      renderLeague(leaguesList, league);
+    } catch (error) {
+      console.error('Error rendering league:', error, league);
+    }
+  });
+
+  container.appendChild(leaguesList);
+}

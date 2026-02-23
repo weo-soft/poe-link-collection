@@ -54,4 +54,5 @@ Thumbs.db
 .cursor/
 .specify/
 specs/
-scripts/
+# Only ignore top-level scripts/ (e.g. tooling), not src/scripts/
+/scripts/
