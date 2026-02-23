@@ -3,14 +3,22 @@
  * Initializes the PoE Link Collection Hub page
  */
 
-import { loadLinks, loadEvents, loadUpdates, getCurrentGame, setCurrentGame } from './data.js';
+import { loadLinks, loadEvents, loadLeagues, loadUpdates, getCurrentGame, setCurrentGame } from './data.js';
 import { renderAllCategories } from './links.js';
 import { renderNavigation, setupNavigationHandlers } from './navigation.js';
 import { renderEventsSection } from './events.js';
+import { renderLeaguesSection } from './leagues.js';
 import { renderUpdatesButton, toggleChangelog, closeChangelog } from './updates.js';
 import { setupContactDialog, openContactDialog } from './contact.js';
 import { setupDisclaimerDialog } from './disclaimer.js';
 import { setupEventSuggestionDialog, openEventSuggestionDialog } from './event-suggestion.js';
+
+// In-memory cache for events and leagues so we don't refetch on every game switch
+let cachedEvents = null;
+let cachedLeagues = null;
+
+// Game selector click handlers are attached once to avoid stacking listeners on every switch
+let gameSelectorHandlersAttached = false;
 
 // Error handling infrastructure
 window.addEventListener('error', (event) => {
@@ -65,48 +73,59 @@ async function loadAndRenderCategories(game = null) {
 }
 
 /**
- * Sets up the game selector UI and handlers
+ * Updates the game selector button states and attaches click handlers once.
+ * Must not add new listeners on every call or the page slows down with each switch.
  */
 function setupGameSelector() {
-  const gameSelector = document.getElementById('game-selector');
-  if (!gameSelector) return;
-
-  const currentGame = getCurrentGame();
-  
-  // Update button states based on current game
   const poe1Button = document.getElementById('game-poe1');
   const poe2Button = document.getElementById('game-poe2');
-  
-  if (poe1Button && poe2Button) {
-    if (currentGame === 'poe1') {
-      poe1Button.classList.add('active');
-      poe1Button.setAttribute('aria-pressed', 'true');
-      poe2Button.classList.remove('active');
-      poe2Button.setAttribute('aria-pressed', 'false');
-    } else {
-      poe2Button.classList.add('active');
-      poe2Button.setAttribute('aria-pressed', 'true');
-      poe1Button.classList.remove('active');
-      poe1Button.setAttribute('aria-pressed', 'false');
-    }
+  if (!poe1Button || !poe2Button) return;
 
-    // Add click handlers
+  const currentGame = getCurrentGame();
+
+  if (currentGame === 'poe1') {
+    poe1Button.classList.add('active');
+    poe1Button.setAttribute('aria-pressed', 'true');
+    poe2Button.classList.remove('active');
+    poe2Button.setAttribute('aria-pressed', 'false');
+  } else {
+    poe2Button.classList.add('active');
+    poe2Button.setAttribute('aria-pressed', 'true');
+    poe1Button.classList.remove('active');
+    poe1Button.setAttribute('aria-pressed', 'false');
+  }
+
+  if (!gameSelectorHandlersAttached) {
+    gameSelectorHandlersAttached = true;
     poe1Button.addEventListener('click', () => switchGame('poe1'));
     poe2Button.addEventListener('click', () => switchGame('poe2'));
   }
 }
 
 /**
- * Updates the URL hash with the game identifier without reloading the page
+ * Updates the URL hash with the game identifier without reloading the page.
+ * No-op when the operation is insecure (e.g. file://) or when the hash already matches
+ * (avoids "Too many calls to Location or History APIs" when switching games rapidly).
  * @param {string} game - Game identifier ('poe1' or 'poe2')
  */
 function updateURLHash(game) {
-  if (game === 'poe1') {
-    // Remove the hash for poe1 (default)
-    window.history.replaceState({}, '', window.location.pathname + window.location.search);
-  } else {
-    // Set hash to #poe2
-    window.history.replaceState({}, '', window.location.pathname + window.location.search + '#' + game);
+  try {
+    if (window.location.protocol !== 'http:' && window.location.protocol !== 'https:') {
+      return;
+    }
+    const currentHash = window.location.hash.slice(1);
+    const desiredHash = game === 'poe1' ? '' : game;
+    if (currentHash === desiredHash) {
+      return;
+    }
+    const base = window.location.pathname + window.location.search;
+    if (game === 'poe1') {
+      window.history.replaceState({}, '', base);
+    } else {
+      window.history.replaceState({}, '', base + '#' + game);
+    }
+  } catch (_) {
+    // replaceState can throw in file:// context or "Too many calls" when switching rapidly
   }
 }
 
@@ -125,21 +144,35 @@ async function switchGame(game) {
   setupGameSelector();
   await loadAndRenderCategories(game);
   
-  // Re-render events with new game filter
+  // Re-render leagues with new game filter (use cache to avoid refetching)
+  const leaguesContainer = document.getElementById('leagues');
+  if (leaguesContainer) {
+    try {
+      const leagues = cachedLeagues ?? await loadLeagues();
+      if (cachedLeagues === null) cachedLeagues = leagues;
+      renderLeaguesSection(leaguesContainer, leagues, game);
+    } catch (error) {
+      console.error('Error reloading leagues:', error);
+      const errorDiv = document.createElement('div');
+      errorDiv.className = 'error';
+      errorDiv.setAttribute('role', 'alert');
+      errorDiv.textContent = 'Failed to load leagues. Please refresh the page.';
+      leaguesContainer.innerHTML = '';
+      leaguesContainer.appendChild(errorDiv);
+    }
+  }
+
+  // Re-render events with new game filter (use cache to avoid refetching)
   const eventsContainer = document.getElementById('events');
   if (eventsContainer) {
-    // Show loading state
-    eventsContainer.innerHTML = '<div class="loading" role="status" aria-live="polite">Loading events...</div>';
-    
     try {
-      const events = await loadEvents();
+      const events = cachedEvents ?? await loadEvents();
+      if (cachedEvents === null) cachedEvents = events;
       renderEventsSection(eventsContainer, events, game);
-      
+
       // Re-setup event suggestion button handler
-      // Remove any existing listeners first (clone and replace to remove all)
       const suggestButton = eventsContainer.querySelector('#suggest-event-button');
       if (suggestButton) {
-        // Clone button to remove all event listeners
         const newButton = suggestButton.cloneNode(true);
         suggestButton.parentNode.replaceChild(newButton, suggestButton);
         newButton.addEventListener('click', openEventSuggestionDialog);
@@ -200,27 +233,50 @@ async function init() {
     // Setup game selector
     setupGameSelector();
 
-    // Load and render categories and events in parallel for better performance
+    // Load and render categories, leagues, and events in parallel for better performance
     const eventsContainer = document.getElementById('events');
+    const leaguesContainer = document.getElementById('leagues');
 
-    // Show loading state for events
+    // Show loading state for events and leagues
     if (eventsContainer) {
       eventsContainer.innerHTML = '<div class="loading" role="status" aria-live="polite">Loading events...</div>';
     }
+    if (leaguesContainer) {
+      leaguesContainer.innerHTML = '<div class="loading" role="status" aria-live="polite">Loading leagues...</div>';
+    }
 
     // Load data in parallel
-    const [categoriesResult, eventsResult, updatesResult] = await Promise.allSettled([
+    const [categoriesResult, eventsResult, leaguesResult, updatesResult] = await Promise.allSettled([
       loadAndRenderCategories(),
       eventsContainer ? loadEvents() : Promise.resolve([]),
+      leaguesContainer ? loadLeagues() : Promise.resolve([]),
       loadUpdates(),
     ]);
 
-    // Render events
+    // Render leagues and cache for game switches
+    if (leaguesContainer) {
+      if (leaguesResult.status === 'fulfilled') {
+        cachedLeagues = leaguesResult.value;
+        const currentGame = getCurrentGame();
+        renderLeaguesSection(leaguesContainer, leaguesResult.value, currentGame);
+      } else {
+        console.error('Error loading leagues:', leaguesResult.reason);
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error';
+        errorDiv.setAttribute('role', 'alert');
+        errorDiv.textContent = 'Failed to load leagues. Please refresh the page.';
+        leaguesContainer.innerHTML = '';
+        leaguesContainer.appendChild(errorDiv);
+      }
+    }
+
+    // Render events and cache for game switches
     if (eventsContainer) {
       if (eventsResult.status === 'fulfilled') {
+        cachedEvents = eventsResult.value;
         const currentGame = getCurrentGame();
         renderEventsSection(eventsContainer, eventsResult.value, currentGame);
-        
+
         // Setup event suggestion button handler
         const suggestButton = eventsContainer.querySelector('#suggest-event-button');
         if (suggestButton) {

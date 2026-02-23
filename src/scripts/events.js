@@ -257,11 +257,17 @@ export function renderEventsSection(container, events, currentGame = null) {
   
   container.appendChild(sectionHeader);
 
-  // Filter to show only upcoming and running events (exclude past events)
+  // Filter to show only upcoming and running events (exclude past events and type "league")
+  // Leagues are shown in the Leagues section; Events section shows only races, events, etc.
   // Also filter by game if currentGame is specified
   const now = new Date();
   const filteredEvents = events.filter(event => {
     try {
+      // Exclude league-type items (they are displayed in the Leagues section)
+      if (event.type === 'league') {
+        return false;
+      }
+
       // Filter by game if currentGame is specified
       if (currentGame) {
         // If event has a game field, it must match currentGame

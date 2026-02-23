@@ -18,6 +18,7 @@ describe('Link Rendering Integration', () => {
         {
           name: 'Test Link 1',
           url: 'https://example.com/1',
+          icon: '/images/favicons/example.png',
         },
         {
           name: 'Test Link 2',
@@ -43,9 +44,12 @@ describe('Link Rendering Integration', () => {
     expect(links[0].target).toBe('_blank');
     expect(links[0].getAttribute('rel')).toBe('noopener noreferrer');
     
-    // Check favicon is present
-    const favicon = links[0].querySelector('img.link-favicon');
-    expect(favicon).toBeTruthy();
+    // Link with icon has favicon img; link without icon does not
+    const favicon1 = links[0].querySelector('img.link-favicon');
+    expect(favicon1).toBeTruthy();
+    expect(favicon1.src).toContain('/images/favicons/example.png');
+    const favicon2 = links[1].querySelector('img.link-favicon');
+    expect(favicon2).toBeFalsy();
   });
 
   it('should render multiple categories', () => {
@@ -240,13 +244,18 @@ describe('Event Rendering Integration', () => {
   });
 
   it('should render events section with event items', () => {
+    // Use type 'event' (not 'league') so it appears in Events section; use future dates so it's shown
+    const futureStart = new Date();
+    futureStart.setMonth(futureStart.getMonth() + 1);
+    const futureEnd = new Date();
+    futureEnd.setMonth(futureEnd.getMonth() + 2);
     const events = [
       {
         id: 'test-event',
         name: 'Test Event',
-        startDate: '2024-07-26T16:00:00Z',
-        endDate: '2024-12-02T16:00:00Z',
-        type: 'league',
+        startDate: futureStart.toISOString(),
+        endDate: futureEnd.toISOString(),
+        type: 'event',
       },
     ];
 

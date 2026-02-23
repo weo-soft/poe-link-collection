@@ -8,11 +8,12 @@ describe('renderLink', () => {
     container = document.createElement('div');
   });
 
-  it('should render a valid link with favicon', () => {
+  it('should render a valid link with icon when icon is set', () => {
     const link = {
       name: 'Test Link',
       url: 'https://example.com',
       description: 'Test description',
+      icon: '/images/favicons/example.png',
     };
 
     renderLink(container, link);
@@ -23,14 +24,28 @@ describe('renderLink', () => {
     expect(linkElement.target).toBe('_blank');
     expect(linkElement.rel).toBe('noopener noreferrer');
 
-    const favicon = linkElement.querySelector('img.link-favicon');
-    expect(favicon).toBeTruthy();
-    expect(favicon.src).toContain('google.com/s2/favicons');
-    expect(favicon.src).toContain('example.com');
+    const icon = linkElement.querySelector('img.link-favicon');
+    expect(icon).toBeTruthy();
+    expect(icon.src).toContain('/images/favicons/example.png');
 
     const linkText = linkElement.querySelector('span.link-text');
     expect(linkText).toBeTruthy();
     expect(linkText.textContent).toBe('Test Link');
+  });
+
+  it('should not render icon when link has no icon set', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      description: 'Test description',
+    };
+
+    renderLink(container, link);
+
+    const linkElement = container.querySelector('a.link-item');
+    expect(linkElement).toBeTruthy();
+    const icon = linkElement.querySelector('img.link-favicon');
+    expect(icon).toBeFalsy();
   });
 
   it('should handle link without description', () => {
@@ -46,23 +61,22 @@ describe('renderLink', () => {
     expect(linkElement.getAttribute('aria-label')).toBe('Visit Test Link');
   });
 
-  it('should handle favicon load error gracefully', () => {
+  it('should handle icon load error gracefully', () => {
     const link = {
       name: 'Test Link',
       url: 'https://example.com',
+      icon: 'https://example.com/icon.png',
     };
 
     renderLink(container, link);
 
-    const favicon = container.querySelector('img.link-favicon');
-    expect(favicon).toBeTruthy();
+    const icon = container.querySelector('img.link-favicon');
+    expect(icon).toBeTruthy();
 
-    // Simulate error
     const errorEvent = new Event('error');
-    favicon.dispatchEvent(errorEvent);
+    icon.dispatchEvent(errorEvent);
 
-    // Favicon should be hidden after error
-    expect(favicon.style.display).toBe('none');
+    expect(icon.style.display).toBe('none');
   });
 
   it('should use custom icon when provided', () => {
@@ -79,19 +93,6 @@ describe('renderLink', () => {
     expect(icon.src).toBe('https://example.com/custom-icon.png');
   });
 
-  it('should fall back to favicon when no custom icon is provided', () => {
-    const link = {
-      name: 'Test Link',
-      url: 'https://example.com',
-    };
-
-    renderLink(container, link);
-
-    const icon = container.querySelector('img.link-favicon');
-    expect(icon).toBeTruthy();
-    expect(icon.src).toContain('google.com/s2/favicons');
-    expect(icon.src).toContain('example.com');
-  });
 });
 
 describe('renderCategory', () => {

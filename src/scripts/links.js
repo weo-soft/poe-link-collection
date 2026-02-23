@@ -7,22 +7,6 @@ import { validateLink } from './data.js';
 import { requiresDisclaimer, hasAcknowledgedDisclaimer, openDisclaimerDialog } from './disclaimer.js';
 
 /**
- * Gets the favicon URL for a given link URL
- * @param {string} url - The link URL
- * @returns {string} - Favicon URL
- */
-function getFaviconUrl(url) {
-  try {
-    const urlObj = new URL(url);
-    // Use Google's favicon service for reliable favicon fetching
-    return `https://www.google.com/s2/favicons?domain=${urlObj.hostname}&sz=32`;
-  } catch {
-    // Fallback if URL parsing fails
-    return '';
-  }
-}
-
-/**
  * Resolves an icon path, handling base URL for development/production
  * @param {string} iconPath - Icon path from JSON (may or may not include base path)
  * @returns {string} - Resolved icon URL
@@ -130,9 +114,8 @@ export function renderLink(container, link, categoryId) {
       linkElement.title = tooltipContent; // Fallback for accessibility
     }
 
-    // Add icon: use custom icon if provided, otherwise fetch favicon
-    const iconPath = link.icon ? resolveIconPath(link.icon) : null;
-    const iconUrl = iconPath || getFaviconUrl(link.url);
+    // Add icon only when set in link-items.json
+    const iconUrl = link.icon ? resolveIconPath(link.icon) : '';
     if (iconUrl) {
       const iconImg = document.createElement('img');
       iconImg.src = iconUrl;

@@ -390,18 +390,35 @@ main {
   background-color: var(--poe-accent-secondary);
 }
 
+/* Game selector + Current League row – same column widths as main (categories | sidebar) */
+.game-and-league-row {
+  display: flex;
+  align-items: center;
+  gap: var(--poe-spacing-lg);
+  margin-top: var(--poe-spacing-lg);
+  width: 100%;
+}
+
+.game-and-league-row > #game-selector {
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-start;
+}
+
 /* Game Selector */
 .game-selector {
   display: flex;
-  justify-content: center;
   gap: var(--poe-spacing-sm);
-  margin: var(--poe-spacing-lg) auto;
-  padding: 0 var(--poe-spacing-md);
-  max-width: 1200px;
+  padding: 0;
+  flex-shrink: 0;
 }
 
 .game-button {
-  padding: var(--poe-spacing-sm) var(--poe-spacing-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--poe-spacing-sm);
+  padding: var(--poe-spacing-xs) var(--poe-spacing-md);
   background-color: var(--poe-bg-secondary);
   color: var(--poe-text-primary);
   border: 2px solid var(--poe-border-color);
@@ -412,6 +429,13 @@ main {
   cursor: pointer;
   transition: all 0.2s ease;
   min-width: 180px;
+}
+
+.game-button-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .game-button:hover {
@@ -436,19 +460,111 @@ main {
   transform: translateY(0);
 }
 
-/* Events Section */
-#events {
-  display: block;
+/* Sidebar: Leagues + Events */
+.main-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-lg);
   flex: 0 0 350px;
   max-width: 350px;
-  padding: var(--poe-spacing-lg);
-  background-color: var(--poe-bg-secondary);
-  border-radius: var(--poe-border-radius);
-  box-shadow: var(--poe-shadow);
   position: sticky;
   top: var(--poe-spacing-lg);
   max-height: calc(100vh - var(--poe-spacing-lg) * 2);
   overflow-y: auto;
+}
+
+/* Leagues Section – spans two sections (2 × sidebar width + gap) */
+#leagues {
+  display: flex;
+  align-items: center;
+  flex: 0 0 calc(350px + var(--poe-spacing-lg) + 350px);
+  max-width: calc(350px + var(--poe-spacing-lg) + 350px);
+  min-width: 0;
+}
+
+#leagues .leagues-list {
+  flex: 1;
+  min-width: 0;
+}
+
+.leagues-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-md);
+}
+
+.league-item {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-bg-tertiary);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+}
+
+.league-logo-dates-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--poe-spacing-md);
+}
+
+.league-banner-link {
+  display: block;
+  flex-shrink: 0;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--poe-border-radius);
+}
+
+.league-banner-link:hover {
+  opacity: 0.9;
+}
+
+.league-banner-link:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+.league-dates {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--poe-spacing-sm) var(--poe-spacing-lg);
+  font-size: var(--poe-font-size-base);
+  min-width: 0;
+}
+
+.league-date {
+  display: flex;
+  gap: var(--poe-spacing-xs);
+}
+
+.league-banner {
+  max-width: 100%;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--poe-border-radius);
+  display: block;
+}
+
+.league-duration {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+  margin-top: var(--poe-spacing-sm);
+  padding-top: var(--poe-spacing-sm);
+  border-top: 1px solid var(--poe-border-color);
+  font-size: var(--poe-font-size-sm);
+}
+
+/* Events Section */
+#events {
+  display: block;
+  padding: var(--poe-spacing-lg);
+  background-color: var(--poe-bg-secondary);
+  border-radius: var(--poe-border-radius);
+  box-shadow: var(--poe-shadow);
 }
 
 .events-section-header {
@@ -816,12 +932,21 @@ main {
   .category-section.wide {
     grid-column: span 1;
   }
-  
-  #events {
+
+  .game-and-league-row {
+    flex-wrap: wrap;
+  }
+
+  .game-and-league-row > #leagues {
     flex: 1 1 auto;
     max-width: 100%;
-    position: static;
+  }
+  
+  .main-sidebar {
+    flex: 1 1 auto;
+    max-width: 100%;
     max-height: none;
+    position: static;
     margin-top: 0;
   }
   
@@ -894,12 +1019,8 @@ main {
     flex-direction: column;
   }
   
-  #events {
+  .main-sidebar {
     display: none;
-    flex: 1 1 auto;
-    max-width: 100%;
-    position: static;
-    max-height: none;
   }
 
   .category-section {

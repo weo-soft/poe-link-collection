@@ -42,18 +42,26 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./styles/main.css">
   
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://www.google.com">
 </head>
 <body>
   <div class="container">
     <!-- Navigation will be populated by JavaScript -->
     <nav id="navigation" role="navigation" aria-label="Main navigation"></nav>
     
-    <!-- Game Selector -->
-    <div id="game-selector" class="game-selector" role="group" aria-label="Game selection">
-      <button id="game-poe1" class="game-button active" data-game="poe1" aria-pressed="true">Path of Exile</button>
-      <button id="game-poe2" class="game-button" data-game="poe2" aria-pressed="false">Path of Exile 2</button>
+    <!-- Game selector + Current League (same row) -->
+    <div class="game-and-league-row">
+      <div id="game-selector" class="game-selector" role="group" aria-label="Game selection">
+        <button id="game-poe1" class="game-button active" data-game="poe1" aria-pressed="true">
+          <img src="/images/Path_of_Exile_logo.png" alt="" class="game-button-icon" width="48" height="48">
+          <span>Path of Exile</span>
+        </button>
+        <button id="game-poe2" class="game-button" data-game="poe2" aria-pressed="false">
+          <img src="/images/Path_of_Exile_2_logo.png" alt="" class="game-button-icon" width="48" height="48">
+          <span>Path of Exile 2</span>
+        </button>
+      </div>
+      <!-- Leagues section will be populated by JavaScript -->
+      <section id="leagues" aria-label="Current league" role="region"></section>
     </div>
     
     <!-- Main Content -->
@@ -63,8 +71,11 @@
         <div class="loading" role="status" aria-live="polite">Loading categories...</div>
       </section>
       
-      <!-- Events section will be populated by JavaScript -->
-      <section id="events" aria-label="League events" role="region"></section>
+      <!-- Sidebar: Events -->
+      <aside class="main-sidebar" aria-label="Events">
+        <!-- Events section will be populated by JavaScript -->
+        <section id="events" aria-label="League events" role="region"></section>
+      </aside>
     </main>
   </div>
   

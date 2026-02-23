@@ -3,6 +3,10 @@
  * Handles fetching and validating link and event data
  */
 
+// Cache for links data so we don't refetch links.json / link-items.json on every game switch
+let cachedLinksData = null;
+let cachedLinkItemsData = null;
+
 /**
  * Validates a single Link object
  * @param {Object} link - Link object to validate
@@ -152,28 +156,35 @@ export function setCurrentGame(game) {
 export async function loadLinks(game = null) {
   try {
     const selectedGame = game || getCurrentGame();
-    
-    // Load both links.json (categories with link IDs) and link-items.json (actual link data)
-    const [linksResponse, linkItemsResponse] = await Promise.all([
-      fetch('./data/links.json'),
-      fetch('./data/link-items.json')
-    ]);
 
-    if (!linksResponse.ok) {
-      throw new Error(`Failed to load links: ${linksResponse.status} ${linksResponse.statusText}`);
-    }
-    if (!linkItemsResponse.ok) {
-      throw new Error(`Failed to load link-items: ${linkItemsResponse.status} ${linkItemsResponse.statusText}`);
-    }
+    let linksData = cachedLinksData;
+    let linkItemsData = cachedLinkItemsData;
 
-    const linksData = await linksResponse.json();
-    const linkItemsData = await linkItemsResponse.json();
+    if (linksData === null || linkItemsData === null) {
+      const [linksResponse, linkItemsResponse] = await Promise.all([
+        fetch('./data/links.json'),
+        fetch('./data/link-items.json')
+      ]);
 
-    if (!linksData || typeof linksData !== 'object') {
-      throw new Error('Invalid links data format');
-    }
-    if (!linkItemsData || typeof linkItemsData !== 'object') {
-      throw new Error('Invalid link-items data format');
+      if (!linksResponse.ok) {
+        throw new Error(`Failed to load links: ${linksResponse.status} ${linksResponse.statusText}`);
+      }
+      if (!linkItemsResponse.ok) {
+        throw new Error(`Failed to load link-items: ${linkItemsResponse.status} ${linkItemsResponse.statusText}`);
+      }
+
+      linksData = await linksResponse.json();
+      linkItemsData = await linkItemsResponse.json();
+
+      if (!linksData || typeof linksData !== 'object') {
+        throw new Error('Invalid links data format');
+      }
+      if (!linkItemsData || typeof linkItemsData !== 'object') {
+        throw new Error('Invalid link-items data format');
+      }
+
+      cachedLinksData = linksData;
+      cachedLinkItemsData = linkItemsData;
     }
 
     // Convert object to array and validate each category
@@ -333,6 +344,91 @@ export function validateEvent(event) {
 }
 
 /**
+ * Validates a single League object
+ * @param {Object} league - League object to validate
+ * @returns {boolean} - True if valid, false otherwise
+ */
+export function validateLeague(league) {
+  if (!league || typeof league !== 'object') {
+    return false;
+  }
+
+  // ID validation: non-empty string
+  if (!league.id || typeof league.id !== 'string' || league.id.trim().length === 0) {
+    return false;
+  }
+
+  // Name validation: non-empty string, 1-100 characters
+  if (!league.name || typeof league.name !== 'string' || league.name.trim().length === 0) {
+    return false;
+  }
+  if (league.name.length > 100) {
+    return false;
+  }
+
+  // Game validation: must be poe1 or poe2
+  if (!league.game || !['poe1', 'poe2'].includes(league.game)) {
+    return false;
+  }
+
+  // Date validation: valid ISO 8601 format
+  try {
+    const startDate = new Date(league.startDate);
+    const endDate = new Date(league.endDate);
+
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      return false;
+    }
+
+    if (endDate <= startDate) {
+      return false;
+    }
+  } catch {
+    return false;
+  }
+
+  // Optional banner image URL validation
+  if (league.bannerImageUrl !== undefined) {
+    if (typeof league.bannerImageUrl !== 'string' || league.bannerImageUrl.length > 500) {
+      return false;
+    }
+    if (league.bannerImageUrl.trim().length > 0) {
+      // Allow relative paths (e.g. /images/...); validate absolute URLs
+      if (!league.bannerImageUrl.startsWith('/')) {
+        try {
+          new URL(league.bannerImageUrl);
+        } catch {
+          return false;
+        }
+      }
+    }
+  }
+
+  // Optional description validation
+  if (league.description !== undefined) {
+    if (typeof league.description !== 'string' || league.description.length > 2000) {
+      return false;
+    }
+  }
+
+  // Optional details link validation
+  if (league.detailsLink !== undefined) {
+    if (typeof league.detailsLink !== 'string' || league.detailsLink.length > 500) {
+      return false;
+    }
+    if (league.detailsLink.trim().length > 0) {
+      try {
+        new URL(league.detailsLink);
+      } catch {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+/**
  * Loads and validates events data from JSON file
  * @returns {Promise<Array>} - Promise resolving to array of valid Event objects
  */
@@ -365,6 +461,38 @@ export async function loadEvents() {
     return events;
   } catch (error) {
     console.error('Error loading events:', error);
+    throw error;
+  }
+}
+
+/**
+ * Loads and validates leagues data from JSON file
+ * @returns {Promise<Array>} - Promise resolving to array of valid League objects
+ */
+export async function loadLeagues() {
+  try {
+    const response = await fetch('./data/leagues.json');
+    if (!response.ok) {
+      throw new Error(`Failed to load leagues: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    if (!Array.isArray(data)) {
+      throw new Error('Invalid leagues data format: expected array');
+    }
+
+    const leagues = [];
+    for (const league of data) {
+      if (validateLeague(league)) {
+        leagues.push(league);
+      } else {
+        console.warn('Invalid league skipped:', league);
+      }
+    }
+
+    return leagues;
+  } catch (error) {
+    console.error('Error loading leagues:', error);
     throw error;
   }
 }

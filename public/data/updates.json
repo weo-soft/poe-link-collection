@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-02-18T18:00:00Z",
+  "lastUpdated": "2026-02-23T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-02-23T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Added Leagues section showing the current league (PoE and PoE2). Improved performance: events, leagues, and links data are now cached in memory so switching games no longer refetches JSON or stacks event listeners. Updated icon handling for links across the hub."
+        }
+      ]
+    },
     {
       "date": "2026-02-18T18:00:00Z",
       "entries": [
