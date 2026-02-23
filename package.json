@@ -12,7 +12,8 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "lint": "eslint src tests --ext .js",
-    "format": "prettier --write \"src/**/*.{js,html,css}\" \"tests/**/*.js\""
+    "format": "prettier --write \"src/**/*.{js,html,css}\" \"tests/**/*.js\"",
+    "fetch-favicons": "node scripts/fetch-favicons.js"
   },
   "keywords": [
     "path-of-exile",
