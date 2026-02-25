@@ -1,26 +1,5 @@
 [
-  {
-    "id": "keepers-of-the-flame",
-    "name": "Keepers of the Flame",
-    "startDate": "2025-10-30T23:00:00.000Z",
-    "endDate": "2026-03-02T21:00:00.000Z",
-    "type": "league",
-    "game": "poe1",
-    "bannerImageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fweb.poecdn.com%2Fpublic%2Fnews%2F2025-10-16%2FPOELogoKeepersoftheFlame.png&f=1&nofb=1&ipt=4a5a2178b37458d4f36cb32b488b0946cf120f1f4d54ee0784e3132d03cd4ad3",
-    "description": "Keepers of the Flame league",
-    "detailsLink": "https://www.pathofexile.com/keepers"
-  },
-  {
-    "id": "the-last-of-the-druids",
-    "name": "The Last of the Druids",
-    "startDate": "2025-12-12T19:00:00.000Z",
-    "endDate": "2026-04-06T15:00:00.000Z",
-    "game": "poe2",
-    "type": "league",
-    "bannerImageUrl": "https://web.poecdn.com/public/news/2025-11-14/040/ENTheLastoftheDruids_SingleLogo.png",
-    "description": "Last Of the Druids League",
-    "detailsLink": "https://pathofexile2.com/druids"
-  },
+  
   {
     "id": "pohx-keepers-restart-private-league",
     "name": "Pohx Keepers Restart - Private League",
@@ -32,14 +11,14 @@
     "detailsLink": "https://www.pathofexile.com/private-leagues/join/Pohx+Keepers+Restart/dmVpmxnl6f-FLfg6pRRU"
   },
   {
-    "id": "the-legacy-of-phrecia",
-    "name": "The Legacy of Phrecia",
-    "startDate": "2026-01-29T21:00:00.000Z",
-    "endDate": "2026-02-19T21:00:00.000Z",
-    "game": "poe1",
+    "id": "last-of-the-druids-race-event",
+    "name": "The Last of the Druids Race Event",
+    "startDate": "2026-03-29T19:00:00.000Z",
+    "endDate": "2026-04-13T06:00:00.000Z",
+    "game": "poe2",
     "type": "event",
-    "bannerImageUrl": "https://web.poecdn.com/public/news/2025-02-11/LegacyofPhrecia.png",
-    "description": "Embrace the bizarre when the Legacy of Phrecia returns to Path of Exile on January 29th (PST)! With 19 alternate Ascendancy classes, battle through areas altered by map modifiers, and face enraged bosses that push your builds and your skill to the limit.",
-    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3907351"
+    "bannerImageUrl": "https://web.poecdn.com/public/news/2026-02-26/0.4.0RaceEventHeader.jpg",
+    "description": "Path of Exile 2 racing: three races (Mar 29, Apr 5, Apr 12 PDT). Compete to be first to kill Tavakai in Act 4 in Solo Self-Found Fate of the Vaal fixed layout. Death penalty: 2.5 min freeze. Prizes: Demigod's Virtue per class (including Druid), Displates for fastest per class across all races, Divination Card design for fastest overall. First race to include Fate of the Vaal content. Incinerate and Flame Breath disabled in the event. Streamed on twitch.tv/pathofexile with ZiggyD and RaizQT.",
+    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3913251"
   }
 ]

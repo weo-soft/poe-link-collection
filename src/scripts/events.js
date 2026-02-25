@@ -92,14 +92,6 @@ export function renderEvent(container, event) {
   nameElement.textContent = event.name;
   eventElement.appendChild(nameElement);
 
-  // Game badge (if game is specified)
-  if (event.game) {
-    const gameBadge = document.createElement('div');
-    gameBadge.className = 'event-game-badge';
-    gameBadge.textContent = event.game === 'poe1' ? 'Path of Exile' : 'Path of Exile 2';
-    eventElement.appendChild(gameBadge);
-  }
-
   const datesElement = document.createElement('div');
   datesElement.className = 'event-dates';
 
