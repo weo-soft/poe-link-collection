@@ -23,6 +23,9 @@
   --poe-error: #9e4a4a;
   --poe-warning: #9e8a4a;
   --poe-info: #4a7a9e;
+
+  /* Text on dark accent (buttons, badges) */
+  --poe-text-inverse: #f5f5f5;
   
   /* Spacing */
   --poe-spacing-xs: 0.25rem;
@@ -44,7 +47,19 @@
   --poe-container-max-width: 1400px;
   --poe-border-radius: 4px;
   --poe-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --poe-shadow-md: 0 3px 12px rgba(0, 0, 0, 0.35);
   --poe-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
+
+  /* Overlays (body veil, modal backdrop) */
+  --poe-overlay-veil: rgba(26, 26, 26, 0.5);
+  --poe-overlay-backdrop: rgba(0, 0, 0, 0.7);
+
+  /* Feedback message backgrounds (success, error, loading) */
+  --poe-feedback-success-bg: rgba(76, 175, 80, 0.2);
+  --poe-feedback-error-bg: rgba(244, 67, 54, 0.2);
+  --poe-feedback-loading-bg: rgba(33, 150, 243, 0.2);
+  /* Inline error callout (slightly different from feedback) */
+  --poe-error-bg-subtle: rgba(158, 74, 74, 0.1);
   
   /* Transitions */
   --poe-transition: all 0.2s ease-in-out;
