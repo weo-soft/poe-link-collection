@@ -1,0 +1,294 @@
+/* Sidebar: leagues, events, update section, changelog overlay content */
+.main-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-lg);
+  flex: 0 0 350px;
+  max-width: 350px;
+  position: sticky;
+  top: var(--poe-spacing-lg);
+  max-height: calc(100vh - var(--poe-spacing-lg) * 2);
+  overflow-y: auto;
+}
+
+/* Leagues Section – spans two sections (2 × sidebar width + gap) */
+#leagues {
+  display: flex;
+  align-items: center;
+  flex: 0 0 calc(350px + var(--poe-spacing-lg) + 350px);
+  max-width: calc(350px + var(--poe-spacing-lg) + 350px);
+  min-width: 0;
+}
+
+#leagues .leagues-list {
+  flex: 1;
+  min-width: 0;
+}
+
+.leagues-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-md);
+}
+
+.league-logo-dates-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--poe-spacing-md);
+}
+
+.league-banner-link {
+  display: block;
+  flex-shrink: 0;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--poe-border-radius);
+}
+
+.league-banner-link:hover {
+  opacity: 0.9;
+}
+
+
+.league-dates {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--poe-spacing-sm) var(--poe-spacing-lg);
+  font-size: var(--poe-font-size-base);
+  min-width: 0;
+}
+
+.league-date {
+  display: flex;
+  gap: var(--poe-spacing-xs);
+}
+
+.league-banner {
+  max-width: 100%;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--poe-border-radius);
+  display: block;
+}
+
+.league-duration {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+  margin-top: var(--poe-spacing-sm);
+  padding-top: var(--poe-spacing-sm);
+  border-top: 1px solid var(--poe-border-color);
+  font-size: var(--poe-font-size-sm);
+}
+
+/* Events Section */
+#events {
+  padding: var(--poe-spacing-lg);
+}
+
+.events-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--poe-spacing-lg);
+  border-bottom: 2px solid var(--poe-border-color);
+  padding-bottom: var(--poe-spacing-sm);
+  gap: var(--poe-spacing-md);
+}
+
+.section-title {
+  font-size: var(--poe-font-size-xl);
+  color: var(--poe-accent-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.events-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-md);
+}
+
+.event-item {
+  padding: var(--poe-spacing-md);
+}
+
+.event-name {
+  font-size: var(--poe-font-size-lg);
+  color: var(--poe-text-primary);
+  margin-bottom: var(--poe-spacing-sm);
+}
+
+.event-game-badge {
+  display: inline-block;
+  padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
+  background-color: var(--poe-accent-primary);
+  color: var(--poe-text-primary);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-sm);
+  font-weight: 600;
+  margin-bottom: var(--poe-spacing-sm);
+}
+
+.event-dates {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+  margin-bottom: var(--poe-spacing-sm);
+  font-size: var(--poe-font-size-sm);
+}
+
+.event-date {
+  display: flex;
+  gap: var(--poe-spacing-sm);
+}
+
+.event-banner {
+  max-width: 100%;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--poe-border-radius);
+  margin-bottom: var(--poe-spacing-sm);
+  display: block;
+}
+
+.event-description {
+  margin-top: var(--poe-spacing-sm);
+  color: var(--poe-text-primary);
+  line-height: 1.6;
+  font-size: var(--poe-font-size-base);
+}
+
+.event-details-link {
+  font-size: var(--poe-font-size-base);
+}
+
+.event-duration {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+  margin-top: var(--poe-spacing-sm);
+  padding-top: var(--poe-spacing-sm);
+  border-top: 1px solid var(--poe-border-color);
+  font-size: var(--poe-font-size-sm);
+}
+
+.duration-info {
+  display: flex;
+  gap: var(--poe-spacing-sm);
+}
+
+.duration-value {
+  color: var(--poe-accent-primary);
+  font-weight: 600;
+}
+
+/* Update Section Styles */
+.update-section {
+  margin-top: var(--poe-spacing-lg);
+}
+
+
+.update-timestamp-container {
+  display: flex;
+  gap: var(--poe-spacing-sm);
+  font-size: var(--poe-font-size-base);
+}
+
+/* Changelog overlay visibility and content (overlay base in base.css) */
+.changelog-overlay.changelog-overlay-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.changelog-overlay.changelog-overlay-visible .changelog-overlay-content {
+  transform: scale(1);
+}
+
+.changelog-added,
+.changelog-removed {
+  margin-bottom: var(--poe-spacing-md);
+}
+
+.changelog-section-title {
+  font-size: var(--poe-font-size-lg);
+  color: var(--poe-accent-primary);
+  margin-bottom: var(--poe-spacing-sm);
+  font-weight: 600;
+}
+
+.changelog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+}
+
+.changelog-entry {
+  padding: var(--poe-spacing-sm);
+  border-left: 3px solid;
+  border-radius: var(--poe-border-radius);
+  background-color: var(--poe-bg-secondary);
+}
+
+.changelog-added-entry {
+  border-left-color: var(--poe-success);
+}
+
+.changelog-removed-entry {
+  border-left-color: var(--poe-error);
+}
+
+.changelog-entry-text {
+  color: var(--poe-text-primary);
+  font-size: var(--poe-font-size-sm);
+}
+
+.changelog-notes {
+  margin-bottom: var(--poe-spacing-md);
+}
+
+.changelog-note-entry {
+  padding: var(--poe-spacing-sm);
+  background-color: var(--poe-bg-secondary);
+  border-left: 3px solid var(--poe-accent-primary);
+  border-radius: var(--poe-border-radius);
+  color: var(--poe-text-primary);
+  font-size: var(--poe-font-size-base);
+  margin-bottom: var(--poe-spacing-xs);
+}
+
+.changelog-date-group {
+  margin-bottom: var(--poe-spacing-lg);
+  padding-bottom: var(--poe-spacing-md);
+  border-bottom: 1px solid var(--poe-border-color);
+}
+
+.changelog-date-group:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.changelog-date-header {
+  margin-bottom: var(--poe-spacing-md);
+}
+
+.changelog-date-label {
+  font-size: var(--poe-font-size-lg);
+  font-weight: 600;
+  color: var(--poe-accent-primary);
+}
+
+.changelog-entries-container {
+  margin-left: var(--poe-spacing-md);
+}
+

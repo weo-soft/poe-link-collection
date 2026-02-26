@@ -1,0 +1,459 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--poe-font-size-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--poe-font-family);
+  background-color: var(--poe-bg-primary);
+  background-image: url('/images/pathofexile.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--poe-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--poe-overlay-veil);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--poe-spacing-md);
+}
+
+h1 {
+  font-size: var(--poe-font-size-xxl);
+}
+
+h2 {
+  font-size: var(--poe-font-size-xl);
+}
+
+h3 {
+  font-size: var(--poe-font-size-lg);
+}
+
+p {
+  margin-bottom: var(--poe-spacing-md);
+}
+
+a {
+  color: var(--poe-link-color);
+  text-decoration: none;
+  transition: var(--poe-transition);
+}
+
+a:hover {
+  color: var(--poe-link-hover);
+}
+
+a:visited {
+  color: var(--poe-link-visited);
+}
+
+/* Layout */
+.container {
+  max-width: var(--poe-container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--poe-spacing-md);
+  position: relative;
+  z-index: 1;
+}
+
+main {
+  display: flex;
+  gap: var(--poe-spacing-lg);
+  align-items: flex-start;
+  margin-top: var(--poe-spacing-lg);
+  padding-bottom: var(--poe-spacing-xxl);
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reusable: focus ring (consistent keyboard focus across interactive elements) */
+.link-item:focus,
+.link-item:focus-visible,
+.nav-logo-link:focus,
+.nav-link:focus,
+.nav-updates-button:focus,
+.game-button:focus,
+.league-banner-link:focus,
+.event-details-link:focus,
+.changelog-overlay-close:focus,
+.contact-dialog-close:focus,
+.contact-submit-button:focus,
+.nav-contact-button:focus,
+.contact-retry-button:focus,
+.disclaimer-button-cancel:focus,
+.disclaimer-button-proceed:focus,
+.event-suggestion-dialog-close:focus,
+.event-submit-button:focus,
+.event-retry-button:focus,
+.suggest-event-button:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+}
+
+/* Reusable: card panel (secondary bg, border-radius, shadow) */
+.card-panel,
+.category-section,
+#events {
+  padding: var(--poe-spacing-md);
+  background-color: var(--poe-bg-secondary);
+  border-radius: var(--poe-border-radius);
+  box-shadow: var(--poe-shadow);
+}
+
+/* Reusable: card item (tertiary bg, border – list items, update sections) */
+.card-item,
+.league-item,
+.event-item,
+.update-section {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-bg-tertiary);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+}
+
+/* Reusable: section title (accent color, optional border) */
+.section-title {
+  font-size: var(--poe-font-size-xl);
+  color: var(--poe-accent-primary);
+  margin: 0;
+  font-weight: 600;
+}
+
+.section-title-with-border {
+  margin-bottom: var(--poe-spacing-sm);
+  padding-bottom: var(--poe-spacing-xs);
+  border-bottom: 1px solid var(--poe-border-color);
+}
+
+/* Reusable: meta label/value pairs (dates, duration, timestamps) */
+.meta-label,
+.date-label,
+.duration-label,
+.update-label {
+  color: var(--poe-text-secondary);
+  font-weight: 600;
+}
+
+.meta-value,
+.date-value,
+.update-timestamp {
+  color: var(--poe-text-primary);
+}
+
+/* Reusable: feedback/status messages (success, error, loading) */
+.feedback-box,
+.contact-feedback,
+.submit-status {
+  padding: var(--poe-spacing-sm);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  min-height: 1.2em;
+}
+
+.feedback-success,
+.contact-feedback-success,
+.submit-status.success {
+  background-color: var(--poe-feedback-success-bg);
+  color: var(--poe-success);
+  border: 1px solid var(--poe-success);
+}
+
+.feedback-error,
+.contact-feedback-error,
+.submit-status.error {
+  background-color: var(--poe-feedback-error-bg);
+  color: var(--poe-error);
+  border: 1px solid var(--poe-error);
+}
+
+/* Reusable: primary action button */
+.btn-primary,
+.nav-updates-button,
+.contact-submit-button,
+.event-submit-button,
+.disclaimer-button-proceed,
+.suggest-event-button {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-accent-primary);
+  color: var(--poe-text-primary);
+  border: 1px solid var(--poe-accent-secondary);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--poe-transition);
+  font-family: var(--poe-font-family);
+}
+
+.btn-primary:hover:not(:disabled),
+.nav-updates-button:hover,
+.contact-submit-button:hover:not(:disabled),
+.event-submit-button:hover:not(:disabled),
+.suggest-event-button:hover,
+.disclaimer-button-proceed:hover {
+  background-color: var(--poe-accent-hover);
+  border-color: var(--poe-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--poe-shadow-md);
+}
+
+.btn-primary:active:not(:disabled),
+.contact-submit-button:active:not(:disabled),
+.event-submit-button:active:not(:disabled),
+.suggest-event-button:active,
+.disclaimer-button-proceed:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled,
+.contact-submit-button:disabled,
+.event-submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Reusable: secondary/outline button */
+.btn-secondary,
+.contact-retry-button,
+.event-retry-button,
+.disclaimer-button-cancel {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-bg-secondary);
+  color: var(--poe-text-primary);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--poe-transition);
+  font-family: var(--poe-font-family);
+}
+
+.btn-secondary:hover,
+.disclaimer-button-cancel:hover {
+  background-color: var(--poe-bg-tertiary);
+  border-color: var(--poe-border-hover);
+}
+
+.contact-retry-button:hover,
+.event-retry-button:hover {
+  background-color: var(--poe-accent-primary);
+  border-color: var(--poe-accent-primary);
+  color: var(--poe-text-primary);
+}
+
+/* Reusable: inline link style (text link with hover) */
+.link-style,
+.event-details-link,
+.preview-details-link {
+  color: var(--poe-link-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--poe-transition);
+}
+
+.link-style:hover,
+.event-details-link:hover,
+.preview-details-link:hover {
+  color: var(--poe-link-hover);
+  text-decoration: underline;
+}
+
+.event-details-link,
+.preview-details-link {
+  display: inline-block;
+  margin-top: var(--poe-spacing-sm);
+}
+
+/* Reusable: empty/loading state text */
+.empty-state-text,
+.loading,
+.empty-state,
+.changelog-empty,
+.contact-loading,
+.preview-empty-state {
+  text-align: center;
+  font-style: italic;
+}
+
+.empty-state-text,
+.loading,
+.changelog-empty,
+.contact-loading,
+.preview-empty-state {
+  color: var(--poe-text-secondary);
+}
+
+.empty-state {
+  padding: var(--poe-spacing-xxl);
+  color: var(--poe-text-muted);
+}
+
+.loading {
+  padding: var(--poe-spacing-lg);
+}
+
+.loading::before {
+  content: '⏳ ';
+  margin-right: var(--poe-spacing-xs);
+}
+
+.changelog-empty,
+.preview-empty-state {
+  padding: var(--poe-spacing-md);
+}
+
+.contact-loading {
+  padding: var(--poe-spacing-sm);
+  font-size: var(--poe-font-size-sm);
+}
+
+.preview-empty-state {
+  font-size: var(--poe-font-size-sm);
+}
+
+/* Reusable: modal overlay (changelog, contact, disclaimer, event-suggestion) */
+.changelog-overlay,
+.contact-dialog,
+.disclaimer-dialog,
+.event-suggestion-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.changelog-backdrop,
+.contact-backdrop,
+.disclaimer-backdrop,
+.event-suggestion-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--poe-overlay-backdrop);
+  backdrop-filter: blur(2px);
+}
+
+.changelog-overlay-content,
+.contact-dialog-content,
+.disclaimer-dialog-content,
+.event-suggestion-dialog-content {
+  position: relative;
+  z-index: 1001;
+  background-color: var(--poe-bg-primary);
+  border: 2px solid var(--poe-accent-primary);
+  border-radius: var(--poe-border-radius);
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--poe-shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s ease-in-out;
+}
+
+.changelog-overlay-header,
+.contact-dialog-header,
+.disclaimer-dialog-header,
+.event-suggestion-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--poe-spacing-md);
+  border-bottom: 1px solid var(--poe-border-color);
+}
+
+.changelog-overlay-title,
+.contact-dialog-title,
+.disclaimer-dialog-title,
+.event-suggestion-dialog-title {
+  margin: 0;
+  font-size: var(--poe-font-size-xl);
+  color: var(--poe-accent-primary);
+  font-weight: 600;
+}
+
+.changelog-overlay-close,
+.contact-dialog-close,
+.disclaimer-dialog-close,
+.event-suggestion-dialog-close {
+  background: none;
+  border: none;
+  color: var(--poe-text-secondary);
+  font-size: var(--poe-font-size-xl);
+  font-weight: bold;
+  cursor: pointer;
+  padding: var(--poe-spacing-xs);
+  line-height: 1;
+  transition: var(--poe-transition);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--poe-border-radius);
+}
+
+.changelog-overlay-close:hover,
+.contact-dialog-close:hover,
+.disclaimer-dialog-close:hover,
+.event-suggestion-dialog-close:hover {
+  color: var(--poe-text-primary);
+  background-color: var(--poe-bg-secondary);
+}
+
+.changelog-overlay-body,
+.disclaimer-dialog-body,
+.event-suggestion-dialog-body {
+  padding: var(--poe-spacing-md);
+  overflow-y: auto;
+  flex: 1;
+}

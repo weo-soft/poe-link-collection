@@ -1,0 +1,240 @@
+/* Responsive Design */
+@media (max-width: var(--poe-breakpoint-sm)) {
+  .container {
+    padding: 0 var(--poe-spacing-sm);
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  #categories {
+    grid-template-columns: 1fr;
+    gap: var(--poe-spacing-sm);
+    margin-bottom: var(--poe-spacing-lg);
+  }
+
+  .category-section.wide {
+    grid-column: span 1;
+  }
+
+  .game-and-league-row {
+    flex-wrap: wrap;
+  }
+
+  .game-and-league-row > #leagues {
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+
+  .main-sidebar {
+    flex: 1 1 auto;
+    max-width: 100%;
+    max-height: none;
+    position: static;
+    margin-top: 0;
+  }
+
+  .events-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--poe-spacing-sm);
+  }
+
+  .suggest-event-button {
+    width: 100%;
+  }
+
+  .category-section {
+    padding: var(--poe-spacing-sm);
+  }
+
+  .links-container {
+    gap: var(--poe-spacing-xs);
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+    gap: var(--poe-spacing-xs);
+  }
+
+  .nav-logo {
+    height: 48px;
+  }
+
+  .nav-link {
+    padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
+    font-size: var(--poe-font-size-sm);
+  }
+
+  h2 {
+    font-size: var(--poe-font-size-lg);
+  }
+
+  .category-title {
+    font-size: var(--poe-font-size-base);
+  }
+}
+
+@media (max-width: var(--poe-breakpoint-xs)) {
+  .link-item {
+    font-size: 12px;
+    padding: var(--poe-spacing-xs);
+    gap: 0.25rem;
+  }
+
+  .link-favicon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: var(--poe-breakpoint-sm)) {
+  .datetime-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .datetime-input-group .datetime-time {
+    width: 100%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  main {
+    flex-direction: column;
+  }
+
+  .main-sidebar {
+    display: none;
+  }
+
+  .category-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: var(--poe-spacing-md);
+    padding: var(--poe-spacing-sm);
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+
+  .link-item {
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    text-decoration: underline;
+  }
+
+  .link-item::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[target="_blank"]::after {
+    content: ' [external]';
+    font-size: 0.8em;
+  }
+}
+
+/* Event Suggestion Dialog */
+@media (max-width: var(--poe-breakpoint-md)) {
+  .event-suggestion-dialog-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .event-suggestion-dialog-body {
+    flex-direction: column;
+  }
+
+  .event-suggestion-form-container {
+    max-height: none;
+  }
+
+  .event-preview {
+    flex: 1;
+    min-width: auto;
+    padding-left: 0;
+    padding-top: var(--poe-spacing-lg);
+    border-left: none;
+    border-top: 1px solid var(--poe-border-color);
+    position: static;
+    max-height: none;
+  }
+
+  .event-suggestion-form .form-group-inline {
+    flex-direction: column;
+  }
+}
+
+/* Disclaimer Dialog */
+@media (max-width: var(--poe-breakpoint-sm)) {
+  .disclaimer-dialog-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .disclaimer-dialog-footer {
+    flex-direction: column;
+  }
+
+  .disclaimer-button {
+    width: 100%;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .link-item:hover {
+    transform: none;
+  }
+
+  .nav-logo-link:hover .nav-logo {
+    transform: none;
+  }
+
+  .game-button:hover,
+  .game-button:active {
+    transform: none;
+  }
+
+  .btn-primary:hover:not(:disabled),
+  .nav-updates-button:hover,
+  .contact-submit-button:hover:not(:disabled),
+  .event-submit-button:hover:not(:disabled),
+  .suggest-event-button:hover,
+  .disclaimer-button-proceed:hover,
+  .btn-primary:active:not(:disabled),
+  .contact-submit-button:active:not(:disabled),
+  .event-submit-button:active:not(:disabled),
+  .suggest-event-button:active,
+  .disclaimer-button-proceed:active {
+    transform: none;
+  }
+
+  .changelog-overlay-content,
+  .contact-dialog-content,
+  .disclaimer-dialog-content,
+  .event-suggestion-dialog-content {
+    transform: scale(1);
+  }
+}

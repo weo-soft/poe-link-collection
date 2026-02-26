@@ -1,0 +1,109 @@
+/* Contact dialog and contact form */
+.contact-dialog[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.contact-dialog[aria-hidden="false"] .contact-dialog-content {
+  transform: scale(1);
+}
+
+.contact-form {
+  padding: var(--poe-spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-md);
+}
+
+.form-group:not(.form-group-inline) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-xs);
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--poe-text-primary);
+  font-size: var(--poe-font-size-base);
+}
+
+.form-input,
+.form-input-sm {
+  padding: var(--poe-spacing-sm);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  background-color: var(--poe-bg-secondary);
+  color: var(--poe-text-primary);
+  font-family: var(--poe-font-family);
+  font-size: var(--poe-font-size-base);
+  transition: var(--poe-transition);
+}
+
+/* Smaller form inputs (e.g. event suggestion form) */
+.form-input-sm,
+.event-suggestion-form .form-input {
+  padding: 0.4rem 0.5rem;
+  font-size: var(--poe-font-size-sm);
+}
+
+.form-input:focus,
+.form-input-sm:focus {
+  outline: 2px solid var(--poe-accent-primary);
+  outline-offset: 2px;
+  border-color: var(--poe-accent-primary);
+}
+
+.form-input:invalid:not(:focus):not(:placeholder-shown),
+.form-input-sm:invalid:not(:focus):not(:placeholder-shown) {
+  border-color: var(--poe-error);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.character-counter {
+  font-size: var(--poe-font-size-sm);
+  color: var(--poe-text-secondary);
+  text-align: right;
+}
+
+.character-counter-warning {
+  color: var(--poe-error);
+  font-weight: 600;
+}
+
+.form-error {
+  font-size: var(--poe-font-size-sm);
+  color: var(--poe-error);
+  min-height: 1.2em;
+}
+
+.contact-submit-button {
+  border: none;
+  align-self: flex-start;
+}
+
+.nav-contact-button {
+  background: none;
+  border: none;
+  color: var(--poe-link-color);
+  text-decoration: none;
+  transition: var(--poe-transition);
+  cursor: pointer;
+  font-family: var(--poe-font-family);
+  font-size: var(--poe-font-size-base);
+  padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
+  border-radius: var(--poe-border-radius);
+}
+
+.nav-contact-button:hover {
+}
+
+
+.contact-retry-button {
+  align-self: flex-start;
+  margin-top: var(--poe-spacing-xs);
+}
+

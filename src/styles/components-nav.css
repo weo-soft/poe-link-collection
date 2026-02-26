@@ -1,0 +1,135 @@
+/* Navigation and game selector */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--poe-spacing-md);
+  padding: var(--poe-spacing-md) 0 var(--poe-spacing-xs) 0;
+  border-bottom: 2px solid var(--poe-border-color);
+  margin-bottom: var(--poe-spacing-xl);
+  align-items: center;
+}
+
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: var(--poe-transition);
+  margin-right: var(--poe-spacing-sm);
+}
+
+.nav-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--poe-transition);
+}
+
+.nav-logo-link:hover .nav-logo {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.nav-logo-link:focus {
+  border-radius: var(--poe-border-radius);
+}
+
+.nav-spacer {
+  flex: 1;
+}
+
+.nav-link {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  color: var(--poe-text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: var(--poe-transition);
+}
+
+.nav-link:hover {
+  color: var(--poe-text-primary);
+  border-bottom-color: var(--poe-border-hover);
+}
+
+.nav-link.active {
+  color: var(--poe-accent-primary);
+  border-bottom-color: var(--poe-accent-primary);
+  font-weight: 600;
+}
+
+.nav-link:focus {
+  border-radius: var(--poe-border-radius);
+}
+
+.nav-updates-item {
+  margin-left: auto;
+}
+
+.nav-updates-button[aria-expanded="true"] {
+  background-color: var(--poe-accent-secondary);
+}
+
+/* Game selector + Current League row – same column widths as main (categories | sidebar) */
+.game-and-league-row {
+  display: flex;
+  align-items: center;
+  gap: var(--poe-spacing-lg);
+  margin-top: var(--poe-spacing-lg);
+  width: 100%;
+}
+
+.game-and-league-row > #game-selector {
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-start;
+}
+
+/* Game Selector */
+.game-selector {
+  display: flex;
+  gap: var(--poe-spacing-sm);
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.game-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--poe-spacing-sm);
+  padding: var(--poe-spacing-xs) var(--poe-spacing-md);
+  background-color: var(--poe-bg-secondary);
+  color: var(--poe-text-primary);
+  border: 2px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  font-family: var(--poe-font-family);
+  font-size: var(--poe-font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 180px;
+}
+
+.game-button-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.game-button:hover {
+  background-color: var(--poe-bg-tertiary);
+  border-color: var(--poe-accent-primary);
+  transform: translateY(-2px);
+}
+
+.game-button.active {
+  background-color: var(--poe-accent-primary);
+  color: var(--poe-text-inverse);
+  border-color: var(--poe-accent-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+.game-button:active {
+  transform: translateY(0);
+}
+

@@ -1,0 +1,230 @@
+/* Event suggestion dialog and form */
+.event-suggestion-dialog[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.event-suggestion-dialog[aria-hidden="false"] .event-suggestion-dialog-content {
+  transform: scale(1);
+}
+
+.event-suggestion-dialog-content {
+  max-width: 1200px;
+  max-height: 90vh;
+}
+
+.event-suggestion-dialog-body {
+  display: flex;
+  flex-direction: row;
+  gap: var(--poe-spacing-lg);
+  align-items: flex-start;
+}
+
+.event-suggestion-form-container {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  max-height: calc(90vh - 120px);
+}
+
+.event-preview {
+  flex: 0 0 350px;
+  min-width: 300px;
+  padding-left: var(--poe-spacing-lg);
+  border-left: 1px solid var(--poe-border-color);
+  position: sticky;
+  top: 0;
+  max-height: calc(90vh - 120px);
+  overflow-y: auto;
+}
+
+.event-preview h3 {
+  margin-bottom: var(--poe-spacing-sm);
+  font-size: var(--poe-font-size-lg);
+  color: var(--poe-accent-primary);
+}
+
+#event-preview-content {
+  min-height: 100px;
+}
+
+.preview-event-item {
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+  padding: var(--poe-spacing-md);
+  background-color: var(--poe-bg-secondary);
+}
+
+.preview-banner {
+  max-width: 100%;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--poe-border-radius);
+  margin-bottom: var(--poe-spacing-sm);
+}
+
+.preview-description {
+  margin-top: var(--poe-spacing-sm);
+  color: var(--poe-text-primary);
+  line-height: 1.6;
+}
+
+.event-suggestion-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--poe-spacing-sm);
+}
+
+.event-suggestion-form > .form-group:not(.form-group-inline) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.event-suggestion-form .form-group-inline {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: var(--poe-spacing-sm) !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.event-suggestion-form .form-group-inline > .form-group {
+  gap: 0.2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.event-suggestion-form .form-group-inline > .form-group:first-child {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+.event-suggestion-form .form-group-inline > .form-group.game-select-group {
+  flex: 0 0 auto !important;
+  min-width: auto !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+.event-suggestion-form .form-group label {
+  font-weight: 600;
+  color: var(--poe-text-primary);
+  font-size: var(--poe-font-size-sm);
+}
+
+.event-suggestion-form .form-group label.label-with-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--poe-spacing-sm);
+}
+
+.event-suggestion-form .form-group label .required {
+  color: var(--poe-error);
+}
+
+.event-suggestion-form .form-input:focus {
+  outline-offset: 1px;
+}
+
+.event-suggestion-form select.form-input {
+  cursor: pointer;
+}
+
+.event-suggestion-form #event-game {
+  width: auto;
+  min-width: 160px;
+  max-width: 180px;
+}
+
+.event-suggestion-form textarea.form-input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.datetime-input-group {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.datetime-input-group .datetime-date {
+  flex: 0 0 auto;
+  width: 140px;
+  min-width: 0;
+}
+
+.datetime-input-group .datetime-time {
+  flex: 0 0 auto;
+  width: 90px;
+}
+
+.event-suggestion-form .character-counter {
+  font-size: 0.75rem;
+  color: var(--poe-text-secondary);
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.event-suggestion-form .error-message {
+  font-size: 0.75rem;
+  margin-top: 0.1rem;
+}
+
+.event-suggestion-form .error-message {
+  font-size: var(--poe-font-size-sm);
+  color: var(--poe-error);
+  min-height: 1.2em;
+  display: none;
+}
+
+.event-suggestion-form .error-message:not(:empty) {
+  display: block;
+}
+
+.submit-status.loading {
+  background-color: var(--poe-feedback-loading-bg);
+  color: var(--poe-accent-primary);
+  border: 1px solid var(--poe-accent-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--poe-spacing-sm);
+}
+
+.submit-status.loading::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--poe-accent-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.event-submit-button {
+  border: none;
+  align-self: flex-start;
+}
+
+.event-retry-button {
+  margin-top: var(--poe-spacing-xs);
+}
+
