@@ -1064,7 +1064,7 @@ main {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: var(--poe-breakpoint-sm)) {
   .container {
     padding: 0 var(--poe-spacing-sm);
   }
@@ -1142,7 +1142,7 @@ main {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--poe-breakpoint-xs)) {
   .link-item {
     font-size: 12px;
     padding: var(--poe-spacing-xs);
@@ -1231,7 +1231,8 @@ main {
   font-size: var(--poe-font-size-base);
 }
 
-.form-input {
+.form-input,
+.form-input-sm {
   padding: var(--poe-spacing-sm);
   border: 1px solid var(--poe-border-color);
   border-radius: var(--poe-border-radius);
@@ -1242,13 +1243,22 @@ main {
   transition: var(--poe-transition);
 }
 
-.form-input:focus {
+/* Smaller form inputs (e.g. event suggestion form) */
+.form-input-sm,
+.event-suggestion-form .form-input {
+  padding: 0.4rem 0.5rem;
+  font-size: var(--poe-font-size-sm);
+}
+
+.form-input:focus,
+.form-input-sm:focus {
   outline: 2px solid var(--poe-accent-primary);
   outline-offset: 2px;
   border-color: var(--poe-accent-primary);
 }
 
-.form-input:invalid:not(:focus):not(:placeholder-shown) {
+.form-input:invalid:not(:focus):not(:placeholder-shown),
+.form-input-sm:invalid:not(:focus):not(:placeholder-shown) {
   border-color: var(--poe-error);
 }
 
@@ -1504,25 +1514,8 @@ textarea.form-input {
   color: var(--poe-error);
 }
 
-.event-suggestion-form .form-input {
-  padding: 0.4rem 0.5rem;
-  border: 1px solid var(--poe-border-color);
-  border-radius: var(--poe-border-radius);
-  background-color: var(--poe-bg-secondary);
-  color: var(--poe-text-primary);
-  font-family: var(--poe-font-family);
-  font-size: var(--poe-font-size-sm);
-  transition: var(--poe-transition);
-}
-
 .event-suggestion-form .form-input:focus {
-  outline: 2px solid var(--poe-accent-primary);
   outline-offset: 1px;
-  border-color: var(--poe-accent-primary);
-}
-
-.event-suggestion-form .form-input:invalid:not(:focus):not(:placeholder-shown) {
-  border-color: var(--poe-error);
 }
 
 .event-suggestion-form select.form-input {
@@ -1538,7 +1531,6 @@ textarea.form-input {
 .event-suggestion-form textarea.form-input {
   resize: vertical;
   min-height: 80px;
-  padding: 0.4rem 0.5rem;
 }
 
 .datetime-input-group {
@@ -1558,7 +1550,7 @@ textarea.form-input {
   width: 90px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: var(--poe-breakpoint-sm)) {
   .datetime-input-group {
     flex-direction: column;
     align-items: stretch;
@@ -1632,7 +1624,7 @@ textarea.form-input {
 }
 
 /* Responsive Design for Event Suggestion Dialog */
-@media (max-width: 968px) {
+@media (max-width: var(--poe-breakpoint-md)) {
   .event-suggestion-dialog-content {
     width: 95%;
     max-height: 95vh;
@@ -1663,7 +1655,7 @@ textarea.form-input {
 }
 
 /* Responsive Design for Disclaimer Dialog */
-@media (max-width: 768px) {
+@media (max-width: var(--poe-breakpoint-sm)) {
   .disclaimer-dialog-content {
     width: 95%;
     max-height: 90vh;
@@ -1675,6 +1667,51 @@ textarea.form-input {
 
   .disclaimer-button {
     width: 100%;
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .link-item:hover {
+    transform: none;
+  }
+
+  .nav-logo-link:hover .nav-logo {
+    transform: none;
+  }
+
+  .game-button:hover,
+  .game-button:active {
+    transform: none;
+  }
+
+  .btn-primary:hover:not(:disabled),
+  .nav-updates-button:hover,
+  .contact-submit-button:hover:not(:disabled),
+  .event-submit-button:hover:not(:disabled),
+  .suggest-event-button:hover,
+  .disclaimer-button-proceed:hover,
+  .btn-primary:active:not(:disabled),
+  .contact-submit-button:active:not(:disabled),
+  .event-submit-button:active:not(:disabled),
+  .suggest-event-button:active,
+  .disclaimer-button-proceed:active {
+    transform: none;
+  }
+
+  .changelog-overlay-content,
+  .contact-dialog-content,
+  .disclaimer-dialog-content,
+  .event-suggestion-dialog-content {
+    transform: scale(1);
   }
 }
 

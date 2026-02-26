@@ -46,6 +46,11 @@
   /* Layout */
   --poe-container-max-width: 1400px;
   --poe-border-radius: 4px;
+
+  /* Breakpoints (for use in media queries) */
+  --poe-breakpoint-xs: 480px;
+  --poe-breakpoint-sm: 768px;
+  --poe-breakpoint-md: 968px;
   --poe-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   --poe-shadow-md: 0 3px 12px rgba(0, 0, 0, 0.35);
   --poe-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.4);
