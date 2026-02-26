@@ -10,6 +10,16 @@
     "detailsLink": "https://www.pathofexile.com/keepers"
   },
   {
+    "id": "mirage",
+    "name": "Mirage",
+    "startDate": "2026-03-06T19:00:00.000Z",
+    "endDate": "2026-06-28T21:00:00.000Z",
+    "game": "poe1",
+    "bannerImageUrl": "/images/Mirage_EN.jpg",
+    "description": "Mirage league",
+    "detailsLink": "https://www.pathofexile.com/mirage"
+  },
+  {
     "id": "the-last-of-the-druids",
     "name": "The Last of the Druids",
     "startDate": "2025-12-12T19:00:00.000Z",

@@ -51,6 +51,9 @@ export function renderLeague(container, league) {
   const datesElement = document.createElement('div');
   datesElement.className = 'league-dates';
 
+  const now = new Date();
+  const startsInFuture = startDate > now;
+
   const startDateStr = startDate.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -58,6 +61,10 @@ export function renderLeague(container, league) {
     hour: '2-digit',
     minute: '2-digit',
   });
+
+  const startDisplayStr = startsInFuture
+    ? `${startDateStr} (starts in ${formatDuration(startDate - now)})`
+    : startDateStr;
 
   const endDateStr = endDate.toLocaleDateString('en-US', {
     year: 'numeric',
@@ -70,7 +77,7 @@ export function renderLeague(container, league) {
   datesElement.innerHTML = `
     <div class="league-date">
       <span class="date-label">Start:</span>
-      <span class="date-value">${startDateStr}</span>
+      <span class="date-value">${startDisplayStr}</span>
     </div>
     <div class="league-date">
       <span class="date-label">End:</span>
@@ -81,35 +88,17 @@ export function renderLeague(container, league) {
   logoDatesRow.appendChild(datesElement);
   leagueElement.appendChild(logoDatesRow);
 
-  // Calculate and display durations (skip "Running for" / "End expected in" for active leagues)
+  // For future leagues, "starts in" is already on the start date; omit duration block. For past leagues, show duration only.
   const durations = calculateEventDurations(league);
-  if (durations && !durations.isActive) {
+  if (durations && !durations.isActive && !startsInFuture) {
     const durationElement = document.createElement('div');
     durationElement.className = 'league-duration';
-
-    const now = new Date();
-    if (startDate > now) {
-      const timeUntilStart = startDate - now;
-      const timeUntilStartStr = formatDuration(timeUntilStart);
-      durationElement.innerHTML = `
-        <div class="duration-info">
-          <span class="duration-label">Starts in:</span>
-          <span class="duration-value">${timeUntilStartStr}</span>
-        </div>
-        <div class="duration-info">
-          <span class="duration-label">Duration:</span>
-          <span class="duration-value">${durations.totalDuration}</span>
-        </div>
-      `;
-    } else {
-      durationElement.innerHTML = `
-        <div class="duration-info">
-          <span class="duration-label">Duration:</span>
-          <span class="duration-value">${durations.totalDuration}</span>
-        </div>
-      `;
-    }
-
+    durationElement.innerHTML = `
+      <div class="duration-info">
+        <span class="duration-label">Duration:</span>
+        <span class="duration-value">${durations.totalDuration}</span>
+      </div>
+    `;
     leagueElement.appendChild(durationElement);
   }
 
