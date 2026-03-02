@@ -719,6 +719,14 @@
     "added": "2026-01-01T00:00:00Z",
     "icon": "/images/favicons/docs.google.com.ico"
   },
+  "poe-3-28-cheat-sheets": {
+    "name": "PoE 3.28 Cheat Sheets (QOL Info)",
+    "url": "https://docs.google.com/spreadsheets/d/1fIs8sdvgZG7iVouPdtFkbRx5kv55_xVja8l19yubyRU",
+    "description": "Comprehensive QoL cheat sheets for Path of Exile 3.28 including leveling, atlas, settlers, sanctum, expedition, heist, betrayal, delve and incursion info.",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/docs.google.com.ico"
+  },
   "timeless-historian": {
     "name": "Timeless Historian",
     "url": "https://timelesshistorian.xyz",
