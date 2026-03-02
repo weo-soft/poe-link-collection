@@ -1,6 +1,71 @@
 {
-  "lastUpdated": "2026-02-25T18:00:00Z",
+  "lastUpdated": "2026-03-02T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-03-02T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "resources",
+          "linkName": "Gem Viability",
+          "linkUrl": "https://gem-viability.weosoft.org/"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "PoE 3.28 Cheat Sheets (QOL Info)",
+          "linkUrl": "https://docs.google.com/spreadsheets/d/1fIs8sdvgZG7iVouPdtFkbRx5kv55_xVja8l19yubyRU"
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "Exile's Path",
+          "linkUrl": "https://www.exiles-path.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "Timeless Calculator",
+          "linkUrl": "https://nifth.github.io/TimelessCalc/"
+        },
+        {
+          "type": "added",
+          "categoryId": "browser-extensions",
+          "linkName": "GemCheck",
+          "linkUrl": "https://chromewebstore.google.com/detail/gemcheck-%E2%80%93-poe-transfigur/phmbbgjdehfchfeogoaboeinekkpfjpm?pli=1"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "Soothsayer",
+          "linkUrl": "https://github.com/navali-creations/soothsayer"
+        },
+        {
+          "type": "added",
+          "categoryId": "leveling",
+          "linkName": "Path of Progress",
+          "linkUrl": "https://poe-progress.lovable.app/"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "poe-watchers-eye",
+          "linkUrl": "https://poe-watchers.devgroup.se/"
+        },
+        {
+          "type": "added",
+          "categoryId": "leveling",
+          "linkName": "poecampain",
+          "linkUrl": "https://github.com/wiiittttt/poecampain"
+        },
+        {
+          "type": "added",
+          "categoryId": "browser-extensions",
+          "linkName": "Better Trading",
+          "linkUrl": "https://github.com/Vali-98/better-trading/releases"
+        }
+      ]
+    },
     {
       "date": "2026-02-25T18:00:00Z",
       "entries": [

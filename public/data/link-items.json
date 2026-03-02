@@ -1281,5 +1281,69 @@
     "description": "Minimal PoE2 leveling overlay - tracks zone objectives, key passives and progression. Reads Client.txt, no game memory access. Free and open source.",
     "lastChecked": "2026-02-18T00:00:00Z",
     "added": "2026-02-18T00:00:00Z"
+  },
+  "exiles-path-keepers": {
+    "name": "Exile's Path",
+    "url": "https://www.exiles-path.com/",
+    "description": "PoE build guides and compendium for Keepers of the Flame league",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/exiles-path.com.svg"
+  },
+  "timeless-calc": {
+    "name": "Timeless Calculator",
+    "url": "https://nifth.github.io/TimelessCalc/",
+    "description": "Timeless jewel calculator for Path of Exile",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/nifth.github.io.png"
+  },
+  "gemcheck-chrome": {
+    "name": "GemCheck",
+    "url": "https://chromewebstore.google.com/detail/gemcheck-%E2%80%93-poe-transfigur/phmbbgjdehfchfeogoaboeinekkpfjpm?pli=1",
+    "description": "Chrome extension: shows profitable transfigured gems to hunt via Labyrinth Divine Font, with color-roll EV and per-gem probabilities on poe.ninja",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/chromewebstore.google.com.png"
+  },
+  "soothsayer": {
+    "name": "Soothsayer",
+    "url": "https://github.com/navali-creations/soothsayer",
+    "description": "Real-time stacked deck opening desktop tracker with live profit from market prices",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/github.com.svg"
+  },
+  "poe-progress": {
+    "name": "Path of Progress",
+    "url": "https://poe-progress.lovable.app/",
+    "description": "PoE build guides and progression",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/poe-progress.lovable.app.ico"
+  },
+  "poe-watchers-eye": {
+    "name": "poe-watchers-eye",
+    "url": "https://poe-watchers.devgroup.se/",
+    "description": "Watcher's Eye and PoE resources",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/poe-watchers.devgroup.se.svg"
+  },
+  "poecampain": {
+    "name": "poecampain",
+    "url": "https://github.com/wiiittttt/poecampain",
+    "description": "Terminal-based campaign guide for Path of Exile with auto-advance and progress memory",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/github.com.svg"
+  },
+  "better-trading": {
+    "name": "Better Trading",
+    "url": "https://github.com/Vali-98/better-trading/releases",
+    "description": "Browser extension for Path of Exile trading (Chrome and Firefox releases)",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/addons.mozilla.org.ico"
   }
 }
