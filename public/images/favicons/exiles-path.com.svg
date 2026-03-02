@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8c88a"/>
+      <stop offset="40%" stop-color="#d4a574"/>
+      <stop offset="100%" stop-color="#b8865a"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark rounded background -->
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+  <!-- Outer diamond (border) -->
+  <path d="M16 3 L29 16 L16 29 L3 16 Z" fill="none" stroke="url(#g)" stroke-width="1.2" opacity="0.4"/>
+  <!-- Inner diamond (filled) -->
+  <path d="M16 7 L25 16 L16 25 L7 16 Z" fill="url(#g)" opacity="0.85"/>
+  <!-- Center dot -->
+  <circle cx="16" cy="16" r="1.8" fill="#0A0A0A" opacity="0.6"/>
+</svg>

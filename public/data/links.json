@@ -14,7 +14,8 @@
             "poeez-character-hub",
             "poeez-build-browse",
             "mobalytics-poe1",
-            "poebuilds-cc-poe1"
+            "poebuilds-cc-poe1",
+            "exiles-path-keepers"
         ],
         "poe2": [
             "poe-ninja-builds-poe2",
@@ -79,7 +80,9 @@
         "poe1": [
             "poe-trade-helper",
             "indie-wiki-buddy-chrome",
-            "indie-wiki-buddy-firefox"
+            "indie-wiki-buddy-firefox",
+            "gemcheck-chrome",
+            "better-trading"
         ],
         "poe2": [
             "indie-wiki-buddy-chrome",
@@ -198,7 +201,8 @@
             "craft-of-exile",
             "vorici-chromatic-calculator",
             "poe-cluster-jewel-calculator",
-            "eldritch-implicit-modifiers"
+            "eldritch-implicit-modifiers",
+            "from-rogs-to-riches"
         ],
         "poe2": [
             "poe2db-modifiers",
@@ -233,7 +237,9 @@
             "exile-leveling",
             "poe-leveling",
             "poe-leveling-guide",
-            "poe-gem-planner"
+            "poe-gem-planner",
+            "poe-progress",
+            "poecampain"
         ],
         "poe2": [
             "beargrump-campaign-checklist-poe2"
@@ -280,7 +286,10 @@
             "timeless-historian",
             "phrecia-idol-regex-builder",
             "flux-of-exile",
-            "poe-3-28-cheat-sheets"
+            "poe-3-28-cheat-sheets",
+            "timeless-calc",
+            "soothsayer",
+            "poe-watchers-eye"
         ],
         "poe2": [
             "patchbot-poe2",
@@ -295,7 +304,12 @@
     "temp-league": {
         "id": "temp-league",
         "title": "TEMP LEAGUE",
-        "poe1": [],
+        "poe1": [
+            "imbued-gem-reference",
+            "poe-gem-krangler",
+            "temp-league-reddit-image",
+            "mirage-league-start-build-index"
+        ],
         "poe2": [
             "atziri-temple-planner-poe2",
             "atziri-temple-cheatsheet-reddit-poe2",
