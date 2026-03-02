@@ -129,10 +129,13 @@ export function renderLeaguesSection(container, leagues, currentGame = null) {
     return;
   }
 
-  // Filter by current game
-  const filteredLeagues = currentGame
-    ? leagues.filter((league) => league.game === currentGame)
-    : leagues;
+  const now = new Date();
+  // Filter by current game and exclude ended leagues (only show current and future leagues)
+  const filteredLeagues = leagues.filter((league) => {
+    if (currentGame && league.game !== currentGame) return false;
+    const endDate = new Date(league.endDate);
+    return endDate >= now;
+  });
 
   if (filteredLeagues.length === 0) {
     const emptyState = document.createElement('div');

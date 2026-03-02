@@ -503,6 +503,14 @@
     "added": "2026-01-01T00:00:00Z",
     "icon": "/images/favicons/pathofexile.com.png"
   },
+  "gem-viability-weosoft": {
+    "name": "Gem Viability",
+    "url": "https://gem-viability.weosoft.org/",
+    "description": "Gem viability and build reference for Path of Exile",
+    "lastChecked": "2026-03-02T00:00:00Z",
+    "added": "2026-03-02T00:00:00Z",
+    "icon": "/images/favicons/gem-viability.weosoft.org.png"
+  },
   "exile-leveling": {
     "name": "Exile Leveling",
     "url": "https://heartofphos.github.io/exile-leveling/#/",
