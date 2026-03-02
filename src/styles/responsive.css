@@ -1,12 +1,50 @@
 /* Responsive Design */
-@media (max-width: var(--poe-breakpoint-sm)) {
+/* Layout reordering for small and medium screens */
+@media (max-width: 968px) {
   .container {
     padding: 0 var(--poe-spacing-sm);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Treat children of .game-and-league-row as direct container children */
+  .game-and-league-row {
+    display: contents;
+  }
+
+  /* Visual order: nav -> game selector -> main (categories + events) -> leagues */
+  #navigation {
+    order: 0;
+  }
+
+  .game-and-league-row > #game-selector {
+    order: 1;
   }
 
   main {
+    order: 2;
+    display: flex;
     flex-direction: column;
+    margin-top: var(--poe-spacing-md);
   }
+
+  /* Inside main: categories first, then events sidebar */
+  #categories {
+    order: 0;
+  }
+
+  .main-sidebar {
+    order: 1;
+  }
+
+  /* Leagues block at the very bottom */
+  .game-and-league-row > #leagues {
+    order: 3;
+  }
+}
+
+/* Additional small-screen tweaks */
+@media (max-width: 768px) {
 
   #categories {
     grid-template-columns: 1fr;
@@ -76,7 +114,7 @@
   }
 }
 
-@media (max-width: var(--poe-breakpoint-xs)) {
+@media (max-width: 480px) {
   .link-item {
     font-size: 12px;
     padding: var(--poe-spacing-xs);
@@ -89,7 +127,7 @@
   }
 }
 
-@media (max-width: var(--poe-breakpoint-sm)) {
+@media (max-width: 768px) {
   .datetime-input-group {
     flex-direction: column;
     align-items: stretch;
@@ -148,7 +186,7 @@
 }
 
 /* Event Suggestion Dialog */
-@media (max-width: var(--poe-breakpoint-md)) {
+@media (max-width: 968px) {
   .event-suggestion-dialog-content {
     width: 95%;
     max-height: 95vh;
@@ -179,7 +217,7 @@
 }
 
 /* Disclaimer Dialog */
-@media (max-width: var(--poe-breakpoint-sm)) {
+@media (max-width: 768px) {
   .disclaimer-dialog-content {
     width: 95%;
     max-height: 90vh;
