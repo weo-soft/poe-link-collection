@@ -14,8 +14,7 @@
             "poeez-character-hub",
             "poeez-build-browse",
             "mobalytics-poe1",
-            "poebuilds-cc-poe1",
-            "poe-3-28-cheat-sheets"
+            "poebuilds-cc-poe1"
         ],
         "poe2": [
             "poe-ninja-builds-poe2",
@@ -279,7 +278,8 @@
             "keepers-of-the-flame-guide",
             "timeless-historian",
             "phrecia-idol-regex-builder",
-            "flux-of-exile"
+            "flux-of-exile",
+            "poe-3-28-cheat-sheets"
         ],
         "poe2": [
             "patchbot-poe2",
