@@ -33,6 +33,12 @@
           "categoryId": "crafting",
           "linkName": "From Rogs to Riches",
           "linkUrl": "https://docs.google.com/document/d/1NrB0CMaosIST0HQj3Qs36gL6OpYZJIE7m4nYVjjjhS8/"
+        },
+        {
+          "type": "added",
+          "categoryId": "build-tools",
+          "linkName": "PoE 2 Architect",
+          "linkUrl": "https://play.google.com/store/apps/details?id=com.poe2architect&pli=1"
         }
       ]
     },

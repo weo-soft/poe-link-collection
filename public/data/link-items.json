@@ -903,6 +903,14 @@
     "added": "2026-01-01T00:00:00Z",
     "icon": "/images/favicons/pob.cool.png"
   },
+  "poe2-architect": {
+    "name": "PoE 2 Architect",
+    "url": "https://play.google.com/store/apps/details?id=com.poe2architect&pli=1",
+    "description": "Mobile passive skill planner and build tool for Path of Exile 2 – plan skill tree, skill gems, and gear on the go",
+    "lastChecked": "2026-03-04T00:00:00Z",
+    "added": "2026-03-04T00:00:00Z",
+    "icon": "/images/favicons/play.google.com.svg"
+  },
   "exiled-exchange-2": {
     "name": "Exiled Exchange 2",
     "url": "https://exiledexchange2.com/",
