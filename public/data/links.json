@@ -63,6 +63,8 @@
         "title": "TRACKERS",
         "poe1": [
             "wealthy-exile",
+            "poe-money",
+            "traxile",
             "exilence-ce",
             "challenges-tracker",
             "poe-exchange",
@@ -145,7 +147,9 @@
             "mercurytrade",
             "poe-overlay",
             "chaos-recipe-enhancer",
-            "poe-leveling-guide"
+            "poe-leveling-guide",
+            "poe-palette",
+            "xilehud-poe2"
         ],
         "poe2": [
             "exiled-exchange-2",

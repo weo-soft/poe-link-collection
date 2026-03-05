@@ -1,6 +1,35 @@
 {
-  "lastUpdated": "2026-03-04T18:00:00Z",
+  "lastUpdated": "2026-03-05T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-03-05T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "game-overlay",
+          "linkName": "PoE Palette",
+          "linkUrl": "https://github.com/flbraun/poe-palette"
+        },
+        {
+          "type": "added",
+          "categoryId": "game-overlay",
+          "linkName": "XileHUD",
+          "linkUrl": "https://github.com/XileHUD/poe_overlay"
+        },
+        {
+          "type": "added",
+          "categoryId": "trackers",
+          "linkName": "poe.money",
+          "linkUrl": "https://poe.money/"
+        },
+        {
+          "type": "added",
+          "categoryId": "trackers",
+          "linkName": "TraXile",
+          "linkUrl": "https://github.com/dermow/TraXile"
+        }
+      ]
+    },
     {
       "date": "2026-03-04T18:00:00Z",
       "entries": [

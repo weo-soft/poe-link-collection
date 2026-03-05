@@ -111,6 +111,22 @@
     "added": "2026-01-01T00:00:00Z",
     "icon": "/images/favicons/wealthyexile.com.ico"
   },
+  "poe-money": {
+    "name": "poe.money",
+    "url": "https://poe.money/",
+    "description": "Path of Exile stash and currency tracking website",
+    "lastChecked": "2026-03-04T00:00:00Z",
+    "added": "2026-03-04T00:00:00Z",
+    "icon": "/images/favicons/poe.money.png"
+  },
+  "traxile": {
+    "name": "TraXile",
+    "url": "https://github.com/dermow/TraXile",
+    "description": "Tracking tool for Path of Exile – activity tracking, statistics and in-game overlay from your Client.txt log",
+    "lastChecked": "2026-03-04T00:00:00Z",
+    "added": "2026-03-04T00:00:00Z",
+    "icon": "/images/favicons/github.com.svg"
+  },
   "poemap-trade": {
     "name": "PoeMap.Trade",
     "url": "https://poemap.trade",
@@ -341,6 +357,14 @@
     "description": "Leveling guide and overlay tool",
     "lastChecked": "2026-01-26T18:00:00Z",
     "added": "2026-01-01T00:00:00Z",
+    "icon": "/images/favicons/github.com.svg"
+  },
+  "poe-palette": {
+    "name": "PoE Palette",
+    "url": "https://github.com/flbraun/poe-palette",
+    "description": "Command palette for accessing Path of Exile resources – wiki, PoEDB, poe.ninja, trade, TFT, Craft of Exile and more",
+    "lastChecked": "2026-03-04T00:00:00Z",
+    "added": "2026-03-04T00:00:00Z",
     "icon": "/images/favicons/github.com.svg"
   },
   "poe-planner-1": {
