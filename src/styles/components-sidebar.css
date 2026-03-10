@@ -75,7 +75,8 @@
   display: block;
 }
 
-.league-duration {
+.league-duration,
+.league-running-for {
   display: flex;
   flex-direction: column;
   gap: var(--poe-spacing-xs);
@@ -83,6 +84,12 @@
   padding-top: var(--poe-spacing-sm);
   border-top: 1px solid var(--poe-border-color);
   font-size: var(--poe-font-size-sm);
+}
+
+.league-running-for {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
 
 /* Events Section */

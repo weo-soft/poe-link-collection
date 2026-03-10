@@ -21,6 +21,24 @@ export function formatDuration(milliseconds) {
 }
 
 /**
+ * Formats duration in milliseconds to human-readable string including seconds
+ * @param {number} milliseconds - Duration in milliseconds
+ * @returns {string} - Formatted duration string (e.g., "79d 06h 23m 45s")
+ */
+export function formatDurationWithSeconds(milliseconds) {
+  const totalSeconds = Math.floor(milliseconds / 1000);
+  const minutes = Math.floor(totalSeconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  const remainingHours = hours % 24;
+  const remainingMinutes = minutes % 60;
+  const remainingSeconds = totalSeconds % 60;
+
+  return `${days}d ${remainingHours}h ${remainingMinutes}m ${remainingSeconds}s`;
+}
+
+/**
  * Calculates event durations (elapsed, remaining, total)
  * @param {Object} event - Event object with startDate and endDate
  * @returns {Object|null} - Object with isActive, elapsedDuration, remainingDuration, totalDuration, or null if invalid

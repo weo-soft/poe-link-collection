@@ -3,7 +3,25 @@
  * Handles league data processing and rendering for PoE and PoE2
  */
 
-import { calculateEventDurations, formatDuration } from './events.js';
+import { calculateEventDurations, formatDuration, formatDurationWithSeconds } from './events.js';
+
+/** @type {ReturnType<typeof setInterval> | null} */
+let runningForIntervalId = null;
+
+/**
+ * Updates all "Running for" counter elements on the page (called every second)
+ */
+function updateRunningForCounters() {
+  const elements = document.querySelectorAll('[data-running-since]');
+  const now = Date.now();
+  elements.forEach((el) => {
+    const since = el.getAttribute('data-running-since');
+    if (!since) return;
+    const start = new Date(since).getTime();
+    if (isNaN(start)) return;
+    el.textContent = formatDurationWithSeconds(now - start);
+  });
+}
 
 /**
  * Renders a single league element
@@ -88,6 +106,21 @@ export function renderLeague(container, league) {
   logoDatesRow.appendChild(datesElement);
   leagueElement.appendChild(logoDatesRow);
 
+  // "Running for" counter for currently active leagues (updates every second)
+  const isRunning = !startsInFuture && now < endDate;
+  if (isRunning) {
+    const runningForEl = document.createElement('div');
+    runningForEl.className = 'league-running-for';
+    const valueSpan = document.createElement('span');
+    valueSpan.className = 'league-running-for-value';
+    valueSpan.setAttribute('data-running-since', startDate.toISOString());
+    valueSpan.setAttribute('aria-live', 'polite');
+    valueSpan.textContent = formatDurationWithSeconds(now.getTime() - startDate.getTime());
+    runningForEl.appendChild(document.createTextNode('Running for: '));
+    runningForEl.appendChild(valueSpan);
+    leagueElement.appendChild(runningForEl);
+  }
+
   // For future leagues, "starts in" is already on the start date; omit duration block. For past leagues, show duration only.
   const durations = calculateEventDurations(league);
   if (durations && !durations.isActive && !startsInFuture) {
@@ -115,6 +148,11 @@ export function renderLeaguesSection(container, leagues, currentGame = null) {
   if (!container) {
     console.error('Leagues container not found');
     return;
+  }
+
+  if (runningForIntervalId !== null) {
+    clearInterval(runningForIntervalId);
+    runningForIntervalId = null;
   }
 
   container.innerHTML = '';
@@ -161,4 +199,8 @@ export function renderLeaguesSection(container, leagues, currentGame = null) {
   });
 
   container.appendChild(leaguesList);
+
+  if (container.querySelectorAll('[data-running-since]').length > 0) {
+    runningForIntervalId = setInterval(updateRunningForCounters, 1000);
+  }
 }
