@@ -10,7 +10,6 @@ import { getCurrentGame } from './data.js';
 // Dialog state
 let dialogElement = null;
 let lastFocusedElement = null;
-let previewUpdateTimeout = null;
 
 /**
  * Validates event suggestion input

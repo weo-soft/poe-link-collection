@@ -1,132 +1,103 @@
 # PoE Link Collection Hub Page
 
-A Path of Exile themed link collection hub page that serves as a centralized resource for PoE players. The page displays categorized links (Builds, Loot Filters, Trade, Build Tools, Game Overlay, Media, etc.) in an organized grid layout, includes navigation between multiple hub pages, and displays league/event information.
+A Path of Exile–themed link collection hub: categorized resources (builds, loot filters, trade, tools, overlay, media, and more), navigation across hub pages, and league/event information with an updates changelog. The UI uses a dark PoE-inspired theme.
 
 ## Features
 
-- **Categorized Links**: Organized sections for different PoE resource types
-- **Navigation**: Multi-page hub navigation with visual indicators
-- **League Events**: Display current and past league information with duration calculations
-- **Update Section**: Shows when the page was last updated with a changelog of link additions and removals
-- **Path of Exile Theme**: Dark theme with PoE aesthetic elements
-- **Progressive Enhancement**: Core functionality works without JavaScript
+- **Categorized links** — Sections for common PoE resource types
+- **Navigation** — Multi-page hub with clear current-page indication
+- **League events** — Current and past leagues with duration context
+- **Updates** — Last-updated notice and changelog of link changes
+- **Path of Exile theme** — Dark styling aligned with the game’s aesthetic
+- **Progressive enhancement** — Core usefulness without JavaScript; enhanced behavior via ES modules
 
-## Tech Stack
+## Tech stack
 
-- **Build Tool**: Vite
-- **Languages**: Vanilla JavaScript (ES6+), HTML5, CSS3
-- **Testing**: Vitest
-- **Deployment**: GitHub Pages
+- **Build:** Vite 5  
+- **Languages:** Vanilla JavaScript (ES6+), HTML5, CSS3  
+- **Testing:** Vitest (jsdom)  
+- **Deployment:** GitHub Pages via GitHub Actions  
 
 ## Setup
 
 ### Prerequisites
 
-- Node.js 18+ installed
-- npm or yarn package manager
+- Node.js 18+
+- npm
 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone <repository-url>
+git clone https://github.com/weo-soft/poe-link-collection.git
 cd poe-link-collection
-
-# Install dependencies
 npm install
 ```
 
 ## Development
 
 ```bash
-# Start development server
-npm run dev
-
-# Run tests
-npm test
-
-# Run tests with coverage
-npm run test:coverage
-
-# Lint code
-npm run lint
-
-# Format code
-npm run format
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+npm run dev              # Dev server (e.g. http://localhost:5173)
+npm test                 # Vitest (watch)
+npm test -- --run        # Single run (matches CI)
+npm run test:coverage    # Coverage report
+npm run lint             # ESLint
+npm run format           # Prettier (write)
+npm run build            # Production build → dist/
+npm run preview          # Preview production build
 ```
 
-## Project Structure
+## Project structure
+
+Vite’s **root is `src/`**; static assets and JSON data live under **`public/`** and are emitted at the site root in `dist/`.
 
 ```
 poe-link-collection/
 ├── src/
-│   ├── index.html          # Main HTML entry point
-│   ├── styles/             # CSS files
-│   ├── scripts/            # JavaScript modules
-│   ├── data/               # JSON data files
-│   └── assets/             # Static assets
-├── tests/                  # Test files
-├── public/                 # Static public assets
-└── dist/                   # Build output
+│   ├── index.html          # HTML entry
+│   ├── scripts/            # ES modules (data, links, navigation, events, …)
+│   ├── styles/             # CSS
+│   └── config/             # App config (e.g. contact)
+├── public/
+│   ├── data/               # links.json, events.json, leagues.json, updates.json, …
+│   └── images/             # Favicons and static images
+├── tests/
+│   ├── unit/               # Unit tests
+│   └── integration/        # Page-level tests
+├── docs/                   # Agent playbooks and review handoff
+└── dist/                   # Build output (local)
 ```
 
-## Data Files
+## Data files
 
-- `public/data/links.json`: Link data organized by category
-- `public/data/events.json`: League/event data
-- `public/data/updates.json`: Update records and changelog data
+| Path | Role |
+|------|------|
+| `public/data/links.json` | Links by category (and game where applicable) |
+| `public/data/link-items.json` | Per-link metadata/icons |
+| `public/data/events.json` | League/event data |
+| `public/data/leagues.json` | League listing |
+| `public/data/updates.json` | Changelog / update records |
 
-## Deployment
+## Deployment (GitHub Pages)
 
-### GitHub Pages with Custom Domain
+Pushing to **`main`** runs `.github/workflows/deploy.yml`: `npm ci`, **`npm test -- --run`**, then **`npm run build`**, then upload of `dist/` to GitHub Pages.
 
-The site is configured to deploy to GitHub Pages automatically via GitHub Actions when changes are pushed to the `main` branch.
+1. **Pages source:** Repository **Settings → Pages → Source: GitHub Actions**.
+2. **EmailJS (optional):** For contact/event features that need EmailJS at build time, set repository **Variables** `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_PUBLIC_KEY`, and `VITE_EMAILJS_TEMPLATE_ID` (see workflow `env` in `deploy.yml`). For local builds, use a root `.env` with the same `VITE_*` names.
+3. **Custom domain:** Configure in Pages settings and DNS per GitHub’s instructions; `public/CNAME` or generated `dist/CNAME` may apply depending on your setup.
 
-**Setup Steps:**
+Manual deploy: `npm run build` and host the contents of `dist/`.
 
-1. **Enable GitHub Pages:**
-   - Go to repository Settings → Pages
-   - **Source**: Select "GitHub Actions" (not "Deploy from a branch")
-   - This enables the GitHub Actions workflow to deploy automatically
-   - The workflow will create and manage the deployment
+## Contributing
 
-2. **Custom Domain (Optional):**
-   - In Pages settings, add your custom domain
-   - Update DNS records as instructed by GitHub
-   - The site will be available at your custom domain root
+See **[`CONTRIBUTING.md`](./CONTRIBUTING.md)** for the PR checklist and conventions.
 
-3. **Automatic Deployment:**
-   - Push changes to `main` branch
-   - GitHub Actions will:
-     - Run tests
-     - Build the site
-     - Deploy to GitHub Pages
+## AI agents and maintainers
 
-**Manual Deployment:**
-
-```bash
-# Build the site
-npm run build
-
-# The dist/ folder contains the deployable site
-# For manual deployment, upload dist/ contents to your hosting provider
-```
-
-**Local Testing:**
-
-```bash
-# Test production build locally
-npm run build
-npm run preview
-```
+- **[`AGENTS.md`](./AGENTS.md)** — Layout, commands, data flow, quality bar, and review workflows.
+- **`docs/`** — Playbooks (`REVIEW_AGENT.md`, `SENIOR_DEVELOPER_AGENT.md`, `ORCHESTRATOR_AGENT.md`) and shared handoff log `REVIEW_FINDINGS.md`.
 
 ## License
 
-MIT
+This project is licensed under the MIT License — see [`LICENSE`](./LICENSE).
 
+*Path of Exile* is a trademark of Grinding Gear Games. This project is a fan-made link hub and is not affiliated with or endorsed by Grinding Gear Games.

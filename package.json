@@ -12,16 +12,23 @@
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
     "lint": "eslint src tests --ext .js",
-    "format": "prettier --write \"src/**/*.{js,html,css}\" \"tests/**/*.js\"",
-    "fetch-favicons": "node scripts/fetch-favicons.js"
+    "format": "prettier --write \"src/**/*.{js,html,css}\" \"tests/**/*.js\""
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weo-soft/poe-link-collection.git"
+  },
+  "bugs": {
+    "url": "https://github.com/weo-soft/poe-link-collection/issues"
+  },
+  "homepage": "https://github.com/weo-soft/poe-link-collection#readme",
   "keywords": [
     "path-of-exile",
     "poe",
     "link-collection",
     "hub"
   ],
-  "author": "",
+  "author": "weo-soft",
   "license": "MIT",
   "devDependencies": {
     "@vitest/ui": "^1.0.0",
