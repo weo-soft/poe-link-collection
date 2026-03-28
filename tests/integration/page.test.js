@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { renderAllCategories, renderCategory } from '../../src/scripts/links.js';
-import { renderNavigation, setActiveNavigation, getCurrentPage, setupNavigationHandlers } from '../../src/scripts/navigation.js';
+import { renderNavigation, setupNavigationHandlers } from '../../src/scripts/navigation.js';
 import { renderEventsSection, renderEvent } from '../../src/scripts/events.js';
 import { renderUpdateSection, renderUpdatesButton, toggleChangelog } from '../../src/scripts/updates.js';
 import { openContactDialog, closeContactDialog, setupContactDialog } from '../../src/scripts/contact.js';

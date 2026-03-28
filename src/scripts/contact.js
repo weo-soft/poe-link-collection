@@ -6,7 +6,6 @@
 import { contactConfig } from '../config/contact.config.js';
 
 // Dialog state
-let dialogElement = null;
 let lastFocusedElement = null;
 
 /**
@@ -171,7 +170,6 @@ export async function sendContactMessage(message, subject, email) {
     }
 
     // Import EmailJS dynamically
-    let emailjs;
     try {
       const emailjsModule = await import('@emailjs/browser');
       // EmailJS exports as default
@@ -465,7 +463,6 @@ export function openContactDialog() {
 
   // Show dialog
   dialog.setAttribute('aria-hidden', 'false');
-  dialogElement = dialog;
 
   // Prevent body scroll
   document.body.style.overflow = 'hidden';
@@ -540,7 +537,6 @@ export function closeContactDialog() {
     lastFocusedElement.focus();
   }
   lastFocusedElement = null;
-  dialogElement = null;
 }
 
 /**

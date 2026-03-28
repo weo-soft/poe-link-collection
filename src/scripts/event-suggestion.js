@@ -448,7 +448,6 @@ export async function sendEventSuggestion(eventSuggestion, email) {
     }
 
     // Import EmailJS dynamically
-    let emailjs;
     try {
       const emailjsModule = await import('@emailjs/browser');
       const emailjsLib = emailjsModule.default || emailjsModule;

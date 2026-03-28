@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { renderLink, renderCategory, renderAllCategories } from '../../src/scripts/links.js';
 
 describe('renderLink', () => {

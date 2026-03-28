@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { getCurrentPage, setActiveNavigation } from '../../src/scripts/navigation.js';
 
 describe('getCurrentPage', () => {

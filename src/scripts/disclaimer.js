@@ -4,7 +4,6 @@
  */
 
 // Dialog state
-let dialogElement = null;
 let lastFocusedElement = null;
 let pendingLinkUrl = null;
 
@@ -180,7 +179,6 @@ export function openDisclaimerDialog(linkUrl) {
 
   // Show dialog
   dialog.setAttribute('aria-hidden', 'false');
-  dialogElement = dialog;
 
   // Prevent body scroll
   document.body.style.overflow = 'hidden';
@@ -217,7 +215,6 @@ export function closeDisclaimerDialog() {
     lastFocusedElement.focus();
   }
   lastFocusedElement = null;
-  dialogElement = null;
 }
 
 /**

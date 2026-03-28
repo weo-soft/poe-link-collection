@@ -8,7 +8,7 @@ import { renderAllCategories } from './links.js';
 import { renderNavigation, setupNavigationHandlers } from './navigation.js';
 import { renderEventsSection } from './events.js';
 import { renderLeaguesSection } from './leagues.js';
-import { renderUpdatesButton, toggleChangelog, closeChangelog } from './updates.js';
+import { renderUpdatesButton, toggleChangelog } from './updates.js';
 import { setupContactDialog, openContactDialog } from './contact.js';
 import { setupDisclaimerDialog } from './disclaimer.js';
 import { setupEventSuggestionDialog, openEventSuggestionDialog } from './event-suggestion.js';
@@ -246,7 +246,7 @@ async function init() {
     }
 
     // Load data in parallel
-    const [categoriesResult, eventsResult, leaguesResult, updatesResult] = await Promise.allSettled([
+    const [, eventsResult, leaguesResult, updatesResult] = await Promise.allSettled([
       loadAndRenderCategories(),
       eventsContainer ? loadEvents() : Promise.resolve([]),
       leaguesContainer ? loadLeagues() : Promise.resolve([]),

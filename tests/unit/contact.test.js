@@ -1,8 +1,7 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import {
   validateContactMessage,
   sanitizeMessage,
-  sendContactMessage,
   closeContactDialog,
 } from '../../src/scripts/contact.js';
 
@@ -204,19 +203,6 @@ describe('sanitizeMessage', () => {
 });
 
 describe('sendContactMessage', () => {
-  let mockMailjs;
-
-  beforeEach(() => {
-    // Mock mailjs module
-    vi.mock('mailjs', () => {
-      return {
-        default: vi.fn().mockImplementation(() => ({
-          send: vi.fn(),
-        })),
-      };
-    });
-  });
-
   it('should send message successfully with email', async () => {
     // This test will be updated once sendContactMessage is implemented
     // For now, we're just setting up the test structure
