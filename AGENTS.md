@@ -40,7 +40,7 @@ Run from the repository root after substantive edits:
 | `npm install` | Install dependencies |
 | `npm run dev` | Dev server (default port 5173) |
 | `npm test -- --run` | Tests once (CI uses this; no watch) |
-| `npm run lint` | ESLint on `src` and `tests` |
+| `npm run lint` | ESLint on `src` and `tests` (`--max-warnings 0`; CI runs this after `npm ci`) |
 | `npm run build` | Production build → `dist/` (includes HTML fix step) |
 | `npm run preview` | Serve `dist/` locally |
 | `npm run test:coverage` | Coverage report (optional) |

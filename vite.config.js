@@ -1,6 +1,28 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
+/** Substrings of stderr lines we intentionally trigger in tests (data errors, jsdom limits). */
+const SUPPRESSED_TEST_STDERR = [
+  'Not implemented: navigation',
+  'Error loading links:',
+  'Error loading events:',
+  'Error loading updates:',
+  'Invalid category structure skipped',
+  'Invalid event skipped',
+  'Invalid update record structure',
+  'Invalid date in event:',
+  'End date before start date in event:',
+  'Failed to load icon for',
+  'Invalid date value in timestamp:',
+  'Invalid timestamp provided to formatUpdateDate:',
+  'Incomplete changelog entry skipped',
+  'Changelog container not found',
+  'Invalid changelog entry type skipped',
+  'Update section container not found',
+  'Update record is missing',
+  'Invalid link skipped:',
+];
+
 export default defineConfig({
   root: 'src',
   base: '/',
@@ -29,6 +51,11 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     include: ['../tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    onConsoleLog(log, type) {
+      if (type === 'stderr' && SUPPRESSED_TEST_STDERR.some((s) => log.includes(s))) {
+        return false;
+      }
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
