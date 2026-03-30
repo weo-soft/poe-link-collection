@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-05T18:00:00Z",
+  "lastUpdated": "2026-03-30T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-03-30T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Added Rapture Gauntlet: Class Gauntlet to the Events section."
+        }
+      ]
+    },
     {
       "date": "2026-03-05T18:00:00Z",
       "entries": [

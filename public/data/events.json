@@ -20,5 +20,16 @@
     "bannerImageUrl": "https://web.poecdn.com/public/news/2026-02-26/0.4.0RaceEventHeader.jpg",
     "description": "Path of Exile 2 racing: three races (Mar 29, Apr 5, Apr 12 PDT). Compete to be first to kill Tavakai in Act 4 in Solo Self-Found Fate of the Vaal fixed layout. Death penalty: 2.5 min freeze. Prizes: Demigod's Virtue per class (including Druid), Displates for fastest per class across all races, Divination Card design for fastest overall. First race to include Fate of the Vaal content. Incinerate and Flame Breath disabled in the event. Streamed on twitch.tv/pathofexile with ZiggyD and RaizQT.",
     "detailsLink": "https://www.pathofexile.com/forum/view-thread/3913251"
+  },
+  {
+    "id": "rapture-gauntlet-class-gauntlet",
+    "name": "Rapture Gauntlet: Class Gauntlet",
+    "startDate": "2026-04-08T22:00:00.000Z",
+    "endDate": "2026-04-15T22:00:00.000Z",
+    "game": "poe1",
+    "type": "event",
+    "bannerImageUrl": "https://web.poecdn.com/public/news/2026-03-30/GauntletAnnouncementHeader.jpg",
+    "description": "Zizaran’s Class Gauntlet event starts April 8 (PDT) in a Hardcore Solo Self-Found Mirage Event League. Monsters and bosses inflict Ruin—reach 7 stacks to instantly die. Event runs for 7 days; join from the character select screen.",
+    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3925479"
   }
 ]
