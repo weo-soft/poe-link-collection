@@ -86,6 +86,9 @@ textarea.form-input {
 }
 
 .nav-contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--poe-spacing-xs);
   background: none;
   border: none;
   color: var(--poe-link-color);
@@ -94,11 +97,16 @@ textarea.form-input {
   cursor: pointer;
   font-family: var(--poe-font-family);
   font-size: var(--poe-font-size-base);
-  padding: var(--poe-spacing-xs) var(--poe-spacing-sm);
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
   border-radius: var(--poe-border-radius);
 }
 
+.nav-contact-icon {
+  flex-shrink: 0;
+}
+
 .nav-contact-button:hover {
+  color: var(--poe-link-hover);
 }
 
 

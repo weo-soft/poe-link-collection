@@ -59,6 +59,25 @@
   border-radius: var(--poe-border-radius);
 }
 
+.nav-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--poe-spacing-xs);
+}
+
+.nav-github-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  object-fit: contain;
+  /* favicon uses dark fill; invert for dark-theme nav bar */
+  filter: invert(1) brightness(0.85);
+}
+
+.nav-github-link:hover .nav-github-icon {
+  filter: invert(1) brightness(0.95);
+}
+
 .nav-updates-item {
   margin-left: auto;
 }

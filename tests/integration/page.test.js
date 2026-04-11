@@ -1,6 +1,10 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { renderAllCategories, renderCategory } from '../../src/scripts/links.js';
-import { renderNavigation, setupNavigationHandlers } from '../../src/scripts/navigation.js';
+import {
+  renderNavigation,
+  setupNavigationHandlers,
+  PROJECT_GITHUB_URL,
+} from '../../src/scripts/navigation.js';
 import { renderEventsSection, renderEvent } from '../../src/scripts/events.js';
 import { renderUpdateSection, renderUpdatesButton, toggleChangelog } from '../../src/scripts/updates.js';
 import { openContactDialog, closeContactDialog, setupContactDialog } from '../../src/scripts/contact.js';
@@ -194,6 +198,23 @@ describe('Navigation Bar Rendering Integration', () => {
     const textLinks = Array.from(navLinks).slice(1);
     expect(textLinks.length).toBeGreaterThan(0);
     expect(textLinks[0].textContent).toBeTruthy();
+
+    const githubLink = container.querySelector(`a[href="${PROJECT_GITHUB_URL}"]`);
+    expect(githubLink).toBeTruthy();
+    expect(githubLink.textContent).toBe('GitHub');
+    expect(githubLink.getAttribute('target')).toBe('_blank');
+    expect(githubLink.getAttribute('rel')).toBe('noopener noreferrer');
+    const githubIcon = githubLink.querySelector('.nav-github-icon');
+    expect(githubIcon).toBeTruthy();
+    expect(githubIcon.getAttribute('src')).toBe('/images/favicons/github.com.svg');
+    expect(githubIcon.getAttribute('aria-hidden')).toBe('true');
+
+    const contactButton = container.querySelector('.nav-contact-button');
+    expect(contactButton).toBeTruthy();
+    expect(contactButton.textContent.trim()).toBe('Contact');
+    const contactIcon = contactButton.querySelector('svg.nav-contact-icon');
+    expect(contactIcon).toBeTruthy();
+    expect(contactIcon.getAttribute('aria-hidden')).toBe('true');
   });
 
   it('should highlight current page in navigation', () => {

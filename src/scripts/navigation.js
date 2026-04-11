@@ -3,6 +3,45 @@
  * Handles navigation bar functionality and active state management
  */
 
+/** Public source repository URL (navbar link). */
+export const PROJECT_GITHUB_URL = 'https://github.com/weo-soft/poe-link-collection';
+
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+/**
+ * Envelope icon for the nav contact control (stroke uses currentColor).
+ * @returns {SVGSVGElement}
+ */
+function createNavContactIcon() {
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('class', 'nav-contact-icon');
+  svg.setAttribute('width', '18');
+  svg.setAttribute('height', '18');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('aria-hidden', 'true');
+
+  const rect = document.createElementNS(SVG_NS, 'rect');
+  rect.setAttribute('width', '20');
+  rect.setAttribute('height', '16');
+  rect.setAttribute('x', '2');
+  rect.setAttribute('y', '4');
+  rect.setAttribute('rx', '2');
+  rect.setAttribute('stroke', 'currentColor');
+  rect.setAttribute('stroke-width', '2');
+
+  const flap = document.createElementNS(SVG_NS, 'path');
+  flap.setAttribute('d', 'm22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7');
+  flap.setAttribute('stroke', 'currentColor');
+  flap.setAttribute('stroke-width', '2');
+  flap.setAttribute('stroke-linecap', 'round');
+  flap.setAttribute('stroke-linejoin', 'round');
+
+  svg.appendChild(rect);
+  svg.appendChild(flap);
+  return svg;
+}
+
 /**
  * Navigation items configuration
  */
@@ -97,13 +136,40 @@ export function renderNavigation(container) {
   spacer.className = 'nav-spacer';
   navList.appendChild(spacer);
 
+  const githubListItem = document.createElement('li');
+  const githubLink = document.createElement('a');
+  githubLink.href = PROJECT_GITHUB_URL;
+  githubLink.className = 'nav-link nav-github-link';
+  githubLink.setAttribute('target', '_blank');
+  githubLink.setAttribute('rel', 'noopener noreferrer');
+  githubLink.setAttribute(
+    'aria-label',
+    'Open PoE Link Collection project on GitHub in a new tab',
+  );
+  const githubIcon = document.createElement('img');
+  githubIcon.className = 'nav-github-icon';
+  githubIcon.src = '/images/favicons/github.com.svg';
+  githubIcon.alt = '';
+  githubIcon.setAttribute('aria-hidden', 'true');
+  githubIcon.width = 18;
+  githubIcon.height = 18;
+  const githubLabel = document.createElement('span');
+  githubLabel.textContent = 'GitHub';
+  githubLink.appendChild(githubIcon);
+  githubLink.appendChild(githubLabel);
+  githubListItem.appendChild(githubLink);
+  navList.appendChild(githubListItem);
+
   // Add contact button
   const contactListItem = document.createElement('li');
   const contactButton = document.createElement('button');
   contactButton.className = 'nav-link nav-contact-button';
   contactButton.setAttribute('type', 'button');
-  contactButton.textContent = 'Contact';
   contactButton.setAttribute('aria-label', 'Open contact dialog');
+  contactButton.appendChild(createNavContactIcon());
+  const contactLabel = document.createElement('span');
+  contactLabel.textContent = 'Contact';
+  contactButton.appendChild(contactLabel);
   contactListItem.appendChild(contactButton);
   navList.appendChild(contactListItem);
 
