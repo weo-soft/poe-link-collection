@@ -3,24 +3,279 @@
  * Handles league data processing and rendering for PoE and PoE2
  */
 
-import { calculateEventDurations, formatDuration, formatDurationWithSeconds } from './events.js';
+import { calculateEventDurations, formatDurationWithSeconds, getCountdownParts } from './events.js';
 
 /** @type {ReturnType<typeof setInterval> | null} */
 let runningForIntervalId = null;
 
+const COUNTDOWN_PARTS = ['days', 'hours', 'minutes', 'seconds'];
+
+const TIMER_UNITS = [
+  { part: 'days', label: 'Days' },
+  { part: 'hours', label: 'Hours' },
+  { part: 'minutes', label: 'Minutes' },
+  { part: 'seconds', label: 'Seconds' },
+];
+
 /**
- * Updates all "Running for" counter elements on the page (called every second)
+ * Returns the league currently in progress for a game (started, not ended), or null.
+ * When multiple overlap in data, the one with the latest start date wins.
+ * @param {Array<Object>} leagues
+ * @param {string} game - 'poe1' | 'poe2'
+ * @param {Date} [now]
+ * @returns {Object | null}
  */
-function updateRunningForCounters() {
-  const elements = document.querySelectorAll('[data-running-since]');
-  const now = Date.now();
-  elements.forEach((el) => {
-    const since = el.getAttribute('data-running-since');
-    if (!since) return;
-    const start = new Date(since).getTime();
-    if (isNaN(start)) return;
-    el.textContent = formatDurationWithSeconds(now - start);
+export function getRunningLeagueForGame(leagues, game, now = new Date()) {
+  if (!Array.isArray(leagues) || !game) {
+    return null;
+  }
+
+  const running = leagues.filter((league) => {
+    if (!league || league.game !== game) return false;
+    const start = new Date(league.startDate);
+    const end = new Date(league.endDate);
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) return false;
+    return start <= now && now < end;
   });
+
+  if (running.length === 0) return null;
+
+  running.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+  return running[0];
+}
+
+/**
+ * Leagues for a game that have not started yet and are not ended. Excludes currently running leagues.
+ * Sorted by start date ascending (soonest first).
+ * @param {Array<Object>} leagues
+ * @param {string} [game] - 'poe1' | 'poe2'; when omitted, includes all games
+ * @param {Date} [now]
+ * @returns {Array<Object>}
+ */
+export function getUpcomingLeaguesForGame(leagues, game, now = new Date()) {
+  if (!Array.isArray(leagues)) {
+    return [];
+  }
+
+  const upcoming = leagues.filter((league) => {
+    if (!league) return false;
+    if (game && league.game !== game) return false;
+    const startDate = new Date(league.startDate);
+    const endDate = new Date(league.endDate);
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) return false;
+    return startDate > now && endDate > now;
+  });
+
+  upcoming.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+  return upcoming;
+}
+
+/**
+ * Renders the active league name (and optional banner) in the main navbar center slot.
+ * @param {Object | null} league
+ */
+export function updateNavigationCurrentLeague(league) {
+  const item = document.getElementById('nav-current-league');
+  if (!item) return;
+
+  const inner = item.querySelector('.nav-current-league-inner');
+  if (!inner) return;
+
+  inner.innerHTML = '';
+
+  if (!league) {
+    inner.setAttribute('hidden', '');
+    item.setAttribute('aria-hidden', 'true');
+    item.removeAttribute('aria-label');
+    ensureLeagueLiveCounterInterval();
+    return;
+  }
+
+  inner.removeAttribute('hidden');
+  item.removeAttribute('aria-hidden');
+  item.setAttribute('aria-label', `Current league: ${league.name}`);
+
+  const startDate = new Date(league.startDate);
+  const endDate = new Date(league.endDate);
+  const now = new Date();
+  const showRunningFor =
+    !isNaN(startDate.getTime()) && !isNaN(endDate.getTime()) && startDate <= now && now < endDate;
+
+  const display = document.createElement('span');
+  display.className = 'nav-current-league-display';
+
+  if (league.bannerImageUrl && league.bannerImageUrl.trim().length > 0) {
+    const img = document.createElement('img');
+    img.className = 'nav-current-league-banner';
+    img.src = league.bannerImageUrl.trim();
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
+    img.loading = 'lazy';
+    img.onerror = () => {
+      img.remove();
+    };
+    display.appendChild(img);
+  }
+
+  if (league.detailsLink && league.detailsLink.trim().length > 0) {
+    const link = document.createElement('a');
+    link.href = league.detailsLink.trim();
+    link.className = 'nav-current-league-link';
+    link.textContent = league.name;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', `${league.name} — league details (opens in new tab)`);
+    display.appendChild(link);
+  } else {
+    const nameEl = document.createElement('span');
+    nameEl.className = 'nav-current-league-name';
+    nameEl.textContent = league.name;
+    display.appendChild(nameEl);
+  }
+
+  inner.appendChild(display);
+
+  if (showRunningFor) {
+    const timerWrap = document.createElement('div');
+    timerWrap.className = 'nav-current-league-timer';
+
+    const hint = document.createElement('span');
+    hint.className = 'nav-current-league-running-hint';
+    hint.textContent = 'Running for';
+    hint.setAttribute('aria-hidden', 'true');
+
+    const bar = document.createElement('div');
+    bar.className = 'league-countdown-bar nav-current-league-countdown-bar';
+    bar.setAttribute('data-running-since', startDate.toISOString());
+    bar.setAttribute('role', 'status');
+    bar.setAttribute('aria-live', 'polite');
+    appendLeagueTimerSegments(bar);
+    syncLeagueRunningBar(bar, now.getTime());
+
+    timerWrap.appendChild(hint);
+    timerWrap.appendChild(bar);
+    inner.appendChild(timerWrap);
+  }
+
+  ensureLeagueLiveCounterInterval();
+}
+
+/**
+ * @param {string} part
+ * @param {number} n
+ */
+function formatCountdownPartDisplay(part, n) {
+  return part === 'days' ? String(n) : String(n).padStart(2, '0');
+}
+
+/**
+ * @param {HTMLElement} barEl
+ */
+function appendLeagueTimerSegments(barEl) {
+  TIMER_UNITS.forEach((u, i) => {
+    if (i > 0) {
+      const connector = document.createElement('div');
+      connector.className = 'league-countdown-connector';
+      connector.setAttribute('aria-hidden', 'true');
+      const lineL = document.createElement('span');
+      lineL.className = 'league-countdown-connector-line';
+      const gem = document.createElement('span');
+      gem.className = 'league-countdown-connector-gem';
+      gem.textContent = '\u25c6';
+      const lineR = document.createElement('span');
+      lineR.className = 'league-countdown-connector-line';
+      connector.appendChild(lineL);
+      connector.appendChild(gem);
+      connector.appendChild(lineR);
+      barEl.appendChild(connector);
+    }
+    const segment = document.createElement('div');
+    segment.className = 'league-countdown-segment';
+    const valueEl = document.createElement('span');
+    valueEl.className = 'league-countdown-value';
+    valueEl.setAttribute('data-part', u.part);
+    const labelEl = document.createElement('span');
+    labelEl.className = 'league-countdown-label';
+    labelEl.textContent = u.label;
+    segment.appendChild(valueEl);
+    segment.appendChild(labelEl);
+    barEl.appendChild(segment);
+  });
+}
+
+/**
+ * @param {HTMLElement} barEl
+ * @param {number} [nowMs]
+ */
+function syncLeagueCountdownBar(barEl, nowMs = Date.now()) {
+  const iso = barEl.getAttribute('data-starts-at');
+  if (!iso) return;
+  const start = new Date(iso).getTime();
+  if (isNaN(start)) return;
+  const remainingMs = start - nowMs;
+  const parts = getCountdownParts(remainingMs);
+  barEl.setAttribute(
+    'aria-label',
+    `League starts in ${formatDurationWithSeconds(Math.max(0, remainingMs))}`,
+  );
+  COUNTDOWN_PARTS.forEach((p) => {
+    const cell = barEl.querySelector(`[data-part="${p}"]`);
+    if (cell) cell.textContent = formatCountdownPartDisplay(p, parts[p]);
+  });
+}
+
+/**
+ * @param {HTMLElement} barEl
+ * @param {number} [nowMs]
+ */
+function syncLeagueRunningBar(barEl, nowMs = Date.now()) {
+  const iso = barEl.getAttribute('data-running-since');
+  if (!iso) return;
+  const start = new Date(iso).getTime();
+  if (isNaN(start)) return;
+  const elapsedMs = nowMs - start;
+  const parts = getCountdownParts(elapsedMs);
+  barEl.setAttribute(
+    'aria-label',
+    `League has been running for ${formatDurationWithSeconds(Math.max(0, elapsedMs))}`,
+  );
+  COUNTDOWN_PARTS.forEach((p) => {
+    const cell = barEl.querySelector(`[data-part="${p}"]`);
+    if (cell) cell.textContent = formatCountdownPartDisplay(p, parts[p]);
+  });
+}
+
+/**
+ * Updates live league timer bars (starts-in countdown and running-for elapsed), once per second.
+ */
+function updateLeagueLiveCounters() {
+  const now = Date.now();
+  document.querySelectorAll('.league-countdown-bar[data-running-since]').forEach((bar) => {
+    syncLeagueRunningBar(bar, now);
+  });
+  document.querySelectorAll('.league-countdown-bar[data-starts-at]').forEach((bar) => {
+    syncLeagueCountdownBar(bar, now);
+  });
+}
+
+/**
+ * Starts the 1s refresh timer when any league countdown bar exists in the document; clears it when none do.
+ */
+function ensureLeagueLiveCounterInterval() {
+  const hasBars =
+    document.querySelectorAll(
+      '.league-countdown-bar[data-starts-at], .league-countdown-bar[data-running-since]',
+    ).length > 0;
+  if (!hasBars) {
+    if (runningForIntervalId !== null) {
+      clearInterval(runningForIntervalId);
+      runningForIntervalId = null;
+    }
+    return;
+  }
+  if (runningForIntervalId === null) {
+    runningForIntervalId = setInterval(updateLeagueLiveCounters, 1000);
+  }
 }
 
 /**
@@ -37,12 +292,42 @@ export function renderLeague(container, league) {
 
   const startDate = new Date(league.startDate);
   const endDate = new Date(league.endDate);
+  const now = new Date();
+  const startsInFuture = startDate > now;
+  const isRunning = !startsInFuture && now < endDate;
+  const showTimerPanel = startsInFuture || isRunning;
 
-  // Row: logo + dates side by side to save vertical space
-  const logoDatesRow = document.createElement('div');
-  logoDatesRow.className = 'league-logo-dates-row';
+  const startDateStr = startDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
-  // Clickable league logo (banner) – links to details when available
+  const endDateStr = endDate.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  const datesElement = document.createElement('div');
+  datesElement.className = 'league-dates league-timer-dates';
+  datesElement.innerHTML = `
+    <div class="league-date">
+      <span class="date-label">Start:</span>
+      <span class="date-value">${startDateStr}</span>
+    </div>
+    <div class="league-date">
+      <span class="date-label">End:</span>
+      <span class="date-value">${endDateStr}</span>
+    </div>
+  `;
+
+  /** @type {HTMLElement | null} */
+  let bannerMount = null;
   if (league.bannerImageUrl && league.bannerImageUrl.trim().length > 0) {
     const bannerElement = document.createElement('img');
     bannerElement.className = 'league-banner';
@@ -60,70 +345,59 @@ export function renderLeague(container, league) {
       bannerLink.rel = 'noopener noreferrer';
       bannerLink.setAttribute('aria-label', `${league.name} – View details`);
       bannerLink.appendChild(bannerElement);
-      logoDatesRow.appendChild(bannerLink);
+      bannerMount = bannerLink;
     } else {
-      logoDatesRow.appendChild(bannerElement);
+      bannerMount = bannerElement;
     }
   }
 
-  const datesElement = document.createElement('div');
-  datesElement.className = 'league-dates';
+  if (showTimerPanel) {
+    const panel = document.createElement('div');
+    panel.className = 'league-timer-panel';
 
-  const now = new Date();
-  const startsInFuture = startDate > now;
+    const label = document.createElement('span');
+    label.className = 'league-timer-label';
+    label.textContent = startsInFuture ? 'Starts in' : 'Running for';
 
-  const startDateStr = startDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+    const bar = document.createElement('div');
+    bar.className = 'league-countdown-bar';
+    if (startsInFuture) {
+      bar.setAttribute('data-starts-at', startDate.toISOString());
+    } else {
+      bar.setAttribute('data-running-since', startDate.toISOString());
+    }
+    bar.setAttribute('role', 'status');
+    bar.setAttribute('aria-live', 'polite');
+    appendLeagueTimerSegments(bar);
 
-  const startDisplayStr = startsInFuture
-    ? `${startDateStr} (starts in ${formatDuration(startDate - now)})`
-    : startDateStr;
+    if (startsInFuture) {
+      syncLeagueCountdownBar(bar, now.getTime());
+    } else {
+      syncLeagueRunningBar(bar, now.getTime());
+    }
 
-  const endDateStr = endDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
-  datesElement.innerHTML = `
-    <div class="league-date">
-      <span class="date-label">Start:</span>
-      <span class="date-value">${startDisplayStr}</span>
-    </div>
-    <div class="league-date">
-      <span class="date-label">End:</span>
-      <span class="date-value">${endDateStr}</span>
-    </div>
-  `;
-
-  logoDatesRow.appendChild(datesElement);
-  leagueElement.appendChild(logoDatesRow);
-
-  // "Running for" counter for currently active leagues (updates every second)
-  const isRunning = !startsInFuture && now < endDate;
-  if (isRunning) {
-    const runningForEl = document.createElement('div');
-    runningForEl.className = 'league-running-for';
-    const valueSpan = document.createElement('span');
-    valueSpan.className = 'league-running-for-value';
-    valueSpan.setAttribute('data-running-since', startDate.toISOString());
-    valueSpan.setAttribute('aria-live', 'polite');
-    valueSpan.textContent = formatDurationWithSeconds(now.getTime() - startDate.getTime());
-    runningForEl.appendChild(document.createTextNode('Running for: '));
-    runningForEl.appendChild(valueSpan);
-    leagueElement.appendChild(runningForEl);
+    if (bannerMount) {
+      const bannerWrap = document.createElement('div');
+      bannerWrap.className = 'league-timer-banner';
+      bannerWrap.appendChild(bannerMount);
+      panel.appendChild(bannerWrap);
+    }
+    panel.appendChild(label);
+    panel.appendChild(bar);
+    panel.appendChild(datesElement);
+    leagueElement.appendChild(panel);
+  } else {
+    const logoDatesRow = document.createElement('div');
+    logoDatesRow.className = 'league-logo-dates-row';
+    if (bannerMount) {
+      logoDatesRow.appendChild(bannerMount);
+    }
+    logoDatesRow.appendChild(datesElement);
+    leagueElement.appendChild(logoDatesRow);
   }
 
-  // For future leagues, "starts in" is already on the start date; omit duration block. For past leagues, show duration only.
   const durations = calculateEventDurations(league);
-  if (durations && !durations.isActive && !startsInFuture) {
+  if (durations && !durations.isActive && !startsInFuture && !isRunning) {
     const durationElement = document.createElement('div');
     durationElement.className = 'league-duration';
     durationElement.innerHTML = `
@@ -138,9 +412,13 @@ export function renderLeague(container, league) {
   container.appendChild(leagueElement);
 }
 
+/** Applied to `#leagues` when there is nothing to list (hides the card shell in CSS). */
+export const LEAGUES_SECTION_EMPTY_CLASS = 'leagues-section-empty';
+
 /**
- * Renders the leagues section for the current game
- * @param {HTMLElement} container - Container element (usually #leagues)
+ * Renders the leagues section: upcoming (not yet started) leagues for the current game only.
+ * The currently running league is shown in the navbar, not here.
+ * @param {HTMLElement} container - Container element to append league to
  * @param {Array} leagues - Array of League objects to render
  * @param {string} [currentGame] - Current game selection ('poe1' or 'poe2'), filters leagues by game
  */
@@ -156,41 +434,29 @@ export function renderLeaguesSection(container, leagues, currentGame = null) {
   }
 
   container.innerHTML = '';
+  container.classList.remove(LEAGUES_SECTION_EMPTY_CLASS);
 
   if (!leagues || leagues.length === 0) {
-    const emptyState = document.createElement('div');
-    emptyState.className = 'empty-state';
-    emptyState.setAttribute('role', 'status');
-    emptyState.setAttribute('aria-live', 'polite');
-    emptyState.textContent = 'No leagues available.';
-    container.appendChild(emptyState);
+    container.classList.add(LEAGUES_SECTION_EMPTY_CLASS);
+    ensureLeagueLiveCounterInterval();
     return;
   }
 
   const now = new Date();
-  // Filter by current game and exclude ended leagues (only show current and future leagues)
-  const filteredLeagues = leagues.filter((league) => {
-    if (currentGame && league.game !== currentGame) return false;
-    const endDate = new Date(league.endDate);
-    return endDate >= now;
-  });
+  const upcomingLeagues = getUpcomingLeaguesForGame(leagues, currentGame, now);
 
-  if (filteredLeagues.length === 0) {
-    const emptyState = document.createElement('div');
-    emptyState.className = 'empty-state';
-    emptyState.setAttribute('role', 'status');
-    emptyState.setAttribute('aria-live', 'polite');
-    emptyState.textContent = 'No league for this game at this time.';
-    container.appendChild(emptyState);
+  if (upcomingLeagues.length === 0) {
+    container.classList.add(LEAGUES_SECTION_EMPTY_CLASS);
+    ensureLeagueLiveCounterInterval();
     return;
   }
 
   const leaguesList = document.createElement('div');
   leaguesList.className = 'leagues-list';
   leaguesList.setAttribute('role', 'list');
-  leaguesList.setAttribute('aria-label', 'Current league');
+  leaguesList.setAttribute('aria-label', 'Upcoming leagues');
 
-  filteredLeagues.forEach((league) => {
+  upcomingLeagues.forEach((league) => {
     try {
       renderLeague(leaguesList, league);
     } catch (error) {
@@ -200,7 +466,5 @@ export function renderLeaguesSection(container, leagues, currentGame = null) {
 
   container.appendChild(leaguesList);
 
-  if (container.querySelectorAll('[data-running-since]').length > 0) {
-    runningForIntervalId = setInterval(updateRunningForCounters, 1000);
-  }
+  ensureLeagueLiveCounterInterval();
 }

@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-03-30T18:00:00Z",
+  "lastUpdated": "2026-05-10T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-05-10T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "League display rework: the active league for the selected game (Path of Exile / Path of Exile 2) is shown in the center of the navbar with league art, name, and a compact “Running for” timer. The main area now lists only upcoming (not yet started) leagues; they sit in the sidebar column above Events, with a stacked timer layout so countdown labels fit on narrow widths. If there are no upcoming leagues for that game, the leagues panel is hidden instead of an empty box. Navigation stays visible while scrolling; the PoE / PoE 2 selector is centered; the Updates control has a bit more padding."
+        }
+      ]
+    },
     {
       "date": "2026-03-30T18:00:00Z",
       "entries": [

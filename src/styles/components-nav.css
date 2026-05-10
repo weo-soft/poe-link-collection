@@ -1,4 +1,12 @@
 /* Navigation and game selector */
+#navigation {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--poe-bg-secondary);
+  padding-top: env(safe-area-inset-top, 0);
+}
+
 .nav-list {
   display: flex;
   list-style: none;
@@ -35,6 +43,122 @@
 
 .nav-spacer {
   flex: 1;
+  min-width: var(--poe-spacing-sm);
+}
+
+/* Center navbar slot: active league for the selected game */
+.nav-current-league-item {
+  flex: 0 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.nav-current-league-inner[hidden] {
+  display: none !important;
+}
+
+/* One row: league identity | segmented count-up */
+.nav-current-league-inner:not([hidden]) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--poe-spacing-sm);
+  max-width: min(96vw, 44rem);
+}
+
+.nav-current-league-display {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--poe-spacing-sm);
+  flex-shrink: 0;
+  max-width: min(40vw, 14rem);
+}
+
+/* Timer column: micro label + count-up (keeps nav bar height close to prior single-row timer) */
+.nav-current-league-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.125rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.nav-current-league-running-hint {
+  font-size: 0.5625rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--poe-text-secondary);
+  flex-shrink: 0;
+}
+
+/* Compact segmented count-up; shares league-countdown-* rules from components-sidebar.css */
+.nav-current-league-timer .nav-current-league-countdown-bar {
+  width: 100%;
+  max-width: min(62vw, 22rem);
+  align-self: stretch;
+}
+
+.nav-current-league-countdown-bar .league-countdown-segment {
+  flex: 1 1 0;
+  min-width: 3.35rem;
+  padding: 0.08rem 0.22rem 0.14rem;
+  box-sizing: border-box;
+}
+
+.nav-current-league-countdown-bar .league-countdown-value {
+  font-size: clamp(0.62rem, 1.5vw, 0.8rem);
+}
+
+.nav-current-league-countdown-bar .league-countdown-label {
+  font-size: clamp(0.45rem, 1.1vw, 0.58rem);
+  letter-spacing: 0.025em;
+  line-height: 1.15;
+  padding-inline: 0.05rem;
+}
+
+.nav-current-league-countdown-bar .league-countdown-connector {
+  padding: 0 0.06rem;
+}
+
+.nav-current-league-banner {
+  height: 34px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.nav-current-league-name,
+.nav-current-league-link {
+  font-size: var(--poe-font-size-sm);
+  font-weight: 600;
+  color: var(--poe-accent-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-current-league-link {
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: var(--poe-transition);
+}
+
+.nav-current-league-link:hover {
+  color: var(--poe-text-primary);
+  border-bottom-color: var(--poe-accent-primary);
+}
+
+.nav-current-league-link:focus {
+  border-radius: var(--poe-border-radius);
 }
 
 .nav-link {
@@ -80,25 +204,31 @@
 
 .nav-updates-item {
   margin-left: auto;
+  margin-right: var(--poe-spacing-md);
+}
+
+.nav-updates-button {
+  padding: var(--poe-spacing-md) var(--poe-spacing-lg);
 }
 
 .nav-updates-button[aria-expanded="true"] {
   background-color: var(--poe-accent-secondary);
 }
 
-/* Game selector + Current League row – same column widths as main (categories | sidebar) */
+/* Game selector row below nav */
 .game-and-league-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--poe-spacing-lg);
   margin-top: var(--poe-spacing-lg);
   width: 100%;
 }
 
-.game-and-league-row > #game-selector {
-  flex: 1;
+.game-and-league-row #game-selector {
+  flex: 0 1 auto;
   min-width: 0;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 /* Game Selector */

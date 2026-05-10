@@ -215,6 +215,10 @@ describe('Navigation Bar Rendering Integration', () => {
     const contactIcon = contactButton.querySelector('svg.nav-contact-icon');
     expect(contactIcon).toBeTruthy();
     expect(contactIcon.getAttribute('aria-hidden')).toBe('true');
+
+    const leagueSlot = container.querySelector('#nav-current-league');
+    expect(leagueSlot).toBeTruthy();
+    expect(leagueSlot.querySelector('.nav-current-league-inner')).toBeTruthy();
   });
 
   it('should highlight current page in navigation', () => {

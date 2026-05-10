@@ -1,21 +1,11 @@
 [
   {
-    "id": "keepers-of-the-flame",
-    "name": "Keepers of the Flame",
-    "startDate": "2025-10-30T23:00:00.000Z",
-    "endDate": "2026-03-02T21:00:00.000Z",
-    "game": "poe1",
-    "bannerImageUrl": "/images/KeepersoftheFlame_EN.png",
-    "description": "Keepers of the Flame league",
-    "detailsLink": "https://www.pathofexile.com/keepers"
-  },
-  {
     "id": "mirage",
     "name": "Mirage",
     "startDate": "2026-03-06T19:00:00.000Z",
     "endDate": "2026-06-28T21:00:00.000Z",
     "game": "poe1",
-    "bannerImageUrl": "/images/Mirage_EN.jpg",
+    "bannerImageUrl": "/images/Mirage_EN.png",
     "description": "Mirage league",
     "detailsLink": "https://www.pathofexile.com/mirage"
   },
@@ -23,10 +13,20 @@
     "id": "the-last-of-the-druids",
     "name": "The Last of the Druids",
     "startDate": "2025-12-12T19:00:00.000Z",
-    "endDate": "2026-04-20T15:00:00.000Z",
+    "endDate": "2026-05-20T15:00:00.000Z",
     "game": "poe2",
     "bannerImageUrl": "/images/TheLastoftheDruids_EN.png",
     "description": "The Last of the Druids League",
     "detailsLink": "https://pathofexile2.com/druids"
+  },
+  {
+    "id": "return-of-ancients",
+    "name": "Return of Ancients",
+    "startDate": "2026-05-29T20:00:00.000Z",
+    "endDate": "2026-10-31T15:00:00.000Z",
+    "game": "poe2",
+    "bannerImageUrl": "/images/POE2_ReturnoftheAncients_LOGO.png",
+    "description": "Return of Ancients league (PoE 2 0.5)",
+    "detailsLink": "https://pathofexile2.com/ancients"
   }
 ]

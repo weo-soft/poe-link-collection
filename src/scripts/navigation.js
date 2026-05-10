@@ -131,10 +131,26 @@ export function renderNavigation(container) {
     navList.appendChild(listItem);
   });
 
-  // Add spacer to push right-side items to the right
-  const spacer = document.createElement('li');
-  spacer.className = 'nav-spacer';
-  navList.appendChild(spacer);
+  // Leading spacer + centered current league + trailing spacer (keeps league visually centered)
+  const spacerLeading = document.createElement('li');
+  spacerLeading.className = 'nav-spacer';
+  spacerLeading.setAttribute('aria-hidden', 'true');
+  navList.appendChild(spacerLeading);
+
+  const leagueNavItem = document.createElement('li');
+  leagueNavItem.id = 'nav-current-league';
+  leagueNavItem.className = 'nav-current-league-item';
+  leagueNavItem.setAttribute('aria-hidden', 'true');
+  const leagueNavInner = document.createElement('div');
+  leagueNavInner.className = 'nav-current-league-inner';
+  leagueNavInner.setAttribute('hidden', '');
+  leagueNavItem.appendChild(leagueNavInner);
+  navList.appendChild(leagueNavItem);
+
+  const spacerTrailing = document.createElement('li');
+  spacerTrailing.className = 'nav-spacer';
+  spacerTrailing.setAttribute('aria-hidden', 'true');
+  navList.appendChild(spacerTrailing);
 
   const githubListItem = document.createElement('li');
   const githubLink = document.createElement('a');

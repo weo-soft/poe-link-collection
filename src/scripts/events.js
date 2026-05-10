@@ -39,6 +39,42 @@ export function formatDurationWithSeconds(milliseconds) {
 }
 
 /**
+ * Whole seconds remaining until an instant (truncates sub-second remainder; non-positive → 0).
+ * @param {number} millisecondsUntil - Milliseconds until the target time
+ * @returns {number}
+ */
+export function getTruncatedRemainingSeconds(millisecondsUntil) {
+  if (!Number.isFinite(millisecondsUntil) || millisecondsUntil <= 0) {
+    return 0;
+  }
+  return Math.floor(millisecondsUntil / 1000);
+}
+
+/**
+ * Remaining time as a locale-formatted seconds count only (e.g. "1,234,567").
+ * @param {number} millisecondsUntil - Milliseconds until the target time
+ * @returns {string}
+ */
+export function formatRemainingSecondsOnly(millisecondsUntil) {
+  return getTruncatedRemainingSeconds(millisecondsUntil).toLocaleString('en-US');
+}
+
+/**
+ * Breaks remaining time into days / hours / minutes / seconds (truncated to whole seconds).
+ * @param {number} millisecondsUntil - Milliseconds until the target time
+ * @returns {{ days: number, hours: number, minutes: number, seconds: number }}
+ */
+export function getCountdownParts(millisecondsUntil) {
+  const total = getTruncatedRemainingSeconds(millisecondsUntil);
+  return {
+    days: Math.floor(total / 86400),
+    hours: Math.floor((total % 86400) / 3600),
+    minutes: Math.floor((total % 3600) / 60),
+    seconds: total % 60,
+  };
+}
+
+/**
  * Calculates event durations (elapsed, remaining, total)
  * @param {Object} event - Event object with startDate and endDate
  * @returns {Object|null} - Object with isActive, elapsedDuration, remainingDuration, totalDuration, or null if invalid

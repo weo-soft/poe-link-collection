@@ -1,5 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { calculateEventDurations, formatDuration } from '../../src/scripts/events.js';
+import {
+  calculateEventDurations,
+  formatDuration,
+  formatRemainingSecondsOnly,
+  getCountdownParts,
+  getTruncatedRemainingSeconds,
+} from '../../src/scripts/events.js';
 
 describe('formatDuration', () => {
   it('should format duration in days, hours, and minutes', () => {
@@ -15,6 +21,36 @@ describe('formatDuration', () => {
   it('should handle large durations', () => {
     const duration = formatDuration(365 * 24 * 60 * 60 * 1000);
     expect(duration).toMatch(/365d/);
+  });
+});
+
+describe('getCountdownParts', () => {
+  it('should split remaining time into d/h/m/s from truncated seconds', () => {
+    const ms = 86400 * 1000 + 3600 * 1000 + 60 * 1000 + 1000; // 1d 1h 1m 1s + sub-second (truncated)
+    expect(getCountdownParts(ms)).toEqual({ days: 1, hours: 1, minutes: 1, seconds: 1 });
+  });
+
+  it('should return zeros for non-positive remaining', () => {
+    expect(getCountdownParts(0)).toEqual({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    expect(getCountdownParts(-5000)).toEqual({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  });
+});
+
+describe('formatRemainingSecondsOnly', () => {
+  it('should format remaining ms as locale seconds only', () => {
+    expect(formatRemainingSecondsOnly(90_500)).toBe('90');
+    expect(formatRemainingSecondsOnly(1999)).toBe('1');
+  });
+
+  it('should truncate sub-second remainder', () => {
+    expect(getTruncatedRemainingSeconds(1999)).toBe(1);
+    expect(getTruncatedRemainingSeconds(2000)).toBe(2);
+  });
+
+  it('should treat non-positive as zero', () => {
+    expect(formatRemainingSecondsOnly(0)).toBe('0');
+    expect(formatRemainingSecondsOnly(-1000)).toBe('0');
+    expect(formatRemainingSecondsOnly(Number.NaN)).toBe('0');
   });
 });
 

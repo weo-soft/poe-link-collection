@@ -7,7 +7,12 @@ import { loadLinks, loadEvents, loadLeagues, loadUpdates, getCurrentGame, setCur
 import { renderAllCategories } from './links.js';
 import { renderNavigation, setupNavigationHandlers } from './navigation.js';
 import { renderEventsSection } from './events.js';
-import { renderLeaguesSection } from './leagues.js';
+import {
+  getRunningLeagueForGame,
+  LEAGUES_SECTION_EMPTY_CLASS,
+  renderLeaguesSection,
+  updateNavigationCurrentLeague,
+} from './leagues.js';
 import { renderUpdatesButton, toggleChangelog } from './updates.js';
 import { setupContactDialog, openContactDialog } from './contact.js';
 import { setupDisclaimerDialog } from './disclaimer.js';
@@ -108,6 +113,19 @@ function setupGameSelector() {
  * (avoids "Too many calls to Location or History APIs" when switching games rapidly).
  * @param {string} game - Game identifier ('poe1' or 'poe2')
  */
+/**
+ * Syncs the navbar center slot with the league that is live for the selected game.
+ * @param {Array|undefined|null} leagues
+ * @param {string} game
+ */
+function syncNavCurrentLeague(leagues, game) {
+  if (!Array.isArray(leagues)) {
+    updateNavigationCurrentLeague(null);
+    return;
+  }
+  updateNavigationCurrentLeague(getRunningLeagueForGame(leagues, game));
+}
+
 function updateURLHash(game) {
   try {
     if (window.location.protocol !== 'http:' && window.location.protocol !== 'https:') {
@@ -151,6 +169,7 @@ async function switchGame(game) {
       const leagues = cachedLeagues ?? await loadLeagues();
       if (cachedLeagues === null) cachedLeagues = leagues;
       renderLeaguesSection(leaguesContainer, leagues, game);
+      syncNavCurrentLeague(leagues, game);
     } catch (error) {
       console.error('Error reloading leagues:', error);
       const errorDiv = document.createElement('div');
@@ -158,7 +177,9 @@ async function switchGame(game) {
       errorDiv.setAttribute('role', 'alert');
       errorDiv.textContent = 'Failed to load leagues. Please refresh the page.';
       leaguesContainer.innerHTML = '';
+      leaguesContainer.classList.remove(LEAGUES_SECTION_EMPTY_CLASS);
       leaguesContainer.appendChild(errorDiv);
+      syncNavCurrentLeague(null, game);
     }
   }
 
@@ -242,6 +263,7 @@ async function init() {
       eventsContainer.innerHTML = '<div class="loading" role="status" aria-live="polite">Loading events...</div>';
     }
     if (leaguesContainer) {
+      leaguesContainer.classList.remove(LEAGUES_SECTION_EMPTY_CLASS);
       leaguesContainer.innerHTML = '<div class="loading" role="status" aria-live="polite">Loading leagues...</div>';
     }
 
@@ -259,6 +281,7 @@ async function init() {
         cachedLeagues = leaguesResult.value;
         const currentGame = getCurrentGame();
         renderLeaguesSection(leaguesContainer, leaguesResult.value, currentGame);
+        syncNavCurrentLeague(leaguesResult.value, currentGame);
       } else {
         console.error('Error loading leagues:', leaguesResult.reason);
         const errorDiv = document.createElement('div');
@@ -266,7 +289,9 @@ async function init() {
         errorDiv.setAttribute('role', 'alert');
         errorDiv.textContent = 'Failed to load leagues. Please refresh the page.';
         leaguesContainer.innerHTML = '';
+        leaguesContainer.classList.remove(LEAGUES_SECTION_EMPTY_CLASS);
         leaguesContainer.appendChild(errorDiv);
+        syncNavCurrentLeague(null, getCurrentGame());
       }
     }
 

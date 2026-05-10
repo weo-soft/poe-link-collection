@@ -12,13 +12,15 @@
     display: contents;
   }
 
-  /* Visual order: nav -> game selector -> main (categories + events) -> leagues */
+  /* Visual order: nav -> game selector -> main (categories + sidebar: leagues + events) */
   #navigation {
     order: 0;
   }
 
   .game-and-league-row > #game-selector {
     order: 1;
+    width: 100%;
+    justify-content: center;
   }
 
   main {
@@ -28,18 +30,13 @@
     margin-top: var(--poe-spacing-md);
   }
 
-  /* Inside main: categories first, then events sidebar */
+  /* Inside main: categories first, then sidebar (upcoming leagues + events) */
   #categories {
     order: 0;
   }
 
   .main-sidebar {
     order: 1;
-  }
-
-  /* Leagues block at the very bottom */
-  .game-and-league-row > #leagues {
-    order: 3;
   }
 }
 
@@ -58,11 +55,6 @@
 
   .game-and-league-row {
     flex-wrap: wrap;
-  }
-
-  .game-and-league-row > #leagues {
-    flex: 1 1 auto;
-    max-width: 100%;
   }
 
   .main-sidebar {

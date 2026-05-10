@@ -130,16 +130,17 @@ main {
 /* Reusable: card panel (secondary bg, border-radius, shadow) */
 .card-panel,
 .category-section,
-#events {
+#events,
+#leagues {
   padding: var(--poe-spacing-md);
   background-color: var(--poe-bg-secondary);
   border-radius: var(--poe-border-radius);
   box-shadow: var(--poe-shadow);
 }
 
-/* Reusable: card item (tertiary bg, border – list items, update sections) */
+/* Reusable: card item (tertiary bg, border – list items, update sections).
+   League articles use `.league-timer-panel` as their frame; shell styles live in components-sidebar.css. */
 .card-item,
-.league-item,
 .event-item,
 .update-section {
   padding: var(--poe-spacing-sm) var(--poe-spacing-md);

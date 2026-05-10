@@ -48,7 +48,7 @@
     <!-- Navigation will be populated by JavaScript -->
     <nav id="navigation" role="navigation" aria-label="Main navigation"></nav>
     
-    <!-- Game selector + Current League (same row) -->
+    <!-- Game selector -->
     <div class="game-and-league-row">
       <div id="game-selector" class="game-selector" role="group" aria-label="Game selection">
         <button id="game-poe1" class="game-button active" data-game="poe1" aria-pressed="true">
@@ -60,8 +60,6 @@
           <span>Path of Exile 2</span>
         </button>
       </div>
-      <!-- Leagues section will be populated by JavaScript -->
-      <section id="leagues" aria-label="Current league" role="region"></section>
     </div>
     
     <!-- Main Content -->
@@ -71,8 +69,10 @@
         <div class="loading" role="status" aria-live="polite">Loading categories...</div>
       </section>
       
-      <!-- Sidebar: Events -->
-      <aside class="main-sidebar" aria-label="Events">
+      <!-- Sidebar: upcoming leagues + events (same column) -->
+      <aside class="main-sidebar" aria-label="Upcoming leagues and events">
+        <!-- Leagues section will be populated by JavaScript -->
+        <section id="leagues" aria-label="Upcoming leagues" role="region"></section>
         <!-- Events section will be populated by JavaScript -->
         <section id="events" aria-label="League events" role="region"></section>
       </aside>

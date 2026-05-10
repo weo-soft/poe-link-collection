@@ -1,4 +1,4 @@
-/* Sidebar: leagues, events, update section, changelog overlay content */
+/* Sidebar: upcoming leagues + events (same column), changelog overlay content */
 .main-sidebar {
   display: flex;
   flex-direction: column;
@@ -11,17 +11,23 @@
   overflow-y: auto;
 }
 
-/* Leagues Section – spans two sections (2 × sidebar width + gap) */
-#leagues {
+/* Upcoming leagues – same column width as events sidebar */
+.main-sidebar #leagues {
   display: flex;
-  align-items: center;
-  flex: 0 0 calc(350px + var(--poe-spacing-lg) + 350px);
-  max-width: calc(350px + var(--poe-spacing-lg) + 350px);
+  flex-direction: column;
+  align-items: stretch;
+  flex: 0 1 auto;
+  width: 100%;
   min-width: 0;
 }
 
-#leagues .leagues-list {
-  flex: 1;
+/* No upcoming leagues (or no data): hide the card so the sidebar is not an empty box */
+#leagues.leagues-section-empty {
+  display: none;
+}
+
+.main-sidebar #leagues .leagues-list {
+  width: 100%;
   min-width: 0;
 }
 
@@ -29,6 +35,223 @@
   display: flex;
   flex-direction: column;
   gap: var(--poe-spacing-md);
+}
+
+/* Rare fallback (no timer row): keep the neutral list-item shell */
+.league-item:not(:has(> .league-timer-panel)) {
+  padding: var(--poe-spacing-sm) var(--poe-spacing-md);
+  background-color: var(--poe-bg-tertiary);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+}
+
+/* Future ("Starts in") and active ("Running for") — same surface language as #events / .event-item */
+.league-timer-panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  column-gap: var(--poe-spacing-md);
+  row-gap: var(--poe-spacing-sm);
+  align-items: center;
+  width: 100%;
+  padding: var(--poe-spacing-md);
+  border-radius: var(--poe-border-radius);
+  border: 1px solid var(--poe-border-color);
+  background-color: var(--poe-bg-tertiary);
+  box-shadow: var(--poe-shadow);
+}
+
+.league-timer-panel > .league-timer-banner {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.league-timer-panel > .league-timer-label {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.league-timer-panel > .league-countdown-bar {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.league-timer-panel > .league-timer-dates {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* When no banner is present, let the right column span the full width. */
+.league-timer-panel:not(:has(> .league-timer-banner)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.league-timer-panel:not(:has(> .league-timer-banner)) > .league-timer-label,
+.league-timer-panel:not(:has(> .league-timer-banner)) > .league-countdown-bar,
+.league-timer-panel:not(:has(> .league-timer-banner)) > .league-timer-dates {
+  grid-column: 1;
+}
+
+.league-timer-banner .league-banner-link {
+  display: flex;
+  justify-content: center;
+  line-height: 0;
+}
+
+.league-timer-banner .league-banner {
+  max-height: 120px;
+  width: auto;
+}
+
+.league-timer-label {
+  font-size: var(--poe-font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--poe-accent-primary);
+}
+
+.league-timer-panel .league-timer-dates {
+  margin-top: 0;
+  padding-top: var(--poe-spacing-sm);
+  border-top: 1px solid var(--poe-border-color);
+  width: 100%;
+  justify-content: center;
+  font-size: var(--poe-font-size-sm);
+  color: var(--poe-text-primary);
+}
+
+.league-timer-panel .league-date .date-label {
+  color: var(--poe-text-secondary);
+}
+
+.league-timer-panel .league-date .date-value {
+  color: var(--poe-text-primary);
+}
+
+/* Segmented timer: matches site typography and neutral panels */
+.league-countdown-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  min-width: 0;
+  width: 100%;
+  font-family: var(--poe-font-family);
+}
+
+.league-countdown-segment {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12rem;
+  padding: var(--poe-spacing-xs) 0.2rem var(--poe-spacing-sm);
+  box-sizing: border-box;
+  background-color: var(--poe-bg-secondary);
+  border: 1px solid var(--poe-border-color);
+  border-radius: var(--poe-border-radius);
+}
+
+.league-countdown-value {
+  font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  max-width: 100%;
+  text-align: center;
+  color: var(--poe-text-primary);
+}
+
+.league-countdown-label {
+  font-size: clamp(0.55rem, 1.4vw, 0.7rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 100%;
+  color: var(--poe-text-secondary);
+}
+
+.league-countdown-connector {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  gap: 0.03rem;
+  padding: 0 0.06rem;
+  min-height: 0;
+}
+
+.league-countdown-connector-line {
+  display: block;
+  width: 0.25rem;
+  height: 1px;
+  background: var(--poe-border-color);
+  border-radius: 1px;
+}
+
+.league-countdown-connector-gem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.4rem;
+  line-height: 1;
+  color: var(--poe-text-muted);
+  transform: scaleY(0.85);
+}
+
+/*
+ * Sidebar league cards: narrow column — two-column timer grid squeezes labels
+ * ("MINUTES"/"SECONDS"). Stack vertically with flex so banner/no-banner both work.
+ */
+.main-sidebar #leagues .league-timer-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--poe-spacing-sm);
+}
+
+.main-sidebar #leagues .league-timer-panel > .league-timer-banner {
+  align-self: center;
+}
+
+.main-sidebar #leagues .league-timer-panel > .league-countdown-bar {
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.main-sidebar #leagues .league-countdown-segment {
+  flex: 1 1 0;
+  min-width: 3.25rem;
+  padding-inline: 0.28rem;
+}
+
+.main-sidebar #leagues .league-countdown-label {
+  font-size: clamp(0.5rem, 2.6vw, 0.65rem);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  max-width: none;
+  white-space: nowrap;
+}
+
+.main-sidebar #leagues .league-countdown-value {
+  font-size: clamp(0.75rem, 3.5vw, 0.95rem);
+}
+
+.main-sidebar #leagues .league-countdown-connector {
+  flex-shrink: 0;
+  padding: 0 0.04rem;
 }
 
 .league-logo-dates-row {
@@ -75,8 +298,7 @@
   display: block;
 }
 
-.league-duration,
-.league-running-for {
+.league-duration {
   display: flex;
   flex-direction: column;
   gap: var(--poe-spacing-xs);
@@ -84,12 +306,6 @@
   padding-top: var(--poe-spacing-sm);
   border-top: 1px solid var(--poe-border-color);
   font-size: var(--poe-font-size-sm);
-}
-
-.league-running-for {
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: baseline;
 }
 
 /* Events Section */
