@@ -1197,6 +1197,13 @@
     "lastChecked": "2026-01-26T18:00:00Z",
     "added": "2026-01-01T00:00:00Z"
   },
+  "poe2-leveling-codex": {
+    "name": "PoE2 Leveling Codex",
+    "url": "https://domistae.github.io/poe2-leveling/",
+    "description": "Interactive campaign and endgame leveling checklist for Path of Exile 2 — acts, interludes, all classes; progress saves in your browser",
+    "lastChecked": "2026-05-17T00:00:00Z",
+    "added": "2026-05-17T00:00:00Z"
+  },
   "atziri-temple-planner-poe2": {
     "name": "Atziri's Temple Planner",
     "url": "https://tetriszocker.github.io/atziri-temple-editor/",
