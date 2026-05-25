@@ -1,6 +1,41 @@
 {
-  "lastUpdated": "2026-05-10T18:00:00Z",
+  "lastUpdated": "2026-05-25T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-05-25T18:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "POB.codes",
+          "linkUrl": "https://pob.codes/"
+        },
+        {
+          "type": "added",
+          "categoryId": "loot-filters",
+          "linkName": "Demon Filter",
+          "linkUrl": "https://demonfilter.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "trackers",
+          "linkName": "PoEStash",
+          "linkUrl": "https://www.poestash.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "Divine Tendies",
+          "linkUrl": "https://divine-tendies.vercel.app/"
+        },
+        {
+          "type": "added",
+          "categoryId": "more-links",
+          "linkName": "PoETools",
+          "linkUrl": "https://poetools.dev/"
+        }
+      ]
+    },
     {
       "date": "2026-05-10T18:00:00Z",
       "entries": [

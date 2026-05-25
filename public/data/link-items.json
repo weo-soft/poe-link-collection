@@ -87,6 +87,14 @@
     "added": "2026-01-01T00:00:00Z",
     "icon": "/images/favicons/poe2filter.com.ico"
   },
+  "demonfilter-poe2": {
+    "name": "Demon Filter",
+    "url": "https://demonfilter.com/",
+    "description": "Loot filter editor and customizer for Path of Exile 2",
+    "lastChecked": "2026-05-25T00:00:00Z",
+    "added": "2026-05-25T00:00:00Z",
+    "icon": "/images/favicons/demonfilter.png"
+  },
   "stupid-fat-hobbit-s-filters": {
     "name": "Stupid Fat Hobbit's Filters",
     "url": "https://www.pathofexile.com/forum/view-thread/1595976/page/1",
@@ -727,6 +735,14 @@
     "lastChecked": "2026-01-26T18:00:00Z",
     "added": "2026-01-01T00:00:00Z"
   },
+  "poestash": {
+    "name": "PoEStash",
+    "url": "https://www.poestash.com/",
+    "description": "Stash and currency tracker for Path of Exile",
+    "lastChecked": "2026-05-25T00:00:00Z",
+    "added": "2026-05-25T00:00:00Z",
+    "icon": "/images/favicons/poestash.com.svg"
+  },
   "poe-place": {
     "name": "poe.place",
     "url": "https://poe.place/",
@@ -895,6 +911,14 @@
     "added": "2026-01-01T00:00:00Z",
     "icon": "/images/favicons/poe.watch.png"
   },
+  "divine-tendies": {
+    "name": "Divine Tendies",
+    "url": "https://divine-tendies.vercel.app/",
+    "description": "Path of Exile 2 economy tracker tool",
+    "lastChecked": "2026-01-26T18:00:00Z",
+    "added": "2026-05-25T00:00:00Z",
+    "icon": "/images/favicons/divine-tendies.png"
+  },
   "path-of-building-community-poe2": {
     "name": "Path of Building Community",
     "url": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2",
@@ -1060,7 +1084,8 @@
     "url": "https://poe2spectrewiki.com/",
     "description": "Comprehensive guide to Spectres in Path of Exile 2 with details, locations, and build synergies",
     "lastChecked": "2026-01-26T18:00:00Z",
-    "added": "2026-01-01T00:00:00Z"
+    "added": "2026-01-01T00:00:00Z",
+    "icon": "/images/favicons/poe2spectrewiki.png"
   },
   "poe2-spectre-spreadsheet": {
     "name": "POE2 Spectre Spreadsheet",
@@ -1312,7 +1337,7 @@
     "description": "Community-driven Path of Exile drop weight data",
     "lastChecked": "2026-02-18T00:00:00Z",
     "added": "2026-02-18T00:00:00Z",
-    "icon": "/images/favicons/poedata.dev.ico"
+    "icon": "/images/favicons/poe-data.png"
   },
   "fyi-overlay-poe2": {
     "name": "fyi-overlay",
@@ -1328,6 +1353,14 @@
     "lastChecked": "2026-03-02T00:00:00Z",
     "added": "2026-03-02T00:00:00Z",
     "icon": "/images/favicons/exiles-path.com.svg"
+  },
+  "pob-codes": {
+    "name": "POB.codes",
+    "url": "https://pob.codes/",
+    "description": "Share and import Path of Building builds",
+    "lastChecked": "2026-05-25T00:00:00Z",
+    "added": "2026-05-25T00:00:00Z",
+    "icon": "/images/favicons/pob-codes.svg"
   },
   "timeless-calc": {
     "name": "Timeless Calculator",
@@ -1368,6 +1401,14 @@
     "lastChecked": "2026-03-02T00:00:00Z",
     "added": "2026-03-02T00:00:00Z",
     "icon": "/images/favicons/poe-watchers.devgroup.se.svg"
+  },
+  "poetools": {
+    "name": "PoETools",
+    "url": "https://poetools.dev/",
+    "description": "Path of Exile tools and utilities",
+    "lastChecked": "2026-05-25T00:00:00Z",
+    "added": "2026-05-25T00:00:00Z",
+    "icon": "/images/favicons/poe-tools.svg"
   },
   "poecampain": {
     "name": "poecampain",

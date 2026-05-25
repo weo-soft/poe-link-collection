@@ -15,7 +15,8 @@
             "poeez-build-browse",
             "mobalytics-poe1",
             "poebuilds-cc-poe1",
-            "exiles-path-keepers"
+            "exiles-path-keepers",
+            "pob-codes"
         ],
         "poe2": [
             "poe-ninja-builds-poe2",
@@ -39,7 +40,8 @@
         ],
         "poe2": [
             "filterblade-poe2",
-            "poe2filters"
+            "poe2filters",
+            "demonfilter-poe2"
         ]
     },
     "trade": {
@@ -69,11 +71,13 @@
             "challenges-tracker",
             "poe-exchange",
             "poeez-economy-currency",
-            "simplex"
+            "simplex",
+            "poestash"
         ],
         "poe2": [
             "poeez-economy-currency-poe2",
-            "poe2scout"
+            "poe2scout",
+            "poestash"
         ]
     },
     "browser-extensions": {
@@ -103,7 +107,8 @@
         ],
         "poe2": [
             "poe-ninja-economy-poe2",
-            "poe-watch-poe2"
+            "poe-watch-poe2",
+            "divine-tendies"
         ]
     },
     "build-tools": {
@@ -295,7 +300,8 @@
             "poe-3-28-cheat-sheets",
             "timeless-calc",
             "soothsayer",
-            "poe-watchers-eye"
+            "poe-watchers-eye",
+            "poetools"
         ],
         "poe2": [
             "patchbot-poe2",
