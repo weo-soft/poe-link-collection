@@ -20,5 +20,16 @@
     "bannerImageUrl": "https://web.poecdn.com/public/news/2026-03-30/GauntletAnnouncementHeader.jpg",
     "description": "Zizaran’s Class Gauntlet event starts April 8 (PDT) in a Hardcore Solo Self-Found Mirage Event League. Monsters and bosses inflict Ruin—reach 7 stacks to instantly die. Event runs for 7 days; join from the character select screen.",
     "detailsLink": "https://www.pathofexile.com/forum/view-thread/3925479"
+  },
+  {
+    "id": "return-of-the-ancestors",
+    "name": "Return of the Ancestors",
+    "startDate": "2026-06-25T22:00:00.000Z",
+    "endDate": "2026-07-16T22:00:00.000Z",
+    "game": "poe1",
+    "type": "event",
+    "bannerImageUrl": "https://web.poecdn.com/public/news/2026-06-18/AncestorsHeader.jpg",
+    "description": "Three-week event starting June 25 PDT. Trial of the Ancestors mechanics return with Phrecian Ascendancy classes and new Tattoos. Find silver coins in Wraeclast to access the Karui Afterlife, assemble your team of warriors, and battle chieftains in tournaments for valuable rewards. Available on PC and Consoles in Standard, Hardcore, SSF Standard, SSF Hardcore, and Ruthless modes. Not voided — items and characters transfer to parent leagues at the end of the event.",
+    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3968867"
   }
 ]

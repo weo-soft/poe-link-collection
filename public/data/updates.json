@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-05-25T18:00:00Z",
+  "lastUpdated": "2026-06-25T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-06-25T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "Added Return of the Ancestors event to the Events section."
+        }
+      ]
+    },
     {
       "date": "2026-05-25T18:00:00Z",
       "entries": [
