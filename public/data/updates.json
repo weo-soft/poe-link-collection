@@ -7,6 +7,18 @@
         {
           "type": "note",
           "message": "Added Return of the Ancestors event to the Events section."
+        },
+        {
+          "type": "added",
+          "categoryId": "builds",
+          "linkName": "Tincture PoE 2",
+          "linkUrl": "https://tincturepoe2.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "game-overlay",
+          "linkName": "PoeAncientsPriceHelper",
+          "linkUrl": "https://github.com/pedro-quiterio/PoeAncientsPriceHelper/releases/tag/v3.1.0"
         }
       ]
     },

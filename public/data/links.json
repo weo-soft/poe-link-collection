@@ -27,7 +27,8 @@
             "poe-vault-poe2",
             "path-of-exile-2-builds-reddit",
             "mobalytics-poe2",
-            "poebuilds-cc-poe2"
+            "poebuilds-cc-poe2",
+            "tincturepoe2"
         ]
     },
     "loot-filters": {
@@ -164,7 +165,8 @@
             "exile-compass-poe2",
             "sidekick-poe2",
             "xilehud-poe2",
-            "fyi-overlay-poe2"
+            "fyi-overlay-poe2",
+            "poe-ancients-price-helper"
         ]
     },
     "atlas": {

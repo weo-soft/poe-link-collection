@@ -1465,5 +1465,20 @@
     "lastChecked": "2026-03-04T00:00:00Z",
     "added": "2026-03-04T00:00:00Z",
     "icon": "/images/favicons/reddit.com.png"
+  },
+  "tincturepoe2": {
+    "name": "Tincture PoE 2",
+    "url": "https://tincturepoe2.com/",
+    "description": "Path of Exile 2 builds and resources",
+    "lastChecked": "2026-06-25T00:00:00Z",
+    "added": "2026-06-25T00:00:00Z"
+  },
+  "poe-ancients-price-helper": {
+    "name": "PoeAncientsPriceHelper",
+    "url": "https://github.com/pedro-quiterio/PoeAncientsPriceHelper/releases/tag/v3.1.0",
+    "description": "Overlay tool for Path of Exile 2 that helps price ancient items",
+    "lastChecked": "2026-06-25T00:00:00Z",
+    "added": "2026-06-25T00:00:00Z",
+    "icon": "/images/favicons/github.com.svg"
   }
 }
