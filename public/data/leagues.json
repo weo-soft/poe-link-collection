@@ -28,5 +28,15 @@
     "bannerImageUrl": "/images/POE2_ReturnoftheAncients_LOGO.png",
     "description": "Return of Ancients league (PoE 2 0.5)",
     "detailsLink": "https://pathofexile2.com/ancients"
+  },
+  {
+    "id": "curse-of-the-allflame",
+    "name": "Curse of the Allflame",
+    "startDate": "2026-07-24T20:00:00.000Z",
+    "endDate": "2026-11-24T21:00:00.000Z",
+    "game": "poe1",
+    "bannerImageUrl": "/images/POELogoCurseoftheAllflame.png",
+    "description": "Curse of the Allflame league",
+    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3982050"
   }
 ]

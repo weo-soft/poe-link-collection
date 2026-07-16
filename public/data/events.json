@@ -31,5 +31,16 @@
     "bannerImageUrl": "https://web.poecdn.com/public/news/2026-06-18/AncestorsHeader.jpg",
     "description": "Three-week event starting June 25 PDT. Trial of the Ancestors mechanics return with Phrecian Ascendancy classes and new Tattoos. Find silver coins in Wraeclast to access the Karui Afterlife, assemble your team of warriors, and battle chieftains in tournaments for valuable rewards. Available on PC and Consoles in Standard, Hardcore, SSF Standard, SSF Hardcore, and Ruthless modes. Not voided — items and characters transfer to parent leagues at the end of the event.",
     "detailsLink": "https://www.pathofexile.com/forum/view-thread/3968867"
+  },
+  {
+    "id": "curse-of-the-allflame-reveal",
+    "name": "Curse of the Allflame Reveal Livestream",
+    "startDate": "2026-07-16T20:00:00.000Z",
+    "endDate": "2026-07-16T22:00:00.000Z",
+    "game": "poe1",
+    "type": "livestream",
+    "bannerImageUrl": "/images/POELogoCurseoftheAllflame.png",
+    "description": "Livestream revealing the upcoming Curse of the Allflame league for Path of Exile 1, starting July 24. Watch at twitch.tv/pathofexile.",
+    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3982050"
   }
 ]
