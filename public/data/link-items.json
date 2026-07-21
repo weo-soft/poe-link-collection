@@ -199,6 +199,14 @@
     "added": "2026-01-01T00:00:00Z",
     "icon": "/images/favicons/poe.ninja.png"
   },
+  "poe-how": {
+    "name": "PoeHow",
+    "url": "https://poe.how/",
+    "description": "Path of Exile profit strategies using live market prices and community-sourced drop-rate data",
+    "lastChecked": "2026-07-21T09:20:19Z",
+    "added": "2026-07-21T09:20:19Z",
+    "icon": "/images/favicons/poe.how.png"
+  },
   "poe-watch": {
     "name": "poe.watch",
     "url": "https://poe.watch/",
