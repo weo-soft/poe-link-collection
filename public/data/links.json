@@ -11,8 +11,6 @@
             "poe-vault",
             "pohx",
             "path-of-exile-builds-reddit",
-            "poeez-character-hub",
-            "poeez-build-browse",
             "mobalytics-poe1",
             "poebuilds-cc-poe1",
             "exiles-path-keepers",
@@ -70,12 +68,10 @@
             "exilence-ce",
             "challenges-tracker",
             "poe-exchange",
-            "poeez-economy-currency",
             "simplex",
             "poestash"
         ],
         "poe2": [
-            "poeez-economy-currency-poe2",
             "poe2scout",
             "poestash"
         ]
@@ -101,7 +97,6 @@
         "poe1": [
             "poe-ninja-economy",
             "poe-watch",
-            "poe-profits",
             "gains-of-exile",
             "perandus-ledger",
             "poe-how"
@@ -262,7 +257,6 @@
         "id": "fluff-meme-games",
         "title": "FLUFF/MEME/GAMES",
         "poe1": [
-            "wraedle",
             "idle-exile",
             "kalandra-game",
             "poe-bingo",
@@ -289,7 +283,6 @@
             "poe-ladder",
             "divination-cards",
             "exile-companion",
-            "prohibited-library-discord",
             "poe-community-racing-discord",
             "divcord-discord",
             "fishcord-discord",
@@ -320,12 +313,7 @@
     "temp-league": {
         "id": "temp-league",
         "title": "TEMP LEAGUE",
-        "poe1": [
-            "imbued-gem-reference",
-            "poe-gem-krangler",
-            "temp-league-reddit-image",
-            "mirage-league-start-build-index"
-        ],
+        "poe1": [],
         "poe2": []
     }
 }

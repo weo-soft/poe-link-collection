@@ -1,6 +1,89 @@
 {
-  "lastUpdated": "2026-07-21T09:20:19Z",
+  "lastUpdated": "2026-08-09T18:00:00Z",
   "changelog": [
+    {
+      "date": "2026-08-09T18:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "All links were checked on 09.08.26"
+        },
+        {
+          "type": "note",
+          "message": "Updated the PoE Exchange link URL to https://maxroll.gg/poe/poexchange/networth/tracking"
+        },
+        {
+          "type": "note",
+          "message": "Updated the Poe.Ninja Economy (PoE 1) link URL to https://poe.ninja/poe1/economy/allflame/currency"
+        },
+        {
+          "type": "removed",
+          "categoryId": "trackers",
+          "linkName": "Poeez Economy Tracker",
+          "linkUrl": "https://poeez.com/economy/currency"
+        },
+        {
+          "type": "removed",
+          "categoryId": "trackers",
+          "linkName": "Poeez Economy Tracker",
+          "linkUrl": "https://poeez.com/poe2/economy/currency"
+        },
+        {
+          "type": "removed",
+          "categoryId": "builds",
+          "linkName": "Poeez Character Hub",
+          "linkUrl": "https://poeez.com/character-hub"
+        },
+        {
+          "type": "removed",
+          "categoryId": "builds",
+          "linkName": "Poeez Build Browse",
+          "linkUrl": "https://poeez.com/build/browse/explore"
+        },
+        {
+          "type": "removed",
+          "categoryId": "economy",
+          "linkName": "PoE Profits",
+          "linkUrl": "https://poe-profits.com/Keepers/boss"
+        },
+        {
+          "type": "removed",
+          "categoryId": "fluff-meme-games",
+          "linkName": "Wraedle",
+          "linkUrl": "https://www.wraedle.com/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "temp-league",
+          "linkName": "Imbued Gem Reference",
+          "linkUrl": "https://zgeoff.github.io/poe-skill-support-reference/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "temp-league",
+          "linkName": "PoE Gem Krangler",
+          "linkUrl": "https://bjornars.github.io/gem-imbuer/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "temp-league",
+          "linkName": "Endgame Roadmap",
+          "linkUrl": "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fxuilb7noy2ng1.png"
+        },
+        {
+          "type": "removed",
+          "categoryId": "temp-league",
+          "linkName": "3.28 Mirage League Start Build Index",
+          "linkUrl": "https://www.reddit.com/r/PathOfExileBuilds/comments/1rk0s9m/328_mirage_league_start_build_index/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "more-links",
+          "linkName": "Prohibited Library Discord",
+          "linkUrl": "https://discord.com/3VxKY6gt7j"
+        }
+      ]
+    },
     {
       "date": "2026-07-21T09:20:19Z",
       "entries": [
