@@ -99,12 +99,14 @@
             "poe-watch",
             "gains-of-exile",
             "perandus-ledger",
-            "poe-how"
+            "poe-how",
+            "farm-of-exile"
         ],
         "poe2": [
             "poe-ninja-economy-poe2",
             "poe-watch-poe2",
-            "divine-tendies"
+            "divine-tendies",
+            "farm-of-exile-poe2"
         ]
     },
     "build-tools": {

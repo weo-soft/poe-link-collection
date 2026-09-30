@@ -199,6 +199,14 @@
     "added": "2026-07-21T09:20:19Z",
     "icon": "/images/favicons/poe.how.png"
   },
+  "farm-of-exile": {
+    "name": "Farm of Exile",
+    "url": "https://farmofexile.com/",
+    "description": "Path of Exile farming strategies with up-to-date profit data for endgame farming strategies",
+    "lastChecked": "2026-09-30T00:00:00Z",
+    "added": "2026-09-30T00:00:00Z",
+    "icon": "/images/favicons/farmofexile.png"
+  },
   "poe-watch": {
     "name": "poe.watch",
     "url": "https://poe.watch/",
@@ -894,6 +902,14 @@
     "lastChecked": "2026-08-09T18:00:00Z",
     "added": "2026-05-25T00:00:00Z",
     "icon": "/images/favicons/divine-tendies.png"
+  },
+  "farm-of-exile-poe2": {
+    "name": "Farm of Exile",
+    "url": "https://farmofexile.com/poe2",
+    "description": "Path of Exile 2 farming strategies with up-to-date profit data for endgame farming strategies",
+    "lastChecked": "2026-09-30T00:00:00Z",
+    "added": "2026-09-30T00:00:00Z",
+    "icon": "/images/favicons/farmofexile.png"
   },
   "path-of-building-community-poe2": {
     "name": "Path of Building Community",

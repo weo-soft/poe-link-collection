@@ -1,6 +1,23 @@
 {
-  "lastUpdated": "2026-08-09T18:00:00Z",
+  "lastUpdated": "2026-09-30T00:00:00Z",
   "changelog": [
+    {
+      "date": "2026-09-30T00:00:00Z",
+      "entries": [
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "Farm of Exile",
+          "linkUrl": "https://farmofexile.com/"
+        },
+        {
+          "type": "added",
+          "categoryId": "economy",
+          "linkName": "Farm of Exile",
+          "linkUrl": "https://farmofexile.com/poe2"
+        }
+      ]
+    },
     {
       "date": "2026-08-09T18:00:00Z",
       "entries": [
