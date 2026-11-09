@@ -331,6 +331,28 @@ describe('validateEvent', () => {
     expect(validateEvent(event)).toBe(false);
   });
 
+  it('should accept event with site-relative banner image path', () => {
+    const event = {
+      id: 'test-event',
+      name: 'Test Event',
+      startDate: '2024-07-26T16:00:00Z',
+      endDate: '2024-12-02T16:00:00Z',
+      bannerImageUrl: '/images/logo.png',
+    };
+    expect(validateEvent(event)).toBe(true);
+  });
+
+  it('should reject event with invalid banner image URL', () => {
+    const event = {
+      id: 'test-event',
+      name: 'Test Event',
+      startDate: '2024-07-26T16:00:00Z',
+      endDate: '2024-12-02T16:00:00Z',
+      bannerImageUrl: 'not a url',
+    };
+    expect(validateEvent(event)).toBe(false);
+  });
+
   it('should reject event with name exceeding 100 characters', () => {
     const event = {
       id: 'test-event',

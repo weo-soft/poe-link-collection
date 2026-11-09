@@ -1,46 +1,13 @@
 [
   {
-    "id": "last-of-the-druids-race-event",
-    "name": "The Last of the Druids Race Event",
-    "startDate": "2026-03-29T19:00:00.000Z",
-    "endDate": "2026-04-13T06:00:00.000Z",
+    "id": "poe2-full-release",
+    "name": "Path of Exile 2 1.0 Full Release",
+    "startDate": "2026-12-11T21:00:00.000Z",
+    "endDate": "2026-12-12T21:00:00.000Z",
     "game": "poe2",
     "type": "event",
-    "bannerImageUrl": "https://web.poecdn.com/public/news/2026-02-26/0.4.0RaceEventHeader.jpg",
-    "description": "Path of Exile 2 racing: three races (Mar 29, Apr 5, Apr 12 PDT). Compete to be first to kill Tavakai in Act 4 in Solo Self-Found Fate of the Vaal fixed layout. Death penalty: 2.5 min freeze. Prizes: Demigod's Virtue per class (including Druid), Displates for fastest per class across all races, Divination Card design for fastest overall. First race to include Fate of the Vaal content. Incinerate and Flame Breath disabled in the event. Streamed on twitch.tv/pathofexile with ZiggyD and RaizQT.",
-    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3913251"
-  },
-  {
-    "id": "rapture-gauntlet-class-gauntlet",
-    "name": "Rapture Gauntlet: Class Gauntlet",
-    "startDate": "2026-04-08T22:00:00.000Z",
-    "endDate": "2026-04-15T22:00:00.000Z",
-    "game": "poe1",
-    "type": "event",
-    "bannerImageUrl": "https://web.poecdn.com/public/news/2026-03-30/GauntletAnnouncementHeader.jpg",
-    "description": "Zizaran’s Class Gauntlet event starts April 8 (PDT) in a Hardcore Solo Self-Found Mirage Event League. Monsters and bosses inflict Ruin—reach 7 stacks to instantly die. Event runs for 7 days; join from the character select screen.",
-    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3925479"
-  },
-  {
-    "id": "return-of-the-ancestors",
-    "name": "Return of the Ancestors",
-    "startDate": "2026-06-25T22:00:00.000Z",
-    "endDate": "2026-07-16T22:00:00.000Z",
-    "game": "poe1",
-    "type": "event",
-    "bannerImageUrl": "https://web.poecdn.com/public/news/2026-06-18/AncestorsHeader.jpg",
-    "description": "Three-week event starting June 25 PDT. Trial of the Ancestors mechanics return with Phrecian Ascendancy classes and new Tattoos. Find silver coins in Wraeclast to access the Karui Afterlife, assemble your team of warriors, and battle chieftains in tournaments for valuable rewards. Available on PC and Consoles in Standard, Hardcore, SSF Standard, SSF Hardcore, and Ruthless modes. Not voided — items and characters transfer to parent leagues at the end of the event.",
-    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3968867"
-  },
-  {
-    "id": "curse-of-the-allflame-reveal",
-    "name": "Curse of the Allflame Reveal Livestream",
-    "startDate": "2026-07-16T20:00:00.000Z",
-    "endDate": "2026-07-16T22:00:00.000Z",
-    "game": "poe1",
-    "type": "livestream",
-    "bannerImageUrl": "/images/POELogoCurseoftheAllflame.png",
-    "description": "Livestream revealing the upcoming Curse of the Allflame league for Path of Exile 1, starting July 24. Watch at twitch.tv/pathofexile.",
-    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3982050"
+    "bannerImageUrl": "/images/PoE2_Logo.png",
+    "description": "Path of Exile 2 leaves Early Access and releases as a free-to-play game: complete six-Act campaign with Acts 5 and 6, the Shadow and Duelist classes, and the Conquerors of Wraeclast Challenge League (build a mercenary army, grow a stronghold, siege castles, automate your Atlas).",
+    "detailsLink": "https://pathofexile2.com/fullrelease"
   }
 ]

@@ -316,12 +316,14 @@ export function validateEvent(event) {
     if (typeof event.bannerImageUrl !== 'string' || event.bannerImageUrl.length > 500) {
       return false;
     }
-    // Validate URL format if provided
+    // Validate URL format if provided; allow site-relative paths (e.g. /images/...)
     if (event.bannerImageUrl.trim().length > 0) {
-      try {
-        new URL(event.bannerImageUrl);
-      } catch {
-        return false;
+      if (!event.bannerImageUrl.startsWith('/')) {
+        try {
+          new URL(event.bannerImageUrl);
+        } catch {
+          return false;
+        }
       }
     }
   }

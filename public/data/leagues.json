@@ -1,42 +1,32 @@
 [
   {
-    "id": "mirage",
-    "name": "Mirage",
-    "startDate": "2026-03-06T19:00:00.000Z",
-    "endDate": "2026-06-28T21:00:00.000Z",
-    "game": "poe1",
-    "bannerImageUrl": "/images/Mirage_EN.png",
-    "description": "Mirage league",
-    "detailsLink": "https://www.pathofexile.com/mirage"
-  },
-  {
-    "id": "the-last-of-the-druids",
-    "name": "The Last of the Druids",
-    "startDate": "2025-12-12T19:00:00.000Z",
-    "endDate": "2026-05-20T15:00:00.000Z",
-    "game": "poe2",
-    "bannerImageUrl": "/images/TheLastoftheDruids_EN.png",
-    "description": "The Last of the Druids League",
-    "detailsLink": "https://pathofexile2.com/druids"
-  },
-  {
-    "id": "return-of-ancients",
-    "name": "Return of Ancients",
-    "startDate": "2026-05-29T20:00:00.000Z",
-    "endDate": "2026-10-31T15:00:00.000Z",
-    "game": "poe2",
-    "bannerImageUrl": "/images/POE2_ReturnoftheAncients_LOGO.png",
-    "description": "Return of Ancients league (PoE 2 0.5)",
-    "detailsLink": "https://pathofexile2.com/ancients"
-  },
-  {
     "id": "curse-of-the-allflame",
     "name": "Curse of the Allflame",
     "startDate": "2026-07-24T20:00:00.000Z",
-    "endDate": "2026-11-24T21:00:00.000Z",
+    "endDate": "2026-11-10T21:00:00.000Z",
     "game": "poe1",
     "bannerImageUrl": "/images/POELogoCurseoftheAllflame.png",
     "description": "Curse of the Allflame league",
     "detailsLink": "https://www.pathofexile.com/forum/view-thread/3982050"
+  },
+  {
+    "id": "covens-of-umbra",
+    "name": "Covens of Umbra",
+    "startDate": "2026-11-13T21:00:00.000Z",
+    "endDate": "2027-03-05T21:00:00.000Z",
+    "game": "poe1",
+    "bannerImageUrl": "/images/CovensofUmbra_POELogo.png",
+    "description": "Covens of Umbra league (PoE 1)",
+    "detailsLink": "https://www.pathofexile.com/covens"
+  },
+  {
+    "id": "conquerors-of-wraeclast",
+    "name": "Conquerors of Wraeclast",
+    "startDate": "2026-12-11T21:00:00.000Z",
+    "endDate": "2027-04-02T21:00:00.000Z",
+    "game": "poe2",
+    "bannerImageUrl": "/images/ConquerorsofWraeclast_Logo.png",
+    "description": "Conquerors of Wraeclast league (PoE 2 1.0 Full Release)",
+    "detailsLink": "https://pathofexile2.com/fullrelease"
   }
 ]
