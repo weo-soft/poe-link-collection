@@ -1,5 +1,16 @@
 [
   {
+    "id": "forbidden-rites",
+    "name": "Forbidden Rites",
+    "startDate": "2026-09-04T20:00:00.000Z",
+    "endDate": "2026-12-11T21:00:00.000Z",
+    "game": "poe2",
+    "type": "event",
+    "bannerImageUrl": "/images/Forbidden_Rites_league_banner.png",
+    "description": "Forbidden Rites event league (Path of Exile 2 0.5.5): 8 new challenges and exclusive rewards. Launching September 4 with patch 0.5.5, the event runs until the 1.0 Full Release on December 11.",
+    "detailsLink": "https://www.pathofexile.com/forum/view-thread/3999858"
+  },
+  {
     "id": "poe2-full-release",
     "name": "Path of Exile 2 1.0 Full Release",
     "startDate": "2026-12-11T21:00:00.000Z",
