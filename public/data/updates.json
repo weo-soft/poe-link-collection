@@ -1,6 +1,73 @@
 {
-  "lastUpdated": "2026-08-09T18:00:00Z",
+  "lastUpdated": "2026-11-10T21:00:00Z",
   "changelog": [
+    {
+      "date": "2026-11-10T21:00:00Z",
+      "entries": [
+        {
+          "type": "note",
+          "message": "All links were checked on 10.11.26 and last-checked dates were refreshed"
+        },
+        {
+          "type": "note",
+          "message": "Updated the Path of Exile Discord link URL to https://discord.gg/pathofexile"
+        },
+        {
+          "type": "note",
+          "message": "Renamed PoE Trade Helper to EasyExile Trade Extension"
+        },
+        {
+          "type": "note",
+          "message": "Moved Phrecia Map Planner from the Atlas to the More Links category"
+        },
+        {
+          "type": "note",
+          "message": "Marked PoE Antiquary as temporarily offline"
+        },
+        {
+          "type": "note",
+          "message": "Marked PoE 3.28 Cheat Sheets and Phrecia Map Planner as outdated"
+        },
+        {
+          "type": "note",
+          "message": "Link status (temporarily offline/outdated) is now shown as a '!' icon with a tooltip"
+        },
+        {
+          "type": "note",
+          "message": "Removed 6 unused link entries (PoE Disenchant and Atziri's Temple links)"
+        },
+        {
+          "type": "removed",
+          "categoryId": "builds",
+          "linkName": "Tincture PoE 2",
+          "linkUrl": "https://tincturepoe2.com/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "trackers",
+          "linkName": "simplex.gg",
+          "linkUrl": "https://simplex.gg/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "crafting",
+          "linkName": "Path of Crafting",
+          "linkUrl": "https://pathofcrafting.net/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "builds",
+          "linkName": "Exile's Path",
+          "linkUrl": "https://www.exiles-path.com/"
+        },
+        {
+          "type": "removed",
+          "categoryId": "more-links",
+          "linkName": "Keepers of the Flame League Challenge Guide",
+          "linkUrl": "https://docs.google.com/document/d/10Wr7LC-rqA6QuJqPdP6Chd6l-inYci4cNTWuHVVC05Y/edit?usp=sharing"
+        }
+      ]
+    },
     {
       "date": "2026-08-09T18:00:00Z",
       "entries": [

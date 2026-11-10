@@ -93,6 +93,61 @@ describe('renderLink', () => {
     expect(icon.src).toBe('https://example.com/custom-icon.png');
   });
 
+  it('should render an outdated status icon with an explanatory tooltip', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      description: 'Test description',
+      status: 'outdated',
+    };
+
+    renderLink(container, link);
+
+    const linkElement = container.querySelector('a.link-item');
+    expect(linkElement.classList.contains('link-item--outdated')).toBe(true);
+    expect(linkElement.getAttribute('data-status')).toBe('outdated');
+    expect(linkElement.getAttribute('aria-label')).toBe('Test description (Outdated)');
+
+    const icon = linkElement.querySelector('.link-item-status-icon');
+    expect(icon).toBeTruthy();
+    expect(icon.textContent).toBe('!');
+    expect(icon.classList.contains('link-item-status-icon--outdated')).toBe(true);
+    expect(icon.getAttribute('data-tooltip')).toContain('Outdated');
+    expect(icon.getAttribute('aria-hidden')).toBe('true');
+
+    // The chip tooltip keeps the description and must not duplicate the status text
+    expect(linkElement.getAttribute('data-tooltip')).toBe('Test description');
+  });
+
+  it('should render a temporarily offline status icon', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      status: 'temporarily-offline',
+    };
+
+    renderLink(container, link);
+
+    const icon = container.querySelector('.link-item-status-icon');
+    expect(icon).toBeTruthy();
+    expect(icon.textContent).toBe('!');
+    expect(icon.classList.contains('link-item-status-icon--temporarily-offline')).toBe(true);
+    expect(icon.getAttribute('data-tooltip')).toContain('Temporarily offline');
+  });
+
+  it('should not render a status icon when no status is set', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+    };
+
+    renderLink(container, link);
+
+    const linkElement = container.querySelector('a.link-item');
+    expect(linkElement.querySelector('.link-item-status-icon')).toBeFalsy();
+    expect(linkElement.hasAttribute('data-status')).toBe(false);
+  });
+
 });
 
 describe('renderCategory', () => {

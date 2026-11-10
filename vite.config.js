@@ -31,14 +31,14 @@ export default defineConfig({
   envPrefix: 'VITE_',
   // Vite automatically loads .env files from project root even when root is 'src'
   // But we can explicitly set envDir to ensure it looks in the right place
-  envDir: resolve(__dirname),
+  envDir: resolve(import.meta.dirname),
   build: {
     outDir: '../dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'esbuild',
+    minify: 'oxc',
     rollupOptions: {
-      input: resolve(__dirname, 'src/index.html'),
+      input: resolve(import.meta.dirname, 'src/index.html'),
       output: {
         manualChunks: undefined,
       },
@@ -58,6 +58,7 @@ export default defineConfig({
     },
     coverage: {
       provider: 'v8',
+      reportsDirectory: '../coverage',
       reporter: ['text', 'json', 'html'],
       exclude: [
         'node_modules/',

@@ -31,6 +31,20 @@ function resolveIconPath(iconPath) {
 /** Number of days after "added" date to still show the "new" indicator */
 const NEW_LINK_DAYS = 14;
 
+/** Visible labels for optional link status markers (see link-items.json) */
+const STATUS_LABELS = {
+  offline: 'Offline',
+  'temporarily-offline': 'Temporarily offline',
+  outdated: 'Outdated',
+};
+
+/** Tooltip texts for optional link status markers */
+const STATUS_TOOLTIPS = {
+  offline: 'Offline — this site is currently unavailable.',
+  'temporarily-offline': 'Temporarily offline — this site is currently unavailable.',
+  outdated: 'Outdated — content may no longer be up to date.',
+};
+
 /**
  * Returns true if the given added date is within NEW_LINK_DAYS of today
  * @param {string} addedDateString - ISO date string (e.g. link.added)
@@ -91,23 +105,25 @@ export function renderLink(container, link, categoryId) {
     if (link.added && isNewLink(link.added)) {
       linkElement.classList.add('link-item--new');
     }
-    linkElement.setAttribute('aria-label', link.description || `Visit ${link.name}`);
+    const statusLabel = link.status ? STATUS_LABELS[link.status] : '';
+    if (statusLabel) {
+      linkElement.classList.add(`link-item--${link.status}`);
+      linkElement.setAttribute('data-status', link.status);
+    }
+    const baseAriaLabel = link.description || `Visit ${link.name}`;
+    linkElement.setAttribute('aria-label', statusLabel ? `${baseAriaLabel} (${statusLabel})` : baseAriaLabel);
     linkElement.setAttribute('role', 'listitem');
     linkElement.setAttribute('data-category-id', categoryId);
 
     // Create tooltip content
-    let tooltipContent = '';
+    const tooltipParts = [];
     if (link.description) {
-      tooltipContent = link.description;
+      tooltipParts.push(link.description);
     }
     if (link.lastChecked) {
-      const formattedDate = formatDate(link.lastChecked);
-      if (tooltipContent) {
-        tooltipContent += `\n\nLast checked: ${formattedDate}`;
-      } else {
-        tooltipContent = `Last checked: ${formattedDate}`;
-      }
+      tooltipParts.push(`Last checked: ${formatDate(link.lastChecked)}`);
     }
+    const tooltipContent = tooltipParts.join('\n\n');
     
     if (tooltipContent) {
       linkElement.setAttribute('data-tooltip', tooltipContent);
@@ -138,6 +154,18 @@ export function renderLink(container, link, categoryId) {
     linkText.className = 'link-text';
     linkText.textContent = link.name;
     linkElement.appendChild(linkText);
+
+    // Status indicator: small "!" icon whose tooltip explains the status
+    if (statusLabel) {
+      const statusInfo = STATUS_TOOLTIPS[link.status];
+      const statusIcon = document.createElement('span');
+      statusIcon.className = `link-item-status-icon link-item-status-icon--${link.status}`;
+      statusIcon.textContent = '!';
+      statusIcon.setAttribute('aria-hidden', 'true');
+      statusIcon.setAttribute('data-tooltip', statusInfo);
+      statusIcon.title = statusInfo; // Fallback without custom tooltip CSS
+      linkElement.appendChild(statusIcon);
+    }
 
     // New indicator badge (when added within last 14 days)
     if (link.added && isNewLink(link.added)) {

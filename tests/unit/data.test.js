@@ -76,6 +76,24 @@ describe('validateLink', () => {
     expect(validateLink(link)).toBe(true);
   });
 
+  it('should accept link with valid status marker', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      status: 'temporarily-offline',
+    };
+    expect(validateLink(link)).toBe(true);
+  });
+
+  it('should reject link with unknown status marker', () => {
+    const link = {
+      name: 'Test Link',
+      url: 'https://example.com',
+      status: 'broken',
+    };
+    expect(validateLink(link)).toBe(false);
+  });
+
   it('should reject link with name exceeding 100 characters', () => {
     const link = {
       name: 'a'.repeat(101),

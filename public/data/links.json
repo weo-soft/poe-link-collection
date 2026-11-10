@@ -13,7 +13,6 @@
             "path-of-exile-builds-reddit",
             "mobalytics-poe1",
             "poebuilds-cc-poe1",
-            "exiles-path-keepers",
             "pob-codes"
         ],
         "poe2": [
@@ -25,8 +24,7 @@
             "poe-vault-poe2",
             "path-of-exile-2-builds-reddit",
             "mobalytics-poe2",
-            "poebuilds-cc-poe2",
-            "tincturepoe2"
+            "poebuilds-cc-poe2"
         ]
     },
     "loot-filters": {
@@ -68,7 +66,6 @@
             "exilence-ce",
             "challenges-tracker",
             "poe-exchange",
-            "simplex",
             "poestash"
         ],
         "poe2": [
@@ -171,8 +168,7 @@
             "poe-planner-1",
             "poe-atlas",
             "maps-of-exile",
-            "idol-planner",
-            "phrecia-map-planner"
+            "idol-planner"
         ],
         "poe2": [
             "poe-planner-atlas-poe2"
@@ -215,7 +211,6 @@
             "poe2db-modifiers",
             "craft-of-exile-poe2",
             "poe2htc",
-            "path-of-crafting",
             "maxroll-instilling-calculator-poe2"
         ]
     },
@@ -288,7 +283,6 @@
             "fishcord-discord",
             "poe-place",
             "timeless-jewel-calculator",
-            "keepers-of-the-flame-guide",
             "timeless-historian",
             "phrecia-idol-regex-builder",
             "flux-of-exile",
@@ -296,7 +290,8 @@
             "timeless-calc",
             "soothsayer",
             "poe-watchers-eye",
-            "poetools"
+            "poetools",
+            "phrecia-map-planner"
         ],
         "poe2": [
             "patchbot-poe2",

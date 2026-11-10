@@ -10,7 +10,7 @@ Canonical context for **AI agents**, reviewers, and contributors working on this
 
 | Area | Choice |
 |------|--------|
-| Build | [Vite](https://vitejs.dev/) 5 (`root: src`, `publicDir: ../public`, output `dist/`) |
+| Build | [Vite](https://vitejs.dev/) 8 (`root: src`, `publicDir: ../public`, output `dist/`) |
 | Runtime | Vanilla JavaScript (ES modules), HTML5, CSS3 |
 | Test | [Vitest](https://vitest.dev/) with `jsdom` |
 | Lint / format | ESLint (`src`, `tests`), Prettier (`src`, `tests`) |

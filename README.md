@@ -13,7 +13,7 @@ A Path of Exile–themed link collection hub: categorized resources (builds, loo
 
 ## Tech stack
 
-- **Build:** Vite 5  
+- **Build:** Vite 8  
 - **Languages:** Vanilla JavaScript (ES6+), HTML5, CSS3  
 - **Testing:** Vitest (jsdom)  
 - **Deployment:** GitHub Pages via GitHub Actions  
@@ -22,7 +22,7 @@ A Path of Exile–themed link collection hub: categorized resources (builds, loo
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 24.15+ (oder 26+)
 - npm
 
 ### Installation

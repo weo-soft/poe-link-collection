@@ -94,6 +94,31 @@
   margin-left: auto;
 }
 
+/* Link status indicator (offline / temporarily offline / outdated) */
+.link-item-status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--poe-bg-primary);
+  flex-shrink: 0;
+  cursor: help;
+}
+
+.link-item-status-icon--offline,
+.link-item-status-icon--temporarily-offline {
+  background-color: var(--poe-error);
+}
+
+.link-item-status-icon--outdated {
+  background-color: var(--poe-warning);
+}
+
 .link-item:hover {
   background-color: var(--poe-bg-secondary);
   border-color: var(--poe-accent-primary);
@@ -104,12 +129,15 @@
 
 
 /* Link Tooltip */
-.link-item[data-tooltip] {
+.link-item[data-tooltip],
+.link-item-status-icon[data-tooltip] {
   position: relative;
 }
 
 .link-item[data-tooltip]::before,
-.link-item[data-tooltip]::after {
+.link-item[data-tooltip]::after,
+.link-item-status-icon[data-tooltip]::before,
+.link-item-status-icon[data-tooltip]::after {
   position: absolute;
   opacity: 0;
   pointer-events: none;
@@ -117,7 +145,8 @@
   z-index: 1000;
 }
 
-.link-item[data-tooltip]::before {
+.link-item[data-tooltip]::before,
+.link-item-status-icon[data-tooltip]::before {
   content: attr(data-tooltip);
   bottom: calc(100% + 8px);
   left: 50%;
@@ -137,7 +166,8 @@
   word-wrap: break-word;
 }
 
-.link-item[data-tooltip]::after {
+.link-item[data-tooltip]::after,
+.link-item-status-icon[data-tooltip]::after {
   content: '';
   bottom: 100%;
   left: 50%;
@@ -153,8 +183,40 @@
 .link-item[data-tooltip]:hover::before,
 .link-item[data-tooltip]:hover::after,
 .link-item[data-tooltip]:focus::before,
-.link-item[data-tooltip]:focus::after {
+.link-item[data-tooltip]:focus::after,
+.link-item-status-icon[data-tooltip]:hover::before,
+.link-item-status-icon[data-tooltip]:hover::after,
+.link-item-status-icon[data-tooltip]:focus::before,
+.link-item-status-icon[data-tooltip]:focus::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Status icon tooltip: align to the icon and keep it compact */
+.link-item-status-icon[data-tooltip]::before {
+  left: auto;
+  right: -6px;
+  transform: translateY(-4px);
+  min-width: 180px;
+  max-width: 240px;
+}
+
+.link-item-status-icon[data-tooltip]::after {
+  left: auto;
+  right: 3px;
+  transform: translateY(-4px);
+}
+
+.link-item-status-icon[data-tooltip]:hover::before,
+.link-item-status-icon[data-tooltip]:focus::before,
+.link-item-status-icon[data-tooltip]:hover::after,
+.link-item-status-icon[data-tooltip]:focus::after {
+  transform: translateY(0);
+}
+
+/* Avoid showing the chip tooltip and the status tooltip at the same time */
+.link-item[data-tooltip]:has(.link-item-status-icon:hover)::before,
+.link-item[data-tooltip]:has(.link-item-status-icon:hover)::after {
+  opacity: 0;
 }
 

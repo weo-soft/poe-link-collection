@@ -15,6 +15,9 @@ export function clearLinksCache() {
   cachedLinkItemsData = null;
 }
 
+/** Allowed values for the optional link status marker */
+const LINK_STATUSES = ['offline', 'temporarily-offline', 'outdated'];
+
 /**
  * Validates a single Link object
  * @param {Object} link - Link object to validate
@@ -56,6 +59,11 @@ export function validateLink(link) {
 
   // Optional description validation
   if (link.description !== undefined && typeof link.description !== 'string') {
+    return false;
+  }
+
+  // Optional status marker validation (offline, temporarily-offline, outdated)
+  if (link.status !== undefined && !LINK_STATUSES.includes(link.status)) {
     return false;
   }
 

@@ -453,7 +453,7 @@ export function updatePreview(formData) {
   const tomorrowStr = tomorrow.toISOString().split('T')[0];
 
   // Determine start date/time (use form data or default to today at 00:00)
-  let startDateTime = '';
+  let startDateTime;
   if (formData.startDate && formData.startDate.includes('T')) {
     startDateTime = formData.startDate;
   } else if (formData.startDate && formData.startTime) {
@@ -465,7 +465,7 @@ export function updatePreview(formData) {
   }
 
   // Determine end date/time (use form data or default to tomorrow at 00:00)
-  let endDateTime = '';
+  let endDateTime;
   if (formData.endDate && formData.endDate.includes('T')) {
     endDateTime = formData.endDate;
   } else if (formData.endDate && formData.endTime) {
@@ -487,7 +487,7 @@ export function updatePreview(formData) {
       : 'This is an example description for your event. It will show how your event description will appear to users.';
 
   // Use game logo as default banner if no banner URL is provided
-  let previewBannerUrl = '';
+  let previewBannerUrl;
   if (formData.bannerImageUrl && formData.bannerImageUrl.trim()) {
     previewBannerUrl = formData.bannerImageUrl.trim();
   } else {
